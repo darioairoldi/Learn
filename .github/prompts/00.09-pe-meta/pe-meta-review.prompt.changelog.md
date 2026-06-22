@@ -1,11 +1,21 @@
 ---
-title: "pe-meta-update.prompt — change history"
-description: "Per-version change history for pe-meta-update.prompt."
-last_updated: "2026-06-12"
+title: "pe-meta-review.prompt — change history"
+description: "Per-version change history for pe-meta-review.prompt (formerly pe-meta-update.prompt; merged at v3.0.0)."
+last_updated: "2026-06-22"
 status: "living"
 ---
 
-# Change history — pe-meta-update.prompt
+# Change history — pe-meta-review.prompt
+
+> **Lineage note.** This artifact is the unified PE review/optimization command. At v3.0.0 the full nine-phase engine (formerly `pe-meta-update.prompt`) was relocated here and the former strategic-only `pe-meta-review` was absorbed as conditional Phase 4.5. Entries below v3.0.0 are the engine's history under its former `pe-meta-update.prompt` name.
+
+## v3.1.0 — 2026-06-22
+
+Aligned with dimension-catalog v2.0.0 (group-contract redefinition). **Removed every `--dim optimize` reference** — the optimize group was retired; its apply-delegation to `@meta-optimizer` is now reached via `--dim efficiency --mode apply` (rewired the dim list, the per-artifact dispatch matrix row, the handoff-budget row, the Phase 4/5/6 behavior blocks, the example invocation, and the Phase 8 token-savings note). Updated the **Phase 4.5 trigger** for the new strategic/quality split: strategic now = `D15-vision-alignment` only, so Phase 4.5 fires when `--dim` includes the vision-alignment dimension (`--dim strategic`) OR a relational-quality dimension (D16-adherence / D17-cross-coherence / D18-coverage / D19-artifact-structure, under `--dim quality`). Updated the frontmatter `description` and `scope.covers` Phase 4.5 entry to match. The `pe-meta-optimizer` agent and its handoff are unchanged. (Issue 20260622.01.)
+
+## v3.0.0 — 2026-06-22
+
+Merged `pe-meta-update` (the nine-phase canonical engine) and the former strategic-only `pe-meta-review` into ONE unified command, retaining the `pe-meta-review` name (issue 20260622.01, Option A). Relocated the full engine here verbatim; renamed every `/pe-meta-update` command reference to `/pe-meta-review` (file-path and issue-folder references preserved). Inserted **Phase 4.5 Strategic Validation** (conditional, runs when `--dim` includes a strategic dimension D15-vision-alignment / D16-adherence / D17-cross-coherence / D19-artifact-structure): vision alignment, category-reference compliance (Level 1.5), PE quality bar, N-1 separation audit, self-update readiness, ecosystem-impact scoring — gated on Phases 2–4 PASS, emitted on an advisory severity channel separate from structural PASS/FAIL. Added the **Design/Review Parity Contract** section (six shared guidance-quality properties — clarity, non-redundancy, non-contradiction, completeness, prioritization, actionability — with a role-difference table) and the reciprocal obligation that each `pe-meta-{type}-design` prompt runs this command's applicable review dimension set as its final step. Extended frontmatter `description`/`scope.covers`/`boundaries`/`rationales` to cover Phase 4.5 and parity. `pe-meta-update.prompt.md` is now a thin deprecation stub redirecting here. Major bump: the command identity and surface changed (two commands → one).
 
 ## v2.10.0 — 2026-06-12
 

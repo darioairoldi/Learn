@@ -3,7 +3,7 @@ description: "Output template for pe-meta-researcher when derived breadth=full â
 ---
 
 <!-- Category: output -->
-<!-- Audience: agent (pe-meta-update orchestrator consumes this snapshot) -->
+<!-- Audience: agent (pe-meta-review orchestrator consumes this snapshot) -->
 <!-- v14: emitted when derived breadth=full -->
 
 # PE Meta-Research Output â€” Snapshot Template (derived `breadth=full`)
@@ -97,6 +97,6 @@ template_metadata:
   last_updated: "2026-05-29"
   purpose: "v14 research output shape selected when orchestrator passes derived breadth=full. One of three shapes in the research output contract."
   consumers:
-    - "pe-meta-update.prompt.md (Phase 1 1a, Phase 1.5 screening input, Phase 4 screening input)"
+    - "pe-meta-review.prompt.md (Phase 1 1a, Phase 1.5 screening input, Phase 4 screening input)"
     - "pe-meta-researcher.agent.md (Phase 5 output emission)"
 -->

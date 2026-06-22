@@ -6,7 +6,7 @@
 > **Dimensions:** `D33-boundary-actionability`, `D31-multipass-validation-invariant`, `D5-boundaries`, `D28-reproducibility`
 > **Vision anchors:** domain-coherent-batching; § Domain-coherent batching; § Domain detection — metadata-first resolution; Phase 0a CF-05 artifact-type/path consistency check; Phase 0b — Domain coherence check
 > **Command family:** Review / Update / Create / Scheduled (artifact-type-agnostic — applies to every `/pe-meta-*` command)
-> **Primary entry point:** `/pe-meta-update --mode apply --scope <type-token|path-set>` (gated by Phase 0b)
+> **Primary entry point:** `/pe-meta-review --mode apply --scope <type-token|path-set>` (gated by Phase 0b)
 > **Allowed option classes:** `mode`, `scope`, `source`, `dim`, `start`, `end`, `deps`, `skip`
 > **Default breadth:** full
 > **Bundle disposition:** `single-domain` (this use case's primary invocations are per-domain by construction)
@@ -20,7 +20,7 @@ Prevent silent heterogeneous-bundle execution. Whenever a resolved `--scope` (re
 
 - Any `/pe-meta-*` invocation whose resolved `--scope` seed covers ≥ 2 semantic domains.
 - `pe-meta-scheduled-review` auto-rotation when the rotation lands on a cross-domain target.
-- User-issued bundle audit (e.g. `/pe-meta-update --mode plan --scope all --dim reliability`).
+- User-issued bundle audit (e.g. `/pe-meta-review --mode plan --scope all --dim reliability`).
 - Per-artifact prompt invoked with a positional `<file-path>` whose `--deps full` closure pulls in additional semantic domains.
 
 ## ⚙️ Primary invocations
@@ -28,15 +28,15 @@ Prevent silent heterogeneous-bundle execution. Whenever a resolved `--scope` (re
 Three canonical per-domain commands derived from the originating incident (heterogeneous `--scope context` split into one run per domain):
 
 ```text
-/pe-meta-update --mode apply --scope .copilot/context/00.00-prompt-engineering/
-/pe-meta-update --mode apply --scope .copilot/context/01.00-article-writing/
-/pe-meta-update --mode apply --scope .copilot/context/90.00-learning-hub/
+/pe-meta-review --mode apply --scope .copilot/context/00.00-prompt-engineering/
+/pe-meta-review --mode apply --scope .copilot/context/01.00-article-writing/
+/pe-meta-review --mode apply --scope .copilot/context/90.00-learning-hub/
 ```
 
 Bundle-accept variant for callers who genuinely want one atomic run:
 
 ```text
-/pe-meta-update --mode apply --scope context bundle=accept
+/pe-meta-review --mode apply --scope context bundle=accept
 ```
 
 ## 🧭 Phase 0a precondition — artifact-type/path consistency check
@@ -72,7 +72,7 @@ Phase 0b applies identically to each invocation shape; only the **file set** dif
 | `/pe-meta-context-review '.copilot/context/00.00-prompt-engineering/01.07-critical-rules-priority-matrix.md'` (no `--deps`) | `positional` | 1 (whatever the file's `domain:` declares) | `bundle=single-domain` | Proceeds; no prompt (single-file positional is single-domain by construction) |
 | `/pe-meta-context-review '.copilot/context/00.00-prompt-engineering/01.07-critical-rules-priority-matrix.md' --deps full` | `positional` (with `--deps` traversal) | **Seed footprint = 1** (the file's own `domain:`); **deps footprint** = N distinct domains read from each file in the closure | If deps adds 0 additional domains → `bundle=single-domain`. If seed=1 AND deps adds ≥ 1 additional domain → **`bundle=cross-domain-deps`** (ONE review, per-dep-domain specialized lenses; NO split). | Proceeds; no gate/split for `bundle=cross-domain-deps` |
 | `/pe-meta-prompt-review '.github/prompts/01.00-article-writing/article-review-for-consistency-gaps-and-extensions.prompt.md' --deps full` | `positional` (with `--deps` traversal) | **Seed footprint = 1** (`article-writing`); **deps closure** typically pulls in `article-writing` context files AND `prompt-engineering` context files → deps adds `{ prompt-engineering }` | `bundle=cross-domain-deps`: ONE review against the union; Phase 2–4 apply per-dep-domain specialized analysis lenses (MWSG/Diátaxis for `article-writing` deps; R-P* rationales for `prompt-engineering` deps); Phase 8 report sections findings per dep-domain | Proceeds; no gate |
-| `/pe-meta-update --mode apply` (no scope) | `default-all` (per default-full-investigation) | All distinct declared domains across every artifact-type root | Numbered split proposal (one entry per distinct domain) | Hard gate; awaits selection or `bundle=accept` |
+| `/pe-meta-review --mode apply` (no scope) | `default-all` (per default-full-investigation) | All distinct declared domains across every artifact-type root | Numbered split proposal (one entry per distinct domain) | Hard gate; awaits selection or `bundle=accept` |
 
 **Note 1.** Positional `<file-path>` invocations are the canonical entry point for the per-artifact prompt family (`pe-meta-context-*`, `pe-meta-prompt-*`, etc.). Phase 0b applies to them identically — only the scope-extraction step differs (the positional path IS the file; with `--deps`, it expands to the traversal set).
 

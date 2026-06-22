@@ -13,7 +13,7 @@ Default auto-name: `<run-folder>/<NN>-<kebab-name>.plan.md`
 
 - **`<run-folder>`** — the conversation's current working folder when one obviously applies (e.g. a `src/docs/.../<run>` folder the user is already operating in).
 - **`<NN>`** — next available two-digit prefix in `<run-folder>` (e.g. `01`, `02`); ensures sortable ordering when multiple plans land in the same folder.
-- **`<kebab-name>`** — derived from the resolved invocation, e.g. `pe-meta-update-context-freshness` for `/pe-meta-update --scope context --dim freshness`.
+- **`<kebab-name>`** — derived from the resolved invocation, e.g. `pe-meta-review-context-freshness` for `/pe-meta-review --scope context --dim freshness`.
 - **Fallback** (no obvious run folder): `.copilot/temp/pe-meta-state/plans/YYYYMMDD-HHMMSS-<kebab-name>.plan.md` (created on demand).
 
 The eighth canonical parameter **`--plan-file <path>`** overrides the location/identity **only** — it never decides whether the plan is regenerated or trusted (see § 4). The same algorithm produces the spillover-plan path with `-spillover` appended: `<run-folder>/<NN>-<kebab-name>-spillover.plan.md` (see [pe-meta-iteration-budget.md](pe-meta-iteration-budget.md)).

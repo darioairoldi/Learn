@@ -35,7 +35,7 @@ scope:
     - "bundle=accept consent token recognition on multi-domain scopes"
   excludes:
     - "Domain artifacts (article-writing, documentation — use /pe-con-design for those)"
-    - "Ecosystem-wide audits (use /pe-meta-update for those)"
+    - "Ecosystem-wide audits (use /pe-meta-review for those)"
     - "Updates to existing artifacts (use /pe-meta-create-update for those)"
 boundaries:
   - "MUST load PE-strategic context before research"

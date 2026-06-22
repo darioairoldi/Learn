@@ -43,13 +43,12 @@ Use `--dim <group>` to scope a review or update to a specific cluster of dimensi
 | `--dim` group | Primary folder | Companion folders |
 |---|---|---|
 | `--dim freshness` | [01-freshness](01-freshness/00-overview.md) | [02-quality-gates](02-quality-gates/00-overview.md) |
-| `--dim quality` | [02-quality-gates](02-quality-gates/00-overview.md) | [03-consumer-correctness](03-consumer-correctness/00-overview.md) |
-| `--dim strategic` | [02-quality-gates](02-quality-gates/00-overview.md) | [03-consumer-correctness](03-consumer-correctness/00-overview.md) |
+| `--dim quality` | [02-quality-gates](02-quality-gates/00-overview.md) | [01-freshness](01-freshness/00-overview.md), [03-consumer-correctness](03-consumer-correctness/00-overview.md) |
+| `--dim strategic` | [02-quality-gates](02-quality-gates/00-overview.md) | — (`D15-vision-alignment` only) |
 | `--dim adherence` | [03-consumer-correctness](03-consumer-correctness/00-overview.md) | [02-quality-gates](02-quality-gates/00-overview.md) |
 | `--dim model` | [03-consumer-correctness](03-consumer-correctness/00-overview.md) | [04-efficiency](04-efficiency/00-overview.md) |
 | `--dim structural` | [04-efficiency](04-efficiency/00-overview.md) | — |
 | `--dim efficiency` | [04-efficiency](04-efficiency/00-overview.md) | [02-quality-gates](02-quality-gates/00-overview.md) |
-| `--dim optimize` | [04-efficiency](04-efficiency/00-overview.md) | [01-freshness](01-freshness/00-overview.md) (`D23-reference-efficiency`) |
 | `--dim context-full` | [01-freshness](01-freshness/00-overview.md) | [02-quality-gates](02-quality-gates/00-overview.md) |
 | `--dim context-health` | [01-freshness](01-freshness/00-overview.md) | [02-quality-gates](02-quality-gates/00-overview.md) |
 | `--dim reliability` | [05-reliability](05-reliability/00-overview.md) | — |
@@ -58,11 +57,11 @@ Use `--dim <group>` to scope a review or update to a specific cluster of dimensi
 Example dimension-scoped commands:
 
 ```text
-/pe-meta-update --mode plan --skip research --dim freshness
-/pe-meta-update --mode plan --skip research --dim quality
-/pe-meta-update --mode plan --skip research --dim adherence
-/pe-meta-update --mode plan --skip research --dim optimize
-/pe-meta-update --mode plan --skip research --dim reliability
+/pe-meta-review --mode plan --skip research --dim freshness
+/pe-meta-review --mode plan --skip research --dim quality
+/pe-meta-review --mode plan --skip research --dim adherence
+/pe-meta-review --mode plan --skip research --dim efficiency
+/pe-meta-review --mode plan --skip research --dim reliability
 ```
 
 > **Migration note:** The `--dim robustness` value is **deprecated** as of vision v13. Use `--dim adherence` for consumer-correctness dimensions and `--dim reliability` for the system-reliability dimensions. `--dim robustness` is accepted for one release with a deprecation notice; the parser resolves it to `--dim adherence`. The deprecated `--group` syntax is replaced by `--dim` per the v13 option taxonomy.
@@ -147,8 +146,8 @@ Use `--skip` to omit processing phases when prerequisites are met or when speed 
 **Example invocations:**
 
 ```text
-/pe-meta-update --mode plan --skip research --dim freshness
-/pe-meta-update --mode plan --dim quality --skip research,structure,consistency
+/pe-meta-review --mode plan --skip research --dim freshness
+/pe-meta-review --mode plan --dim quality --skip research,structure,consistency
 /pe-meta-scheduled-review --deps direct --skip external
 /pe-meta-review .copilot/context/ --dim full --skip research,structure
 ```
@@ -164,10 +163,10 @@ Use `--skip` to omit processing phases when prerequisites are met or when speed 
 | Review prompt's context deps | `/pe-meta-review path --scope context --deps full` | Follow full dep chain, examine only context files |
 | Review agent's instruction adherence | `/pe-meta-adherence path --scope instructions --deps direct` | Check first-level instruction deps only |
 | Audit context file consumers | `/pe-meta-review path --scope prompts --deps direct` | Find prompts that load this context |
-| Update all context files | `/pe-meta-update --mode apply --scope context` | Iterate context files only in batch |
-| Health check prompts only | `/pe-meta-update --mode plan --skip research --scope prompts` | Diagnose prompt health, skip other types |
+| Update all context files | `/pe-meta-review --mode apply --scope context` | Iterate context files only in batch |
+| Health check prompts only | `/pe-meta-review --mode plan --skip research --scope prompts` | Diagnose prompt health, skip other types |
 | Release impact on agents | `/pe-meta-release-diff <url> --scope agents` | Assess release impact on agent artifacts only |
-| Efficiency audit on agents+prompts | `/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts` | Token budgets most relevant for these types |
+| Efficiency audit on agents+prompts | `/pe-meta-review --mode apply --dim efficiency --skip research,structure,consistency --scope agents,prompts` | Token budgets most relevant for these types |
 
 **Orthogonality principle:** `--scope` filters the artifact set; `--deps` controls traversal depth within that set. Combining both narrows the assessment surface precisely without mutual interference.
 
@@ -183,7 +182,7 @@ When multiple commands could serve a trigger, use this table to pick the canonic
 | `adherence` vs `review --dim adherence` | `adherence` is canonical for "verify against loaded guidance" | Use `adherence` to trace guidance → consumers; use `review --dim adherence` to assess consumer quality independently (formerly `--dim robustness`) |
 | `scheduled-review` rotation vs `update --mode plan --skip research` | `scheduled-review` orchestrates recurring cadence with auto-rotation | Use `scheduled-review` for periodic maintenance; use `update --mode plan --skip research` for ad-hoc one-time checks |
 | `scheduled-review --deps` vs `/pe-meta-adherence` | Every 4th rotation, `scheduled-review` internally delegates to adherence | For ad-hoc adherence checks, invoke `/pe-meta-adherence` directly |
-| `update --dim optimize` vs `review --dim optimize` | Both default to `--mode apply` — assess and implement low-risk improvements autonomously | Use `update --dim optimize --skip research,structure,consistency` for token/efficiency optimization with `@meta-optimizer` delegation; use `review --dim optimize` for broader quality optimization. Use `--mode plan` to opt into assessment-only output |
+| `--dim efficiency --mode plan` vs `--dim efficiency --mode apply` | Both assess the efficiency dimensions; `--mode apply` also implements low-risk improvements autonomously | Use `--dim efficiency --mode apply --skip research,structure,consistency` for token/efficiency optimization with `@meta-optimizer` delegation; use `--mode plan` to opt into assessment-only output |
 
 **No circular routing:** Each pair has a clear "canonical for this trigger" direction. Commands never redirect to each other in a loop.
 

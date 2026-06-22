@@ -1,4 +1,4 @@
-﻿# UC-19: Processing pipeline efficiency
+# UC-19: Processing pipeline efficiency
 
 > **Group:** D - Efficiency and operating economics  
 > **Priority:** P2  
@@ -7,10 +7,10 @@
 ## Invocation
 
 **Command family:** Review / Update  
-**Primary entry point:** `/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope prompts`  
+**Primary entry point:** `/pe-meta-review --mode apply --dim optimize --skip research,structure,consistency --scope prompts`  
 **Alternative entry points:**
 - `/pe-meta-prompt-review <path> --dim optimize` (single prompt efficiency review)
-- `/pe-meta-update --mode plan --skip research --dim efficiency --scope prompts` (prompt pipeline health)
+- `/pe-meta-review --mode plan --skip research --dim efficiency --scope prompts` (prompt pipeline health)
 
 **Supported options:**
 

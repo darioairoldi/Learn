@@ -1,4 +1,4 @@
-﻿# UC-22: Context quality lifecycle
+# UC-22: Context quality lifecycle
 
 > **Group:** A - Source-grounded freshness and lifecycle  
 > **Priority:** P0  
@@ -9,8 +9,8 @@
 **Command family:** Review / Update (orchestration)  
 **Primary entry point:** `/pe-meta-context-review <path> --dim context-full`  
 **Alternative entry points:**
-- `/pe-meta-update --mode apply --scope context` (apply mode, full-depth lifecycle)
-- `/pe-meta-update --mode plan --skip research --dim freshness --scope context` (quick freshness check)
+- `/pe-meta-review --mode apply --scope context` (apply mode, full-depth lifecycle)
+- `/pe-meta-review --mode plan --skip research --dim freshness --scope context` (quick freshness check)
 - `/pe-meta-scheduled-review --dim freshness --deps full` (rotation-triggered)
 
 **Supported options:**
@@ -34,7 +34,7 @@ Runs a full context-quality lifecycle that starts from source-grounded staleness
 /pe-meta-context-review .copilot/context/00.00-prompt-engineering/ --dim context-full         # assess + implement low-risk (default)
 /pe-meta-context-review .copilot/context/00.00-prompt-engineering/ --dim context-quality-lifecycle
 /pe-meta-context-review .copilot/context/00.00-prompt-engineering/ --dim context-full --mode plan  # assess only (opt-in read-only)
-/pe-meta-update --mode apply --dim context-quality-lifecycle
+/pe-meta-review --mode apply --dim context-quality-lifecycle
 ```
 
 **Dimensions covered (default deep pass):** `D6-consistency`, `D7-non-redundancy`, `D8-prioritization`, `D9-clarity`, `D10-completeness`, `D11-actionability`, `D12-staleness`, `D13-source-verification`, `D17-cross-coherence`, `D19-artifact-structure`, `D22-context-optimization`

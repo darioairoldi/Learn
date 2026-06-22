@@ -1,4 +1,4 @@
-﻿# UC-07: Coverage gaps and unhappy path handling
+# UC-07: Coverage gaps and unhappy path handling
 
 > **Group:** B - Guidance quality gates  
 > **Priority:** P1  
@@ -7,7 +7,7 @@
 ## Invocation
 
 **Command family:** Review / Update  
-**Primary entry point:** `/pe-meta-update --mode plan --skip research --dim quality`  
+**Primary entry point:** `/pe-meta-review --mode plan --skip research --dim quality`  
 **Alternative entry points:**
 - `/pe-meta-agent-review <path> --dim coverage --deps direct` (agent coverage check)
 - `/pe-meta-prompt-review <path> --dim coverage` (prompt coverage check)

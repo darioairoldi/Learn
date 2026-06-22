@@ -1,4 +1,4 @@
-﻿# UC-15: Deterministic-first optimization
+# UC-15: Deterministic-first optimization
 
 > **Group:** D - Efficiency and operating economics  
 > **Priority:** P2  
@@ -7,11 +7,11 @@
 ## Invocation
 
 **Command family:** Review / Update  
-**Primary entry point:** `/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts`  
+**Primary entry point:** `/pe-meta-review --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts`  
 **Alternative entry points:**
 - `/pe-meta-agent-review <path> --dim deterministic-first` (single artifact analysis)
 - `/pe-meta-prompt-review <path> --dim deterministic-first` (prompt decomposition check)
-- `/pe-meta-update --mode plan --skip research --dim efficiency` (broader efficiency sweep)
+- `/pe-meta-review --mode plan --skip research --dim efficiency` (broader efficiency sweep)
 
 **Supported options:**
 
@@ -33,7 +33,7 @@ Analyzes an artifact's process phases to identify steps where deterministic pre-
 ```
 /pe-meta-agent-review pe-gra-agent-validator.agent.md --dim deterministic-first
 /pe-meta-prompt-review pe-meta-review.prompt.md --dim deterministic-first
-/pe-meta-update --mode plan --skip research --dim efficiency
+/pe-meta-review --mode plan --skip research --dim efficiency
 ```
 
 **Dimensions covered:** `D21-deterministic-first`

@@ -16,7 +16,7 @@ Verify the **closed feedback loop** the vision relies on: every artifact change 
 **Alternative entry points:**
 
 - `/pe-meta-scheduled-review --dim reliability` (rotation; audits the outcome-log window)
-- `/pe-meta-update --mode plan --skip research --dim reliability --scope context` (foundation-layer focus)
+- `/pe-meta-review --mode plan --skip research --dim reliability --scope context` (foundation-layer focus)
 
 **Supported options:**
 

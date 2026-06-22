@@ -1,4 +1,4 @@
-﻿# UC-01: Structural validation
+# UC-01: Structural validation
 
 > **Group:** D - Efficiency and operating economics  
 > **Priority:** P3  
@@ -11,7 +11,7 @@
 **Alternative entry points:**
 - `/pe-meta-agent-review <path> --dim structural` (agent structure validation)
 - `/pe-meta-context-review <path> --dim metadata` (metadata check)
-- `/pe-meta-update --mode plan --skip research --dim structural` (system-wide structural baseline)
+- `/pe-meta-review --mode plan --skip research --dim structural` (system-wide structural baseline)
 
 **Supported options:**
 

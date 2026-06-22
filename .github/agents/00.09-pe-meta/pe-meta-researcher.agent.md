@@ -83,7 +83,7 @@ Sources passed by the caller that are NOT in the catalog MUST be flagged and exc
 
 ## Handoff Contract
 
-### Input (from pe-meta-update orchestrator)
+### Input (from pe-meta-review orchestrator)
 
 - Verbatim `Resolved invocation: …` line (first line MUST be echoed back as first line of report body)
 - Derived breadth: `full` | `incremental` | `bounded-delta`

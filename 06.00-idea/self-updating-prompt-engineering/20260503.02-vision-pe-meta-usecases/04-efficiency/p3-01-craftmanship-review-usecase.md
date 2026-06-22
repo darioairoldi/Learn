@@ -1,4 +1,4 @@
-﻿# UC-09: Craftmanship review
+# UC-09: Craftmanship review
 
 > **Group:** D - Efficiency and operating economics  
 > **Priority:** P3  
@@ -11,7 +11,7 @@
 **Alternative entry points:**
 - `/pe-meta-agent-review <path> --dim craftmanship` (single agent craftsmanship)
 - `/pe-meta-context-review <path> --dim craftmanship` (context craftsmanship)
-- `/pe-meta-update --mode plan --skip research --dim structural` (system-wide structural health)
+- `/pe-meta-review --mode plan --skip research --dim structural` (system-wide structural health)
 
 **Supported options:**
 

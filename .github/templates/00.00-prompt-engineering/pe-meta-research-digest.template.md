@@ -3,7 +3,7 @@ description: "Output template for pe-meta-researcher when derived breadth=increm
 ---
 
 <!-- Category: output -->
-<!-- Audience: agent (pe-meta-update orchestrator consumes this digest) -->
+<!-- Audience: agent (pe-meta-review orchestrator consumes this digest) -->
 <!-- v14: emitted when derived breadth=incremental (trigger-fired callers only) -->
 
 # PE Meta-Research Output — Change Digest Template (derived `breadth=incremental`)
@@ -92,6 +92,6 @@ template_metadata:
   last_updated: "2026-05-29"
   purpose: "v14 research output shape selected when orchestrator passes derived breadth=incremental. One of three shapes in the research output contract."
   consumers:
-    - "pe-meta-update.prompt.md (Phase 1 1a, Phase 4 screening input, Phase 8 anchor persistence)"
+    - "pe-meta-review.prompt.md (Phase 1 1a, Phase 4 screening input, Phase 8 anchor persistence)"
     - "pe-meta-researcher.agent.md (Phase 5 output emission)"
 -->

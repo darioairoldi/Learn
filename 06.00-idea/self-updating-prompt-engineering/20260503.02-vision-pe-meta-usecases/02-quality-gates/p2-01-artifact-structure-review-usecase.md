@@ -1,4 +1,4 @@
-﻿# UC-08: Artifact structure and scope optimization
+# UC-08: Artifact structure and scope optimization
 
 > **Group:** B - Guidance quality gates  
 > **Priority:** P2  
@@ -11,7 +11,7 @@
 **Alternative entry points:**
 - `/pe-meta-agent-review <path> --dim artifact-structure` (agent structure audit)
 - `/pe-meta-context-review <folder> --dim artifact-structure` (context set structure)
-- `/pe-meta-update --mode plan --skip research --dim structural` (system-wide structure health)
+- `/pe-meta-review --mode plan --skip research --dim structural` (system-wide structure health)
 
 **Supported options:**
 

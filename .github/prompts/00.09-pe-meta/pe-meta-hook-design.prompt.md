@@ -15,7 +15,7 @@ scope:
   excludes: ["Domain hooks", "Updates (use /pe-meta-hook-create-update)"]
 boundaries:
   - "MUST share the same quality objective and scope intent as /pe-meta-hook-review (applicability-scoped)"
-  - "MUST define valid JSON schema for hook configuration"
+  - "MUST run the review-parity gate as the final design step: execute the SAME applicable review dimension set that /pe-meta-hook-review runs (--dim full, applicability-scoped per the 05.07 dimension applicability matrix) via @pe-meta-validator; the artifact is NOT complete until that validation PASSes — non-breaking findings are fixed in place, breaking findings are escalated for human confirmation"
   - "MUST specify exact trigger event (lifecycle point)"
   - "MUST guarantee deterministic execution (no AI judgment in trigger)"
   - "MUST follow pe-hooks.instructions.md patterns"
@@ -47,7 +47,7 @@ This prompt enforces the **Phase 0a CF-05 artifact-type/path consistency check**
 3. Load checklist from `05.08-pe-meta-type-checklists.md` → hook section
 4. Define JSON schema and trigger wiring
 5. Build via `@pe-meta-builder`
-6. Validate via `@pe-meta-validator`
+6. **Review-parity gate** — run the full applicable review dimension set (`--dim full`, applicability-scoped per [05.07-pe-meta-dimension-catalog.md](../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md)) via `@pe-meta-validator` — identical to what `/pe-meta-hook-review` runs. The artifact is NOT done until this PASSes: fix non-breaking findings in place, escalate breaking findings.
 
 ## Phase ordering and option behavior
 
@@ -68,6 +68,6 @@ If the per-cycle change cap is hit with validated work remaining, emit a spillov
 
 <!--
 prompt_metadata:
-  version: "2.2.0"
-  last_updated: "2026-05-31"
+  version: "2.3.0"
+  last_updated: "2026-06-22"
 -->

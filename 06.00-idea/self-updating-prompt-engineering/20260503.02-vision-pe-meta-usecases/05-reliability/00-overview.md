@@ -101,7 +101,7 @@ Priority flow: `P0 → P1 → P2`.
 
 ```text
 /pe-meta-review <path> --dim reliability                              # full reliability audit
-/pe-meta-update --mode plan --skip research --dim reliability         # quick reliability pass
+/pe-meta-review --mode plan --skip research --dim reliability         # quick reliability pass
 /pe-meta-scheduled-review --dim reliability --deps full               # rotation-triggered
 /pe-meta-review .copilot/ --dim reliability --mode plan               # assessment-only
 ```

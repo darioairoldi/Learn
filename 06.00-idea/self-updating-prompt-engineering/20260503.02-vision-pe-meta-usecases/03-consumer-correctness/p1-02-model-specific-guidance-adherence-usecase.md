@@ -11,7 +11,7 @@
 **Alternative entry points:**
 - `/pe-meta-agent-review <path> --dim model` (consumer-side model adherence check)
 - `/pe-meta-prompt-review <path> --dim model-adherence` (prompt model check)
-- `/pe-meta-update --mode plan --skip research --dim model --scope agents,prompts` (system-wide model adherence)
+- `/pe-meta-review --mode plan --skip research --dim model --scope agents,prompts` (system-wide model adherence)
 
 **Supported options:**
 

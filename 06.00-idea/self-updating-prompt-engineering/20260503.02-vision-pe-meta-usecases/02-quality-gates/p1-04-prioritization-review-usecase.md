@@ -1,4 +1,4 @@
-﻿# UC-10: Rules prioritization review
+# UC-10: Rules prioritization review
 
 > **Group:** B - Guidance quality gates  
 > **Priority:** P1  
@@ -9,7 +9,7 @@
 **Command family:** Review / Update  
 **Primary entry point:** `/pe-meta-context-review 01.07-critical-rules-priority-matrix.md --dim prioritization`  
 **Alternative entry points:**
-- `/pe-meta-update --mode plan --skip research --dim quality --scope context` (broader quality sweep including prioritization)
+- `/pe-meta-review --mode plan --skip research --dim quality --scope context` (broader quality sweep including prioritization)
 - `/pe-meta-context-review <folder> --dim prioritization` (folder-wide priority check)
 
 **Supported options:**

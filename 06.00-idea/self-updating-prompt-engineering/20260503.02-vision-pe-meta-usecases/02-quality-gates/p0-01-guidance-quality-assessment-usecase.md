@@ -7,7 +7,7 @@
 ## Invocation
 
 **Command family:** Review / Update  
-**Primary entry point:** `/pe-meta-update --mode plan --skip research --dim quality`  
+**Primary entry point:** `/pe-meta-review --mode plan --skip research --dim quality`  
 **Alternative entry points:**
 - `/pe-meta-context-review <path> --dim quality` (single context file review)
 - `/pe-meta-instruction-review <path> --dim quality` (single instruction file review)
@@ -30,9 +30,9 @@ Assesses the 6 guidance quality properties (from vision v10 § Guidance quality 
 
 **Invocation examples:**
 ```
-/pe-meta-update --mode plan --skip research --scope instructions --dim full
-/pe-meta-update --mode plan --skip research .github/instructions/pe-agents.instructions.md --dim full
-/pe-meta-update --mode plan --skip research .github/instructions/pe-prompts.instructions.md --dim full
+/pe-meta-review --mode plan --skip research --scope instructions --dim full
+/pe-meta-review --mode plan --skip research .github/instructions/pe-agents.instructions.md --dim full
+/pe-meta-review --mode plan --skip research .github/instructions/pe-prompts.instructions.md --dim full
 /pe-meta-instruction-review pe-agents.instructions.md --dim full
 /pe-meta-context-review 01.07-critical-rules-priority-matrix.md --dim quality
 /pe-meta-context-review .copilot/context/00.00-prompt-engineering/ --dim quality

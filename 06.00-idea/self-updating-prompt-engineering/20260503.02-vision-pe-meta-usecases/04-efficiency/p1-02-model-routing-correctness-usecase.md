@@ -1,4 +1,4 @@
-﻿# UC-20: Model routing correctness
+# UC-20: Model routing correctness
 
 > **Group:** D - Efficiency and operating economics  
 > **Priority:** P1  
@@ -7,11 +7,11 @@
 ## Invocation
 
 **Command family:** Review / Update  
-**Primary entry point:** `/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts`  
+**Primary entry point:** `/pe-meta-review --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts`  
 **Alternative entry points:**
 - `/pe-meta-agent-review <path> --dim model-routing` (single agent routing check)
 - `/pe-meta-prompt-review <path> --dim model` (prompt model routing)
-- `/pe-meta-update --mode plan --skip research --dim efficiency` (broader efficiency sweep)
+- `/pe-meta-review --mode plan --skip research --dim efficiency` (broader efficiency sweep)
 
 **Supported options:**
 
@@ -32,7 +32,7 @@ Verifies that each process step in an agent or prompt uses the correct model cla
 ```
 /pe-meta-agent-review pe-meta-validator.agent.md --dim model-routing
 /pe-meta-prompt-review pe-gra-agent-design.prompt.md --dim model
-/pe-meta-update --mode plan --skip research --dim efficiency
+/pe-meta-review --mode plan --skip research --dim efficiency
 ```
 
 **Dimensions covered:** `D26-model-routing`

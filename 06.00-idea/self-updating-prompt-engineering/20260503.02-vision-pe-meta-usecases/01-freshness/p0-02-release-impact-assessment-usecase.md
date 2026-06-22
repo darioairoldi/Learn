@@ -1,4 +1,4 @@
-﻿# UC-14: Platform release impact assessment
+# UC-14: Platform release impact assessment
 
 > **Group:** A - Source-grounded freshness and lifecycle  
 > **Priority:** P0  
@@ -7,9 +7,9 @@
 ## Invocation
 
 **Command family:** Update  
-**Primary entry point:** `/pe-meta-update --source <url>`  
+**Primary entry point:** `/pe-meta-review --source <url>`  
 **Alternative entry points:**
-- `/pe-meta-update --mode apply --scope context` (when release URL unavailable, manual mode)
+- `/pe-meta-review --mode apply --scope context` (when release URL unavailable, manual mode)
 - `/pe-meta-scheduled-review --dim freshness` (when triggered by recurring cadence after release)
 
 **Supported options:**
@@ -28,7 +28,7 @@ Analyzes VS Code/Copilot release notes (or other platform changes) to identify w
 **Invocation examples:**
 ```
 /pe-meta-release-monitor https://code.visualstudio.com/updates/v1_110
-/pe-meta-update --mode plan --skip research --dim freshness
+/pe-meta-review --mode plan --skip research --dim freshness
 ```
 
 **Dimensions covered:** `D12-staleness` + external analysis
@@ -84,4 +84,4 @@ Analyzes VS Code/Copilot release notes (or other platform changes) to identify w
 
 Incremental coverage for a release is measured against **stale processing units (PUs)**, not a single scalar watermark. A PU is one `(artifact × applicable-dimension)`. After a platform release advances a source's `last_seen_version` in the source ledger, the work set is the set of PUs whose recorded `source_versions[<source>]` is older than the new release version (plus any never-covered or non-`pass` PUs — the at-least-once guarantee from `coverage-completeness-guarantee`). PUs already covered at the new release version with `status=pass` are skipped (no-redundant). This makes per-release coverage observable as `coverage: <covered>/<total> PUs; <n> never-covered` rather than a "processed up to date X" assertion.
 
-**Version-bounded re-baseline scenario.** When a prior release assessment is distrusted (e.g. the release window was processed before a researcher bug was found), re-run it with an explicit version-shaped window: `/pe-meta-update --start 1.099 --source vscode-release-notes`. The version token resolves to its publish timestamp via the source's `version_scheme`, derives `breadth=bounded-delta`, and **overrides** recorded `pass` coverage inside the window — every PU touched by that release is reprocessed regardless of its recorded `status`. This is the explicit distrust-recovery path; it does not require deleting state or forcing a full sweep.
+**Version-bounded re-baseline scenario.** When a prior release assessment is distrusted (e.g. the release window was processed before a researcher bug was found), re-run it with an explicit version-shaped window: `/pe-meta-review --start 1.099 --source vscode-release-notes`. The version token resolves to its publish timestamp via the source's `version_scheme`, derives `breadth=bounded-delta`, and **overrides** recorded `pass` coverage inside the window — every PU touched by that release is reprocessed regardless of its recorded `status`. This is the explicit distrust-recovery path; it does not require deleting state or forcing a full sweep.

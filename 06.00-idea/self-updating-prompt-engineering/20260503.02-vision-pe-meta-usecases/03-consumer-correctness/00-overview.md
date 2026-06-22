@@ -15,10 +15,10 @@ Dimension references in this README use the canonical `D#-readable-id` form defi
 |---|---|---|
 | `D5-boundaries` | structural / adherence | [p0-01-dependency-aware-full-review](p0-01-dependency-aware-full-review-usecase.md) |
 | `D6-consistency` | quality / adherence | [p0-01-dependency-aware-full-review](p0-01-dependency-aware-full-review-usecase.md) |
-| `D16-adherence` | strategic / adherence | [p0-01-dependency-aware-full-review](p0-01-dependency-aware-full-review-usecase.md), [p0-02-autonomous-improvement-workflow](p0-02-autonomous-improvement-workflow-usecase.md), [p1-01-guidance-adherence-verification](p1-01-guidance-adherence-verification-usecase.md) |
-| `D17-cross-coherence` | strategic | [p0-01-dependency-aware-full-review](p0-01-dependency-aware-full-review-usecase.md) |
+| `D16-adherence` | quality / adherence | [p0-01-dependency-aware-full-review](p0-01-dependency-aware-full-review-usecase.md), [p0-02-autonomous-improvement-workflow](p0-02-autonomous-improvement-workflow-usecase.md), [p1-01-guidance-adherence-verification](p1-01-guidance-adherence-verification-usecase.md) |
+| `D17-cross-coherence` | quality | [p0-01-dependency-aware-full-review](p0-01-dependency-aware-full-review-usecase.md) |
 | `D18-coverage` | quality / adherence | [p0-01-dependency-aware-full-review](p0-01-dependency-aware-full-review-usecase.md) |
-| `D26-model-routing` | optimize / model | [p1-02-model-specific-guidance-adherence](p1-02-model-specific-guidance-adherence-usecase.md) |
+| `D26-model-routing` | efficiency / model | [p1-02-model-specific-guidance-adherence](p1-02-model-specific-guidance-adherence-usecase.md) |
 | `D27-model-adherence` | quality / model | [p1-02-model-specific-guidance-adherence](p1-02-model-specific-guidance-adherence-usecase.md) |
 
 ## ⚙️ Recommended command entry points

@@ -12,7 +12,7 @@ Enforce that every autonomous change is gated by a **before/after behavioral sna
 ## ⚙️ Invocation
 
 **Command family:** Update / Review
-**Primary entry point:** `/pe-meta-update <target> --dim reliability` (regression-protection mode triggered by the dimension)
+**Primary entry point:** `/pe-meta-review <target> --dim reliability` (regression-protection mode triggered by the dimension)
 **Alternative entry points:**
 
 - `/pe-meta-review <path> --dim reliability --mode plan` (assess whether existing autonomous changes had snapshots)

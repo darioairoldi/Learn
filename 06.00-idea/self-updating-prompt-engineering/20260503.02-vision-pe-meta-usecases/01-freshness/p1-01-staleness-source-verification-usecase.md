@@ -1,4 +1,4 @@
-﻿# UC-05: Staleness and source verification
+# UC-05: Staleness and source verification
 
 > **Group:** A - Source-grounded freshness and lifecycle  
 > **Priority:** P1  
@@ -7,11 +7,11 @@
 ## Invocation
 
 **Command family:** Review / Update  
-**Primary entry point:** `/pe-meta-update --mode plan --skip research --dim freshness`  
+**Primary entry point:** `/pe-meta-review --mode plan --skip research --dim freshness`  
 **Alternative entry points:**
 - `/pe-meta-context-review <path> --dim freshness` (single-artifact review)
 - `/pe-meta-scheduled-review --dim freshness --deps direct` (recurring freshness sweep)
-- `/pe-meta-update --source <url>` (when triggered by an external release)
+- `/pe-meta-review --source <url>` (when triggered by an external release)
 
 **Supported options:**
 
@@ -31,7 +31,7 @@ Checks whether an artifact's content is still current — both its internal time
 ```
 /pe-meta-context-review 03.02-model-specific-optimization.md --dim staleness
 /pe-meta-context-review .copilot/context/00.00-prompt-engineering/ --dim freshness
-/pe-meta-update --mode plan --skip research --dim freshness
+/pe-meta-review --mode plan --skip research --dim freshness
 ```
 
 **Dimensions covered:** `D12-staleness`, `D13-source-verification`

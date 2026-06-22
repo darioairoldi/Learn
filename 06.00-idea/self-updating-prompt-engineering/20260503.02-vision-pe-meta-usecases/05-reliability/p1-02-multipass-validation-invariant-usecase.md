@@ -16,7 +16,7 @@ Assert the invariant that **every committed change has at least one independent 
 **Alternative entry points:**
 
 - `/pe-meta-scheduled-review --dim reliability` (rotation)
-- `/pe-meta-update --mode plan --skip research --dim reliability` (quick mode — log scan only)
+- `/pe-meta-review --mode plan --skip research --dim reliability` (quick mode — log scan only)
 
 **Supported options:**
 

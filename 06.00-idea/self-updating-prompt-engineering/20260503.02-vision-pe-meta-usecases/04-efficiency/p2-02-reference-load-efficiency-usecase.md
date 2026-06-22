@@ -1,4 +1,4 @@
-﻿# UC-17: Reference load efficiency
+# UC-17: Reference load efficiency
 
 > **Group:** D - Efficiency and operating economics  
 > **Priority:** P2  
@@ -7,7 +7,7 @@
 ## Invocation
 
 **Command family:** Review / Update  
-**Primary entry point:** `/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts`  
+**Primary entry point:** `/pe-meta-review --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts`  
 **Alternative entry points:**
 - `/pe-meta-agent-review <path> --dim optimize --deps direct` (single agent reference analysis)
 - `/pe-meta-prompt-review <path> --dim reference-efficiency` (prompt reference check)

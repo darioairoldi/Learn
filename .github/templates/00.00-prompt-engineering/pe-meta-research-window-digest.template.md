@@ -3,7 +3,7 @@ description: "Output template for pe-meta-researcher when derived breadth=bounde
 ---
 
 <!-- Category: output -->
-<!-- Audience: agent (pe-meta-update orchestrator consumes this window digest) -->
+<!-- Audience: agent (pe-meta-review orchestrator consumes this window digest) -->
 <!-- v14: emitted when derived breadth=bounded-delta (any --start or --end present) -->
 
 # PE Meta-Research Output — Bounded-Window Digest Template (derived `breadth=bounded-delta`)
@@ -85,6 +85,6 @@ template_metadata:
   last_updated: "2026-05-29"
   purpose: "v14 research output shape selected when orchestrator passes derived breadth=bounded-delta (any --start/--end). One of three shapes in the research output contract. Replaces v13.x --breadth catch-up lookback behavior."
   consumers:
-    - "pe-meta-update.prompt.md (Phase 1 1a, Phase 4 screening input)"
+    - "pe-meta-review.prompt.md (Phase 1 1a, Phase 4 screening input)"
     - "pe-meta-researcher.agent.md (Phase 5 output emission)"
 -->

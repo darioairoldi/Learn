@@ -106,7 +106,7 @@ Find all artifacts that reference or should reference this guidance file:
 
 ### Phase 2a: Sampling (when invoked by orchestrator with derived breadth=full)
 
-When the caller is `pe-meta-update` AND passes derived `breadth=full`, auto-sample consumers instead of verifying every one. Otherwise (manual invocation, `breadth=incremental`, or `breadth=bounded-delta`), verify ALL discovered consumers.
+When the caller is `pe-meta-review` AND passes derived `breadth=full`, auto-sample consumers instead of verifying every one. Otherwise (manual invocation, `breadth=incremental`, or `breadth=bounded-delta`), verify ALL discovered consumers.
 
 1. **Load sampling size**: read `sampling.adherence_consumers_per_file` from `.copilot/config/pe-self-update.config.json` (call this `N`).
 2. **Stratify consumers** by two axes:
@@ -131,7 +131,7 @@ For each consumer × each rule:
 
 #### Rubric extensions for vision-v15 capability audits
 
-When the target guidance is a vision-v15 capability source (e.g., `pe-meta-update.prompt.md` Phase 0a/0b sections, `pe-meta-option-applicability-matrix.md`, `pe-meta-option-parser-tests.md`), apply these additional rules per audited prompt consumer:
+When the target guidance is a vision-v15 capability source (e.g., `pe-meta-review.prompt.md` Phase 0a/0b sections, `pe-meta-option-applicability-matrix.md`, `pe-meta-option-parser-tests.md`), apply these additional rules per audited prompt consumer:
 
 | Rule | Check | Pass criteria |
 |---|---|---|

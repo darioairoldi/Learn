@@ -213,7 +213,7 @@ Use when reviewing an artifact with `--dim` parameter. Structure from `output-di
 
 ## Mode 5: System-Wide Apply-Mode Review Report (Phase A-F)
 
-Use for `/pe-meta-update --mode apply`. Follows artifact-type ordering from vision v12.
+Use for `/pe-meta-review --mode apply`. Follows artifact-type ordering from vision v12.
 
 ```markdown
 ## System-Wide Apply-Mode Review Report

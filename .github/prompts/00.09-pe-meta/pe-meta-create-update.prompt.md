@@ -33,7 +33,7 @@ scope:
   excludes:
     - "Requirements research and use case challenge (use /pe-meta-design for that)"
     - "Domain artifacts (use /pe-con-create-update for those)"
-    - "Ecosystem-wide audits (use /pe-meta-update for those)"
+    - "Ecosystem-wide audits (use /pe-meta-review for those)"
 boundaries:
   - "MUST load PE-strategic context before building"
   - "MUST run pre-change guard for updates to existing files"

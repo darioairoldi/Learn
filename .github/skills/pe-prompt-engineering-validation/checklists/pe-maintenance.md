@@ -6,10 +6,10 @@ Step-by-step guide for running periodic reviews of the prompt engineering artifa
 
 | Review | Prompt | Frequency | Trigger | Typical Duration |
 |---|---|---|---|---|
-| **Full system review** | `/pe-meta-update --mode plan --skip research` | Biweekly | Scheduled | ~10 min |
-| **Post-change review** | `/pe-meta-update --mode plan --scope <type> --dim references,coherence` | After major changes | Event-driven | ~5 min |
-| **Optimization pass** | `/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency` | As needed | After review finds issues | ~15 min |
-| **Best practices update** | `/pe-meta-update <release-url>` | On VS Code releases | Event-driven | ~20 min |
+| **Full system review** | `/pe-meta-review --mode plan --skip research` | Biweekly | Scheduled | ~10 min |
+| **Post-change review** | `/pe-meta-review --mode plan --scope <type> --dim references,coherence` | After major changes | Event-driven | ~5 min |
+| **Optimization pass** | `/pe-meta-review --mode apply --dim efficiency --skip research,structure,consistency` | As needed | After review finds issues | ~15 min |
+| **Best practices update** | `/pe-meta-review <release-url>` | On VS Code releases | Event-driven | ~20 min |
 
 ## Biweekly Full Review
 
@@ -17,16 +17,16 @@ Step-by-step guide for running periodic reviews of the prompt engineering artifa
 
 ### Steps
 
-- [ ] **1. Run full review**: `/pe-meta-update --mode plan --skip research`
+- [ ] **1. Run full review**: `/pe-meta-review --mode plan --skip research`
   - No `--scope` or `--dim` = all scopes, all dimensions
   - Review the health score in the report
 
 - [ ] **2. Check the review score**
   - ✅ Score ≥ 90: System healthy — no action needed
-  - ⚠️ Score 70–89: Run `/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency` for the flagged issues
+  - ⚠️ Score 70–89: Run `/pe-meta-review --mode apply --dim efficiency --skip research,structure,consistency` for the flagged issues
   - ❌ Score < 70: Investigate CRITICAL findings manually
 
-- [ ] **3. If fixes needed**: `/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency`
+- [ ] **3. If fixes needed**: `/pe-meta-review --mode apply --dim efficiency --skip research,structure,consistency`
   - Review the optimization plan before approving
   - Verify no capabilities lost after fixes
 
@@ -39,11 +39,11 @@ Step-by-step guide for running periodic reviews of the prompt engineering artifa
 ### Steps
 
 - [ ] **1. Identify scope**: Which artifact type was changed?
-- [ ] **2. Run targeted review**: `/pe-meta-update --mode plan --scope <type> --dim references,coherence`
+- [ ] **2. Run targeted review**: `/pe-meta-review --mode plan --scope <type> --dim references,coherence`
   - Examples:
-    - Changed a context file: `/pe-meta-update --mode plan --scope context --dim references,coherence`
-    - Changed an agent: `/pe-meta-update --mode plan --scope agents --dim rules,structure`
-    - Changed a prompt: `/pe-meta-update --mode plan --scope prompts --dim references`
+    - Changed a context file: `/pe-meta-review --mode plan --scope context --dim references,coherence`
+    - Changed an agent: `/pe-meta-review --mode plan --scope agents --dim rules,structure`
+    - Changed a prompt: `/pe-meta-review --mode plan --scope prompts --dim references`
 
 - [ ] **3. Verify dependency map** is current:
   - New artifact? → Must be in the `dependency-tracking` file (see 00.00-context-structure-index.md → Functional Categories)
@@ -57,14 +57,14 @@ Step-by-step guide for running periodic reviews of the prompt engineering artifa
 ### Steps
 
 - [ ] **1. Gather release info**: Collect release notes URL or blog post
-- [ ] **2. Run update prompt**: `/pe-meta-update <release-url>`
+- [ ] **2. Run update prompt**: `/pe-meta-review <release-url>`
   - The prompt will:
     - Fetch and analyze the release notes
     - Identify which PE artifacts are affected
     - Propose updates with impact analysis
 
 - [ ] **3. Review proposed changes** before approving
-- [ ] **4. After updates applied**: `/pe-meta-update --mode plan --dim coherence,references`
+- [ ] **4. After updates applied**: `/pe-meta-review --mode plan --dim coherence,references`
 - [ ] **5. Update ROADMAP.md** with next review date
 
 ## Quick Reference: Review Dimensions

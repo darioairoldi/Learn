@@ -1,4 +1,4 @@
-﻿# UC-06: Token budget analysis
+# UC-06: Token budget analysis
 
 > **Group:** D - Efficiency and operating economics  
 > **Priority:** P1  
@@ -7,10 +7,10 @@
 ## Invocation
 
 **Command family:** Review / Update  
-**Primary entry point:** `/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts`  
+**Primary entry point:** `/pe-meta-review --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts`  
 **Alternative entry points:**
 - `/pe-meta-agent-review <path> --dim optimize --deps direct` (single agent token analysis)
-- `/pe-meta-update --mode plan --skip research --dim efficiency` (broad efficiency health check)
+- `/pe-meta-review --mode plan --skip research --dim efficiency` (broad efficiency health check)
 - `/pe-meta-scheduled-review --dim optimize --deps direct` (rotation-triggered)
 
 **Supported options:**
@@ -32,7 +32,7 @@ Analyzes token consumption at two scales: per-artifact (is this file within its 
 ```
 /pe-meta-agent-review pe-meta-validator.agent.md --dim token-budget
 /pe-meta-agent-review pe-meta-validator.agent.md --dim token-chain --deps full
-/pe-meta-update --mode plan --skip research --dim efficiency
+/pe-meta-review --mode plan --skip research --dim efficiency
 ```
 
 **Dimensions covered:** `D3-token-budget`, `D20-token-chain`

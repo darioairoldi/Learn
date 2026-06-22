@@ -131,14 +131,14 @@ Multiple stages: `--skip research,structure` or repeated: `--skip research --ski
 
 ## Preset aliases (removed)
 
-Positional preset tokens (`healthcheck`, `performancecheck`, `fullcheck`) are no longer supported. The parser MUST refuse any invocation that uses them with the deterministic error documented in `pe-meta-update.prompt.md` § Argument parsing → Rejected preset tokens.
+Positional preset tokens (`healthcheck`, `performancecheck`, `fullcheck`) are no longer supported. The parser MUST refuse any invocation that uses them with the deterministic error documented in `pe-meta-review.prompt.md` § Argument parsing → Rejected preset tokens.
 
 The canonical replacements are:
 
 | Removed preset | Canonical invocation |
 |---|---|
 | `healthcheck` | `--mode plan --skip research` |
-| `performancecheck` | `--mode apply --dim optimize --skip research,structure,consistency` |
+| `performancecheck` | `--mode apply --dim efficiency --skip research,structure,consistency` |
 | `fullcheck` | `--mode apply` (or omit `--mode` — `apply` is the default) |
 
 **Composition rule:** explicit user flags always win; multiple `--skip` lists merge with deduplication.
@@ -182,14 +182,14 @@ The parser MUST be table-driven and reject the following flags with the uniform 
 | Capability | Canonical command | Compatibility route | Routing rule |
 |---|---|---|---|
 | Guidance-first adherence matrix | `/pe-meta-adherence` | Scheduled-review guidance-first rotation | Always route to canonical; never accept `--mode guidance-first` in other commands |
-| External-platform reconciliation (release-diff) | `/pe-meta-update --source <url>` | _(none — Release-monitor family retired in vision v15.2)_ | Reconcile against a platform/model release via an Update invocation scoped to an external `--source <url>`, optionally windowed with `--start`/`--end` |
+| External-platform reconciliation (release-diff) | `/pe-meta-review --source <url>` | _(none — Release-monitor family retired in vision v15.2)_ | Reconcile against a platform/model release via an Update invocation scoped to an external `--source <url>`, optionally windowed with `--start`/`--end` |
 
 Orchestration narratives are intentionally preserved in orchestration prompts and are not overlap defects:
 
 1. Scheduling and cadence guidance → `/pe-meta-scheduled-review`
 2. Lifecycle rotation guidance → `/pe-meta-scheduled-review`
-3. External-platform reconciliation guidance → `/pe-meta-update --source <url>`
-4. Multi-phase orchestration guidance → `/pe-meta-update`
+3. External-platform reconciliation guidance → `/pe-meta-review --source <url>`
+4. Multi-phase orchestration guidance → `/pe-meta-review`
 
 ## Deterministic rejection format
 
@@ -211,7 +211,7 @@ Corrective action MUST include one of:
 | `pe-meta-review target.md --mode apply` | Valid — this is the default behavior. Review assesses and implements non-breaking improvements autonomously. Use `--mode plan` to opt into assessment-only output. |
 | `pe-meta-design desc --deps full` | `--deps is not supported by pe-meta-design because design does not traverse dependencies. Remove --deps or use /pe-meta-review for dependency analysis.` |
 | `pe-meta-adherence target.md --dim full` | `--dim is not supported by pe-meta-adherence because adherence uses a fixed dimension set. Remove --dim.` |
-| `pe-meta-review target.md --skip structure` | `--skip structure is not supported in type-specific review because phase-level skipping requires the orchestration pipeline. Use --skip research or --skip external, or use /pe-meta-update for phase control.` |
+| `pe-meta-review target.md --skip structure` | `--skip structure is not supported in type-specific review because phase-level skipping requires the orchestration pipeline. Use --skip research or --skip external, or use /pe-meta-review for phase control.` |
 | `pe-meta-review target.md --deps full --deps direct` | `Conflicting --deps values. Specify one: --deps none, --deps direct, --deps full, or --deps <N>.` |
 
 ## Command examples by option class
@@ -220,7 +220,7 @@ Corrective action MUST include one of:
 
 ```
 /pe-meta-review .github/agents/pe-meta-validator.agent.md --dim structural
-/pe-meta-update --mode plan --skip research --dim quality --scope context
+/pe-meta-review --mode plan --skip research --dim quality --scope context
 /pe-meta-context-review .copilot/context/00.00-prompt-engineering/ --dim freshness
 /pe-meta-review .github/agents/ --dim adherence
 /pe-meta-review .github/prompts/ --dim reliability --mode plan
@@ -239,7 +239,7 @@ Corrective action MUST include one of:
 ### Scope filtering
 
 ```
-/pe-meta-update --mode apply --scope context,instructions
+/pe-meta-review --mode apply --scope context,instructions
 /pe-meta-prompt-review pe-meta-review.prompt.md --scope context --deps full
 /pe-meta-agent-review pe-meta-validator.agent.md --scope instructions --deps direct
 ```
@@ -247,24 +247,24 @@ Corrective action MUST include one of:
 ### Mode control
 
 ```
-/pe-meta-update --mode plan --scope agents
-/pe-meta-update --source <url> --mode plan
+/pe-meta-review --mode plan --scope agents
+/pe-meta-review --source <url> --mode plan
 ```
 
 ### Pipeline stage skipping
 
 ```
-/pe-meta-update --mode apply --skip research,structure --scope prompts
-/pe-meta-update --mode apply --skip external --dim quality
+/pe-meta-review --mode apply --skip research,structure --scope prompts
+/pe-meta-review --mode apply --skip external --dim quality
 /pe-meta-context-review .copilot/context/ --skip research
 ```
 
 ### Canonical invocations replacing removed presets
 
 ```
-/pe-meta-update --mode plan --skip research --scope context --dim freshness
-/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts
-/pe-meta-update --mode plan
+/pe-meta-review --mode plan --skip research --scope context --dim freshness
+/pe-meta-review --mode apply --dim efficiency --skip research,structure,consistency --scope agents,prompts
+/pe-meta-review --mode plan
 ```
 
 <!--

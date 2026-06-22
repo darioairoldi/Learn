@@ -1,4 +1,4 @@
-﻿# UC-16: Context file optimization
+# UC-16: Context file optimization
 
 > **Group:** A - Source-grounded freshness and lifecycle  
 > **Priority:** P1  
@@ -9,8 +9,8 @@
 **Command family:** Review / Update  
 **Primary entry point:** `/pe-meta-context-review <path> --dim context-optimization`  
 **Alternative entry points:**
-- `/pe-meta-update --mode plan --skip research --dim optimize --scope context` (optimization-focused health check)
-- `/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope context` (apply efficiency changes)
+- `/pe-meta-review --mode plan --skip research --dim optimize --scope context` (optimization-focused health check)
+- `/pe-meta-review --mode apply --dim optimize --skip research,structure,consistency --scope context` (apply efficiency changes)
 - `/pe-meta-scheduled-review --dim optimize --deps none` (periodic context efficiency sweep)
 
 **Supported options:**
@@ -33,7 +33,7 @@ Boundary note: this use case is optimization-scoped (`D22-context-optimization`)
 ```
 /pe-meta-context-review .copilot/context/00.00-prompt-engineering/ --dim context-optimization
 /pe-meta-context-review .copilot/context/00.00-prompt-engineering/ --dim context-health
-/pe-meta-update --mode plan --skip research --dim context-optimization
+/pe-meta-review --mode plan --skip research --dim context-optimization
 ```
 
 **Dimensions covered:** `D22-context-optimization`. Often combined with `D6-consistency` through `D11-actionability` via `--dim context-health` for full context layer assessment.

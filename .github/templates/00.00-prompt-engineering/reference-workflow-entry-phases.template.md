@@ -159,11 +159,11 @@ Artifact → Tool alignment check (CRITICAL) → Structure check
 
 | Prompt | Purpose | Mode |
 |---|---|---|
-| `/pe-meta-update` | Incorporate new guidance (apply-mode default) | Read-write |
-| `/pe-meta-update --mode plan --skip research` | System review by scope+dimension | Read-only |
-| `/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency` | Apply optimizations | Read-write |
+| `/pe-meta-review` | Incorporate new guidance (apply-mode default) | Read-write |
+| `/pe-meta-review --mode plan --skip research` | System review by scope+dimension | Read-only |
+| `/pe-meta-review --mode apply --dim optimize --skip research,structure,consistency` | Apply optimizations | Read-write |
 | `/pe-meta-scheduled-review` | Weekly auto-detect stale areas | Read-write |
-| `/pe-meta-update --source <url>` | Reconcile against a VS Code/Copilot release | Read-write |
+| `/pe-meta-review --source <url>` | Reconcile against a VS Code/Copilot release | Read-write |
 | `/pe-meta-design` | Design PE-for-PE artifact with vision alignment | Read-write |
 | `/pe-meta-create-update` | Create/update PE-for-PE artifact with strategic guards | Read-write |
 | `/pe-meta-review` | Review PE-for-PE artifact against vision + ecosystem | Read-only |
@@ -180,7 +180,7 @@ Three complementary mechanisms cover different triggers:
 |---|---|---|---|
 | `pe-staleness-check` hook | Every session start | All context files | No (shell script) |
 | `/pe-meta-scheduled-review` | Weekly (user-initiated) | Auto-detected stale areas | Yes |
-| `/pe-meta-update --source <url>` | New VS Code/Copilot release | Affected artifact types | Yes |
+| `/pe-meta-review --source <url>` | New VS Code/Copilot release | Affected artifact types | Yes |
 
 **Audit trail**: All reviews are recorded in [05.04-meta-review-log.md](../../../.copilot/context/00.00-prompt-engineering/05.04-meta-review-log.md).
 

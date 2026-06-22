@@ -1,4 +1,4 @@
-﻿# UC-18: Handoff and summarization efficiency
+# UC-18: Handoff and summarization efficiency
 
 > **Group:** D - Efficiency and operating economics  
 > **Priority:** P2  
@@ -7,7 +7,7 @@
 ## Invocation
 
 **Command family:** Review / Update  
-**Primary entry point:** `/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope prompts,agents`  
+**Primary entry point:** `/pe-meta-review --mode apply --dim optimize --skip research,structure,consistency --scope prompts,agents`  
 **Alternative entry points:**
 - `/pe-meta-prompt-review <path> --dim handoff-efficiency` (single prompt handoff check)
 - `/pe-meta-agent-review <path> --dim optimize` (agent handoff review)

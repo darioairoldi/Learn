@@ -1,4 +1,4 @@
-﻿# UC-03: Consistency check (non-contradiction)
+# UC-03: Consistency check (non-contradiction)
 
 > **Group:** B - Guidance quality gates  
 > **Priority:** P1  
@@ -7,7 +7,7 @@
 ## Invocation
 
 **Command family:** Review / Update  
-**Primary entry point:** `/pe-meta-update --mode plan --dim quality --skip research,structure`  
+**Primary entry point:** `/pe-meta-review --mode plan --dim quality --skip research,structure`  
 **Alternative entry points:**
 - `/pe-meta-context-review <path> --dim consistency` (single file)
 - `/pe-meta-review <path> --dim consistency --deps full` (cross-dependency coherence)
@@ -31,7 +31,7 @@ Verifies that rules across artifacts don't contradict each other. Operates at tw
 ```
 /pe-meta-context-review 01.06-system-parameters.md --dim consistency
 /pe-meta-agent-review pe-meta-validator.agent.md --dim consistency --deps full
-/pe-meta-update --mode plan --skip research --dim consistency
+/pe-meta-review --mode plan --skip research --dim consistency
 ```
 
 **Dimensions covered:** `D6-consistency`, `D17-cross-coherence` (cross-coherence when `--deps full`)

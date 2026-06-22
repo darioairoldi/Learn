@@ -19,7 +19,7 @@ Dimensions exercised by at least one use case in this folder. Empty rows for cat
 | `D12-staleness` | freshness | [p0-01-context-quality-lifecycle](p0-01-context-quality-lifecycle-usecase.md), [p0-02-release-impact-assessment](p0-02-release-impact-assessment-usecase.md), [p1-01-staleness-source-verification](p1-01-staleness-source-verification-usecase.md) |
 | `D13-source-verification` | freshness | [p0-02-release-impact-assessment](p0-02-release-impact-assessment-usecase.md), [p1-01-staleness-source-verification](p1-01-staleness-source-verification-usecase.md) |
 | `D22-context-optimization` | context-full / context-health | [p0-01-context-quality-lifecycle](p0-01-context-quality-lifecycle-usecase.md), [p1-02-context-optimization](p1-02-context-optimization-usecase.md) |
-| `D23-reference-efficiency` | optimize / context-health | [p1-02-context-optimization](p1-02-context-optimization-usecase.md) |
+| `D23-reference-efficiency` | efficiency / context-health | [p1-02-context-optimization](p1-02-context-optimization-usecase.md) |
 
 ## ⚙️ Recommended command entry points
 
@@ -27,8 +27,8 @@ Dimensions exercised by at least one use case in this folder. Empty rows for cat
 |---|---|---|
 | Scheduled freshness sweep | `/pe-meta-scheduled-review` | `--dim freshness` |
 | Targeted context lifecycle check | `/pe-meta-context-review <path>` | `--dim freshness --deps direct` |
-| Release-driven impact assessment | `/pe-meta-update --source <url>` | `--dim freshness --scope context` |
-| Full staleness audit | `/pe-meta-update --mode plan --skip research` | `--dim freshness` |
+| Release-driven impact assessment | `/pe-meta-review --source <url>` | `--dim freshness --scope context` |
+| Full staleness audit | `/pe-meta-review --mode plan --skip research` | `--dim freshness` |
 
 **Allowed option classes:** `--dim`, `--scope`, `--deps`, `--skip`
 

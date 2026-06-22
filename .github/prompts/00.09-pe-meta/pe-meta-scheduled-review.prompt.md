@@ -28,15 +28,15 @@ scope:
     - "Phase 0b — domain coherence (per 04.05-pe-meta-invocation-gates.md)"
     - "bundle=accept consent token recognition on multi-domain stale-area scopes"
   excludes:
-    - "Full 8-phase pipeline (pe-meta-update handles this)"
-    - "Release-driven monitoring (pe-meta-update --source <url> handles this)"
+    - "Full 8-phase pipeline (pe-meta-review handles this)"
+    - "Release-driven monitoring (pe-meta-review --source <url> handles this)"
 boundaries:
   - "MUST auto-detect stale areas before auditing"
   - "MUST summarize context before handoffs (>8K token trigger)"
   - "MUST update review log after completion"
   - "Phase 0b is NOT skippable; --skip domain-coherence is rejected with CF-05; Phase 0b runs on the resolved stale-area set BEFORE delegating to meta-validator/meta-optimizer"
   - "bundle=accept is the ONLY valid consent token (closed set); recorded on first-line `Resolved invocation:` log"
-  - "Phase 0a CF-05 artifact-type/path consistency does NOT apply at this orchestrator-level layer; when this prompt delegates to pe-meta-update, Phase 0b is enforced by the delegate as well"
+  - "Phase 0a CF-05 artifact-type/path consistency does NOT apply at this orchestrator-level layer; when this prompt delegates to pe-meta-review, Phase 0b is enforced by the delegate as well"
 rationales:
   - "Lightweight design optimized for weekly execution reduces review fatigue"
   - "Auto-detecting stale areas avoids re-checking healthy artifacts"
@@ -93,7 +93,7 @@ This prompt enforces the Phase 0b domain coherence gate defined in [`04.05-pe-me
 1. **Scope = resolved stale-area set.** The output of Phase 1 (auto-detected stale files or `--scope`-filtered subset) is the in-scope file set. Each stale file's declared `domain:` frontmatter is read first (Tier 1); `pe-domain-map.yaml` (Tier 2) and `unknown` (Tier 3) follow.
 2. **Gate runs BEFORE Phase 2 (Health review).** Domain footprint is computed on the stale set, before delegating to meta-validator. Multi-domain stale areas block (in `--mode apply` semantics) until `bundle=accept` consent or a per-domain split is selected.
 3. **Consent token.** `bundle=accept` is the only valid token (closed set, case-sensitive). Recorded on the first-line `Resolved invocation:` log as `bundle=accepted-bundle`.
-4. **Delegation note.** Phase 4 "Apply fixes" may delegate to `pe-meta-update` for non-trivial reconciliation; when it does, Phase 0b is re-enforced by the delegate on its own resolved scope (no double-prompting if the consent token is already provided).
+4. **Delegation note.** Phase 4 "Apply fixes" may delegate to `pe-meta-review` for non-trivial reconciliation; when it does, Phase 0b is re-enforced by the delegate on its own resolved scope (no double-prompting if the consent token is already provided).
 5. **Phase 0a CF-05 does NOT apply at this layer.** Stale-area scanning is artifact-type-agnostic; CF-05 is enforced ONLY by per-artifact prompts when invoked by Phase 4.
 6. **`--skip domain-coherence` rejected.** Phase 0b is not skippable; bypass multi-domain gating only via `bundle=accept`.
 

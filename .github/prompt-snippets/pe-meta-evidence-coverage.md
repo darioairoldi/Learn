@@ -1,6 +1,6 @@
 # pe-meta evidence-bound coverage and shallow-sweep guard
 
-> Shared coverage-depth contract for pe-meta review work. Included by the orchestrator (`pe-meta-update`) and the per-dimension validator (`pe-meta-validator`) so depth-of-evidence is enforced identically wherever dimensions are assessed. Breadth markers (`phase4-coverage`, `dims-exercised`) verify *invocation*; this contract verifies *evidence*; the independent-audit contract (below) verifies the verification was done by a **second actor**, not self-attested.
+> Shared coverage-depth contract for pe-meta review work. Included by the orchestrator (`pe-meta-review`) and the per-dimension validator (`pe-meta-validator`) so depth-of-evidence is enforced identically wherever dimensions are assessed. Breadth markers (`phase4-coverage`, `dims-exercised`) verify *invocation*; this contract verifies *evidence*; the independent-audit contract (below) verifies the verification was done by a **second actor**, not self-attested.
 
 ## Evidence-bound coverage (the depth invariant)
 
@@ -80,7 +80,7 @@ Layer A proves the quote *exists* at the cited line; only reasoning can judge wh
 
 ## Independent audit — two actors, not self-attestation
 
-The coverage markers above are only trustworthy if a **different actor** computes them from the outcome log than the one that wrote the log. The orchestrator (`pe-meta-update`) writes the Phase 4 `dim_evidence[]` outcome log; before the run closes it hands that log to `@pe-meta-validator` (read-only, already a sibling) running its **Coverage Audit** mode. The validator:
+The coverage markers above are only trustworthy if a **different actor** computes them from the outcome log than the one that wrote the log. The orchestrator (`pe-meta-review`) writes the Phase 4 `dim_evidence[]` outcome log; before the run closes it hands that log to `@pe-meta-validator` (read-only, already a sibling) running its **Coverage Audit** mode. The validator:
 
 1. Independently recomputes `pu-evidence=<evidenced>/<applicable>` from the outcome log (Layer A on every PU).
 2. Runs Layer B sampling + on-doubt re-reads.

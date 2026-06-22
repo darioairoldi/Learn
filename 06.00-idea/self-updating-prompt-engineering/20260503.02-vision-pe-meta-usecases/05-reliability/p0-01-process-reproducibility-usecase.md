@@ -15,7 +15,7 @@ Verify that the self-update system is **reproducible**: running the same command
 **Primary entry point:** `/pe-meta-review <path> --dim reliability --skip apply`
 **Alternative entry points:**
 
-- `/pe-meta-update --mode plan --skip research --dim reliability` (scheduled rotation entry)
+- `/pe-meta-review --mode plan --skip research --dim reliability` (scheduled rotation entry)
 - `/pe-meta-scheduled-review --dim reliability --deps none` (rotation)
 
 **Supported options:**
@@ -45,7 +45,7 @@ Verify that the self-update system is **reproducible**: running the same command
 
 ```text
 /pe-meta-review .github/agents/ --dim reliability --skip research
-/pe-meta-update --mode plan --dim reliability --skip research --scope context
+/pe-meta-review --mode plan --dim reliability --skip research --scope context
 ```
 
 ## 📐 Dimensions covered

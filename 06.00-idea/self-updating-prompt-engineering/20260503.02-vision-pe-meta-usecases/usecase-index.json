@@ -1,6 +1,6 @@
 {
-  "version": "2.5.0",
-  "generated_at": "2026-06-04",
+  "version": "2.6.0",
+  "generated_at": "2026-06-22",
   "entries": [
     {
       "id": "UC-22",
@@ -35,7 +35,7 @@
         "D13-source-verification"
       ],
       "command_family": "update",
-      "primary_entry_point": "/pe-meta-update --source <url>",
+      "primary_entry_point": "/pe-meta-review --source <url>",
       "allowed_option_classes": [
         "dim",
         "scope",
@@ -58,7 +58,7 @@
         "D13-source-verification"
       ],
       "command_family": "update",
-      "primary_entry_point": "/pe-meta-update --mode plan --skip research --dim freshness",
+      "primary_entry_point": "/pe-meta-review --mode plan --skip research --dim freshness",
       "allowed_option_classes": [
         "dim",
         "scope",
@@ -107,7 +107,7 @@
         "D27-model-adherence"
       ],
       "command_family": "update",
-      "primary_entry_point": "/pe-meta-update --mode plan --skip research --dim quality",
+      "primary_entry_point": "/pe-meta-review --mode plan --skip research --dim quality",
       "allowed_option_classes": [
         "dim",
         "scope",
@@ -126,7 +126,7 @@
         "D6-consistency"
       ],
       "command_family": "update",
-      "primary_entry_point": "/pe-meta-update --mode plan --dim quality --skip research,structure",
+      "primary_entry_point": "/pe-meta-review --mode plan --dim quality --skip research,structure",
       "allowed_option_classes": [
         "dim",
         "scope",
@@ -145,7 +145,7 @@
         "D7-non-redundancy"
       ],
       "command_family": "update",
-      "primary_entry_point": "/pe-meta-update --mode plan --skip research --dim efficiency --scope context",
+      "primary_entry_point": "/pe-meta-review --mode plan --skip research --dim efficiency --scope context",
       "allowed_option_classes": [
         "dim",
         "scope",
@@ -165,7 +165,7 @@
         "D18-coverage"
       ],
       "command_family": "update",
-      "primary_entry_point": "/pe-meta-update --mode plan --skip research --dim quality",
+      "primary_entry_point": "/pe-meta-review --mode plan --skip research --dim quality",
       "allowed_option_classes": [
         "dim",
         "scope",
@@ -193,11 +193,36 @@
       ]
     },
     {
+      "id": "UC-23",
+      "group": "02-quality-gates",
+      "priority": "P1",
+      "path": "02-quality-gates/p1-05-design-review-parity-usecase.md",
+      "order": 6,
+      "title": "Design/review parity",
+      "dimensions_covered": [
+        "D6-consistency",
+        "D7-non-redundancy",
+        "D8-prioritization",
+        "D9-clarity",
+        "D10-completeness",
+        "D11-actionability",
+        "D16-adherence"
+      ],
+      "command_family": "review",
+      "primary_entry_point": "/pe-meta-review <path> --dim quality",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "deps",
+        "skip"
+      ]
+    },
+    {
       "id": "UC-08",
       "group": "02-quality-gates",
       "priority": "P2",
       "path": "02-quality-gates/p2-01-artifact-structure-review-usecase.md",
-      "order": 6,
+      "order": 7,
       "title": "Artifact structure and scope optimization",
       "dimensions_covered": [
         "D14-craftsmanship",
@@ -217,7 +242,7 @@
       "group": "02-quality-gates",
       "priority": "P2",
       "path": "02-quality-gates/p2-02-vision-alignment-check-usecase.md",
-      "order": 7,
+      "order": 8,
       "title": "Vision alignment check",
       "dimensions_covered": [
         "D15-vision-alignment",
@@ -303,7 +328,7 @@
         "D20-token-chain"
       ],
       "command_family": "update",
-      "primary_entry_point": "/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts",
+      "primary_entry_point": "/pe-meta-review --mode apply --dim efficiency --skip research,structure,consistency --scope agents,prompts",
       "allowed_option_classes": [
         "dim",
         "scope",
@@ -322,7 +347,7 @@
         "D26-model-routing"
       ],
       "command_family": "update",
-      "primary_entry_point": "/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts",
+      "primary_entry_point": "/pe-meta-review --mode apply --dim efficiency --skip research,structure,consistency --scope agents,prompts",
       "allowed_option_classes": [
         "dim",
         "scope",
@@ -341,7 +366,7 @@
         "D25-processing-efficiency"
       ],
       "command_family": "update",
-      "primary_entry_point": "/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope prompts",
+      "primary_entry_point": "/pe-meta-review --mode apply --dim efficiency --skip research,structure,consistency --scope prompts",
       "allowed_option_classes": [
         "dim",
         "scope",
@@ -360,7 +385,7 @@
         "D23-reference-efficiency"
       ],
       "command_family": "update",
-      "primary_entry_point": "/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts",
+      "primary_entry_point": "/pe-meta-review --mode apply --dim efficiency --skip research,structure,consistency --scope agents,prompts",
       "allowed_option_classes": [
         "dim",
         "scope",
@@ -379,7 +404,7 @@
         "D24-handoff-efficiency"
       ],
       "command_family": "update",
-      "primary_entry_point": "/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope prompts,agents",
+      "primary_entry_point": "/pe-meta-review --mode apply --dim efficiency --skip research,structure,consistency --scope prompts,agents",
       "allowed_option_classes": [
         "dim",
         "scope",
@@ -398,7 +423,7 @@
         "D21-deterministic-first"
       ],
       "command_family": "update",
-      "primary_entry_point": "/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts",
+      "primary_entry_point": "/pe-meta-review --mode apply --dim efficiency --skip research,structure,consistency --scope agents,prompts",
       "allowed_option_classes": [
         "dim",
         "scope",
@@ -480,7 +505,7 @@
         "D29-regression-protection"
       ],
       "command_family": "update",
-      "primary_entry_point": "/pe-meta-update <target> --dim reliability",
+      "primary_entry_point": "/pe-meta-review <target> --dim reliability",
       "allowed_option_classes": [
         "dim",
         "scope",

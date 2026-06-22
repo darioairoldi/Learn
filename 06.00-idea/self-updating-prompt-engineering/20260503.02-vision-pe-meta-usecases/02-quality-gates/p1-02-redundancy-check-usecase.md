@@ -1,4 +1,4 @@
-﻿# UC-04: Redundancy check (single source of truth)
+# UC-04: Redundancy check (single source of truth)
 
 > **Group:** B - Guidance quality gates  
 > **Priority:** P1  
@@ -7,10 +7,10 @@
 ## Invocation
 
 **Command family:** Review / Update  
-**Primary entry point:** `/pe-meta-update --mode plan --skip research --dim efficiency --scope context`  
+**Primary entry point:** `/pe-meta-review --mode plan --skip research --dim efficiency --scope context`  
 **Alternative entry points:**
 - `/pe-meta-context-review <path> --dim non-redundancy` (single folder scan)
-- `/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope context` (apply redundancy fixes)
+- `/pe-meta-review --mode apply --dim optimize --skip research,structure,consistency --scope context` (apply redundancy fixes)
 
 **Supported options:**
 
@@ -29,7 +29,7 @@ Detects rules or concepts defined in more than one canonical location. Redundanc
 **Invocation examples:**
 ```
 /pe-meta-context-review .copilot/context/00.00-prompt-engineering/ --dim non-redundancy
-/pe-meta-update --mode plan --skip research --dim efficiency
+/pe-meta-review --mode plan --skip research --dim efficiency
 ```
 
 **Dimensions covered:** `D7-non-redundancy`

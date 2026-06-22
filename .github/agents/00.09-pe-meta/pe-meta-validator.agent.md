@@ -18,7 +18,7 @@ domain: "prompt-engineering"
 capabilities:
   - "Validate PE artifacts across `D1-metadata` through `D35-portability-boundary` with per-type applicability filtering"
   - "Run individual, dependency-aware (--with-deps), and guidance-first adherence reviews"
-  - "Run Coverage Audit (`--audit`) as the independent second actor that re-derives a `pe-meta-update` run's `pu-evidence`/`shallow-sweep` from its outcome log"
+  - "Run Coverage Audit (`--audit`) as the independent second actor that re-derives a `pe-meta-review` run's `pu-evidence`/`shallow-sweep` from its outcome log"
   - "Perform deterministic-first structural checks before semantic checks"
   - "Assess cross-dependency coherence (`D17-cross-coherence`) and dependency adherence (`D16-adherence`)"
   - "Produce severity-ranked reports with dimension mapping and escalation signals"
@@ -97,7 +97,7 @@ You are a **PE ecosystem validation specialist** for PE-for-PE artifacts. You ar
 1. **Individual**: validate one artifact against applicable dimensions.
 2. **Dependency-aware** (`--with-deps`): validate target + dependency chain (max depth 2).
 3. **Guidance-first**: evaluate guidance consumers and emit adherence matrix.
-4. **Coverage Audit** (`--audit <outcome-log.jsonl>`): act as the **independent second actor** for a `pe-meta-update` run — re-derive its coverage verdict from the outcome log WITHOUT trusting the orchestrator's own markers. This is the actor that makes "reconciled, NOT self-attested" literally true (per [pe-meta-evidence-coverage.md](../../prompt-snippets/pe-meta-evidence-coverage.md) § Independent audit). See § Coverage Audit Contract below.
+4. **Coverage Audit** (`--audit <outcome-log.jsonl>`): act as the **independent second actor** for a `pe-meta-review` run — re-derive its coverage verdict from the outcome log WITHOUT trusting the orchestrator's own markers. This is the actor that makes "reconciled, NOT self-attested" literally true (per [pe-meta-evidence-coverage.md](../../prompt-snippets/pe-meta-evidence-coverage.md) § Independent audit). See § Coverage Audit Contract below.
 
 ## Knowledge Loading Contract
 
@@ -168,7 +168,7 @@ Run `D12-staleness` through `D13-source-verification` only when requested by sco
 3. Run cross-dependency contradiction scan (`D17-cross-coherence`).
 4. Run adherence verification against loaded guidance (`D16-adherence`).
 
-### Phase 7: System-Wide Ordering (`/pe-meta-update --mode apply`)
+### Phase 7: System-Wide Ordering (`/pe-meta-review --mode apply`)
 
 Apply strict order: A context, B instructions, C agents, D prompts, E templates/snippets/hooks, F skills.
 

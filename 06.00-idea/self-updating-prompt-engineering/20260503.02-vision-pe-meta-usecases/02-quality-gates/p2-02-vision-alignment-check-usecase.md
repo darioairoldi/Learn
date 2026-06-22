@@ -1,4 +1,4 @@
-﻿# UC-13: Vision alignment check
+# UC-13: Vision alignment check
 
 > **Group:** B - Guidance quality gates  
 > **Priority:** P2  
@@ -11,7 +11,7 @@
 **Alternative entry points:**
 - `/pe-meta-agent-review <path> --dim vision-alignment` (agent vision check)
 - `/pe-meta-context-review <path> --dim vision-alignment` (context vision check)
-- `/pe-meta-update --mode plan --skip research --dim strategic` (system-wide strategic health)
+- `/pe-meta-review --mode plan --skip research --dim strategic` (system-wide strategic health)
 
 **Supported options:**
 
