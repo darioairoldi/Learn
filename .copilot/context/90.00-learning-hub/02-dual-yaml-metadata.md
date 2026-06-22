@@ -534,6 +534,29 @@ The MetadataWatcher service automatically updates the `filename` field when arti
 
 ---
 
+## Folder-level inheritance (`_metadata.yml`)
+
+The dual-block model above is **per-file**. A folder MAY additionally declare a `_metadata.yml` whose `identity:` section is **inherited** by descendant articles through a deterministic keyed-merge, so folder-scoped identity (`goal`, `scope`, `boundaries`, `rationales`, `domain`, `additional_domains`) is authored once instead of being restated in every article.
+
+The resolved result is **materialized** into a generated `effective:` block that lives in the article's bottom HTML-comment block, as a sibling of `validations` and `article_metadata`. Like the validation sections, `effective:` is **generated and do-not-edit** (maintained by MetadataWatcher) and recomputed whenever an ancestor `_metadata.yml` changes:
+
+```yaml
+effective:
+  resolved_at: "2026-06-21"        # when the cascade was last computed
+  sources:                          # provenance: each ancestor _metadata.yml + self
+    - "../_metadata.yml@<hash>"
+    - "self"
+  identity: {...}                   # the fully merged effective identity values
+  inputs_hash: "<hash>"             # hash of (ancestor chain + declared) — the freshness key
+  status: fresh                     # fresh | stale (consumed by the runtime staleness check)
+```
+
+**Additive and zero-touch:** when no `_metadata.yml` exists in an article's ancestor chain, nothing is computed and **no `effective:` block is written** — existing articles are untouched. The cascade NEVER applies to PE artifact folders (`.github/agents|prompts|instructions|templates|skills|prompt-snippets`) or vision/use-case documents.
+
+📖 **Full contract** (sectioned schema, keyed-merge rule, materialized-cache, runtime staleness verification, exemption set): [../00.00-prompt-engineering/00.06-folder-metadata-inheritance.md](../00.00-prompt-engineering/00.06-folder-metadata-inheritance.md)
+
+---
+
 ## Reference Links
 
 - [Quarto YAML Options](https://quarto.org/docs/reference/formats/html.html)
@@ -544,6 +567,6 @@ The MetadataWatcher service automatically updates the `filename` field when arti
 
 <!--
 context_metadata:
-  version: "1.1.0"
-  last_updated: "2026-06-12"
+  version: "1.2.0"
+  last_updated: "2026-06-21"
 -->
