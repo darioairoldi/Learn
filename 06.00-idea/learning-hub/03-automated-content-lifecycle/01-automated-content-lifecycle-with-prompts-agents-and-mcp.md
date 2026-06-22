@@ -23,6 +23,7 @@ description: "Architecture for automating Learning Hub content creation, validat
 - [Layer 3: Subagent orchestrations — multi-agent workflows](#layer-3-subagent-orchestrations--multi-agent-workflows)
 - [Layer 4: IQPilot MCP server — deterministic infrastructure](#layer-4-iqpilot-mcp-server--deterministic-infrastructure)
 - [Content lifecycle workflows](#content-lifecycle-workflows)
+- [Vision requirements and building-block contracts](#vision-requirements-and-building-block-contracts)
 - [Implementation roadmap](#implementation-roadmap)
 - [Conclusion](#conclusion)
 - [References](#references)
@@ -371,6 +372,8 @@ subject:
 | **`product_dependencies`** | Freshness monitor fetches each `changelog` URL and scans for `alert_keywords`. When a keyword appears in a recent changelog entry, it triggers revalidation of articles depending on that product. |
 | **`monitoring`** | Triage scheduler reads `review_cadence` and `last_reviewed` to surface overdue subjects. `staleness_signals` provide human-readable context for why a review is needed. |
 | **`prerequisite_subjects`** | Cross-subject dependency tracking — if a prerequisite subject changes scope, downstream subjects may need updating. |
+
+> **Reconciliation note (planned).** The standalone `_subject.yml` proposed above is folding into the repository's shared **`_metadata.yml` inheritance mechanism**: subject identity (scope, goal, coverage, dependencies) becomes the `identity:` section and the monitoring/revalidation config becomes the `monitoring:` section of the subject folder's `_metadata.yml`. This keeps subject configuration in the same layered-inheritance model every article already resolves against, rather than a parallel manifest. 📖 [00.06-folder-metadata-inheritance.md](../../../.copilot/context/00.00-prompt-engineering/00.06-folder-metadata-inheritance.md)
 
 ### Improvement 3: Define comprehensive validation dimensions per content type
 
@@ -774,6 +777,8 @@ The Learning Hub is a generalized **analysis-and-elaboration engine over many co
 7. **Navigation wiring** — add the new content to the site menu and render.
 
 Non-shareable session material flows through the external-repository resolution described above, so private transcripts and recordings are analyzed without ever entering the public repository.
+
+This pipeline is realized as a **subagent orchestration**: a coordinator fans out the catalog-discovery, manifest, ranking, poster, transcript, summary, and navigation steps to specialized subagents, then assembles the per-session knowledge assets and wires them into the menu. Each step is independently retryable, so a failed transcript fetch or poster render does not restart the whole ingestion.
 
 > 📖 Implemented workflow: [learninghub-analyze-build-conference-sessions.prompt.md](../../../.github/prompts/90.00-learning-hub/learninghub-analyze-build-conference-sessions.prompt.md)
 
@@ -1519,6 +1524,18 @@ The following tools address gaps discovered during the prompt engineering review
 
 **Returns:** Generated manifest YAML content.
 
+#### `iqpilot/navigation/check`
+
+**Purpose:** Verify that an article is reachable from the site navigation (`_quarto.yml`) and that its rendered page appears in the menu tree.
+
+**Why MCP:** Navigation-config parsing and menu-tree traversal are deterministic I/O operations.
+
+**Parameters:**
+- `filePath` (string) — Article path
+- `navConfig` (string, optional) — Path to `_quarto.yml`
+
+**Returns:** Reachable yes/no, the menu path if present, and a suggested insertion point if missing.
+
 ---
 
 ## 🔄 Content lifecycle workflows
@@ -1660,6 +1677,60 @@ The governing principle is **incremental integration**: integrating new or chang
 │   └───────────────────────────────────────────────────────────────┘  │
 └───────────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## 🧭 Vision requirements and building-block contracts
+
+The lifecycle above is mostly built or specifiable today. This section names the **vision-level requirements** that close the remaining gaps between the Hub's design and its goal, and declares the **building blocks** the Hub consumes. Each requirement is a contract the implementation must satisfy; the engineering to realize each is tracked separately in the roadmap and in the parked-work backlog.
+
+### Building blocks: the article-writing and PE engines
+
+The Hub does not own every capability it relies on. Two sibling projects are consumed as **versioned building blocks**:
+
+- **The article-writing engine** keeps published articles current (freshness monitoring, claim-source checks, per-dimension review). The Hub consumes its review/maintenance contract; it does not re-implement article validation.
+- **The prompt-engineering (PE) engine** provides the portable self-update machinery (configuration, state, and a regression gate) that automates the Hub's own lifecycle. The Hub instantiates the PE engine as its `learning-hub` domain rather than building bespoke automation.
+
+Declaring these as building blocks means the Hub tracks **which version of each contract it depends on**, so the architecture is not re-derived every cycle.
+
+### Two self-update timescales
+
+The Hub refreshes on **two independent cadences** that must be reconciled:
+
+- **Tooling self-update** — the PE engine periodically refreshes the Hub's own automation artifacts (prompts, agents, instructions) as the underlying products evolve.
+- **Content revalidation** — the freshness lifecycle periodically reverifies published knowledge against its sources.
+
+These run on different clocks: a tooling refresh can change *how* content is validated without invalidating the content, and a content revalidation can flag stale knowledge without any tooling change. The reconciliation rule: a **tooling refresh that changes a validation contract triggers content revalidation** of the articles validated under the old contract; a content revalidation never forces a tooling refresh.
+
+### Publish promotion gate
+
+Publishing is gated by an explicit **promotion flow**: `draft → in-review → published`.
+
+- **draft** — content exists but has not passed the evaluative pipeline.
+- **in-review** — the 12-dimension review is running or has open findings.
+- **published** — all critical dimensions pass and the piece is integrated into the site.
+
+The gate also enforces a **write-permission split**: human authors own identity and content edits; the deterministic engine owns the volatile validation metadata. Neither writes the other's surface, so a review run can never silently rewrite authored content and an author edit can never forge a validation result.
+
+### Knowledge graph and semantic cross-linking
+
+Cross-reference validation today checks **reference integrity** (does the link resolve?). It does not model **meaning**. The vision adds a **knowledge graph**: a semantic map of how pieces relate — depends-on, elaborates, contradicts, supersedes — built over the corpus. This enables completeness and gap detection that link-checking cannot: a missing prerequisite, a contradicted claim, or an orphaned concept become queryable. The graph is a concept here; its construction is tracked separately.
+
+### Content-freshness wiring contract
+
+The Hub's freshness machinery does not re-implement article validation — it **consumes the article-writing engine** through a defined interface:
+
+- **Input the Hub provides:** the article path plus its `product_dependencies` and `key_claims` (from the article metadata).
+- **Capability the engine provides:** a freshness orchestrator that fans out to per-dimension skills (claim-source check, freshness, SLA) and returns per-claim verdicts.
+- **Output the Hub consumes:** verdicts written back into the article's volatile validation block, plus a triage signal when revalidation is due.
+
+This is an **interface spec**, not live wiring: the orchestrator and per-dimension skills are owned by the article-writing project and are not yet built, so the Hub commits to the contract, not to a running integration.
+
+### Inherited identity is a staleness signal
+
+The Hub resolves each article's effective metadata by **inheriting from ancestor `_metadata.yml` files** (subject identity, monitoring cadence) down to the article. A change to any ancestor `_metadata.yml` therefore **invalidates the effective metadata** of every descendant article. Revalidation triage MUST treat an ancestor change as a staleness signal: before assessing a descendant, it reverifies the article's `effective:` block (recomputing `inputs_hash`) so the validation runs against current inherited identity, not a stale snapshot.
+
+> 📖 Inheritance model: [00.06-folder-metadata-inheritance.md](../../../.copilot/context/00.00-prompt-engineering/00.06-folder-metadata-inheritance.md)
 
 ---
 

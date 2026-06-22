@@ -27,7 +27,7 @@ This mechanism is **not owned by one project** — it is repo-wide metadata infr
 
 - [01-self-updating-prompt-engineering-vision-update-plan.md](01-self-updating-prompt-engineering-vision-update-plan.md) — domain grounding (G2) is one facet of the non-inherited `domain_profile:` section.
 - [02-self-updating-article-writing-vision-update-plan.md](02-self-updating-article-writing-vision-update-plan.md) — article identity inheritance reduces per-article redundancy across the documentation corpus.
-- [03-learning-hub-update-plan.md](03-learning-hub-update-plan.md) — the proposed `_subject.yml` (H3) becomes the `identity:` + `monitoring:` sections.
+- [03-learning-hub-vision-update-plan.md](03-learning-hub-vision-update-plan.md) — the proposed `_subject.yml` (H3) becomes the `identity:` + `monitoring:` sections.
 
 ## 🔎 Why this is needed (analysis) (✅ done)
 
@@ -145,7 +145,7 @@ domain_profile:          # the domain's identity & contract — only in a .copil
 
 ### E. Reconcile the separate manifest proposals (✅ done)
 
-1. Map `_domain.yml` (plan 01 G2) → `domain_profile:` section; `_subject.yml` (plan 03 H3) → `identity:` + `monitoring:` sections. Record the **exemption set**: inheritance is NEVER applied to PE artifact folders (`.github/agents|prompts|instructions|templates|skills|snippets`, governed by their mandated `pe-*` schemas) nor to vision/use-case documents; the cascade's applicability domain is article content trees + `.copilot/context/{domain}/` identity only (design-decision). Landing: exemption set recorded in 00.06; cross-refs present in [01-…](01-self-updating-prompt-engineering-vision-update-plan.md) and [03-…](03-learning-hub-update-plan.md). (✅ done)
+1. Map `_domain.yml` (plan 01 G2) → `domain_profile:` section; `_subject.yml` (plan 03 H3) → `identity:` + `monitoring:` sections. Record the **exemption set**: inheritance is NEVER applied to PE artifact folders (`.github/agents|prompts|instructions|templates|skills|snippets`, governed by their mandated `pe-*` schemas) nor to vision/use-case documents; the cascade's applicability domain is article content trees + `.copilot/context/{domain}/` identity only (design-decision). Landing: exemption set recorded in 00.06; cross-refs present in [01-…](01-self-updating-prompt-engineering-vision-update-plan.md) and [03-…](03-learning-hub-vision-update-plan.md). (✅ done)
 
 ### F. Tooling — MetadataWatcher cascade (✅ done)
 
