@@ -127,7 +127,7 @@ Each item names its landing document and is `(🟡 todo)` pending owner approval
 - Implement the config/state substrate (engineering) → defer: vision-level mandate is in scope; the build is a separate effort.
 - Implement the eval harness tooling → defer.
 - Implement the `pe-simple` tier independently (owner decision E1) → defer: retained as its own lightweight tier; the build is a separate effort — no routing to consolidated, the existing `pe-sim-*` prompts are its seed.
-- Author per-domain `domain_profile`s for specific domains (azure, k8s, …) → → consumed by `02-self-updating-article-writing-vision-update-plan.md` and `03-learning-hub-update-plan.md`; per-domain profile *authoring* is a separate effort.
+- Author per-domain `domain_profile`s for specific domains (azure, k8s, …) → → consumed by `02-self-updating-article-writing-vision-update-plan.md` and `03-learning-hub-vision-update-plan.md`; per-domain profile *authoring* is a separate effort.
 - Champion-challenger benchmarking across the three tiers → defer: depends on eval harness (D).
 
 ## 🏁 Exit criteria

@@ -3,7 +3,7 @@ title: "Learning Hub Concept"
 author: "Dario Airoldi"
 date: "2025-08-29"
 date-modified: last-modified
-version: "1.1"
+version: "1.2"
 description: "A comprehensive tool for transforming passive information consumption into intelligent, automated knowledge development"
 keywords: 
   - Learning Hub
@@ -28,6 +28,31 @@ format:
     colorlinks: true
 status: "Foundation Architecture"
 audience: "Knowledge Workers, Consultants, Technology Professionals"
+principles:
+  - id: information-centric
+    priority: P0
+    statement: "The Hub develops information iteratively into a growing corpus rather than consuming it once and discarding it."
+  - id: generalized-content-engine
+    priority: P0
+    statement: "The Hub normalizes many content types — feeds, papers, transcripts, recordings, and event proceedings — into one knowledge-development pipeline."
+  - id: per-piece-visibility
+    priority: P0
+    statement: "The Hub handles every piece of information at its own suitable visibility, resolving non-shareable material from an external mirror and never copying it into the public repository."
+  - id: incremental-integration
+    priority: P1
+    statement: "Integrating new knowledge builds only the new or changed content."
+  - id: configuration-driven
+    priority: P1
+    statement: "Layered configuration governs how the Hub discovers sources, stores material, and exposes each piece."
+  - id: structured-knowledge-development
+    priority: P1
+    statement: "Learning progresses through structured, iterative development rather than stopping at the first read."
+  - id: active-critical-and-creative-development
+    priority: P1
+    statement: "The Hub actively applies critical analysis and creative development to its information rather than storing it passively."
+  - id: collaborative-learning
+    priority: P2
+    statement: "The Hub shares learning pieces across instances and external sources."
 ---
 
 ## 📋 Table of Contents
@@ -52,30 +77,41 @@ This tool transforms interaction with information by implementing <mark>**intell
 
 ### Core Transformation Principles
 
-The Learning Hub changes learning from:
+These four transformations are the Hub's **declared vision principles** (see the `principles:` block in the frontmatter). The Learning Hub changes learning from:
 
-- **"Information sparse"** → **"<mark>Information centric</mark>"**
+- **"Information sparse"** → **"<mark>Information centric</mark>"** — **Priority: P0** · `information-centric`
   Information is developed iteratively into the Learning hub, with help of Copilot.
   Copilot assists in gathering, curating and developing information, making it more accessible and actionable.
 
-- **"Random learning"** → **"<mark>Structured knowledge development</mark>"**
+- **"Random learning"** → **"<mark>Structured knowledge development</mark>"** — **Priority: P1** · `structured-knowledge-development`
   Learning now progresses with the development of information. It doesn't stop at the first read.
 
-- **"Passive consumption and development"** → **"<mark>Active critical analysis</mark> and <mark>creative development</mark>"**
+- **"Passive consumption and development"** → **"<mark>Active critical analysis</mark> and <mark>creative development</mark>"** — **Priority: P1** · `active-critical-and-creative-development`
   The Learning Hub actively processes information, into the first creation and also into the development iterations.  
   Learning hub assists in organizing information for readability, consistency, understandability and knowledge gaps removal.  
   Learning hub assists critical analysis and development with <mark>creative thinking techniques</mark>.
 
-- **"Individual learning"** → **"<mark>Collaborative learning</mark>"**
+- **"Individual learning"** → **"<mark>Collaborative learning</mark>"** — **Priority: P2** · `collaborative-learning`
   Learning pieces can be exchanged and developed across learning hub instances and, of course, it can be developed starting from (public) web resources or user provided information.
 
 ### Configuration-driven Foundation
+
+**Priority: P1** · `configuration-driven`
 
 The Learning Hub is **configuration-driven**: how it discovers sources, where it stores material, and how each piece of information is exposed are all governed by a layered configuration model rather than hard-coded behavior. Configuration is loaded from a `.NET`-style layered `appsettings.json` chain (committed defaults, environment overlays, non-versioned user overrides, and environment variables), so the same Hub adapts to different users and environments without code changes.
 
 A central element is the **external-repository configuration** (`Repository:ExternalRepositories`), which lets the Hub compose content that lives outside the public repository. This foundation is expected to carry **increasing responsibility over time** — as the Hub grows, more of its behavior (sources, visibility, publishing targets) will be expressed as configuration.
 
 > 📖 Configuration model: [00-repository-configuration.md](../../../.copilot/context/90.00-learning-hub/00-repository-configuration.md)
+
+### Building blocks: article-writing and PE engines
+
+The Learning Hub does not own every capability it relies on. It consumes two sibling projects as **versioned building blocks**, depending on the contract each provides rather than re-deriving the architecture each cycle:
+
+- **The article-writing engine** keeps the Hub's published articles current — freshness monitoring, claim-source checks, and per-dimension review. The Hub consumes this maintenance contract; it does not re-implement article validation.
+- **The prompt-engineering (PE) engine** provides the portable self-update machinery (configuration, state, and a regression gate) that automates the Hub's own lifecycle. The Hub instantiates the PE engine as its `learning-hub` domain rather than building bespoke automation.
+
+Both are **dependencies the Hub uses, not capabilities it owns** — the Hub is their most demanding consumer, but their purpose is broader than the Hub.
 
 ### Intelligence Application Areas
 
@@ -90,9 +126,13 @@ Learning Hub applies structured intelligence to:
 
 ## 📚 Knowledge Information Sources
 
+**Priority: P0** · `generalized-content-engine`
+
 The Learning Hub creates and manages structured knowledge assets from diverse information sources. It is, at its core, a **generalized analysis-and-elaboration engine over many content types** — feeds, papers, transcripts, recordings, and event proceedings are all normalized into the same knowledge-development pipeline.
 
 ### Exposure Criteria & Public/Private Sources
+
+**Priority: P0** · `per-piece-visibility`
 
 Information learned by the Hub is subject to **different exposure criteria**. Some material is freely publishable; some (licensed recordings, private transcripts, internal notes) is not. Rather than forcing a single visibility level, the Hub treats exposure as a **per-piece property**: every piece of information is handled at its suitable visibility.
 
@@ -155,6 +195,8 @@ The **external-repository configuration** is the mechanism that satisfies this: 
    - **Collaborative sharing** and **discussion facilitation**
 
 ### Publishing & Incremental Integration
+
+**Priority: P1** · `incremental-integration`
 
 Publishing is the **final lifecycle stage**, and it is deliberately **publish-tool-agnostic** — the current implementation renders a static site, but the vision does not mandate any specific generator.
 
@@ -337,6 +379,7 @@ The framework scales with growing expertise, allowing gradual sophistication inc
 
 ### Most recent changes
 
+- **v1.2 (2026-06-22)** — Promoted this document to the Hub's **formal vision**: declared a `principles:` block (3 P0 / 4 P1 / 1 P2) naming the existing transformation principles plus the configuration-driven, per-piece-visibility, generalized-content-engine, and incremental-integration invariants; annotated each body principle with its priority; and added a **Building blocks** section declaring the article-writing and PE engines as versioned dependencies the Hub consumes.
 - **v1.1 (2026-06-14)** — Added *Configuration-driven foundation* (layered `appsettings.json`, external repositories), *Exposure criteria & public/private sources* (per-piece visibility resolved via external mirror), *Content-type specialization* (conference/event ingestion as a flagship channel), and *Publishing & incremental integration* (publish-tool-agnostic final stage that builds only changed content).
 
 ---
