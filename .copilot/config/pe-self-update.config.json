@@ -2,8 +2,8 @@
     "$schema": "./pe-self-update.config.schema.json",
     "version": "1.1.0",
     "last_updated": "2026-06-04",
-    "_comment": "Source of truth for pe-meta-update orchestrator and pe-meta-researcher agent. Catalogs monitored external/internal sources, per-source state location, default lookback window, and sampling parameters used by --dim adherence.",
-    "_version_scheme_comment": "Each monitored source declares a version_scheme describing its version-identifier shape: 'semver' (e.g. 1.107), 'dated' (ISO-8601 publish date), 'model-version' (vendor model-version string), or 'none' (no stable version token). Dual role: the source ledger uses it to record last_seen_version, and the pe-meta-update Phase 0a parser uses it to recognize and resolve a version-shaped --start/--end token to a timestamp. A source with version_scheme 'none' rejects a version-shaped window bound ('use a date window').",
+    "_comment": "Source of truth for pe-meta-review orchestrator and pe-meta-researcher agent. Catalogs monitored external/internal sources, per-source state location, default lookback window, and sampling parameters used by --dim adherence.",
+    "_version_scheme_comment": "Each monitored source declares a version_scheme describing its version-identifier shape: 'semver' (e.g. 1.107), 'dated' (ISO-8601 publish date), 'model-version' (vendor model-version string), or 'none' (no stable version token). Dual role: the source ledger uses it to record last_seen_version, and the pe-meta-review Phase 0a parser uses it to recognize and resolve a version-shaped --start/--end token to a timestamp. A source with version_scheme 'none' rejects a version-shaped window bound ('use a date window').",
     "monitored_sources": {
         "platform": [
             {

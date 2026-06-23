@@ -1,6 +1,8 @@
 ---
 description: Required structure for use-case documents and their folder overview files — canonical header fields, priority taxonomy, vision anchor, default breadth, related-use-cases linkage, dimension-catalog anchor, dimensions-covered matrix
 applyTo: '**/*usecases/**/*.md'
+version: "1.2.1"
+last_updated: "2026-06-06"
 domain: "prompt-engineering"
 goal: "Ensure every use-case document AND every folder overview carries the metadata needed for prioritization, coverage audits, and vision-traceability against the canonical dimension catalog"
 rationales:
@@ -152,9 +154,3 @@ The top-level use-case-set overview (sibling of folder overviews) MUST anchor to
 - **📘** `.github/instructions/vision-frontmatter.instructions.md` — declares the principles use cases may anchor against
 - **🔗** `src/docs/90. Issues/202606/20260601.02-dim-readable-ids/02-align-dimids-usecases-pemeta-plan.md` — issue plan introducing the v1.1.0 README and index rules
 - **🔗** `src/docs/90. Issues/202606/20260601.02-dim-readable-ids/04-usecase-suffix-and-overview-sort-plan.md` — v1.2.0 reversal: adopts `-usecase.md` and renames READMEs to `00-overview.md`
-
-<!--
-instruction_metadata:
-  version: "1.2.1"
-  last_updated: "2026-06-06"
--->

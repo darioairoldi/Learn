@@ -1,6 +1,8 @@
 ---
 description: Rules for creating and maintaining instruction files that provide path-specific AI guidance via applyTo patterns
 applyTo: '.github/instructions/*.instructions.md'
+version: "1.9.0"
+last_updated: "2026-06-06"
 domain: "prompt-engineering"
 goal: "Enforce that instruction files provide path-specific enforcement rules with unique, non-overlapping applyTo scopes"
 rationales:
@@ -41,6 +43,8 @@ Instruction files provide **path-specific AI guidance** auto-injected via `apply
 ---
 description: "One-sentence description of what these instructions enforce"
 applyTo: '{glob pattern targeting specific file types}'
+version: "1.0.0"
+last_updated: "YYYY-MM-DD"
 domain: "prompt-engineering"
 context_dependencies:
   - ".copilot/context/00.00-prompt-engineering/"
@@ -51,33 +55,10 @@ context_dependencies:
 |-------|----------|----------|
 | `description` | ✅ MUST | Non-empty, one sentence, describes the rules enforced |
 | `applyTo` | ✅ MUST | Valid glob pattern matching ONLY the intended file types |
-| `domain` | ✅ MUST | Single scalar identifying the semantic domain the instructions target (e.g. `"prompt-engineering"`, `"article-writing"`). 📖 See `00.03-metadata-contracts.md` § `domain:` field semantics. |
-| `context_dependencies` | ✅ MUST | Folder paths of referenced context files. Enables cascade staleness detection. Required for ALL instruction files that reference context files via `📖`. |
-
-> `version`/`last_updated` are **NOT** top-frontmatter fields — they live in the bottom `instruction_metadata` block (see Bottom Metadata below).
-
-## Bottom Metadata (REQUIRED)
-
-Every instruction file MUST carry change-prone tracking metadata in a bottom `instruction_metadata` HTML comment — NOT in top frontmatter. This follows the dual metadata pattern (📖 `00.03-metadata-contracts.md` § Field placement):
-
-```html
-<!--
-instruction_metadata:
-  version: "1.0.0"
-  last_updated: "YYYY-MM-DD"
-  created: "YYYY-MM-DD"        # OPTIONAL
-  changelog: "<instruction-stem>.changelog.md"   # OPTIONAL — only when a sibling changelog file exists
--->
-```
-
-| Field | Required | Criteria |
-|-------|----------|----------|
 | `version` | ✅ MUST | Semantic version (`major.minor.patch`). Increment on every change. |
 | `last_updated` | ✅ MUST | ISO date (`YYYY-MM-DD`). Update on every change. Enables staleness detection. |
-
-Top frontmatter MUST NOT carry `version` or `last_updated` — a single bottom-block source prevents top/bottom drift.
-
-> **Exception — vision/use-case docs:** Documents governed by `vision-frontmatter.instructions.md` and `use-case-documents.instructions.md` keep `version`/`last_updated` in top frontmatter (their amendment protocols read top-frontmatter version). 📖 See `00.03-metadata-contracts.md` § Field placement.
+| `domain` | ✅ MUST | Single scalar identifying the semantic domain the instructions target (e.g. `"prompt-engineering"`, `"article-writing"`). 📖 See `00.03-metadata-contracts.md` § `domain:` field semantics. |
+| `context_dependencies` | ✅ MUST | Folder paths of referenced context files. Enables cascade staleness detection. Required for ALL instruction files that reference context files via `📖`. |
 
 ### Permitted Overlaps
 
@@ -104,7 +85,7 @@ Two instruction files MAY share the same `applyTo` pattern when ALL of the follo
 
 ### Cascade Validation Rule
 
-When ANY context file in a listed `context_dependencies` folder has a bottom-block `last_updated` newer than the instruction file's bottom-block `last_updated`, the instruction file MUST be re-validated within 7 days.
+When ANY context file in a listed `context_dependencies` folder has a `last_updated` newer than the instruction file's `last_updated`, the instruction file MUST be re-validated within 7 days.
 
 ## Rules
 
@@ -121,7 +102,6 @@ When ANY context file in a listed `context_dependencies` folder has a bottom-blo
 ## Quality Checklist
 
 - [ ] YAML: all required fields present and valid (C6)
-- [ ] No `version`/`last_updated` in top frontmatter; both present in bottom `instruction_metadata` block
 - [ ] Token budget ≤1,500 (C3)
 - [ ] `applyTo` verified conflict-free, or documented under a Permitted Overlap shape — shared-baseline or coordinated orthogonal pair (H10)
 - [ ] Imperative language throughout (H8)
@@ -134,9 +114,3 @@ When ANY context file in a listed `context_dependencies` folder has a bottom-blo
 - **📖** Context engineering: see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)
 - **📖** File type decisions: see `file-type-guide` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)
 - **📖** Token budgets: see `token-optimization` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)
-
-<!--
-instruction_metadata:
-  version: "1.10.0"
-  last_updated: "2026-06-12"
--->

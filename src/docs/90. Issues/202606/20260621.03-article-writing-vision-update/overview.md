@@ -12,6 +12,10 @@ description: "Comparative analysis of the PE engine vision (v15.8.0) and the art
 
 > Analysis only. Vision changes are human-only — this document proposes; it does not edit either vision.
 
+> **Status (2026-06-23): executed.** The C1–C8 proposal below was applied to the vision in **v4.0.0** (2026-06-22); the two residual gaps surfaced after that execution — iteration-budget **spillover-plan emission** and the **(article × dimension) coverage-store contract-vs-implementation gap** — were closed as **C9** in **v4.1.0** (2026-06-23), and `domain-expertise-injection` was reaffirmed at **P0**. The "v3.3.0" column in the at-a-glance table is the pre-amendment baseline this analysis was written against. See [01-article-writing-vision-update-plan.md](01-article-writing-vision-update-plan.md).
+
+> **Wave 2 (2026-06-23): executed (Path 1).** The second residual set — the PE engine's *operational* machinery that wave 1 left unported (complete the eight-parameter surface with `--mode`/`--source`/`--skip`/`--plan-file`; plan-then-execute as the single pivot; plan execution modes fresh/reconcile/trust; the model-routing seam; the named pipeline with per-phase `--skip`; the conversational pre-parser; the three review modes) — was applied as **C10–C16** in **v4.2.0** (2026-06-23) per [02-article-writing-vision-update-plan.md](02-article-writing-vision-update-plan.md). Owner resolved the fork against the [20260621.05 engine-extraction investigation](../20260621.05-self-updating-machinery-extraction/overview.md) in favor of **Path 1** (land in the article vision; re-homeable to a shared engine vision if extraction proceeds). Additive minor bump; the only declared-principle touch is broadening P1 `predictable-invocation-surface` to eight parameters.
+
 ## 🎯 Purpose
 
 The article-writing vision already declares itself a **consumer and instantiation** of the portable PE engine (see its *Instantiating the PE engine* section). That framing means most of the PE engine's machinery is *available* to article maintenance by construction. The open question this analysis answers is narrower and sharper:

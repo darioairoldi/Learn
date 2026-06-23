@@ -1,6 +1,8 @@
 ---
 description: Instructions for creating and updating effective prompt files
 applyTo: '.github/prompts/**/*.md'
+version: "1.6.1"
+last_updated: "2026-06-06"
 domain: "prompt-engineering"
 goal: "Guide creation of reusable, plan-level workflow prompt files that define what should be done and how"
 rationales:
@@ -22,7 +24,7 @@ Prompt files are **reusable, plan-level workflows** for common development tasks
 
 **CRITICAL** — block on failure:
 - **[C4]** Handoff targets: every `agent:` in `handoffs:` resolves to existing file
-- **[C6]** YAML frontmatter: name, description, agent mode, tools, goal, scope, boundaries, **domain** required; `version`/`last_updated` live in the bottom `prompt_metadata` block, NOT top frontmatter
+- **[C6]** YAML frontmatter: name, description, agent mode, tools, goal, scope, boundaries, version, **domain** required
 - **[C7]** Top YAML never modified: validation prompts MUST NOT touch article YAML
 
 **HIGH** — fix before use:
@@ -54,36 +56,18 @@ tools:
 **📖 Prompt assembly architecture:** [01.02-prompt-assembly-architecture.md](../../.copilot/context/00.00-prompt-engineering/01.02-prompt-assembly-architecture.md)
 **📖 Model-specific optimization:** [03.02-model-specific-optimization.md](../../.copilot/context/00.00-prompt-engineering/03.02-model-specific-optimization.md)
 
-## Bottom Metadata (REQUIRED)
-
-Every PE prompt MUST carry change-prone tracking metadata in a bottom `prompt_metadata` HTML comment — NOT in top frontmatter. This follows the dual metadata pattern (📖 `00.03-metadata-contracts.md` § Field placement):
-
-```html
-<!--
-prompt_metadata:
-  version: "1.0.0"
-  last_updated: "YYYY-MM-DD"
-  created: "YYYY-MM-DD"        # OPTIONAL
-  changelog: "<prompt-stem>.changelog.md"   # OPTIONAL — only when a sibling changelog file exists
--->
-```
-
-- `version` — SemVer string; increment on meaningful changes.
-- `last_updated` — ISO `YYYY-MM-DD` of the most recent change.
-- Top frontmatter MUST NOT carry `version` or `last_updated` — a single bottom-block source prevents top/bottom drift.
-
 ## Rules
 
 - **Use specialized templates** from `.github/templates/`: validation, implementation, orchestration, analysis
 - Reference context files via `📖` — don't embed shared principles
 - Narrow tool scope to only essential tools
+- Start with template, test execution on real content, iterate boundaries
 
 **To create new prompts:** Use `@prompt-create-orchestrator` (researcher → builder → validator)
 
 ## Quality Checklist
 
 - [ ] YAML: name, description, agent mode, tools, domain present (C6)
-- [ ] No `version`/`last_updated` in top frontmatter; both present in bottom `prompt_metadata` block
 - [ ] Handoff targets resolve to existing agents (C4)
 - [ ] Purpose and workflow steps defined (H9)
 - [ ] Multi-phase prompts use summarization (M3)
@@ -95,9 +79,3 @@ prompt_metadata:
 - [VS Code: Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 - **📖** [.copilot/context/00.00-prompt-engineering/](../../.copilot/context/00.00-prompt-engineering/) — All PE context
 - **📖** `.github/templates/00.00-prompt-engineering/` — Prompt templates
-
-<!--
-instruction_metadata:
-  version: "1.7.0"
-  last_updated: "2026-06-12"
--->
