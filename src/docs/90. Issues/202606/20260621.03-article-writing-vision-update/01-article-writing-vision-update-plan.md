@@ -4,7 +4,7 @@ author: "Dario Airoldi"
 date: "2026-06-22"
 status: in-progress
 domain: "article-writing"
-goal: "Amend the self-updating article-writing vision (20260428.01-vision.v1.md, v3.3.0) so it explicitly endorses the prompt-engineering (PE) engine criteria and rationales that transfer to article maintenance — Type A/Type B staleness framing, a canonical invocation surface (--scope/--dim/--deps/--start/--end with default-full), collection scope beyond series, multidimensional processing state, graded dimension verdicts, domain-expertise injection, metadata-guarded changes, and source-trust/domain-coherent batching — while preserving the article-specific quality layer (readability, understandability, logical connection)."
+goal: "Amend the self-updating article-writing vision (20260428.01-vision.v1.md, v3.3.0) so it explicitly endorses the prompt-engineering (PE) engine criteria and rationales that transfer to article maintenance — Type A/Type B staleness framing, a canonical invocation surface (--scope/--dim/--deps/--start/--end with default-full), collection scope beyond series, multidimensional processing state, graded dimension verdicts, domain-expertise injection, metadata-guarded changes, source-trust/domain-coherent batching, and iteration-budget spillover emission — while preserving the article-specific quality layer (readability, understandability, logical connection)."
 motivation: "Article maintenance faces the same drift, cost, usability, and autonomy problems the PE engine already solves, and the article-writing vision already declares itself an instantiation of that engine. The operational machinery (invocation surface, processing-state model, graded verdicts) was never adopted explicitly. Making the adoption explicit lets article maintenance inherit the PE engine's discipline instead of re-deriving it, without importing PE-only machinery that does not transfer."
 rationales:
   - "The article-writing vision is already a consumer/instantiation of the PE engine, so most criteria are available by construction; this plan makes the relevant ones explicit"
@@ -15,7 +15,7 @@ companion_analysis: "overview.md"
 
 # Article-writing vision update plan — adopt PE engine criteria and rationales
 
-> Status: **in-progress** — vision-amendment plan backed by [overview.md](overview.md). **Executed** (Dario Airoldi, 2026-06-22): C1–C8 applied to the article-writing vision ([20260428.01-vision.v1.md](../../../../../06.00-idea/self-updating-article-writing/20260428.01-vision.v1.md) bumped **3.3.0 → 4.0.0**), the sibling changelog got a v4.0.0 entry, and the [invocation-surface appendix](../../../../../06.00-idea/self-updating-article-writing/20260428.03-vision-appendix-invocation-surface.md) was created. New P0 `domain-expertise-injection` + new P1 `predictable-invocation-surface` declared; `series-before-articles` broadened to collections. Orchestrator/coverage-store builds remain parked (§ Park lot). Uncommitted, pending owner review.
+> Status: **in-progress** — vision-amendment plan backed by [overview.md](overview.md). **Executed** (Dario Airoldi, 2026-06-22): C1–C8 applied to the article-writing vision ([20260428.01-vision.v1.md](../../../../../06.00-idea/self-updating-article-writing/20260428.01-vision.v1.md) bumped **3.3.0 → 4.0.0**), the sibling changelog got a v4.0.0 entry, and the [invocation-surface appendix](../../../../../06.00-idea/self-updating-article-writing/20260428.03-vision-appendix-invocation-surface.md) was created. New P0 `domain-expertise-injection` + new P1 `predictable-invocation-surface` declared; `series-before-articles` broadened to collections. Orchestrator/coverage-store builds remain parked (§ Park lot). **Extended** (Dario Airoldi, 2026-06-23): C9 residual-gap closure applied — spillover-plan emission (C9a) + contract-vs-implementation note (C9b) + `domain-expertise-injection` P0 reaffirmation (C9c); vision bumped **4.0.0 → 4.1.0**, changelog v4.1.0 entry added. Uncommitted, pending owner review.
 
 ## 🎯 Goal
 
@@ -39,8 +39,11 @@ This is a `*vision*plan*.md`, so per `vision-amendment.instructions.md` every it
 | C6 | Elevate **domain-expertise injection** to a principle | `[in-scope: original]` | **adds a new principle** (propose P1; owner may set P0) — consent | vision body (new principle) + rationale |
 | C7 | Adopt **metadata-guarded changes** (pre/post guard) + runtime-grounding tie-in | `[in-scope: original]` | preserves: `fix-broken-preserve-chosen` | vision § execute + governance table |
 | C8 | Wire **source-trust** (📘/📗/📒/📕) into verification + **domain-coherent batching** for multi-domain sweeps | `[in-scope: original]` | preserves: `accuracy-over-everything` | vision § detect/assess |
+| C9a | Add an **iteration-budget spillover-plan emission** contract for article cycles | `[in-scope: original]` | preserves: `freshness-as-heartbeat`, `reader-risk-calibrated-autonomy` (inherited iteration-budget governance; no declared principle touched) | vision § Operational criteria (new subsection) + § Risks |
+| C9b | Make the **contract-vs-implementation gap** explicit for the (article × dimension) coverage store | `[in-scope: original]` | preserves: `freshness-as-heartbeat` (clarification only) | vision § Operational criteria → Multidimensional processing state + § Park lot |
+| C9c | Reaffirm **`domain-expertise-injection` at P0** (owner accepts the governance friction) | `[vision-only: no-downstream]` | preserves: `domain-expertise-injection` (reaffirmation; no change) | landing: vision-only |
 
-No `[scope-expansion]` rows. **Principle touches:** C2 adds new P1 `predictable-invocation-surface`; C6 adds new **P0** `domain-expertise-injection`; C3 broadens P1 `series-before-articles`. Priorities are **owner-confirmed (2026-06-22)**. Per `vision-frontmatter.instructions.md`, the new P0 makes the execute a vision **major** bump (consent recorded here); the P1 additions/broadening carry changelog entries + justification.
+No `[scope-expansion]` rows. **Principle touches:** C2 adds new P1 `predictable-invocation-surface`; C6 adds new **P0** `domain-expertise-injection`; C3 broadens P1 `series-before-articles`. Priorities are **owner-confirmed (2026-06-22)**. Per `vision-frontmatter.instructions.md`, the new P0 makes the execute a vision **major** bump (consent recorded here); the P1 additions/broadening carry changelog entries + justification. **C9 touches no declared principle** — C9a/C9b are additive operational criteria (minor bump, 4.0.0 → 4.1.0); C9c reaffirms P0 `domain-expertise-injection` without changing it (no bump from C9c). Owner reaffirmation of the P0 placement recorded (Dario Airoldi, 2026-06-23).
 
 ## 🧭 Standalone scope vs. integrated role
 
@@ -98,6 +101,12 @@ Each workstream lands in `20260428.01-vision.v1.md` unless noted; a companion ap
 
 1. Wire the repo's reference classification (📘 Official / 📗 Verified Community / 📒 Internal / 📕 Unverified) into the **fact-checking** and **freshness** dimensions as a source-trust input, and add **domain-coherent batching** so a multi-domain maintenance sweep proposes a per-domain split before running. Landing: vision § detect/assess. (✅ done)
 
+### I. Spillover + substrate gap (C9) (✅ done)
+
+1. **C9a** — add an **§ Iteration-budget spillover** subsection to the vision (§ Operational criteria): a cycle that exhausts its autonomous-change budget with validated findings remaining emits a spillover plan (trigger, article, dimension, graded verdict, severity) so the next cycle resumes without re-assessment; reference it from § Risks → Series maintenance cascade and the Shared-governance iteration-budget bullet, and have the resolved-scope echo report `spillover=<path|none>`. Landing: vision § Operational criteria + § Risks. (✅ done)
+2. **C9b** — add a **Current substrate (migration tracked)** note to § Operational criteria → Multidimensional processing state: the (article × dimension) coverage record is a target contract; today's substrate is per-validation-type bottom metadata (MetadataWatcher); the store build is parked. Landing: vision § Operational criteria + § Park lot. (✅ done)
+3. **C9c** — reaffirm `domain-expertise-injection` at P0 in the changelog + plan (owner accepts the governance friction); no vision-body principle change. Landing: vision-only. (✅ done)
+
 ## 🧪 Actionability Gate (run before promoting to `actionable`)
 
 - Clarity — every item names a concrete edit to a concrete vision section. (✅ done)
@@ -107,12 +116,13 @@ Each workstream lands in `20260428.01-vision.v1.md` unless noted; a companion ap
 - Dependency check — C7's inherited-metadata tie-in references the folder-metadata inheritance work (learning-hub plan 04, done) as a *contract*, not a build; C2's orchestrator is a *spec*, build parked (and relates to plan 02's deferred orchestrator). (✅ done)
 - Principle impact — the § Goal table tags every item; C2 and C6 add a principle, C3 broadens a P1. (✅ done — tagging complete)
 - **Owner sign-off** — recorded (Dario Airoldi, 2026-06-22): `predictable-invocation-surface` = **P1**; `domain-expertise-injection` = **P0** (strongest Type-B defense); `series-before-articles` broadened to collections in place. The new P0 makes the execute bump a vision **major**. (✅ done)
+- **C9 gate + sign-off** — recorded (Dario Airoldi, 2026-06-23): C9a/C9b/C9c re-ran the Actionability Gate (clarity, non-ambiguity, scope discipline, coverage promise, principle impact all pass); no declared principle touched, so C9 is an additive **minor** bump (4.0.0 → 4.1.0); P0 `domain-expertise-injection` reaffirmed. (✅ done)
 
 ## 🅿️ Park lot
 
 - Build the article-maintenance **orchestrator** implementing `--scope`/`--dim`/`--deps`/`--start`/`--end` → defer: the surface/contract is in scope; the build is separate (and overlaps plan 02's deferred orchestrator).
 - Author the **article `--dim` catalog** (the small dimension set) as a context artifact → defer: the PE engine maintains it; separate effort.
-- Implement the **(article × dimension) coverage store** in IQPilot/MetadataWatcher → defer: contract in scope; build separate.
+- Implement the **(article × dimension) coverage store** in IQPilot/MetadataWatcher → defer: contract in scope (C9b makes the migration from per-validation-type bottom metadata explicit); build separate.
 - Author **`domain_profile` manifests** for article technical domains (azure, auth, …) → defer: consumes the PE `domain_profile` mechanism; per-domain authoring is separate.
 
 ## 🏁 Exit criteria
@@ -122,3 +132,4 @@ Each workstream lands in `20260428.01-vision.v1.md` unless noted; a companion ap
 - `series-before-articles` broadened to collections (C3) with a changelog entry. (✅ done)
 - Companion invocation-surface appendix created; orchestrator/store builds parked. (✅ done)
 - Vision version bumped to the next **major** (new P0 `domain-expertise-injection`) and the sibling changelog updated. (✅ done — 3.3.0 → 4.0.0.)
+- C9 residual-gap closure applied: spillover-plan emission contract (C9a) + (article × dimension) substrate-gap note (C9b) + `domain-expertise-injection` P0 reaffirmation (C9c); vision bumped **4.0.0 → 4.1.0** (additive minor), sibling changelog v4.1.0 entry added. (✅ done)
