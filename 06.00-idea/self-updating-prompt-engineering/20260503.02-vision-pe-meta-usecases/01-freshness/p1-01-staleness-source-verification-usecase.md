@@ -25,7 +25,7 @@
 
 ## Behavior
 
-Checks whether an artifact's content is still current — both its internal timestamps and the external sources it cites. Detects Type B staleness (logic is obsolete even though structure is intact).
+Checks whether an artifact's content is still current — both its internal timestamps and the external sources it cites. Detects content staleness (logic is obsolete even though structure is intact).
 
 **Invocation examples:**
 ```
@@ -61,11 +61,11 @@ Checks whether an artifact's content is still current — both its internal time
 
 | Factor | Assessment |
 |---|---|
-| **Catches real issues** | ✅ Catches Type B staleness — the vision's primary motivating concern |
+| **Catches real issues** | ✅ Catches content staleness — the vision's primary motivating concern |
 | **Real-world example** | Context file references "Copilot Spaces (public preview)" when the feature moved to GA 3 months ago |
 | **Unique value** | Only dimension that detects LOGIC staleness (everything else checks structure or consistency) |
 
-**Effectiveness score: HIGH** — this is the dimension that addresses the vision's hardest problem (Type B staleness). Without it, artifacts can pass all structural checks while encoding obsolete guidance.
+**Effectiveness score: HIGH** — this is the dimension that addresses the vision's hardest problem (content staleness). Without it, artifacts can pass all structural checks while encoding obsolete guidance.
 
 ## Efficiency analysis
 

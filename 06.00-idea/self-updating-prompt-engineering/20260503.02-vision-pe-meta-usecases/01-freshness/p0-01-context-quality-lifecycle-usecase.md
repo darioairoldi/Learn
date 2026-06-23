@@ -93,7 +93,7 @@ The risk assessment integrates with the autonomy gradient defined in the vision:
 
 | Factor | Assessment |
 |---|---|
-| **Catches real issues** | HIGH — addresses Type B staleness and downstream context-quality degradation in one workflow |
+| **Catches real issues** | HIGH — addresses content staleness and downstream context-quality degradation in one workflow |
 | **Unique value** | Unifies source investigation, context-set reasoning, structure decisions, and verified integration |
 | **Directly prevents** | Silent stale guidance integration and optimization-only reviews that miss quality regressions |
 

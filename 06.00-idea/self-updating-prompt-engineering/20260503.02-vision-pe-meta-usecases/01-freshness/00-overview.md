@@ -40,7 +40,7 @@ Dimensions exercised by at least one use case in this folder. Empty rows for cat
 
 ## ✅ When to start here
 - Platform, model, or ecosystem updates.
-- Suspected Type B staleness.
+- Suspected content staleness.
 - Context-set refresh or source-grounded update work.
 
 ## 🔁 What gets processed on a trigger (vision v15.3)
