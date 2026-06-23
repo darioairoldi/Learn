@@ -23,7 +23,7 @@
 
 ## Behavior
 
-Analyzes VS Code/Copilot release notes (or other platform changes) to identify which PE artifacts are affected and what changes are needed. This is the primary mechanism for detecting Type B staleness (capability obsolescence).
+Analyzes VS Code/Copilot release notes (or other platform changes) to identify which PE artifacts are affected and what changes are needed. This is the primary mechanism for detecting content staleness (capability obsolescence).
 
 **Invocation examples:**
 ```
@@ -62,12 +62,12 @@ Analyzes VS Code/Copilot release notes (or other platform changes) to identify w
 
 | Factor | Assessment |
 |---|---|
-| **Catches real issues** | ✅ Primary mechanism for detecting Type B staleness — the vision's hardest problem |
+| **Catches real issues** | ✅ Primary mechanism for detecting content staleness — the vision's hardest problem |
 | **Real-world example** | Copilot Spaces moving from preview to GA while 03.05 still says "public preview" |
 | **Unique value** | Only mechanism that connects external platform changes to internal artifact impact |
 | **Directly prevents** | Artifacts encoding obsolete guidance about platform capabilities |
 
-**Effectiveness score: VERY HIGH** — addresses the vision's primary motivating concern. Without it, Type B staleness is only detected through scheduled reviews or human observation.
+**Effectiveness score: VERY HIGH** — addresses the vision's primary motivating concern. Without it, content staleness is only detected through scheduled reviews or human observation.
 
 ## Efficiency analysis
 
@@ -78,7 +78,7 @@ Analyzes VS Code/Copilot release notes (or other platform changes) to identify w
 | **Time** | 2-5 minutes per release (depends on release scope) |
 | **Recommended frequency** | After every VS Code/Copilot release (monthly); after major model provider updates |
 
-**Efficiency score: LOW-MEDIUM** — expensive but triggered infrequently (monthly). Cost is justified by the high value of early Type B staleness detection. Can be optimized by caching the change digest and reusing it across multiple artifact assessments.
+**Efficiency score: LOW-MEDIUM** — expensive but triggered infrequently (monthly). Cost is justified by the high value of early content-staleness detection. Can be optimized by caching the change digest and reusing it across multiple artifact assessments.
 
 ## Coverage model (vision v15.3)
 
