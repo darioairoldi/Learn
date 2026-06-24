@@ -114,7 +114,14 @@ gh secret set AZURE_SUBSCRIPTION_ID --repo darioairoldi/Learn --body 5ebe191f-c3
 
 ### Phase 5 — First deploy & verification (🟡 todo)
 
-- Commit and push Phase 1 artifacts to `main` (or trigger **Run workflow** manually). (🟡 todo)
+> **Note (2026-06-24):** the initial push targeted `ubuntu-latest` and failed in
+> 4s with *"account is locked due to a billing issue"* (run `28128111875`).
+> **Resolution (Option B):** the workflow was retargeted to `runs-on: self-hosted`
+> (same Windows runner as gh-pages, no billing). Bash steps converted to `pwsh`,
+> with a runner-state reset guard and the cached-Quarto install pattern.
+
+- Commit and push Phase 1 artifacts to `main` (or trigger **Run workflow** manually). (✅ done — commit `5534c7b1`)
+- Retarget workflow to self-hosted runner after GitHub-hosted billing lock. (✅ done)
 - Confirm the **Deploy Quarto Site to Azure Web App** run succeeds (login → render → deploy). (🟡 todo)
 - Verify the site loads at `https://learn-testmc-app-itn-01.azurewebsites.net`. (🟡 todo)
 - Verify `https://learn-testmc-app-itn-01.azurewebsites.net/navigation.json` returns JSON and the Related Pages widget loads. (🟡 todo)
