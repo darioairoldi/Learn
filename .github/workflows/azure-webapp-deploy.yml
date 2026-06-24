@@ -1,0 +1,87 @@
+name: Deploy Quarto Site to Azure Web App
+
+# Renders the Quarto site and deploys the static `docs/` output to the
+# Windows Azure App Service `learn-testmc-app-itn-01`.
+# Authentication is secretless via OIDC (federated credential on an Azure AD
+# app registration) — no publish profile or client secret is stored in GitHub.
+#
+# This workflow runs ALONGSIDE the existing gh-pages deployment
+# (quarto-publish.direct.yml); it does not replace it.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# OIDC: the workflow requests a short-lived federated token from GitHub.
+permissions:
+  id-token: write
+  contents: read
+
+# Never run two deploys to the same Web App at once.
+concurrency:
+  group: azure-webapp-deploy
+  cancel-in-progress: false
+
+env:
+  AZURE_WEBAPP_NAME: learn-testmc-app-itn-01
+  QUARTO_VERSION: "1.6.42"
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: ${{ env.QUARTO_VERSION }}
+
+      - name: Verify required Quarto includes
+        run: |
+          set -euo pipefail
+          # Mirror the gh-pages guard: a missing include silently breaks the
+          # theme switcher and fails every nested document.
+          for f in header-includes.html theme-light.scss theme-dark.scss styles.css; do
+            if [ ! -f "$f" ]; then
+              echo "::error::Required Quarto include missing from checkout: $f"
+              exit 1
+            fi
+          done
+          echo "✓ All required Quarto includes present"
+
+      - name: Render Quarto site
+        run: |
+          set -euo pipefail
+          rm -rf .quarto docs _freeze
+          quarto render --to html
+          test -f docs/index.html
+          if [ -f docs/navigation.json ]; then
+            echo "✓ navigation.json present in output"
+          else
+            echo "::warning::navigation.json missing from docs/ — Related Pages widget may not load"
+          fi
+          echo "Generated $(find docs -name '*.html' | wc -l) HTML files"
+
+      - name: Add IIS web.config for static hosting
+        run: cp deploy/azure/web.config docs/web.config
+
+      - name: Azure login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          package: docs
+
+      - name: Azure logout
+        if: always()
+        run: az logout || true
