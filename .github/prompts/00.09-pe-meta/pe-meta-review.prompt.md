@@ -894,7 +894,7 @@ The orchestrator MUST run this directly (using `file_search`, `grep_search`, `re
    - Count critical keywords (MUST, NEVER, CRITICAL) — decrease >20% = HIGH
    - Check tool additions to plan-mode agents = CRITICAL
    - **Version-sync (deterministic)**: for each modified agent/prompt, `grep` the frontmatter `version:` and the bottom `*_metadata.version:` — a mismatch is **HIGH** (the recurring "bottom block advanced, frontmatter stale" desync, e.g. validator frontmatter `2.2.2` while its bottom block read `2.2.3`). This is a mechanical string compare, not a judgement call, so it MUST be caught by the check rather than left to a human reviewer.
-6. **Capability-implementer coverage (deterministic)**: load the vision `scope.covers` block and `00.02-capability-map.md`. For every **P0/P1** capability, verify its implementing-artifact chain in the map is non-empty and every named artifact resolves on disk. A P0/P1 capability with an empty or broken chain is **CRITICAL** (a promised capability with no implementer). Cohorts are globbed by artifact type and thresholds read from the vision — adding a capability or renaming an artifact requires NO edit to this check.
+6. **Capability-implementer coverage (deterministic existence lint)**: load the vision `scope.covers` block and `00.02-capability-map.md`. For every **P0/P1** capability, verify a matching use-case row exists in the map and its command entry point resolves on disk. A P0/P1 capability with no row or an unresolvable command is **CRITICAL** (a promised capability with no implementer). Deeper handoff-chain resolution is covered by check 3 above, read from each prompt's `handoffs:` on demand — chains are no longer stored in the map (B0, 2026-06-25), so this check is a cheap existence lint, not a chain trace. Cohorts are globbed by artifact type and thresholds read from the vision — adding a capability or renaming an artifact requires NO edit to this check.
 7. **Regression report**:
 
 ```markdown
@@ -1090,9 +1090,8 @@ This parity ensures autonomous review improvements never lower quality, and new 
 
 <!--
 prompt_metadata:
-  filename: "pe-meta-review.prompt.md"
-  version: "3.1.0"
-  last_updated: "2026-06-22"
+  version: "3.2.1"
+  last_updated: "2026-06-25"
   changelog: "pe-meta-review.prompt.changelog.md"
 -->
 

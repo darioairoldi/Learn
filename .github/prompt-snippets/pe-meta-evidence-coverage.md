@@ -2,6 +2,26 @@
 
 > Shared coverage-depth contract for pe-meta review work. Included by the orchestrator (`pe-meta-review`) and the per-dimension validator (`pe-meta-validator`) so depth-of-evidence is enforced identically wherever dimensions are assessed. Breadth markers (`phase4-coverage`, `dims-exercised`) verify *invocation*; this contract verifies *evidence*; the independent-audit contract (below) verifies the verification was done by a **second actor**, not self-attested.
 
+## Technique module contract
+
+This snippet is the **first named technique module** of the self-updating engine — the concrete realization of the engine's **Assess** phase. Consumers (the `pe-meta-review` orchestrator, the `pe-meta-validator`, and the per-type meta prompts) include it so a review reaches the **same evidence depth regardless of which command invokes it** — depth is a property of the work, not the entry path.
+
+| Field | Value |
+|---|---|
+| **Module id** | `assess/evidence-coverage` |
+| **Engine phase** | Assess |
+| **Inputs** | in-scope artifact set; applicable-dimension set (from [05.07-pe-meta-dimension-catalog.md](../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md)); per-type sub-checks (from [05.08-pe-meta-type-checklists.md](../../.copilot/context/00.00-prompt-engineering/05.08-pe-meta-type-checklists.md)); `--mode plan\|apply` |
+| **Outputs** | the `dim_evidence[]` outcome log; first-line markers `pu-evidence=<e>/<a>`, `subcheck-coverage=<ev>/<decl>` per dimension, the graded verdict, and `shallow-sweep=<clean\|suspected>`; the hard-fail conditions defined below |
+| **Cost tier** | deterministic Layer A (zero-LLM, every PU, `Evaluation: hook:.github/hooks/scripts/pe-check-evidence-anchors.ps1`) + sampled Layer B (reasoning) |
+
+**Invocation contract.** A consumer MUST:
+
+1. `#file:`-include this snippet (`#file:.github/prompt-snippets/pe-meta-evidence-coverage.md`).
+2. Emit `pu-evidence`, `subcheck-coverage`, and `shallow-sweep` on its first-line `Resolved invocation:` log.
+3. Hand the outcome log to the **independent second actor** (`@pe-meta-validator` in Coverage Audit mode) before declaring a clean health score — the verdict is reconciled, never self-attested.
+
+> *"Technique module" is an implementation-layer label realized by this snippet. Naming the technique-module layer at the vision level and adding the entry-point depth-parity principle to the engine vision are a sequenced human-only engine-vision amendment (the PL-3/PL-4 park-lot items of the per-type depth-parity pilot plan), not part of this contract.*
+
 ## Evidence-bound coverage (the depth invariant)
 
 A **processing unit (PU)** is one `(artifact × applicable-dimension)`. A PU is **covered** only when its outcome-log entry carries a non-empty `evidence_ref` — for **both** findings and passes:

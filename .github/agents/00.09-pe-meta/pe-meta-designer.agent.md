@@ -168,9 +168,8 @@ Use one item per change with: artifact, operation, builder, layer, impact, class
 
 <!--
 agent_metadata:
+  version: "2.1.1"
+  last_updated: "2026-06-25"
   created: "2026-03-08"
-  created_by: "copilot"
-  version: "2.1.0"
-  last_updated: "2026-06-12"
   changelog: "pe-meta-designer.agent.changelog.md"
 -->

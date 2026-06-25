@@ -45,10 +45,11 @@ This prompt enforces the **Phase 0a CF-05 artifact-type/path consistency check**
 2. Load checklist from `05.08-pe-meta-type-checklists.md` → hook section
 3. Validate JSON schema syntax
 4. Verify trigger event is valid lifecycle point
-5. Run selected dimensions via `@pe-meta-validator`
+5. Run selected dimensions via `@pe-meta-validator`, recording `dim_evidence[]` (one anchored `{dim, status, evidence_ref}` per applicable dimension — passes included) per the § Assess-phase evidence coverage contract
 6. If `--deps full`: run full dependency-aware review (bounded recursion, default depth 2, scope-filtered) and verify no conflicting hooks on the same trigger
 7. If `--deps direct`: run first-level-only dependency checks (scope-filtered) and verify direct trigger conflicts
-8. Generate severity-ranked report
+8. Run the independent Coverage Audit (`@pe-meta-validator`, Coverage Audit mode) and reconcile `pu-evidence`/`subcheck-coverage`/`shallow-sweep`; apply the evidence-depth hard-fails before any clean health score
+9. Generate severity-ranked report
 
 
 ## Phase ordering and option behavior
@@ -65,19 +66,41 @@ This prompt enforces the **Phase 0a CF-05 artifact-type/path consistency check**
 
 #file:.github/prompt-snippets/pe-meta-risk-classification.md
 
-## Output contract (plan-file + spillover markers)
+## Assess-phase evidence coverage (entry-point depth parity)
 
-The report MUST open with a first-line `Resolved invocation:` log echoing the `plan-file=` and `spillover=` markers:
+A direct `/pe-meta-hook-review` call MUST reach the **same evidence depth** as the `/pe-meta-review` orchestrator — depth is a property of the work, not the entry path. This prompt therefore includes the first **technique module** (engine **Assess** phase):
 
 ```text
-Resolved invocation: --mode=<plan|apply> … | plan-file=<path-or-none> | spillover=<path-or-none>
+#file:.github/prompt-snippets/pe-meta-evidence-coverage.md
 ```
+
+**`dim_evidence[]` (MANDATORY).** For EVERY applicable dimension — **passes included** — record one `{dim, status, evidence_ref}` object with a non-empty, anchored `evidence_ref` (`path:line` + verbatim quote). A `status: pass` with an empty `evidence_ref` does NOT count as covered. Each dimension's `evidence_ref` set MUST discharge every sub-check declared for the `hook` type in [05.08-pe-meta-type-checklists.md](../../../.copilot/context/00.00-prompt-engineering/05.08-pe-meta-type-checklists.md).
+
+**Independent Coverage Audit (before any clean health score).** Hand the run's outcome log to the existing `Validate` handoff — `@pe-meta-validator` in **Coverage Audit** mode (read-only, separate context) — which independently re-derives `pu-evidence`/`subcheck-coverage`/`shallow-sweep` per the shared [evidence-bound coverage contract](../../prompt-snippets/pe-meta-evidence-coverage.md) § Independent audit. **Divergence is a hard-fail** — reconciled, NOT self-attested.
+
+**Evidence-depth hard-fail (single-file, mode-independent).** Before emitting the report:
+
+- `pu-evidence` `<evidenced> < <applicable>` → **hard failure on BOTH `--mode plan` and `--mode apply`** (an evidence-free PASS is indistinguishable from a dimension never exercised).
+- any dimension `subcheck-coverage <evaluated>/<declared> < 1` → graded `partial`, **BLOCKS a clean health score** (a declared sub-check never ran).
+- `shallow-sweep=suspected` → **BLOCKS clean** until body-level `evidence_ref` or an explicit acknowledgment is recorded.
+
+The Layer-A anchor checks (resolvability, literal-containment, distinctness) are `Evaluation: hook:.github/hooks/scripts/pe-check-evidence-anchors.ps1` — deterministic, zero-LLM, every PU.
+
+## Output contract (coverage + plan-file + spillover markers)
+
+The report MUST open with a first-line `Resolved invocation:` log echoing the `plan-file=`, `spillover=`, and the three evidence-coverage markers:
+
+```text
+Resolved invocation: --mode=<plan|apply> … | plan-file=<path-or-none> | spillover=<path-or-none> | pu-evidence=<evidenced>/<applicable> | subcheck-coverage=<fully-covered-dims>/<applicable-dims> | shallow-sweep=<clean|suspected>
+```
+
+- **`pu-evidence` / `subcheck-coverage` / `shallow-sweep`:** computed per the § Assess-phase evidence coverage contract above and reconciled with the independent Coverage Audit. Each carries the evidence-depth hard-fail described there.
 
 - **`--mode plan` (assessment-only):** emit an actionable plan file at the canonical plan-mode path per [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md) and record `plan-file=<path>`. When `--mode apply`, record `plan-file=none`.
 - **`--mode apply` overflow:** if the per-cycle change cap is hit with validated findings remaining, emit a spillover plan at `<run-folder>/<NN>-<kebab-name>-spillover.plan.md` per [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md) and record `spillover=<path>`; otherwise record `spillover=none`.
 
 <!--
 prompt_metadata:
-  version: "2.2.0"
-  last_updated: "2026-05-31"
+  version: "2.3.0"
+  last_updated: "2026-06-24"
 -->

@@ -34,6 +34,14 @@ Defines HOW to mark status on plan items and sections. Complements `plan-executi
 - Pending items SHOULD include `To do:` explanation
 - Leading heading emojis are decorative ONLY — MUST NOT use status emojis (✅, 🟡, 📌) as heading prefix; use neutral emojis (📋, 🔎, 🧭, ⚙️, 🧪)
 
+## Identifier Readability
+
+Applies to plan-local cross-reference ids (decisions, workstreams, gaps, parked items, open decisions).
+
+- MUST be self-descriptive: ordinal + kebab slug — `D1-parity-authority`, `WS-A-parameter-surface`, `G9-tier-misdelegation`, `PL-1-vision-matrix`
+- MUST NOT use a bare ordinal (`D1`, `WS-A`, `G9`, `PL-1`) as the canonical id or in references
+- Externally-defined ids (e.g. vision-canonical `P-1`…`P-4`) are exempt — they mirror their source verbatim
+
 ## Section Classification
 
 Classify BEFORE marking. Not all content is actionable.
@@ -89,6 +97,6 @@ The suffix notation defined here is the canonical format for status marking acro
 
 <!--
 instruction_metadata:
-  version: "1.3.0"
-  last_updated: "2026-06-06"
+  version: "1.4.0"
+  last_updated: "2026-06-23"
 -->

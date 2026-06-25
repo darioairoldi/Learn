@@ -1,13 +1,21 @@
 ---
 title: "pe-meta-review.prompt — change history"
 description: "Per-version change history for pe-meta-review.prompt (formerly pe-meta-update.prompt; merged at v3.0.0)."
-last_updated: "2026-06-22"
+last_updated: "2026-06-25"
 status: "living"
 ---
 
 # Change history — pe-meta-review.prompt
 
 > **Lineage note.** This artifact is the unified PE review/optimization command. At v3.0.0 the full nine-phase engine (formerly `pe-meta-update.prompt`) was relocated here and the former strategic-only `pe-meta-review` was absorbed as conditional Phase 4.5. Entries below v3.0.0 are the engine's history under its former `pe-meta-update.prompt` name.
+
+## v3.2.1 — 2026-06-25
+
+Removed the off-contract `filename:` field from the bottom `prompt_metadata` block and normalized the block to canonical `version`-first order (per [00.03-metadata-contracts.md](../../../.copilot/context/00.00-prompt-engineering/00.03-metadata-contracts.md) § Universal bottom-block fields — `version` → `last_updated` → `created` → `changelog`; no `filename`/`type`/`created_by`). Surfaced by `/pe-meta-review --scope .github/prompts/00.09-pe-meta --mode apply`: this was the only off-contract bottom block among the 30 pe-meta prompt files (29/30 were already `version`-first and clean). Metadata-block-only change — no phase, surface, or behavior change.
+
+## v3.2.0 — 2026-06-25
+
+Demoted **Phase 7b check 6 (Capability-implementer coverage)** from a chain-resolution check to a deterministic **existence lint**, following B0 capability-map de-duplication (`05-pe-processing-effectiveness-improvement.plan.md` WS-A). `00.02-capability-map.md` no longer stores agent chains (each row is *capability → command* only), so check 6 now verifies that each P0/P1 capability has a matching use-case row whose command entry point resolves on disk; deeper handoff-chain resolution stays with check 3 (read from each prompt's `handoffs:` on demand). CRITICAL severity for a missing row / unresolvable command is unchanged. No phase added, no other behavior changed.
 
 ## v3.1.0 — 2026-06-22
 

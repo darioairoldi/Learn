@@ -228,9 +228,8 @@ Run the report validation checklist from the selected template before output. Ve
 
 <!-- 
 agent_metadata:
+  version: "2.3.1"
+  last_updated: "2026-06-25"
   created: "2026-03-08"
-  created_by: "manual"
-  version: "2.3.0"
-  last_updated: "2026-06-12"
   changelog: "pe-meta-researcher.agent.changelog.md"
 -->
