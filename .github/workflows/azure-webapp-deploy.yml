@@ -1,0 +1,135 @@
+name: Deploy Quarto Site to Azure Web App
+
+# Renders the Quarto site and deploys the static `docs/` output to the
+# Windows Azure App Service `learn-testmc-app-itn-01`.
+# Authentication is secretless via OIDC (federated credential on an Azure AD
+# app registration) — no publish profile or client secret is stored in GitHub.
+#
+# This workflow runs ALONGSIDE the existing gh-pages deployment
+# (quarto-publish.direct.yml); it does not replace it.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# OIDC: the workflow requests a short-lived federated token from GitHub.
+permissions:
+  id-token: write
+  contents: read
+
+# Never run two deploys to the same Web App at once.
+concurrency:
+  group: azure-webapp-deploy
+  cancel-in-progress: false
+
+env:
+  AZURE_WEBAPP_NAME: learn-testmc-app-itn-01
+  QUARTO_VERSION: "1.6.42"
+
+jobs:
+  build-and-deploy:
+    # Runs on the same self-hosted Windows runner as the gh-pages workflow to
+    # avoid GitHub-hosted Actions minutes (account billing is disabled).
+    runs-on: self-hosted
+
+    steps:
+      - name: Reset runner state to main branch
+        shell: pwsh
+        run: |
+          # The gh-pages workflow leaves this self-hosted runner checked out on an
+          # orphan deploy branch, which corrupts a plain checkout. Reset to main first.
+          if (Test-Path ".git") {
+            Write-Host "Resetting runner state to origin/main..."
+            git fetch origin main --force
+            git checkout -B main origin/main --force
+            git clean -fdx
+            Write-Host "Runner state reset to origin/main"
+          }
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          clean: true
+
+      - name: Setup Quarto (Windows Self-Hosted)
+        shell: pwsh
+        run: |
+          # Reuse the cached install if present; otherwise install the pinned version.
+          $quartoPath = "C:\Program Files\Quarto\bin"
+          if (Test-Path "$quartoPath\quarto.exe") {
+            $existing = & "$quartoPath\quarto.exe" --version 2>$null
+            if ($existing) {
+              Write-Host "Quarto already installed: $existing"
+              echo $quartoPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+              exit 0
+            }
+          }
+          Write-Host "Quarto not found, installing ${env:QUARTO_VERSION}..."
+          $quartoUrl = "https://github.com/quarto-dev/quarto-cli/releases/download/v${env:QUARTO_VERSION}/quarto-${env:QUARTO_VERSION}-win.msi"
+          Invoke-WebRequest -Uri $quartoUrl -OutFile "quarto-installer.msi" -UseBasicParsing
+          Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "quarto-installer.msi", "/quiet", "/norestart" -Wait
+          if (Test-Path "$quartoPath\quarto.exe") {
+            echo $quartoPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+            & "$quartoPath\quarto.exe" --version
+          } else {
+            Write-Error "Quarto installation failed"
+            exit 1
+          }
+
+      - name: Verify required Quarto includes
+        shell: pwsh
+        run: |
+          # A missing include silently breaks the theme switcher and fails every
+          # nested document, so fail fast here.
+          $required = @("header-includes.html", "theme-light.scss", "theme-dark.scss", "styles.css")
+          $missing = $required | Where-Object { -not (Test-Path $_) }
+          if ($missing) {
+            Write-Error "Required Quarto include(s) missing from checkout: $($missing -join ', ')"
+            exit 1
+          }
+          Write-Host "All required Quarto includes present"
+
+      - name: Render Quarto site
+        shell: pwsh
+        run: |
+          Remove-Item -Recurse -Force .quarto -ErrorAction SilentlyContinue
+          Remove-Item -Recurse -Force docs -ErrorAction SilentlyContinue
+          Remove-Item -Recurse -Force _freeze -ErrorAction SilentlyContinue
+          quarto render --to html
+          if (-not (Test-Path "docs/index.html")) {
+            Write-Error "docs/index.html missing after render"
+            exit 1
+          }
+          if (Test-Path "docs/navigation.json") {
+            Write-Host "navigation.json present in output"
+          } else {
+            Write-Warning "navigation.json missing from docs/ — Related Pages widget may not load"
+          }
+          $count = (Get-ChildItem docs -Filter *.html -Recurse).Count
+          Write-Host "Generated $count HTML files"
+
+      - name: Add IIS web.config for static hosting
+        shell: pwsh
+        run: Copy-Item deploy/azure/web.config docs/web.config -Force
+
+      - name: Azure login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          package: docs
+
+      - name: Azure logout
+        if: always()
+        shell: pwsh
+        run: |
+          az logout 2>$null
+          exit 0
