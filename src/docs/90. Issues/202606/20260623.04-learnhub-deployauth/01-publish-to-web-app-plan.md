@@ -123,6 +123,27 @@ gh secret set AZURE_SUBSCRIPTION_ID --repo darioairoldi/Learn --body 5ebe191f-c3
 - Commit and push Phase 1 artifacts to `main` (or trigger **Run workflow** manually). (✅ done — commit `5534c7b1`)
 - Retarget workflow to self-hosted runner after GitHub-hosted billing lock. (✅ done)
 - Confirm the **Deploy Quarto Site to Azure Web App** run succeeds (login → render → deploy). (🟡 todo)
+
+> **Blocker (2026-06-24, deploy step):** render + OIDC login succeed, but the
+> deploy fails. The rendered site is **~407 MB** (`90.00-travel` alone is 308 MB
+> of full-res Paris photos). The **F1 Free tier has only a 1 GB disk quota**;
+> the 407 MB site + 341 MB zip + OneDeploy staging copies exceed it →
+> *"There is not enough space on the disk."* (500). `WEBSITE_RUN_FROM_PACKAGE=1`
+> still stages the zip on local disk, so it does not avoid the quota.
+>
+> Resolution options (decision required):
+> - **(A) Upgrade plan to B1 Basic** (10 GB, ~€12/mo). Current workflow works as-is.
+> - **(B) Stay F1 + external run-from-package**: pipeline uploads the zip to Blob
+>   Storage and sets `WEBSITE_RUN_FROM_PACKAGE=<blob URL>`; the platform mounts the
+>   341 MB zip (no 407 MB extraction). Tight but may fit 1 GB. Adds a storage
+>   account + SAS handling to the pipeline.
+> - **(C) Reduce payload**: optimize/downscale the travel images (7 MB → ~0.5 MB
+>   each) to bring the site to ~120 MB, which fits F1 even with OneDeploy. Also
+>   speeds up the existing gh-pages site. Content change.
+>
+> **Decision (2026-06-24): Option A.** Plan scaled to **B1** (10 GB), and the
+> `WEBSITE_RUN_FROM_PACKAGE` workaround removed. A manual validation deploy of the
+> rendered site then **succeeded** (homepage 200, static hosting + 404 working).
 - Verify the site loads at `https://learn-testmc-app-itn-01.azurewebsites.net`. (🟡 todo)
 - Verify `https://learn-testmc-app-itn-01.azurewebsites.net/navigation.json` returns JSON and the Related Pages widget loads. (🟡 todo)
 - Verify a non-existent path returns Quarto's `404.html`. (🟡 todo)
