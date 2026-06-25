@@ -7,6 +7,10 @@ status: "living"
 
 # Change history — pe-meta-validator.agent
 
+## v2.5.3 — 2026-06-25
+
+D5-boundaries / D6-consistency — pinned the evidence-coverage `<applicable>` denominator to the `05.07` applicability matrix. Phase 0 step 3 now **resolves the applicable-dimension SET from `05.07`** (the full type-applicable set = the `<applicable>` denominator) and loads `05.08` only for the sub-checks of those dimensions; `--dim full`/omitted = the full set and `--dim` is subtractive. Added a boundary forbidding the `05.08` enumerated subset (≈8 structural rows) from being used as the applicable-set source — a reported `<applicable>` below the `05.07` count is a **collapsed-denominator hard-fail**. Closes the wiring drift where review runs sourced the denominator from `05.08` and reported a false-clean `pu-evidence=8/8`, defeating the shallow-sweep guard. Part of plan `20260625.07-pe-meta-update/01-improve-flow/01-applicable-dimension-set-no-collapse`. Non-breaking; patch bump.
+
 ## v2.5.2 — 2026-06-25
 
 D1/D30-metadata-guard — removed the off-contract bottom-block fields `filename:` and `type:` from `agent_metadata:`. Cohort grep across all 21 `.github/agents/**/*.agent.md` files showed these two keys appear in only this file and pe-meta-builder (2-of-21 outlier), and are absent from both the `pe-agents.instructions.md` canonical schema and the repo-wide cohort norm. `filename` is redundant with the file path and `type` with the `.agent.md` extension; removal is deterministic and non-breaking. The block was also reordered to the canonical `version`-first field order (`version, last_updated, created, changelog`) per a scope-internal contract re-judgment. The `## Handoff Contract` heading was re-verified intact after the edit. Found by a `/pe-meta-review --scope .github/agents/00.09-pe-meta --mode apply` cohort-grounded metadata pass.

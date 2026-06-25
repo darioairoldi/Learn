@@ -39,7 +39,9 @@ Every `evidence_ref` MUST carry a deterministically checkable anchor: a **`path:
 
 ### `pu-evidence` marker
 
-Emit `pu-evidence=<evidenced>/<applicable>` where `<applicable>` = count of applicable PUs in scope and `<evidenced>` = count carrying a non-empty `evidence_ref`. `<evidenced> < <applicable>` is a **hard failure on BOTH `--mode plan` and `--mode apply`** — depth-of-evidence is mode-independent: a plan that asserts clean passes without proof misleads exactly as much as an apply that does.
+Emit `pu-evidence=<evidenced>/<applicable>` where `<applicable>` = the count of dimensions applicable to the artifact type **per the [05.07](../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md) applicability matrix** (the full type-applicable set — one PU per `(artifact × 05.07-applicable-dimension)`), and `<evidenced>` = count carrying a non-empty `evidence_ref`. `05.08` supplies the **sub-checks** for those applicable dimensions that declare rows; a dimension applicable per `05.07` with no `05.08` rows still requires one anchored `evidence_ref`. `<evidenced> < <applicable>` is a **hard failure on BOTH `--mode plan` and `--mode apply`** — depth-of-evidence is mode-independent: a plan that asserts clean passes without proof misleads exactly as much as an apply that does.
+
+**Collapsed-denominator hard-fail.** `<applicable>` MUST equal the `05.07` applicability-matrix count for the artifact type. A run whose reported `<applicable>` is **less than** that count has silently narrowed its applicable set — typically by sourcing the set from the `05.08` structural checklist (≈8 rows) instead of the `05.07` matrix (≈28 for prompts/agents). This is a **hard failure on BOTH `--mode plan` and `--mode apply`** regardless of how many PUs are evidenced: the false-clean signature is `pu-evidence=8/8` where the type's matrix count is ≈28. `05.08` is the sub-check source, **never** the applicable-set source.
 
 ## Sub-check completeness and the graded dimension verdict
 

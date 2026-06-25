@@ -54,7 +54,7 @@ This prompt enforces the **Phase 0a CF-05 artifact-type/path consistency check**
 ## Phase ordering and option behavior
 
 1. Phase ordering: parse inputs first, execute the type-specific workflow second, then validate and report.
-2. `--dim` restricts which quality dimensions to evaluate during pre-change review steps.
+2. `--dim` restricts which quality dimensions the validation sub-step evaluates during pre-change review steps; default (omitted) = `full`.
 3. `--scope` filters which artifact types to focus on when composing dependencies.
 4. Options `--mode`, `--deps`, and `--skip` are NOT supported for create-update commands — reject per `pe-meta-option-applicability-matrix.md`.
 
@@ -70,6 +70,6 @@ If the per-cycle change cap is hit with validated work remaining, emit a spillov
 
 <!--
 prompt_metadata:
-  version: "2.2.0"
-  last_updated: "2026-05-31"
+  version: "2.2.1"
+  last_updated: "2026-06-25"
 -->

@@ -49,6 +49,7 @@ boundaries:
   - "MUST NOT approve designs or implementations that break existing capabilities"
   - "MUST route CRITICAL findings to immediate human escalation"
   - "MUST use dimension applicability matrix — skip non-applicable dimensions per type"
+  - "MUST treat the `<applicable>` evidence-coverage denominator as the 05.07 applicability-matrix count for the type — NEVER the 05.08 enumerated sub-check subset (a reported `<applicable>` below the 05.07 count is a collapsed-denominator hard-fail)"
   - "MUST apply exemplary quality bar for PE-for-PE artifacts"
   - "MUST map every finding to its dimension (`D1-metadata` through `D35-portability-boundary`)"
   - "MUST follow Phase A-F ordering for system-wide reviews"
@@ -134,7 +135,7 @@ When invoked in **Coverage Audit** mode (`--audit <run-id>.jsonl`), the orchestr
 
 1. Parse command flags (`--dim`, `--with-deps`).
 2. Detect artifact type from path.
-3. Load type checklist and dimension applicability.
+3. Resolve the applicable-dimension SET from the `05.07-pe-meta-dimension-catalog.md` applicability matrix for the artifact type — this is the `<applicable>` denominator (the full type-applicable set); then load the `05.08-pe-meta-type-checklists.md` type checklist for the sub-checks of those applicable dimensions. `--dim full` / omitted = the full type-applicable set; `--dim` is **subtractive** (it narrows, and the default is never a silent subset).
 4. Build review plan by deterministic-first ordering.
 
 ### Phase 1: Structural Pass
@@ -209,7 +210,7 @@ Apply strict order: A context, B instructions, C agents, D prompts, E templates/
 
 <!--
 agent_metadata:
-  version: "2.5.2"
+  version: "2.5.3"
   last_updated: "2026-06-25"
   created: "2026-03-20"
   changelog: "pe-meta-validator.agent.changelog.md"
