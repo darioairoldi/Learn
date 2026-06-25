@@ -3,6 +3,7 @@ name: pe-meta-agent-design
 description: "Design a new PE-for-PE agent with tool alignment, boundary completeness, and handoff contract checks"
 agent: agent
 model: claude-opus-4.6
+domain: "prompt-engineering"
 tools: [semantic_search, read_file, file_search, grep_search, list_dir, create_file, replace_string_in_file, multi_replace_string_in_file]
 handoffs:
   - {label: "Research", agent: pe-meta-researcher, send: true}
@@ -47,7 +48,7 @@ This prompt enforces the **Phase 0a CF-05 artifact-type/path consistency check**
 3. Load checklist from `05.08-pe-meta-type-checklists.md` → agent section
 4. Define: mode, tools, handoffs with data contracts, boundaries
 5. Build via `@pe-meta-builder`
-6. **Review-parity gate** — run the full applicable review dimension set (`--dim full`, applicability-scoped per [05.07-pe-meta-dimension-catalog.md](../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md)) via `@pe-meta-validator` — identical to what `/pe-meta-agent-review` runs. The artifact is NOT done until this PASSes: fix non-breaking findings in place, escalate breaking findings.
+6. **Review-parity gate** — run the full applicable review dimension set (`--dim full`, applicability-scoped per [05.07-pe-meta-dimension-catalog.md](../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md)) via `@pe-meta-validator` — identical to what `/pe-meta-agent-review` runs. That review path includes the [assess/evidence-coverage technique module](../../prompt-snippets/pe-meta-evidence-coverage.md), so the design path inherits the same evidence depth (`pu-evidence`/`subcheck-coverage`/`shallow-sweep`) without re-inlining it. The artifact is NOT done until this PASSes: fix non-breaking findings in place, escalate breaking findings.
 
 ## Phase ordering and option behavior
 
@@ -68,6 +69,6 @@ If the per-cycle change cap is hit with validated work remaining, emit a spillov
 
 <!--
 prompt_metadata:
-  version: "2.3.0"
-  last_updated: "2026-06-22"
+  version: "2.3.2"
+  last_updated: "2026-06-25"
 -->

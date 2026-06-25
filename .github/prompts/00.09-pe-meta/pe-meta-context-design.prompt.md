@@ -53,7 +53,7 @@ This prompt enforces the **Phase 0a CF-05 artifact-type/path consistency check**
 3. Load type-specific checklist from `05.08-pe-meta-type-checklists.md` → context section
 4. Determine Functional Category placement
 5. Build via `@pe-meta-builder` with construction invariants enforced
-6. **Review-parity gate** — run the full applicable review dimension set (`--dim full`, applicability-scoped per [05.07-pe-meta-dimension-catalog.md](../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md)) via `@pe-meta-validator` (structural + strategic) — identical to what `/pe-meta-context-review` runs. The artifact is NOT done until this PASSes: fix non-breaking findings in place, escalate breaking findings.
+6. **Review-parity gate** — run the full applicable review dimension set (`--dim full`, applicability-scoped per [05.07-pe-meta-dimension-catalog.md](../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md)) via `@pe-meta-validator` (structural + strategic) — identical to what `/pe-meta-context-review` runs. That review path includes the [assess/evidence-coverage technique module](../../prompt-snippets/pe-meta-evidence-coverage.md), so the design path inherits the same evidence depth (`pu-evidence`/`subcheck-coverage`/`shallow-sweep`) without re-inlining it. The artifact is NOT done until this PASSes: fix non-breaking findings in place, escalate breaking findings.
 7. Update STRUCTURE-README with new file entry
 
 ## Construction Invariants (Context-Specific)
@@ -83,6 +83,6 @@ If the per-cycle change cap is hit with validated work remaining, emit a spillov
 
 <!--
 prompt_metadata:
-  version: "2.3.0"
-  last_updated: "2026-06-22"
+  version: "2.3.1"
+  last_updated: "2026-06-24"
 -->

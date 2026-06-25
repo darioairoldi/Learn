@@ -1,32 +1,36 @@
 # PE-meta command option applicability matrix
 
-This matrix defines the canonical option taxonomy for all PE-meta commands. Options are organized into 7 classes with deterministic applicability rules (vision v14 surface).
+This matrix defines the canonical option taxonomy for all PE-meta commands. Options are organized into 8 classes with deterministic applicability rules (vision v15.9 surface). The eighth canonical parameter is `--plan-file` (plan-artifact location/identity).
 
 ## Option classes
 
 | Class | Option | Intent | Applicability |
 |---|---|---|---|
 | Dimension | `--dim <group\|D#\|full>` | What quality dimensions to evaluate | Universal — all review/update/design/create commands |
-| Dependency | `--deps none\|direct\|full\|<N>` | How deep to follow dependency chains | Review + guidance-first + scheduled (pass-through) |
+| Dependency | `--deps none\|direct\|full\|<N>` | How deep to follow dependency chains | Review + guidance-first + scheduled (pass-through); **not** Design (a not-yet-existing artifact has no dependency closure) |
 | Scope | `--scope <type-token\|comma-paths>` | Artifact-type token OR comma-separated paths | Universal — all commands |
-| Source | `--source <id>\|<url>[,...]` | Filter monitored sources (or an ad-hoc external `--source <url>`) passed through to researcher | Update + scheduled-review only |
-| Window | `--start <date\|version>` / `--end <date\|version>` | Bounded-delta endpoints (value-shape: ISO date OR a source-version token resolved to a timestamp via the source's `version_scheme`); derives `breadth=bounded-delta` | Update only |
-| Mode | `--mode plan\|apply` | Whether to preview or execute changes | Review + guidance-first + update |
-| Skip | `--skip <stage>[,<stage>...]` | Which pipeline phases or resources to bypass | Update (all stages); type-specific review (research, external only) |
+| Source | `--source <id>\|<url>[,...]` | Filter monitored sources (or an ad-hoc external `--source <url>`) passed through to researcher | Review + Update + scheduled-review; Design (seed-corpus selection) |
+| Window | `--start <date\|version>` / `--end <date\|version>` | Bounded-delta endpoints (value-shape: ISO date OR a source-version token resolved to a timestamp via the source's `version_scheme`); derives `breadth=bounded-delta` | Review + Update; Design (seed-corpus / source-diff window) |
+| Mode | `--mode plan\|apply` | Whether to preview or execute changes | Review + guidance-first + Update + Design (`plan` = produce design plan and stop; `apply` = plan + build) |
+| Skip | `--skip <stage>[,<stage>...]` | Which pipeline phases or resources to bypass | Review + Update (all stages); Design (per-phase; Phases 0/0a/0b/8 never skippable); type-specific review (research, external only) |
+| Plan-file | `--plan-file <path>` | Plan-artifact location/identity (eighth canonical parameter); never decides regenerate-vs-trust | Review + Update + Design (each materializes a plan on every mutating run) |
 
 ## Canonical applicability matrix
+
+> **v15.9 surface.** Eight canonical parameters. The standalone **Update** command is consolidated into **Review** per vision v15.9 (`apply = plan + execute`); the Update column is retained for historical flag-mapping only — Review now carries the Update applicability. The **Design** column was reconciled to vision parity on 2026-06-24 (design-review parity plan, OD-1): design carries every parameter except `--deps` (a not-yet-existing artifact has no dependency closure to traverse). Where this diverges from a vision Creation-column `❌`, the divergence is an intentional parity resolution; the vision-text reconciliation is human-only (parked, PL-1).
 
 | Option | Review | Design | Create-update | Scheduled-review | Update | Adherence |
 |---|---|---|---|---|---|---|
 | `--dim` | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
 | `--deps` | ✅ | ❌ | ❌ | ✅ (pass-through) | ❌ | ✅ |
 | `--scope` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| `--source` | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
-| `--start`/`--end` | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
-| `--mode` | ✅ | ❌ | ❌ | ❌ | ✅ | ✅ |
-| `--skip` | ✅ (research, external) | ❌ | ❌ | ✅ (research, external) | ✅ (all stages) | ❌ |
+| `--source` | ✅ | ✅ (seed-corpus) | ❌ | ✅ | ✅ | ❌ |
+| `--start`/`--end` | ✅ | ✅ (seed-corpus window) | ❌ | ✅ | ✅ | ❌ |
+| `--mode` | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ |
+| `--skip` | ✅ (research, external) | ✅ (per-phase) | ❌ | ✅ (research, external) | ✅ (all stages) | ❌ |
+| `--plan-file` | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
 
-## Derived breadth (vision v14)
+## Derived breadth (vision v15.9)
 
 Breadth is NOT a user-supplied flag — it is **derived** by the orchestrator from caller-type and window endpoints:
 
@@ -113,7 +117,7 @@ The orchestrator routes each (artifact-type, dim-family) pair to the correspondi
 
 **Note:** `--mode plan --skip research` is the canonical assessment-only invocation (diagnose without designing or applying changes). It supersedes the former `healthcheck` preset.
 
-**Applicability (vision v15.2 § Option applicability matrix).** `--mode` is accepted by **Review ✅** (`apply` default, `--mode plan` previews), **Guidance-first / Adherence ✅** (`apply` default, `--mode plan` previews), and **Update ✅** (`apply` default, `--mode plan` previews). It is rejected by **Creation (Design + Create-update) ❌** (always writes) and **Scheduled-review ❌** (delegates execution to sub-commands). The canonical applicability matrix `--mode` row above reflects this exactly.
+**Applicability (vision v15.9 § Option applicability matrix; design row reconciled 2026-06-24 per design-review parity plan OD-1).** `--mode` is accepted by **Review ✅** (`apply` default, `--mode plan` previews), **Guidance-first / Adherence ✅** (`apply` default, `--mode plan` previews), **Update ✅** (consolidated into Review per v15.9), and **Design ✅** (`apply` = produce the design plan then build; `--mode plan` = materialize the design plan and STOP). It is rejected by **Create-update ❌** (always writes) and **Scheduled-review ❌** (delegates execution to sub-commands). This reverses the former "Creation always writes" claim for the Design leg: design now honors the plan-then-execute seam like Review. The vision Creation column still shows `--mode ❌`; that contradiction is parked for a human-only vision-text fix (PL-1). The canonical applicability matrix `--mode` row above reflects the reconciled state.
 
 ## Option detail: `--skip`
 
@@ -158,7 +162,7 @@ The canonical replacements are:
 | `--skip-content` | `--skip content` | Retained for compatibility |
 | `--incremental` | _(no canonical replacement)_ | **PRESERVED EXCLUSIVELY for trigger-fired callers**. Manual use → CF-05 (see retired-flag table below). |
 
-## Retired v13.x flags (vision v14)
+## Retired v13.x flags (vision v15.9)
 
 The parser MUST be table-driven and reject the following flags with the uniform CF-05 template:
 
@@ -269,6 +273,6 @@ Corrective action MUST include one of:
 
 <!--
 prompt_metadata:
-  version: "1.0.0"
-  last_updated: "2026-06-12"
+  version: "1.1.0"
+  last_updated: "2026-06-24"
 -->

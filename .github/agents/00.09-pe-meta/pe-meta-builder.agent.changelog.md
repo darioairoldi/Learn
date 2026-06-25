@@ -1,11 +1,15 @@
 ---
 title: "pe-meta-builder.agent — change history"
 description: "Per-version change history for pe-meta-builder.agent."
-last_updated: "2026-06-12"
+last_updated: "2026-06-25"
 status: "living"
 ---
 
 # Change history — pe-meta-builder.agent
+
+## v1.1.1 — 2026-06-25
+
+D1/D30-metadata-guard — removed the off-contract bottom-block fields `filename:` and `type:` from `agent_metadata:`. Cohort grep across all 21 `.github/agents/**/*.agent.md` files showed these two keys appear in only this file and pe-meta-validator (2-of-21 outlier), and are absent from both the `pe-agents.instructions.md` canonical schema and the repo-wide cohort norm (pe-gra siblings carry `created/created_by/version/last_updated/changelog`, never `filename`/`type`). `filename` is redundant with the file path and `type` with the `.agent.md` extension; removal is deterministic and non-breaking. The block was also reordered to the canonical `version`-first field order (`version, last_updated, created, changelog`) per a scope-internal contract re-judgment. The repo-wide `created_by:` key (which this file does not carry) was treated as off-contract for the pe-meta scope. Found by a `/pe-meta-review --scope .github/agents/00.09-pe-meta --mode apply` cohort-grounded metadata pass.
 
 ## v1.1.0 — 2026-06-12
 

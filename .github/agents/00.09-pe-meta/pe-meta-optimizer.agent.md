@@ -159,9 +159,8 @@ Hand off modified files and deltas to `meta-validator`. If validation fails, ite
 
 <!--
 agent_metadata:
+  version: "1.2.1"
+  last_updated: "2026-06-25"
   created: "2026-03-08"
-  created_by: "copilot"
-  version: "1.2.0"
-  last_updated: "2026-06-12"
   changelog: "pe-meta-optimizer.agent.changelog.md"
 -->

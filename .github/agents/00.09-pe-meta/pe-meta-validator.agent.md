@@ -209,10 +209,8 @@ Apply strict order: A context, B instructions, C agents, D prompts, E templates/
 
 <!--
 agent_metadata:
-  filename: "pe-meta-validator.agent.md"
+  version: "2.5.2"
+  last_updated: "2026-06-25"
   created: "2026-03-20"
-  type: "agent"
-  version: "2.5.1"
-  last_updated: "2026-06-12"
   changelog: "pe-meta-validator.agent.changelog.md"
 -->

@@ -210,10 +210,8 @@ After ANY rule-affecting context file change, flag affected consumers for re-ass
 
 <!--
 agent_metadata:
-  filename: "pe-meta-builder.agent.md"
+  version: "1.1.1"
+  last_updated: "2026-06-25"
   created: "2026-05-15"
-  type: "agent"
-  version: "1.1.0"
-  last_updated: "2026-06-12"
   changelog: "pe-meta-builder.agent.changelog.md"
 -->

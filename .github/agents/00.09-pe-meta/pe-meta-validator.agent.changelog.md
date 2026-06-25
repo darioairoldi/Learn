@@ -1,11 +1,15 @@
 ---
 title: "pe-meta-validator.agent — change history"
 description: "Per-version change history for pe-meta-validator.agent."
-last_updated: "2026-06-12"
+last_updated: "2026-06-25"
 status: "living"
 ---
 
 # Change history — pe-meta-validator.agent
+
+## v2.5.2 — 2026-06-25
+
+D1/D30-metadata-guard — removed the off-contract bottom-block fields `filename:` and `type:` from `agent_metadata:`. Cohort grep across all 21 `.github/agents/**/*.agent.md` files showed these two keys appear in only this file and pe-meta-builder (2-of-21 outlier), and are absent from both the `pe-agents.instructions.md` canonical schema and the repo-wide cohort norm. `filename` is redundant with the file path and `type` with the `.agent.md` extension; removal is deterministic and non-breaking. The block was also reordered to the canonical `version`-first field order (`version, last_updated, created, changelog`) per a scope-internal contract re-judgment. The `## Handoff Contract` heading was re-verified intact after the edit. Found by a `/pe-meta-review --scope .github/agents/00.09-pe-meta --mode apply` cohort-grounded metadata pass.
 
 ## v2.5.1 — 2026-06-12
 
