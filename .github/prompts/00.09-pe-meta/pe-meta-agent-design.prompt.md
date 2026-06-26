@@ -4,12 +4,12 @@ description: "Design a new PE-for-PE agent with tool alignment, boundary complet
 agent: agent
 model: claude-opus-4.6
 domain: "prompt-engineering"
-tools: [semantic_search, read_file, file_search, grep_search, list_dir, create_file, replace_string_in_file, multi_replace_string_in_file]
+tools: [semantic_search, read_file, file_search, grep_search, list_dir, create_file, multi_replace_string_in_file]
 handoffs:
   - {label: "Research", agent: pe-meta-researcher, send: true}
   - {label: "Build", agent: pe-meta-builder, send: true}
   - {label: "Validate", agent: pe-meta-validator, send: true}
-argument-hint: '<description> — e.g., "agent for batch validation orchestration"'
+argument-hint: '<description> [--dim <group|D#|full>] [--scope <type>] — e.g., "agent for batch validation orchestration"'
 goal: "Ensure a PE-for-PE agent file meets the shared quality objective and scope intent (reliability, effectiveness, efficiency) with type-applicable requirements"
 scope:
   covers: ["Shared quality objective and scope intent enforcement (applicability-scoped)", "Requirements gathering", "Tool/mode alignment verification", "Handoff contract definition", "Boundary completeness (≥5/2/3)"]
@@ -55,7 +55,7 @@ This prompt enforces the **Phase 0a CF-05 artifact-type/path consistency check**
 1. Phase ordering: parse inputs first, execute the type-specific workflow second, then validate and report.
 2. `--dim` restricts which quality dimensions to evaluate during design validation steps.
 3. `--scope` filters which artifact types to focus on when composing dependencies.
-4. Options `--mode`, `--deps`, and `--skip` are NOT supported for design commands — reject per `pe-meta-option-applicability-matrix.md`.
+4. Options `--mode`, `--deps`, and `--skip` are NOT supported for design commands — reject per [pe-meta-option-applicability-matrix.md](pe-meta-option-applicability-matrix.md).
 
 ## Output contract (spillover marker)
 
@@ -69,6 +69,6 @@ If the per-cycle change cap is hit with validated work remaining, emit a spillov
 
 <!--
 prompt_metadata:
-  version: "2.3.2"
+  version: "2.3.3"
   last_updated: "2026-06-25"
 -->
