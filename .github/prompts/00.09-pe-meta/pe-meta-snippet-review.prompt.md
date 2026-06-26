@@ -7,7 +7,7 @@ tools: [semantic_search, read_file, file_search, grep_search, list_dir, replace_
 handoffs:
   - {label: "Validate", agent: pe-meta-validator, send: true}
   - {label: "Apply complex improvements", agent: pe-con-builder, send: true}
-argument-hint: '<file-path> [--mode plan|apply] [--dim <group|D#|full>] [--deps none|direct|full|<N>] [--scope <type>] [--skip research|external]'
+argument-hint: '<file-path> [--mode plan|apply] [--dim <group|D#|full> (default: full)] [--deps none|direct|full|<N>] [--scope <type>] [--skip research|external]'
 goal: "Ensure a PE-for-PE prompt snippet meets the shared quality objective and scope intent (reliability, effectiveness, efficiency) with type-applicable requirements"
 scope:
   covers: ["Shared quality objective and scope intent enforcement (applicability-scoped)", "Dimension-scoped review", "Reusability audit (≥2 consumers)", "Naming convention check", "Self-containment verification"]
@@ -42,7 +42,7 @@ This prompt enforces the **Phase 0a CF-05 artifact-type/path consistency check**
 
 ## Process
 1. Parse `--dim`, `--deps`, `--scope`, and `--skip` flags
-2. Load checklist from `05.08-pe-meta-type-checklists.md` → snippet section
+2. Resolve the applicable-dimension SET from the `05.07-pe-meta-dimension-catalog.md` applicability matrix for the `snippet` type — this is the `<applicable>` denominator (the full type-applicable set, NOT the `05.08` enumerated subset); then load `05.08-pe-meta-type-checklists.md` → snippet section for the SUB-CHECKS of those applicable dimensions that declare rows
 3. Count consumers (grep for #file: references) — flag if <2
 4. Verify naming convention compliance
 5. Run selected dimensions via `@pe-meta-validator`, recording `dim_evidence[]` (one anchored `{dim, status, evidence_ref}` per applicable dimension — passes included) per the § Assess-phase evidence coverage contract
@@ -56,7 +56,7 @@ This prompt enforces the **Phase 0a CF-05 artifact-type/path consistency check**
 
 1. Phase ordering: parse inputs first, execute the type-specific workflow second, then validate and report.
 2. Default mode is `--mode apply` — assess and implement non-breaking improvements autonomously. Use `--mode plan` to opt into assessment-only output.
-3. `--deps` controls dependency traversal: `none` (per-artifact only), `direct` (first-level deps), `full` (bounded recursive). Default: `none`.
+3. `--dim` selects which dimension groups run; default (omitted) = `full` — the full `05.07` type-applicable set. `--dim` is **subtractive**: it may NARROW the evaluated set but the default is never a silent subset. `--deps` controls dependency traversal: `none` (per-artifact only), `direct` (first-level deps), `full` (bounded recursive). Default: `none`.
 4. `--scope` filters which dependency types to focus on during `--deps` traversal (e.g., `--scope context` focuses on context file dependencies only). When omitted, traverse all dependency types.
 5. `--skip research|external` suppresses external source fetching during review.
 6. Guidance-first behavior is handled through `/pe-meta-adherence`.
@@ -74,7 +74,7 @@ A direct `/pe-meta-snippet-review` call MUST reach the **same evidence depth** a
 #file:.github/prompt-snippets/pe-meta-evidence-coverage.md
 ```
 
-**`dim_evidence[]` (MANDATORY).** For EVERY applicable dimension — **passes included** — record one `{dim, status, evidence_ref}` object with a non-empty, anchored `evidence_ref` (`path:line` + verbatim quote). A `status: pass` with an empty `evidence_ref` does NOT count as covered. Each dimension's `evidence_ref` set MUST discharge every sub-check declared for the `snippet` type in [05.08-pe-meta-type-checklists.md](../../../.copilot/context/00.00-prompt-engineering/05.08-pe-meta-type-checklists.md).
+**`dim_evidence[]` (MANDATORY).** For EVERY applicable dimension — **passes included** — record one `{dim, status, evidence_ref}` object with a non-empty, anchored `evidence_ref` (`path:line` + verbatim quote). A `status: pass` with an empty `evidence_ref` does NOT count as covered. The SET of applicable dimensions is the `05.07` applicability-matrix set for the `snippet` type (NOT the `05.08` subset); an applicable dimension with no `05.08` rows still requires one anchored `evidence_ref`. Each dimension's `evidence_ref` set MUST discharge every sub-check declared for the `snippet` type in [05.08-pe-meta-type-checklists.md](../../../.copilot/context/00.00-prompt-engineering/05.08-pe-meta-type-checklists.md).
 
 **Independent Coverage Audit (before any clean health score).** Hand the run's outcome log to the existing `Validate` handoff — `@pe-meta-validator` in **Coverage Audit** mode (read-only, separate context) — which independently re-derives `pu-evidence`/`subcheck-coverage`/`shallow-sweep` per the shared [evidence-bound coverage contract](../../prompt-snippets/pe-meta-evidence-coverage.md) § Independent audit. **Divergence is a hard-fail** — reconciled, NOT self-attested.
 
@@ -101,6 +101,6 @@ Resolved invocation: --mode=<plan|apply> … | plan-file=<path-or-none> | spillo
 
 <!--
 prompt_metadata:
-  version: "2.3.0"
-  last_updated: "2026-06-24"
+  version: "2.4.0"
+  last_updated: "2026-06-25"
 -->
