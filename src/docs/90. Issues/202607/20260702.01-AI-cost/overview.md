@@ -1,0 +1,653 @@
+---
+title: "Issue: AI cost gathering platform across cloud providers"
+author: "Dario Airoldi"
+date: "2026-07-02"
+status: proposed
+severity: high
+domain: "finops / ai governance"
+component: "cost telemetry, allocation engine, reporting model"
+framework: "multi-cloud (Azure-first, then GCP and AWS)"
+goal: "Design and implement a platform that allocates AI costs by resource, resource group, user group, user, and request type across cloud providers."
+description: "Azure-first architecture and rollout plan for a multi-cloud AI cost platform with chargeback-ready allocations by technical and business dimensions."
+---
+
+# Issue: AI cost gathering platform across cloud providers
+
+## 📋 Table of contents
+
+1.  [🎯 What this platform must solve](#-what-this-platform-must-solve)
+2.  [🧭 Key design decisions](#-key-design-decisions)
+3.  [🏗️ Reference architecture (Azure first)](#-reference-architecture-azure-first)
+4.  [🧱 Canonical data model for allocation](#-canonical-data-model-for-allocation)
+5.  [💰 How cost split works](#-how-cost-split-works)
+6.  [🧠 Cost by model](#-cost-by-model)
+7.  [🧩 Cost by AI provider and processing type](#-cost-by-ai-provider-and-processing-type)
+8.  [🔵 Azure implementation details](#-azure-implementation-details)
+9.  [🐙 GitHub Copilot data ingestion](#-github-copilot-data-ingestion)
+10. [🗂️ Repository structure for multi-cloud data](#-repository-structure-for-multi-cloud-data)
+11. [🟢 GCP and other providers](#-gcp-and-other-providers)
+12. [📊 Reporting views you should expose](#-reporting-views-you-should-expose)
+13. [🔎 Deep dives](#-deep-dives)
+14. [🚀 Phased rollout plan](#-phased-rollout-plan)
+15. [⚠️ Risks and mitigations](#-risks-and-mitigations)
+16. [✅ Definition of done](#-definition-of-done)
+17. [📚 References](#-references)
+
+## 🎯 What this platform must solve
+
+You need a single AI cost platform that supports all providers while preserving the provider-specific detail needed for audits and optimization.
+
+Your required cost lenses are:
+
+-   <mark>By resource</mark> (for example, Azure OpenAI deployment, AI Search service, APIM instance, AKS cluster).
+-   By <mark>resource group</mark> (cloud organization and ownership boundary).
+-   By <mark>user group</mark> (business team, department, or product unit).
+-   By <mark>user</mark> (individual actor when policy permits).
+-   By <mark>request type</mark> (chat, embeddings, image generation, speech, rerank, batch, agent orchestration, and similar).
+-   By <mark>model</mark> across resource types and channels (for example the same model family consumed through Foundry, GitHub Copilot, or GitHub Copilot SDK).
+-   By <mark>AI provider</mark> across technologies and platforms (for example OpenAI, Anthropic, Microsoft, and others).
+-   By <mark>processing type</mark> (for example text, image, audio, translation, and document processing).
+-   By <mark>prompt/response type and quality</mark> (for example prompt template type, response format, malformed prompt rate, malformed response rate).
+
+The central challenge is this: cloud billing alone can split costs by infrastructure boundaries such as subscription, resource group, and resource, but it cannot natively split by user or request type. It also does not always provide a clean cross-channel model view when the same model appears through different resource types, or a consistent provider and processing-type view across platforms. User, request, model-channel, provider, processing-type, and prompt/response-quality allocation must come from application and gateway telemetry, then reconciled with billing.
+
+## 🧭 Key design decisions
+
+1.  Treat cloud billing as the source of financial truth.
+2.  Treat gateway and application telemetry as the source of usage attribution truth.
+3.  Use a canonical cross-cloud schema so Azure, GCP, and AWS records become comparable.
+4.  Normalize everything to Cost Management export totals and category splits.
+5.  Allocate shared costs with explicit, versioned allocation rules based on usage proportions inside those cost buckets.
+6.  Persist ingested raw data immediately in Bronze, then process Silver and Gold asynchronously.
+7.  Keep two outputs:
+
+-   Financial output: provider-exact totals that reconcile with invoices.
+-   Attribution output: allocated totals by user, user group, and request type.
+
+## 🏗️ Reference architecture (Azure first)
+
+``` mermaid
+flowchart LR
+    subgraph Providers
+        A1[Azure Cost Management export]
+        A2[Azure usage details]
+        G1[GCP billing export]
+        W1[AWS CUR]
+    end
+
+    subgraph Telemetry
+        T1[API Gateway logs]
+        T2[Application logs]
+        T3[Agent workflow traces]
+        T4[Identity directory groups]
+        T5[GitHub Copilot usage stream]
+        T6[M365 usage stream]
+    end
+
+    subgraph Platform
+        I1[Ingestion pipelines]
+        B1[Bronze raw landing<br/>append-only, immediate]
+        S1[Silver normalization<br/>async]
+        G1A[Gold allocation and marts<br/>async]
+        I4[Quality and reconciliation checks]
+    end
+
+    subgraph Consumption
+        C1[Power BI semantic model]
+        C2[FinOps exports]
+        C3[Budgets and alerts]
+    end
+
+    A1 --> I1
+    A2 --> I1
+    G1 --> I1
+    W1 --> I1
+    T1 --> I1
+    T2 --> I1
+    T3 --> I1
+    T4 --> I1
+    T5 --> I1
+    T6 --> I1
+
+    I1 --> B1 --> S1 --> G1A --> I4
+    G1A --> C1
+    G1A --> C2
+    G1A --> C3
+```
+
+### Bronze, silver, gold asynchronous flow
+
+This platform should use a <mark>Bronze/Silver/Gold</mark> design.
+
+-   <mark>**Bronze**</mark>: persist ingested raw data immediately, append-only, with extraction metadata (source endpoint, ingestion timestamp, batch ID, checksum).
+-   <mark>**Silver**</mark>: process asynchronously for normalization, deduplication, schema conformance, identity enrichment, taxonomy mapping, and canonical key creation.
+-   <mark>**Gold**</mark>: process asynchronously for allocation logic, reconciled business facts, and consumer marts.
+
+Operational behavior:
+
+-   <mark>Ingestion never waits</mark> for normalization or allocation completion.
+-   <mark>Silver and Gold run as independent jobs</mark> triggered by Bronze availability.
+-   <mark>Failed Silver/Gold runs are retryable</mark> without re-ingesting raw data.
+
+## 🧱 Canonical data model for allocation
+
+Use two fact tables and several conformed dimensions.
+
+Core facts:
+
+-   `fact_cloud_cost`
+
+    -   <mark>Grain</mark>: provider cost line item at daily granularity (or finer if available).
+    -   Contains: billed cost, currency, provider account/subscription/project, resource identifiers, service type, meter/SKU.
+
+-   `fact_ai_usage`
+
+    -   <mark>Grain</mark>: request or aggregated request bucket (for high volume workloads).
+    -   Contains: request ID, timestamp, model/deployment, provider, tokens or units, latency, status, request type, processing type, prompt type, response type, prompt quality flags, response quality flags, user ID, user group, application ID, environment, access channel/resource type.
+
+Allocation bridge:
+
+-   `fact_cost_allocation`
+
+    -   <mark>Grain</mark>: cost amount allocated to one allocation target.
+    -   Targets: resource, resource group, user group, user, request type.
+    -   <mark>Rule metadata</mark>: allocation rule ID, version, weighting basis, confidence score.
+    -   Financial anchor: source Cost Management export bucket ID and category key used as the normalization denominator.
+
+Dimensions:
+
+-   `dim_provider`, `dim_subscription_or_project`, `dim_resource_group`, `dim_resource`.
+-   `dim_user`, `dim_user_group`, `dim_application`, `dim_request_type`, `dim_processing_type`, `dim_prompt_type`, `dim_response_type`, `dim_access_channel`.
+-   `dim_model`, `dim_ai_provider`, `dim_region`, `dim_time`.
+
+## 💰 How cost split works
+
+Use a deterministic waterfall so every dollar is allocated once, with traceability.
+
+### Normalization contract (Cost Management export first)
+
+Cost Management export is the baseline truth. Usage data does not create cost; it only redistributes already billed cost.
+
+Normalization rule per cost bucket:
+
+$$
+allocated\_cost_{i} = actual\_cost_{bucket} \times \frac{usage\_weight_{i}}{\sum usage\_weight_{bucket}}
+$$
+
+Where a bucket is a provider-billing partition such as billing period + subscription/project + resource group/resource + meter/service category.
+
+Category identity must always hold:
+
+$$
+\sum allocated\_cost_{bucket} = actual\_cost_{bucket}
+$$
+
+Implication:
+
+- If Cost Management splits cost by categories, allocation runs independently inside each category.
+- Usage proportions are applied inside the category, never across unrelated categories.
+- If usage is missing for a category, route to an explicit unattributed bucket, not to inferred synthetic costs.
+
+1.  Direct mapping stage:
+
+-   If a billed line item maps directly to one AI resource, assign it 100 percent to that resource.
+-   If resource group is explicit, assign that dimension directly as well.
+
+2.  Shared platform stage:
+
+-   For shared components (for example APIM, shared AKS, shared networking, shared observability), allocate using weighted usage.
+-   Recommended primary weight: request count or token count by consuming workload.
+-   The allocation is constrained to each Cost Management category bucket before any cross-dimension split.
+
+3.  User and request attribution stage:
+
+-   Split each workload cost by user, user group, and request type using telemetry proportions.
+-   Example: if request type split for a workload is 70 percent chat and 30 percent embeddings, shared and direct workload cost follows the same split.
+
+4.  Reconciliation stage:
+
+-   Enforce accounting identity per provider and period:
+
+$$
+\sum allocated\_cost = \sum billed\_cost
+$$
+
+5.  Confidence stage:
+
+-   Add confidence flags for each allocation record.
+-   Low confidence appears in a dedicated data quality dashboard.
+
+## 🧠 Cost by model
+
+<mark>Model-level cost</mark> must be explicit because optimization and governance decisions are usually made at model granularity.
+
+Model-level allocation must also handle multi-channel execution. The same model family can be consumed through different resource types (for example Azure AI Foundry endpoints, GitHub Copilot, and GitHub Copilot SDK applications), so channel-aware normalization is required.
+
+Use these rules:
+
+1.  <mark>Direct model pricing available</mark>:
+
+-   If provider usage already exposes model/deployment-level billable units, map costs directly to `dim_model`.
+
+2.  <mark>Shared resource pricing</mark>:
+
+-   When billing is at resource level but multiple models share the resource, split cost by weighted model usage within that resource and period.
+-   Preferred weight order: billable units first, tokens second, request count third.
+
+3.  <mark>Blended unit-cost output</mark>:
+
+-   Publish model unit economics per period, such as cost per 1K tokens and cost per successful request.
+
+4.  <mark>Cross-resource model normalization</mark>:
+
+-   Map provider-specific model labels to one canonical model family while retaining raw model labels.
+-   Keep channel and resource type explicit in allocation records (for example `foundry`, `github-copilot`, `github-copilot-sdk`).
+-   Publish both views:
+    -   Model total across all channels.
+    -   Model by channel/resource type for operational decisions.
+
+Allocation identity for each resource-period pair:
+
+$$
+\sum_{m \in models} allocated\_cost_{resource, m} = total\_cost_{resource}
+$$
+
+Allocation identity for each model-period pair across channels:
+
+$$
+\sum_{c \in channels} allocated\_cost_{model, c} = total\_cost_{model}
+$$
+
+Minimum model dimension attributes:
+
+-   Provider model name.
+-   Internal canonical model family.
+-   Deployment/SKU identifier.
+-   Access channel/resource type.
+-   Modality (text, embedding, image, speech, multimodal).
+-   Lifecycle status (preview, GA, deprecated).
+
+## 🧩 Cost by AI provider and processing type
+
+<mark>Provider-level</mark> and <mark>processing-level</mark> views should be first-class outputs, not derived afterthoughts.
+
+Use these rules:
+
+1.  <mark>AI provider normalization</mark>:
+
+    -   Create a canonical provider dimension for model/runtime ownership (for example OpenAI, Anthropic, Microsoft).
+    -   Keep raw source provider labels and endpoint metadata for audit.
+    -   Allow one provider to appear across multiple channels and platforms.
+
+2.  <mark>Processing type normalization</mark>:
+
+    -   Classify each request into one processing type taxonomy (for example text, image, audio, translation, document).
+    -   Keep an `unknown` fallback bucket and monitor its share as a data quality KPI.
+    -   Version the taxonomy and preserve historical mappings.
+
+3.  <mark>Cross-platform allocation output</mark>:
+
+    -   Publish cost by provider across all channels and technologies.
+    -   Publish cost by processing type across all providers and channels.
+    -   Publish intersection views: provider × processing type × model × channel.
+
+4.  <mark>Reconciliation identities</mark>:
+
+    -   Provider-level identity per period:
+
+    $$
+    \sum_{p \in providers} allocated\_cost_{p} = total\_allocated\_cost
+    $$
+
+    -   Processing-type identity per period:
+
+    $$
+    \sum_{t \in processing\_types} allocated\_cost_{t} = total\_allocated\_cost
+    $$
+
+## 🧪 Cost by prompt/response type and malformed quality
+
+Prompt and response quality should be tied to cost so malformed traffic becomes an optimization target.
+
+Use these rules:
+
+1.  Prompt/response type taxonomy:
+
+    -   Classify each request with a prompt type (for example free-form chat, structured template, tool call prompt, retrieval-augmented prompt).
+    -   Classify each response with a response type (for example plain text, JSON schema output, tool-call output, multimodal output).
+    -   Version both taxonomies and keep historical mappings.
+
+2.  Malformed quality flags:
+
+    -   Capture prompt malformed indicators (for example missing required fields, invalid schema, unsupported tool arguments, unsafe truncation).
+    -   Capture response malformed indicators (for example schema parse failure, invalid JSON, incomplete tool payload, policy-blocked empty output).
+    -   Store severity and failure class for each malformed event.
+
+3.  Cost linkage:
+
+    -   Publish cost by prompt type and response type.
+    -   Publish malformed cost overhead: cost of failed and retried turns attributable to malformed prompt or malformed response patterns.
+    -   Separate preventable malformed overhead from provider-side transient errors.
+
+4.  Improvement loop:
+
+    -   Rank top malformed prompt/response patterns by total monthly cost impact.
+    -   Track remediation actions by template version and confirm post-fix cost reduction.
+
+    Quality identity per period:
+
+    $$
+    total\_cost = healthy\_cost + malformed\_overhead\_cost + other\_overhead\_cost
+    $$
+
+## 🔵 Azure implementation details
+
+For Azure as the first provider, implement these pipelines first.
+
+### Azure billing ingestion
+
+-   Enable Cost Management exports to storage at daily cadence.
+-   Ingest usage details with resource IDs, meter categories, and tags.
+-   Normalize to `fact_cloud_cost` with stable IDs for subscription, resource group, and resource.
+
+### Azure AI usage telemetry ingestion
+
+Azure usage ingestion should support multiple streams in parallel.
+
+-   Stream A (financial baseline): Azure Cost Management export and usage details.
+-   Stream B (developer AI usage): GitHub Copilot usage telemetry.
+-   Stream C (workplace AI usage): M365 usage telemetry.
+-   Stream D (runtime behavior): API gateway, application, and agent traces.
+
+Each stream lands raw in Bronze, then Silver normalizes them into canonical usage entities that can be proportionally mapped to Cost Management buckets.
+
+-   Capture AI request telemetry at gateway and app layers.
+-   Persist: request ID, caller principal, group claims snapshot (or group ID mapping), request type, model/deployment, token or unit consumption, and response metadata.
+-   Keep a privacy-safe user key strategy if direct identities cannot be stored.
+
+### Azure identity mapping
+
+-   Build `dim_user` and `dim_user_group` from your identity provider.
+-   Support slowly changing memberships so historical reports reflect membership at request time.
+
+### Example aligned with your screenshot
+
+Your Azure portal view already shows split by service/resource type and resource group. This is your stage-0 baseline.
+
+Extend that baseline with allocation layers:
+
+-   Stage 1: resource and resource group from billing exports.
+-   Stage 2: request type from usage telemetry.
+-   Stage 3: user group and user from identity-correlated telemetry.
+
+## 🐙 GitHub Copilot data ingestion
+
+Yes, this is a key part of your point. Copilot usage gives the behavioral side of AI consumption and lets you correlate usage quality with cost.
+
+Recommended ingestion strategy:
+
+1.  Source layer
+
+-   Pull organization or enterprise Copilot usage and seat metrics from the available GitHub admin surfaces.
+-   Pull related organizational metadata (team, repository, business unit mapping).
+-   If API coverage is partial for a metric, ingest dashboard exports as a temporary source with a clear `source_mode` flag.
+
+2.  Raw landing
+
+-   Store raw Copilot payloads unchanged in a `raw_github_copilot_usage` table or fileset.
+-   Keep ingestion timestamp, source endpoint, and extraction batch ID for traceability.
+
+3.  Standardization
+
+-   Map Copilot records into canonical dimensions already used by cloud cost facts: user, user group, repository, team, time, model (when available), request/interaction type (when available).
+-   Create a bridge from repository to application/product taxonomy so Copilot metrics can align with cloud cost entities.
+
+4.  Derived metrics
+
+-   Daily active users, active seats, acceptance rate, interaction volume, and model mix when present.
+-   Efficiency indicators such as accepted suggestions per active user and accepted suggestions per dollar (after joining with allocated platform cost).
+
+5.  Join with cost
+
+-   Build a conformed `fact_ai_usage` extension for Copilot interactions.
+-   Allocate shared Copilot license and platform cost by active usage proportions, then expose user-group and repo-level unit economics.
+
+Important boundary:
+
+-   Treat Copilot license/subscription spend as one cost stream and cloud runtime/API spend as another. Then combine both in reporting to avoid false precision.
+
+## 🗂️ Repository structure for multi-cloud data
+
+Use a medallion-style repo structure that is provider-agnostic and audit-friendly.
+
+``` text
+ai-cost-platform/
+    contracts/
+        schemas/
+            canonical/
+            providers/
+        taxonomy/
+            request-types/
+            model-families/
+        allocation-rules/
+    ingestion/
+        azure/
+        github-copilot/
+        gcp/
+        aws/
+    transformations/
+        bronze/
+        silver/
+        gold/
+    quality/
+        reconciliation/
+        data-tests/
+    marts/
+        finops/
+        engineering/
+        governance/
+    dashboards/
+        powerbi/
+    docs/
+        runbooks/
+        data-dictionary/
+```
+
+What each layer does:
+
+-   `contracts`: canonical schema, taxonomies, and allocation rules under version control.
+-   `ingestion`: source-specific connectors and extract jobs that persist raw records immediately.
+-   `transformations/bronze`: immutable raw landing zone.
+-   `transformations/silver`: asynchronous normalization and conformance.
+-   `transformations/gold`: asynchronous allocation outputs and curated business tables.
+-   `quality`: automated checks, reconciliation, and anomaly tests.
+-   `marts`: consumer-ready tables for dashboards and exports.
+
+Cross-provider design rule:
+
+-   Never force provider fields to disappear. Keep raw provider columns alongside canonical fields so audits and root-cause analysis remain possible.
+
+## 🟢 GCP and other providers
+
+Apply the same architecture with provider-specific connectors.
+
+-   GCP:
+
+    -   Billing export to BigQuery as billing truth.
+    -   Vertex AI or API gateway/application telemetry as attribution source.
+
+-   AWS:
+
+    -   CUR as billing truth.
+    -   Bedrock, API Gateway, and application telemetry as attribution source.
+
+Normalization rule: provider-specific fields map into canonical dimensions while preserving raw source columns for audit.
+
+## 📊 Reporting views you should expose
+
+Create curated marts and dashboards for different personas.
+
+-   FinOps dashboard:
+
+    -   Total AI cost trend.
+    -   Cost by provider, service, resource group, resource.
+    -   Cost by AI provider and processing type.
+    -   Forecast versus budget.
+
+-   Engineering dashboard:
+
+    -   Cost by application, environment, model/deployment, request type.
+    -   Cost by provider × processing type to detect workload drift.
+    -   Cost by prompt type × response type with malformed rate overlays.
+    -   Unit economics: cost per 1K tokens, cost per request, cost per successful response.
+
+-   Model governance dashboard:
+
+    -   Cost by model family and deployment.
+    -   Quality versus cost overlay per model.
+    -   Candidate downshift opportunities (high cost, comparable quality).
+
+-   Product and business dashboard:
+
+    -   Cost by user group, cost per active user, cost by business capability.
+
+-   Governance dashboard:
+
+    -   Allocation confidence.
+    -   Unattributed cost percent.
+    -   Unknown processing-type percent.
+    -   Malformed prompt percent and malformed response percent.
+    -   Reconciliation status.
+
+## 🔎 Deep dives
+
+Add a dedicated deep-dive area for investigation workflows, not just summary reporting.
+
+Use these pages:
+
+1.  Changes by request
+
+-   Trend of request count by request type and application.
+-   Delta view versus previous period (day over day and week over week).
+-   Cost impact decomposition: volume change versus unit-cost change.
+
+2.  Auto model mix
+
+-   Share of traffic by model and model family over time.
+-   Auto-routing decisions and fallback paths.
+-   Cost and quality overlay per model to highlight model drift and unnecessary premium model usage.
+
+3.  Turn failures and retries
+
+-   Failure rate by model, request type, and application.
+-   Retry rate and retry-cost overhead.
+-   Failure decomposition by error class (timeout, rate limit, content filter, provider error, client error).
+
+4.  Prompt and response quality
+
+-   Malformed prompt rate by prompt type and template version.
+-   Malformed response rate by response type and model.
+-   Cost overhead from malformed requests, retries, and fallbacks.
+
+5.  Unit economics deep dive
+
+-   Cost per request, cost per successful turn, and cost per 1K tokens by model.
+-   High-cost outliers by prompt size, response size, and latency buckets.
+-   Correlation between latency, failure rate, and effective cost.
+
+Cross-filter requirements for every deep-dive page:
+
+-   Provider, subscription/project, resource group, resource.
+-   User group, user, request type, application.
+-   Model family, model, deployment, region.
+-   Time grain: hour, day, week, month.
+
+Operational alerts sourced from deep dives:
+
+-   Sudden model-mix shift above threshold.
+-   Turn-failure spike with cost increase.
+-   Retry-cost overhead above budgeted percentage.
+
+## 🚀 Phased rollout plan
+
+1.  Foundation (2 to 4 weeks)
+
+-   Build Azure billing ingestion.
+-   Build minimal telemetry contract for AI requests.
+-   Publish stage-0 dashboards (resource and resource group only).
+
+2.  Attribution (3 to 6 weeks)
+
+-   Add request type taxonomy and mapping.
+-   Add user and user group joins.
+-   Implement allocation engine with rule versioning.
+
+3.  Governance (2 to 4 weeks)
+
+-   Add reconciliation jobs.
+-   Add data quality checks and confidence scoring.
+-   Add budget and anomaly alerts.
+
+4.  Multi-cloud expansion (4 to 8 weeks)
+
+-   Add GCP connector and normalization.
+-   Add AWS connector and normalization.
+-   Keep one canonical semantic model for cross-cloud reporting.
+
+## ⚠️ Risks and mitigations
+
+-   Missing user identity in telemetry.
+
+    -   Mitigation: enforce request telemetry contract at gateway level and reject non-compliant traffic in non-production first.
+
+-   Incomplete request type taxonomy.
+
+    -   Mitigation: maintain versioned taxonomy and default fallback type `unknown` with monitoring target less than 2 percent.
+
+-   Shared cost distortion.
+
+    -   Mitigation: publish allocation rule lineage and let finance approve rule sets.
+
+-   Privacy constraints.
+
+    -   Mitigation: support pseudonymous user IDs and row-level security for user-level dashboards.
+
+## ✅ Definition of done
+
+-   100 percent of Azure AI-related billed cost reconciles to allocated output for each closed month.
+-   Less than 2 percent unattributed usage volume after 2 full cycles.
+-   Cost reporting available by resource, resource group, user group, user, and request type.
+-   Cost reporting available by model and model family.
+-   Cost reporting available by AI provider and processing type across channels and platforms.
+-   Cost reporting available by prompt type, response type, and malformed quality overhead.
+-   Rule-versioned reprocessing supported for historical months.
+-   Multi-cloud schema validated with at least one non-Azure provider.
+
+## 📚 References
+
+[**Azure Cost Management documentation**](https://learn.microsoft.com/azure/cost-management-billing/cost-management-billing-overview) 📘 \[Official\]\
+Description (2-4 sentences): This documentation explains Cost Management concepts, exports, and analysis workflows in Azure. It is the canonical source for billing data extraction and governance setup. Use it to configure daily exports and understand reconciliation boundaries.
+
+[**Understand usage details fields for Azure billing**](https://learn.microsoft.com/azure/cost-management-billing/automate/understand-usage-details-fields) 📘 \[Official\]\
+Description (2-4 sentences): This reference describes billing line-item fields and their semantics. It is critical for building durable normalization logic and avoiding ambiguous joins. Use it when defining your canonical `fact_cloud_cost` mapping.
+
+[**Google Cloud billing export to BigQuery**](https://cloud.google.com/billing/docs/how-to/export-data-bigquery) 📘 \[Official\]\
+Description (2-4 sentences): This guide defines the standard export path for GCP billing data. It enables parity with Azure ingestion by exposing detailed billing records in queryable form. Use it when adding GCP into the same canonical model.
+
+[**AWS Cost and Usage Reports**](https://docs.aws.amazon.com/cur/latest/userguide/what-is-cur.html) 📘 \[Official\]\
+Description (2-4 sentences): This documentation covers AWS CUR generation and schema behavior. CUR is the authoritative billing input for AWS in a multi-cloud FinOps design. Use it to build normalized ingestion and invoice reconciliation.
+
+```{=html}
+<!--
+validations:
+    grammar: {status: "not_run", last_run: null}
+    readability: {status: "not_run", last_run: null}
+    links: {status: "not_run", last_run: null}
+    structure: {status: "not_run", last_run: null}
+
+article_metadata:
+    filename: "overview.md"
+    last_updated: "2026-07-02"
+    update_summary: "Initial Azure-first multi-cloud AI cost platform design with canonical model, allocation logic, rollout plan, and references."
+-->
+```
