@@ -1,4 +1,3 @@
-
 ---
 title: "What is a TLD, and why .dev.localhost for local development"
 author: "Dario Airoldi"
