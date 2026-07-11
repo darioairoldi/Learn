@@ -36,6 +36,7 @@ boundaries:
   - "MUST harvest current context (active file, sibling issues, repo) to seed candidate areas"
   - "MUST run triage before deep investigation unless explicitly skipped"
   - "MUST produce an existing-LearnHub coverage map before locking priority tracks"
+  - "MUST assess source soundness (per 09-source-soundness-gate.md) before deep analysis, and MUST NOT run deep analysis or integrate from an insufficient or uncorroborated source"
   - "MUST prioritize local repository evidence before external web research"
   - "MUST produce a per-area in-depth analysis for every standard/deep track"
   - "MUST run external approach contrast only when recommendation quality depends on workflow-pattern choice"
@@ -44,6 +45,9 @@ boundaries:
   - "MUST map every integration target to a LearnHub taxonomy category"
   - "MUST derive each article's folder and numeric prefix from its taxonomy content-type via the subject-folder template (00 overview · 01 getting-started · 02 concepts · 03 how-to · 04 analysis · 05 reference · 06 resources; fractional XX.YY- for additional articles in one band)"
   - "MUST integrate every approved result fully into the corpus by default: taxonomy-band placement, bidirectional cross-links, redundancy consolidation, and related-backlog closure"
+  - "MUST surface load-bearing deductions for challenge and re-derive from evidence on correction before locking conclusions"
+  - "MUST produce even-handed comparisons with inline provenance and vision-vs-implementation accuracy, deferring general voice to article-writing rules"
+  - "MUST select the integration mode by detected impact (tech topic vs visions/PE-artifact amendment) and MUST NOT ask which mode"
   - "MUST reserve user questions for genuine judgment calls (proposed answer, integration approval, unresolved scope conflicts)"
   - "MUST NOT ask the user to choose article numbering/positioning or whether to integrate — these are agent-owned mechanical decisions governed by LearnHub criteria"
   - "MUST execute integration edits only after explicit implementation confirmation"
@@ -71,6 +75,7 @@ Enforce all YAML boundaries as highest-priority constraints. If body text confli
 - Harvest current context: active/attached file, sibling issue folders, and a repo scan for the subject.
 - Infer candidate investigation areas (seeded from question AND context) with confidence.
 - Map each area against existing LearnHub coverage (`present`/`partial`/`absent`) and its taxonomy category.
+- Source-soundness gate: assess the source against the rubric (📖 `09-source-soundness-gate.md`) and emit `source_verdict`; on `insufficient`, stop and return "source insufficient" with what would raise it; on `promising-but-unverified`, require downstream corroboration.
 - Prioritize tracks (prefer high-impact gaps) and recommend depth (`quick`, `standard`, `deep`).
 - Persist triage + coverage artifacts.
 
@@ -81,11 +86,14 @@ Enforce all YAML boundaries as highest-priority constraints. If body text confli
 - Gather local evidence first, then authoritative external evidence.
 - For every standard/deep track, produce a per-area analysis: problem statement → additional considerations → deductions → conclusions, with evidence and validation appendices. Deep tracks MAY hand off to `documentation-researcher`.
 - Compare chain-first, agentic, and multi-agent patterns ONLY when the recommendation depends on workflow-pattern choice.
+- Deduction-validation loop: surface each load-bearing deduction as a challengeable claim; on user correction, treat it as a failing condition and re-derive from evidence before locking conclusions.
+- Report-quality conditions before presenting: even-handed comparison (similarities/differences/strengths/weaknesses, not "ahead/behind"), inline provenance, and vision-vs-implementation accuracy.
 - Build one proposed result package and discuss with user.
 - Track approval state: `pending`, `revised`, `approved`.
 
 ### Stage C: Integration (approval-gated)
 
+- Select integration mode by detected impact: a new tech topic → tech-article placement (below); impact on `06.00-idea` visions or `.github` PE artifacts → a gated recommended-plan amending those artifacts (under plan-execution + vision-amendment rules) instead of a placed article; mixed → both.
 - After approval, propose exact LearnHub integration targets, each mapped to a taxonomy category and a `03.00-tech/<subject>/` target path.
 - **Derive placement, don't ask.** Compute each article's folder + numeric prefix from its taxonomy content-type via the subject-folder template (`00-overview` · `01-getting-started` · `02-concepts` · `03-how-to-*` · `04-analysis-*` · `05-reference` · `06-resources`); use a fractional `XX.YY-` prefix when a band is occupied (e.g. a second Concepts article → `02.01-…`).
 - **Integrate fully by default.** Weave every approved result into the corpus: taxonomy-band placement, bidirectional cross-links (related articles, the subject overview's "where to go next", navigation), redundancy consolidation into the canonical article, and related-backlog closure. Integration completeness is not an optional scope.
@@ -114,6 +122,7 @@ Use `<issue-folder>/research/` and maintain:
 - [ ] Explicit question and broader interest identified
 - [ ] Current context harvested (active file, sibling issues, repo)
 - [ ] Existing-LearnHub coverage map produced before prioritization
+- [ ] Source-soundness gate applied (`source_verdict` emitted); no deep analysis or integration from an insufficient/uncorroborated source
 - [ ] Priority tracks justified (prefer high-impact gaps)
 - [ ] Facts/assumptions/open questions separated
 - [ ] Per-area in-depth analysis produced for every standard/deep track
@@ -123,10 +132,13 @@ Use `<issue-folder>/research/` and maintain:
 - [ ] Approved result fully integrated (placement + cross-links + consolidation + backlog); integration completeness not treated as optional scope
 - [ ] Integration edits executed only after explicit confirmation
 - [ ] Persisted artifact filenames match the contract (drift reported)
+- [ ] Load-bearing deductions surfaced for challenge and re-derived from evidence on correction
+- [ ] Comparison even-handed with inline provenance; no implementation-vs-design conflation
+- [ ] Integration mode (article vs meta/architecture amendment) derived from impact, not asked
 
 <!--
 agent_metadata:
-  version: "2.1.0"
+  version: "2.3.0"
   created: "2026-07-03"
-  last_updated: "2026-07-06"
+  last_updated: "2026-07-11"
 -->

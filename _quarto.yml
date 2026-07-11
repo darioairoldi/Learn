@@ -9,6 +9,13 @@ project:
     - "scripts/readme.md"
     - "scripts/fix-broken-links/readme.md"
     - "src/IQPilot/readme.md"
+    - "01.00-news/20260710.01-loop-engineering/overview.md"
+    - "01.00-news/20260710.01-loop-engineering/01-recommended-plan.md"
+    - "01.00-news/20260710.01-loop-engineering/02-improve-lh-investigate-plan.md"
+    - "01.00-news/20260710.01-loop-engineering/03-add-source-soundness-gate-plan.md"
+    - "01.00-news/20260710.01-loop-engineering/04-scope-trigger-implementation-and-coherence.md"
+    - "01.00-news/20260710.01-loop-engineering/05-an1-vision-analysis-and-amendment-list.md"
+    - "01.00-news/20260710.01-loop-engineering/06-an2-pe-artifacts-analysis-ranked-candidates.md"
     - "01.00-news/20251224-vscode-v1.107-release/01-summary.md"
     - "01.00-news/20251224-vscode-v1.107-release/02-readme.sonnet4.md"
     - "01.00-news/20260111-6-vital-rules-for-production-ready-copilot-agents/summary.md"
@@ -124,6 +131,16 @@ project:
     - "03.00-tech/04.01-programming-languages/20250827-what-is-yq-overview/appendix-advanced-techniques.md"
     - "03.00-tech/04.01-programming-languages/20250827-what-is-yq-overview/appendix-yq-tool.md"
     - "03.00-tech/04.01-programming-languages/lang01-csharp/01-format-strings-datetime,-datetimeoffset-and-timespan.md"
+    - "03.00-tech/04.05-web-development/01.00-blazor/00-overview.md"
+    - "03.00-tech/04.05-web-development/01.00-blazor/02-concepts-hosting-models-and-render-modes.md"
+    - "03.00-tech/04.05-web-development/01.00-blazor/02.01-concepts-blazor-with-aspire.md"
+    - "03.00-tech/04.05-web-development/01.00-blazor/03-howto-migrate-hosted-wasm-to-blazor-web-app.md"
+    - "03.00-tech/04.05-web-development/01.00-blazor/04-analysis-architecture-decision.md"
+    - "03.00-tech/04.05-web-development/01.00-blazor/05-reference-templates.md"
+    - "03.00-tech/04.05-web-development/01.00-blazor/06-resources.md"
+    - "03.00-tech/04.05-web-development/10.00-local-development-dns/00-overview.md"
+    - "03.00-tech/04.05-web-development/10.00-local-development-dns/02-concepts-localhost-tld-and-hostname-ordering.md"
+    - "03.00-tech/04.05-web-development/10.00-local-development-dns/03-howto-route-dev-localhost-with-yarp-and-wildcard-cert.md"
     - "03.00-tech/05.01-github/01.01-cli/20250118-github-cli/cli-commands-for-github.md"
     - "03.00-tech/05.01-github/01.01-cli/20250709-manage-gitrepo-from-commandline/readme.md"
     - "03.00-tech/05.01-github/01-repositories/20250825-github-repositories-limitations/readme.md"
@@ -283,6 +300,8 @@ website:
       - text: "News"
         menu:
           - text: "Latest Updates"
+          - href: "01.00-news/20260710.01-loop-engineering/overview.md"
+            text: "20260710 - Loop Engineering & the Learning Hub"
           - href: "01.00-news/20260214.4-burke-holland-mcp-apps/summary.md"
             text: "20260214 - MCP Apps: Building Rich UIs in AI Chat"
           - href: "01.00-news/20260214.3-burke-holland-orchestrations/summary.md"
@@ -426,6 +445,23 @@ website:
         contents:
           # Explicit list for newest-first ordering (per context rules)
           # When adding new articles: INSERT AT TOP of this list
+          - section: "20260710 - Loop Engineering & the Learning Hub"
+            href: "01.00-news/20260710.01-loop-engineering/overview.md"
+            contents:
+              - text: "Overview"
+                href: "01.00-news/20260710.01-loop-engineering/overview.md"
+              - text: "Recommended Plan"
+                href: "01.00-news/20260710.01-loop-engineering/01-recommended-plan.md"
+              - text: "Improve lh-investigate Workflow"
+                href: "01.00-news/20260710.01-loop-engineering/02-improve-lh-investigate-plan.md"
+              - text: "Add Source-Soundness Gate"
+                href: "01.00-news/20260710.01-loop-engineering/03-add-source-soundness-gate-plan.md"
+              - text: "Scope: Trigger Implementation & Coherence"
+                href: "01.00-news/20260710.01-loop-engineering/04-scope-trigger-implementation-and-coherence.md"
+              - text: "AN1: Vision Analysis & Amendments"
+                href: "01.00-news/20260710.01-loop-engineering/05-an1-vision-analysis-and-amendment-list.md"
+              - text: "AN2: PE Artifacts Ranked Candidates"
+                href: "01.00-news/20260710.01-loop-engineering/06-an2-pe-artifacts-analysis-ranked-candidates.md"
           - text: "20260214 - MCP Apps: Building Rich UIs in AI Chat"
             href: "01.00-news/20260214.4-burke-holland-mcp-apps/summary.md"
           - text: "20260214 - Understand Agent Orchestration"
@@ -485,6 +521,15 @@ website:
           - section: "Programming Languages"
             icon: code-slash
             contents: "03.00-tech/04.01-programming-languages/**/*.md"
+          - section: "Web Development"
+            icon: window
+            contents:
+              - section: "Blazor"
+                icon: bootstrap
+                contents: "03.00-tech/04.05-web-development/01.00-blazor/*.md"
+              - section: "Local Development DNS"
+                icon: hdd-network
+                contents: "03.00-tech/04.05-web-development/10.00-local-development-dns/*.md"
           - section: "GitHub"
             icon: github
             contents: "03.00-tech/05.01-github/**/*.md"

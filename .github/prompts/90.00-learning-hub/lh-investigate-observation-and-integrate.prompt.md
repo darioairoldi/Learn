@@ -47,6 +47,10 @@ Run one complete flow from user question to approval-gated integration proposal.
 9. Propose integration only after explicit approval, mapping each target to a taxonomy category.
 10. Derive each article's folder and numeric prefix from its taxonomy content-type via the subject-folder template (00 overview · 01 getting-started · 02 concepts · 03 how-to · 04 analysis · 05 reference · 06 resources; fractional `XX.YY-` for additional articles in one band).
 11. Integrate every approved result fully into the corpus (taxonomy-band placement, bidirectional cross-links, redundancy consolidation, related-backlog closure).
+12. Surface load-bearing deductions for challenge and re-derive from evidence on correction before locking conclusions.
+13. Produce even-handed comparisons (similarities/differences/strengths/weaknesses) with inline provenance and vision-vs-implementation accuracy; general voice per `article-writing.instructions.md`.
+14. Select the integration mode by detected impact — tech topic → article; visions or PE-artifact impact → a gated amendment plan — never asking which mode.
+15. Assess source soundness before deep analysis (📖 `09-source-soundness-gate.md`) and emit `source_verdict`.
 
 ### Never do
 
@@ -55,19 +59,23 @@ Run one complete flow from user question to approval-gated integration proposal.
 - Never integrate before approval.
 - Never edit top YAML metadata of existing articles during investigation updates.
 - Never ask the user to choose article numbering/positioning or whether to integrate — these are agent-owned decisions governed by LearnHub criteria.
+- Never lock a challenged deduction without re-deriving it from evidence.
+- Never frame comparisons as competitive ("ahead/behind") or label an implementation-maturity gap as a design gap.
+- Never run deep analysis or integrate from an `insufficient` source, or integrate from an uncorroborated `promising-but-unverified` source.
 
 ## Execution steps
 
 1. Intake + context harvest.
 2. Fast triage (seed areas from question AND context).
 3. Existing-LearnHub coverage map (internal grounding + taxonomy).
-4. Prioritize tracks and depth.
-5. Focused investigation (local-first, then external).
-6. Per-area in-depth analysis (problem → conclusions + appendices).
-7. External pattern contrast (conditional).
-8. Proposed result package.
-9. Approval state (`pending`/`revised`/`approved`).
-10. Post-approval, taxonomy-bound integration proposal.
+4. Source-soundness gate (📖 `09-source-soundness-gate.md`) — emit `source_verdict`; stop on `insufficient`.
+5. Prioritize tracks and depth.
+6. Focused investigation (local-first, then external).
+7. Per-area in-depth analysis (problem → conclusions + appendices).
+8. External pattern contrast (conditional).
+9. Proposed result package.
+10. Approval state (`pending`/`revised`/`approved`).
+11. Post-approval integration proposal — tech-article placement or a gated meta/architecture amendment plan, by detected impact.
 
 ## Artifact contract
 
@@ -91,17 +99,18 @@ Return:
 1. `triage_verdict`
 2. `context_signals`
 3. `coverage_map`
-4. `priority_tracks`
-5. `area_analyses`
-6. `selected_workflow_pattern` (or `not_applicable`)
-7. `proposed_result_package`
-8. `approval_state`
-9. `integration_proposal` with `taxonomy_mapping` (only if approved)
-10. `artifacts_written`
+4. `source_verdict`
+5. `priority_tracks`
+6. `area_analyses`
+7. `selected_workflow_pattern` (or `not_applicable`)
+8. `proposed_result_package`
+9. `approval_state`
+10. `integration_proposal` (only if approved) — `taxonomy_mapping` in article mode, or an `amendment_plan` reference in meta/architecture mode
+11. `artifacts_written`
 
 <!--
 prompt_metadata:
-  version: "2.0.1"
+  version: "2.2.0"
   created: "2026-07-03"
-  last_updated: "2026-07-06"
+  last_updated: "2026-07-11"
 -->

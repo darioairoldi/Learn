@@ -12,6 +12,8 @@ scope:
     - "Proposed-result package for user discussion"
     - "Approval gate before integration"
     - "Taxonomy-bound post-approval LearnHub integration proposal"
+    - "Integration modes (tech-article vs meta/architecture amendment), a deduction-validation loop, and report-quality conditions"
+    - "Source-soundness gate (six dimensions and a gating verdict) run before deep analysis and enforced as an integration precondition"
     - "Issue-folder artifact contracts"
   excludes:
     - "Article writing style mechanics"
@@ -91,6 +93,10 @@ Before locking priorities, map each candidate area against current LearnHub cont
 
 **📖 Taxonomy:** `06.00-idea/learning-hub/02-documentation-taxonomy/01-learning-hub-documentation-taxonomy.md`
 
+### Step 3.5: Source-soundness gate
+
+Before investing in deep analysis, assess the source itself against the rubric (📖 `09-source-soundness-gate.md`) and emit `source_verdict`: `sound` → proceed; `promising-but-unverified` → proceed only with mandatory external corroboration and explicit caveats; `insufficient` (ambiguous, contradictory, thin, or low-value) → STOP, return "source insufficient" with what would raise it. Re-asserted as a hard precondition at Steps 9–10.
+
 ### Step 4: Prioritize tracks and depth
 
 Select tracks using triage scores and coverage gaps (prefer high-impact `absent`/`partial` areas). Recommend depth per track: `quick` | `standard` | `deep`.
@@ -116,6 +122,8 @@ For every `standard` and `deep` track, produce one structured analysis containin
 
 `quick` tracks may collapse to a short conclusion note. Deep tracks MAY be delegated to `documentation-researcher`.
 
+**Deduction-validation loop.** Surface each load-bearing deduction as a challengeable claim. On a user correction, treat it as a failing condition — re-derive from evidence and re-check before locking conclusions.
+
 ### Step 7: External pattern contrast (conditional)
 
 Only when the recommendation depends on workflow-pattern choice, compare chain-first retrieval, agentic retrieval, and multi-agent orchestration (strengths, weaknesses, expected UX, fit) and select `selected_workflow_pattern`. Otherwise record `not_applicable` with a one-line reason.
@@ -132,6 +140,8 @@ Produce a discussion-ready package:
 - confidence and assumptions
 - open decisions for user
 
+**Report-quality conditions** (all MUST hold before the package is presentable): even-handed comparison (similarities / differences / strengths / weaknesses — never competitive "ahead/behind"); inline provenance (a source callout plus claim-to-source links); vision-vs-implementation accuracy (never label an implementation-maturity gap as a design gap). General writing voice follows `article-writing.instructions.md`.
+
 ### Step 9: Approval gate
 
 Use explicit states:
@@ -142,9 +152,13 @@ Use explicit states:
 
 Integration proposal is forbidden before `approved`.
 
-### Step 10: Post-approval integration proposal (taxonomy-bound)
+**Source-soundness precondition.** Integration is additionally forbidden unless `source_verdict` is `sound`, or a `promising-but-unverified` source has since been corroborated — regardless of how polished the proposal looks.
 
-After approval, propose a LearnHub integration plan that maps every approved conclusion to:
+### Step 10: Post-approval integration proposal
+
+**Two derived integration modes (detected, not asked).** (a) **Tech-article integration** — taxonomy-bound placement, detailed below. (b) **Meta/architecture amendment** — when the observation changes visions or PE artifacts rather than reader-facing tech content, the deliverable is a gated recommended-plan that amends the affected artifacts under the `plan-execution` and `vision-amendment` rules, not a placed article. Detect by impact: new tech topic → (a); impact on `06.00-idea` visions or `.github` PE artifacts → (b); mixed → both.
+
+For mode (a), after approval, propose a LearnHub integration plan that maps every approved conclusion to:
 
 - a taxonomy category (Overview / Getting Started / Concepts / How-to / Analysis / Reference / Resources)
 - a concrete target path (prefer a `03.00-tech/<subject>/` subject folder)
@@ -180,13 +194,14 @@ Every run must return:
 1. `triage_verdict`
 2. `context_signals`
 3. `coverage_map`
-4. `priority_tracks`
-5. `area_analyses`
-6. `selected_workflow_pattern` (or `not_applicable`)
-7. `proposed_result_package`
-8. `approval_state`
-9. `integration_proposal` with `taxonomy_mapping` (only if approved)
-10. `artifacts_written`
+4. `source_verdict`
+5. `priority_tracks`
+6. `area_analyses`
+7. `selected_workflow_pattern` (or `not_applicable`)
+8. `proposed_result_package`
+9. `approval_state`
+10. `integration_proposal` (only if approved) — `taxonomy_mapping` in article mode, or a gated `amendment_plan` reference in meta/architecture mode
+11. `artifacts_written`
 
 ## References
 
@@ -198,13 +213,15 @@ Every run must return:
 
 ## Version history
 
+- **v2.3.0** (2026-07-11): Added a source-soundness gate (Step 3.5 + `09-source-soundness-gate.md`) with a gating verdict, and a hard integration precondition barring unsound or uncorroborated sources.
+- **v2.2.0** (2026-07-11): Added a deduction-validation loop (Step 6), report-quality conditions (Step 8: even-handed comparison, inline provenance, vision-vs-implementation accuracy), and two derived integration modes (Step 10: tech-article vs meta/architecture amendment plan).
 - **v2.1.0** (2026-07-06): Made article placement (folder + numeric prefix) a derived, agent-owned decision via the subject-folder template; made full corpus integration the default; barred mechanical numbering/integration-scope questions to the user.
 - **v2.0.0** (2026-07-06): Added context harvest, internal coverage map, per-area in-depth analysis, taxonomy-bound integration, and artifact self-validation. Renumbered artifact contract; external pattern contrast made conditional.
 - **v1.0.0** (2026-07-03): Initial single-entry workflow contract.
 
 <!--
 context_metadata:
-  version: "2.1.0"
+  version: "2.3.0"
   created: "2026-07-03"
-  last_updated: "2026-07-06"
+  last_updated: "2026-07-11"
 -->
