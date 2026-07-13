@@ -8,7 +8,7 @@ A concise guide to **Microsoft Fabric's** analytical data stores — the **Lakeh
 
 **Series scope:**
 
-- ✅ **Covered:** the shared OneLake + Delta foundation, the Lakehouse-vs-Warehouse decision, and the mapping from legacy Microsoft products to their Fabric successors
+- ✅ **Covered:** the shared OneLake + Delta foundation, the Lakehouse-vs-Warehouse decision, and the mapping from familiar Microsoft products to their Fabric counterparts
 - ❌ **Not covered:** step-by-step provisioning, T-SQL surface-area reference, and Real-Time Intelligence (Eventhouse/KQL) — see the [official Fabric documentation](https://learn.microsoft.com/en-us/fabric/)
 
 **Source:** [Microsoft Fabric documentation](https://learn.microsoft.com/en-us/fabric/) 📘 [Official] · **Last updated:** July 13, 2026
@@ -22,6 +22,9 @@ A concise guide to **Microsoft Fabric's** analytical data stores — the **Lakeh
 **1. [Introduction to Microsoft Fabric data stores](01.01-introduction-to-microsoft-fabric-data-stores.md)**  
 What Fabric is, the OneLake + open Delta foundation, and the data-store items that sit on top of it.
 
+**Appendix. [Open Delta and ADLS Gen2 under the hood](01.02-appendix-open-delta-and-adls-gen2-under-the-hood.md)**  
+Deep dive: how OneLake maps onto ADLS Gen2, how the Delta format is laid out on disk, and how to read the data from outside Fabric.
+
 ---
 
 ### 02 — Concepts
@@ -33,7 +36,7 @@ The core distinction: personas, languages, transactions, SQL surface, and the co
 
 ### 04 — Analysis
 
-**3. [Mapping Fabric to legacy Microsoft data products](04.01-mapping-fabric-to-legacy-data-products.md)**  
+**3. [Mapping Fabric to familiar Microsoft data products](04.01-mapping-fabric-to-legacy-data-products.md)**  
 How Fabric's stores map onto Synapse Dedicated SQL Pool, Azure Data Lake, Analysis Services, and Azure SQL Database — as orientation aids, with the caveats that keep them honest.
 
 ---
