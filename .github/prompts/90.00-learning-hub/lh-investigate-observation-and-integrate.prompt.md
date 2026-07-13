@@ -1,6 +1,6 @@
 ---
 name: lh-investigate-observation-and-integrate
-description: "Single-entry workflow: investigate a user question, propose results, discuss/approve, then propose LearnHub integration"
+description: "Single-entry workflow: investigate a user question, present results, then integrate into LearnHub (autonomous for clear gaps, gated for meta/architecture amendments)"
 agent: agent
 model: claude-opus-4.6
 domain: "learning-hub"
@@ -20,7 +20,7 @@ argument-hint: 'question="your observation/question" source="optional path to ov
 
 # LH investigate observation and integrate
 
-Run one complete flow from user question to approval-gated integration proposal.
+Run one complete flow from user question to integrated LearnHub outcome (autonomous for clear gaps; gated for meta/architecture amendments).
 
 **📖 Workflow authority:** `.copilot/context/90.00-learning-hub/08-observation-to-integration-workflow.md`
 
@@ -28,9 +28,9 @@ Run one complete flow from user question to approval-gated integration proposal.
 
 1. Accept one user question as input.
 2. Run triage + focused investigation.
-3. Propose a decision-ready result package.
-4. Discuss and capture approval state.
-5. Propose LearnHub integration only after approval.
+3. Produce a decision-ready result package.
+4. Integrate clear coverage gaps into LearnHub autonomously (additive tech content).
+5. Gate only genuine judgment calls — meta/architecture amendments, overwrites, and scope conflicts.
 
 ## Boundaries
 
@@ -43,21 +43,28 @@ Run one complete flow from user question to approval-gated integration proposal.
 5. Produce a per-area in-depth analysis for every standard/deep track.
 6. Contrast external approaches only when recommendation quality depends on workflow-pattern choice.
 7. Persist workflow artifacts in the issue-folder research subfolder.
-8. Present proposal before integration.
-9. Propose integration only after explicit approval, mapping each target to a taxonomy category.
-10. Derive each article's folder and numeric prefix from its taxonomy content-type via the subject-folder template (00 overview · 01 getting-started · 02 concepts · 03 how-to · 04 analysis · 05 reference · 06 resources; fractional `XX.YY-` for additional articles in one band).
-11. Integrate every approved result fully into the corpus (taxonomy-band placement, bidirectional cross-links, redundancy consolidation, related-backlog closure).
+8. Deliver a decision-ready result package (verdicts, coverage, conclusions, concise answer).
+9. Integrate a clear coverage gap (`absent`, tech-article mode, additive) autonomously — decide placement and structure for consistency and least redundancy; do not gate it behind approval.
+10. Derive each article's folder and numeric prefix from its taxonomy content-type via the subject-folder template (00 overview · 01 getting-started · 02 concepts · 03 how-to · 04 analysis · 05 reference · 06 resources; fractional `XX.YY-` for additional articles in one band) — but MATCH the target area's local convention when it differs (e.g. a `readme.md` index + `XX.YY-topic.md` articles).
+11. Integrate every result fully into the corpus (placement, cross-links matching the local convention, redundancy consolidation, related-backlog closure).
 12. Surface load-bearing deductions for challenge and re-derive from evidence on correction before locking conclusions.
 13. Produce even-handed comparisons (similarities/differences/strengths/weaknesses) with inline provenance and vision-vs-implementation accuracy; general voice per `article-writing.instructions.md`.
 14. Select the integration mode by detected impact — tech topic → article; visions or PE-artifact impact → a gated amendment plan — never asking which mode.
 15. Assess source soundness before deep analysis (📖 `09-source-soundness-gate.md`) and emit `source_verdict`.
+16. When integrated content describes an external tool or product, include a canonical source reference and link automatically (and a representative image when one is available) — never leave provenance for manual addition.
+17. Reframe investigation framing into reader-facing framing on integration — an "understand X" investigation becomes an introduction to X and its capabilities, never a "problem statement" in the published article.
+18. After integrating, complete the originating issue/observation file as a concise summary with references to the generated material — never a duplicate of it.
 
 ### Never do
 
 - Never treat assumptions as facts.
 - Never lock priority tracks before the coverage map exists.
-- Never integrate before approval.
 - Never edit top YAML metadata of existing articles during investigation updates.
+- Never gate a clear-gap, additive tech integration behind user approval — integrate it and report what changed.
+- Never require approval except for genuine judgment calls: meta/architecture amendments, overwrites or restructures of existing content, and unresolved scope conflicts.
+- Never carry investigation-centric framing (e.g. "Problem statement") into reader-facing integrated articles.
+- Never describe an external tool in integrated content without a source reference and link.
+- Never duplicate generated article content back into the originating issue/observation file — summarize and link.
 - Never ask the user to choose article numbering/positioning or whether to integrate — these are agent-owned decisions governed by LearnHub criteria.
 - Never lock a challenged deduction without re-deriving it from evidence.
 - Never frame comparisons as competitive ("ahead/behind") or label an implementation-maturity gap as a design gap.
@@ -73,9 +80,10 @@ Run one complete flow from user question to approval-gated integration proposal.
 6. Focused investigation (local-first, then external).
 7. Per-area in-depth analysis (problem → conclusions + appendices).
 8. External pattern contrast (conditional).
-9. Proposed result package.
-10. Approval state (`pending`/`revised`/`approved`).
-11. Post-approval integration proposal — tech-article placement or a gated meta/architecture amendment plan, by detected impact.
+9. Proposed result package (decision-ready).
+10. Integration decision by impact — clear gap + tech-article → integrate autonomously; meta/architecture impact → a gated amendment plan.
+11. Tech integration — placement by local convention + taxonomy, reader-facing reframing, external-tool provenance, and full cross-linking.
+12. Issue completion — rewrite the originating observation as a summary with references (no duplication).
 
 ## Artifact contract
 
@@ -88,7 +96,7 @@ Write/update under `<issue-folder>/research/`:
 5. `05-analysis/` — one `<area-slug>.md` per standard/deep area
 6. `06-external-approaches-contrast.md` (only when Step 7 applies)
 7. `07-proposed-result-package.md`
-8. `08-approval-and-integration-proposal.md`
+8. `08-approval-and-integration-proposal.md` (integration record: placement, reader-facing reframing, provenance, and what changed; for meta/architecture impact, the gated amendment-plan reference)
 
 Before returning, validate that persisted filenames match this contract and report any drift.
 
@@ -104,13 +112,14 @@ Return:
 6. `area_analyses`
 7. `selected_workflow_pattern` (or `not_applicable`)
 8. `proposed_result_package`
-9. `approval_state`
-10. `integration_proposal` (only if approved) — `taxonomy_mapping` in article mode, or an `amendment_plan` reference in meta/architecture mode
-11. `artifacts_written`
+9. `integration_state` — `completed` (autonomous clear-gap tech integration) or `gated` (meta/architecture amendment awaiting approval)
+10. `integration_result` — `taxonomy_mapping` + created paths in article mode, or an `amendment_plan` reference in meta/architecture mode
+11. `issue_completion` — the summary-with-references written back to the originating observation
+12. `artifacts_written`
 
 <!--
 prompt_metadata:
-  version: "2.2.0"
+  version: "2.3.0"
   created: "2026-07-03"
-  last_updated: "2026-07-11"
+  last_updated: "2026-07-13"
 -->

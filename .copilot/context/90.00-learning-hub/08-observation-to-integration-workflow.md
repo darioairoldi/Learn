@@ -1,6 +1,6 @@
 ---
 title: "Observation-to-integration workflow"
-description: "Single-entry workflow for converting a raw user question into triage, proposed results, approval discussion, and post-approval LearnHub integration proposal"
+description: "Single-entry workflow for converting a raw user question into triage, proposed results, and LearnHub integration — autonomous for clear gaps, gated for meta/architecture amendments"
 domain: "learning-hub"
 goal: "Provide one authoritative workflow contract that prompts and agents can load on demand"
 scope:
@@ -10,8 +10,10 @@ scope:
     - "Existing-LearnHub coverage map (internal grounding) before prioritization"
     - "Per-area in-depth analysis for standard/deep tracks"
     - "Proposed-result package for user discussion"
-    - "Approval gate before integration"
-    - "Taxonomy-bound post-approval LearnHub integration proposal"
+    - "Autonomous integration of clear coverage gaps (additive tech content) without an approval gate"
+    - "Approval reserved for genuine judgment calls (meta/architecture amendments, overwrites, scope conflicts)"
+    - "Taxonomy-bound LearnHub integration that matches the target area's local convention"
+    - "External-tool provenance, reader-facing reframing, and issue completion by summary-with-references"
     - "Integration modes (tech-article vs meta/architecture amendment), a deduction-validation loop, and report-quality conditions"
     - "Source-soundness gate (six dimensions and a gating verdict) run before deep analysis and enforced as an integration precondition"
     - "Issue-folder artifact contracts"
@@ -26,19 +28,24 @@ boundaries:
   - "MUST prioritize local repository evidence before external evidence"
   - "MUST produce a per-area in-depth analysis (problem, considerations, deductions, conclusions) for every standard/deep track"
   - "MUST run external pattern contrast only when recommendation quality depends on workflow-pattern choice"
-  - "MUST present a proposed result package before proposing integration"
-  - "MUST propose integration only after explicit user approval"
-  - "MUST map every integration target to a LearnHub taxonomy category"
+  - "MUST deliver a decision-ready result package"
+  - "MUST integrate a clear coverage gap (absent, tech-article mode, additive) autonomously, without an approval gate"
+  - "MUST gate on approval only for meta/architecture amendments, overwrites or restructures of existing content, and unresolved scope conflicts"
+  - "MUST map every integration target to a LearnHub taxonomy category, matching the target area's local convention when it differs from the generic template"
   - "MUST derive each article's folder and numeric prefix from its taxonomy content-type via the subject-folder template (00 overview · 01 getting-started · 02 concepts · 03 how-to · 04 analysis · 05 reference · 06 resources; fractional XX.YY- for additional articles in one band)"
-  - "MUST integrate every approved result fully into the corpus by default: taxonomy-band placement, bidirectional cross-links, redundancy consolidation into the canonical article, and related-backlog closure"
-  - "MUST reserve user questions for genuine judgment calls (proposed answer, integration approval, unresolved scope conflicts) and MUST NOT ask users to choose article numbering/positioning or whether to integrate"
-  - "MUST NOT execute integration changes without explicit implementation confirmation"
+  - "MUST integrate every result fully into the corpus by default: placement, cross-links matching the local convention, redundancy consolidation into the canonical article, and related-backlog closure"
+  - "MUST include a canonical source reference and link (and a representative image when available) whenever integrated content describes an external tool or product"
+  - "MUST reframe investigation framing into reader-facing framing on integration (an 'understand X' investigation becomes an introduction to X, never a 'problem statement' in the published article)"
+  - "MUST complete the originating issue/observation file as a concise summary with references to the generated material, never a duplicate of it"
+  - "MUST reserve user questions for genuine judgment calls (proposed answer, meta/architecture approval, unresolved scope conflicts) and MUST NOT ask users to choose article numbering/positioning or whether to integrate a clear gap"
+  - "MUST obtain explicit implementation confirmation only for meta/architecture amendments or overwrites of existing content, not for clear-gap additive integration"
 rationales:
   - "Single-entry usage reduces workflow friction for end users"
   - "Context harvest and coverage map ground investigation in what LearnHub already knows"
   - "Per-area analysis guarantees critical depth instead of a single shallow package"
-  - "Approval gating prevents premature documentation churn"
-  - "Taxonomy-bound integration lands outputs in the right content type"
+  - "Autonomous integration of clear gaps removes friction; approval is reserved for changes that carry real risk (amendments, overwrites, conflicts)"
+  - "Taxonomy-bound integration that matches the local convention lands outputs in the right content type without fragmenting the area"
+  - "External-tool provenance, reader-facing reframing, and summary-with-references issue completion keep integrated content trustworthy and non-redundant"
   - "Centralized workflow context keeps prompts and agents consistent"
 ---
 
@@ -142,35 +149,39 @@ Produce a discussion-ready package:
 
 **Report-quality conditions** (all MUST hold before the package is presentable): even-handed comparison (similarities / differences / strengths / weaknesses — never competitive "ahead/behind"); inline provenance (a source callout plus claim-to-source links); vision-vs-implementation accuracy (never label an implementation-maturity gap as a design gap). General writing voice follows `article-writing.instructions.md`.
 
-### Step 9: Approval gate
+### Step 9: Integration autonomy vs approval gate
 
-Use explicit states:
+**Clear gaps integrate autonomously.** When coverage is `absent`, the mode is tech-article, and the change is additive (no existing article overwritten or restructured), integrate without an approval gate — the only decision is placement and structure, chosen for consistency and least redundancy. Report `integration_state: completed`.
 
-- `pending` (proposal delivered)
-- `revised` (updated after feedback)
-- `approved` (user accepted)
+**Approval is reserved for genuine judgment calls** — meta/architecture amendments (visions or PE artifacts), overwrites or restructures of existing content, and unresolved scope conflicts. For those, use explicit states `pending` / `revised` / `approved`, and do not execute before `approved` (`integration_state: gated`).
 
-Integration proposal is forbidden before `approved`.
+**Source-soundness precondition.** Integration (autonomous or gated) is forbidden unless `source_verdict` is `sound`, or a `promising-but-unverified` source has since been corroborated — regardless of how polished the material looks.
 
-**Source-soundness precondition.** Integration is additionally forbidden unless `source_verdict` is `sound`, or a `promising-but-unverified` source has since been corroborated — regardless of how polished the proposal looks.
+### Step 10: Integration by mode
 
-### Step 10: Post-approval integration proposal
+**Two derived integration modes (detected, not asked).** (a) **Tech-article integration** — a clear gap is integrated autonomously (Step 9), placed as detailed below. (b) **Meta/architecture amendment** — when the observation changes visions or PE artifacts rather than reader-facing tech content, the deliverable is a gated recommended-plan that amends the affected artifacts under the `plan-execution` and `vision-amendment` rules, not a placed article. Detect by impact: new tech topic → (a); impact on `06.00-idea` visions or `.github` PE artifacts → (b); mixed → both.
 
-**Two derived integration modes (detected, not asked).** (a) **Tech-article integration** — taxonomy-bound placement, detailed below. (b) **Meta/architecture amendment** — when the observation changes visions or PE artifacts rather than reader-facing tech content, the deliverable is a gated recommended-plan that amends the affected artifacts under the `plan-execution` and `vision-amendment` rules, not a placed article. Detect by impact: new tech topic → (a); impact on `06.00-idea` visions or `.github` PE artifacts → (b); mixed → both.
-
-For mode (a), after approval, propose a LearnHub integration plan that maps every approved conclusion to:
+For mode (a), integrate every conclusion, mapping each to:
 
 - a taxonomy category (Overview / Getting Started / Concepts / How-to / Analysis / Reference / Resources)
 - a concrete target path (prefer a `03.00-tech/<subject>/` subject folder)
 - section-level edits, sequencing, risks, and dependencies
 
-**Placement is derived, not asked.** Compute each article's folder and numeric prefix from its taxonomy content-type using the subject-folder template (`00-overview` · `01-getting-started` · `02-concepts` · `03-how-to-*` · `04-analysis-*` · `05-reference` · `06-resources`); when a content-type band is already occupied, use a fractional `XX.YY-` prefix (e.g. a second Concepts article becomes `02.01-…`). 📖 `.copilot/context/90.00-learning-hub/06-folder-organization-and-navigation.md`.
+**External-tool provenance (MUST).** When an integrated article describes an external tool or product, open it with a canonical source reference and link (e.g. the GitHub repository or official docs), and embed a representative image when one is available — automatically, never left for manual addition.
 
-**Integration completeness is the default, not a scope option.** Weave every approved result fully into the corpus: correct taxonomy-band placement, bidirectional cross-links (related articles, the subject overview's "where to go next", navigation), consolidation of duplicated explanation into the single canonical article, and closure of related backlog items. Do not ask the user how much to integrate.
+**Reader-facing reframing (MUST).** Translate investigation framing into reader framing: a "Problem statement" that means "we set out to understand X" becomes an introduction to X and its capabilities. The observation is a problem for the investigation, not for the reader.
 
-**Reserve user questions for judgment calls** — the proposed answer/recommendation, integration approval, and genuine scope conflicts — not mechanical numbering or whether to integrate.
+**Placement is derived, not asked.** Compute each article's folder and numeric prefix from its taxonomy content-type using the subject-folder template (`00-overview` · `01-getting-started` · `02-concepts` · `03-how-to-*` · `04-analysis-*` · `05-reference` · `06-resources`); when a content-type band is already occupied, use a fractional `XX.YY-` prefix (e.g. a second Concepts article becomes `02.01-…`). **When the target area already follows a different local convention (e.g. a `readme.md` index + `XX.YY-topic.md` articles), MATCH that convention** so the area stays internally consistent. 📖 `.copilot/context/90.00-learning-hub/06-folder-organization-and-navigation.md`.
 
-Building the integrated articles MAY be delegated to `documentation-builder`. Only execute integration edits after explicit implementation confirmation.
+**Integration completeness is the default, not a scope option.** Weave every result fully into the corpus: correct placement, cross-links matching the local convention (related articles, the subject index's "where this fits", navigation), consolidation of duplicated explanation into the single canonical article, and closure of related backlog items. Do not ask the user how much to integrate.
+
+**Reserve user questions for judgment calls** — the proposed answer/recommendation, meta/architecture approval, and genuine scope conflicts — not mechanical numbering or whether to integrate a clear gap.
+
+Building the integrated articles MAY be delegated to `documentation-builder`. Clear-gap additive integration proceeds autonomously; require explicit implementation confirmation only for meta/architecture amendments or overwrites of existing content.
+
+### Step 11: Issue completion
+
+After integrating, rewrite the originating issue/observation file (e.g. the news `overview.md`) as a **concise summary with references** — what was investigated, the short answer, and links to the integrated articles and the research trail. Never duplicate the generated article content back into the issue; a readable explanation plus links is enough.
 
 ## Issue-folder artifact contract
 
@@ -199,9 +210,10 @@ Every run must return:
 6. `area_analyses`
 7. `selected_workflow_pattern` (or `not_applicable`)
 8. `proposed_result_package`
-9. `approval_state`
-10. `integration_proposal` (only if approved) — `taxonomy_mapping` in article mode, or a gated `amendment_plan` reference in meta/architecture mode
-11. `artifacts_written`
+9. `integration_state` (`completed` for autonomous clear-gap tech integration, or `gated` for a meta/architecture amendment)
+10. `integration_result` — `taxonomy_mapping` + created paths in article mode, or a gated `amendment_plan` reference in meta/architecture mode
+11. `issue_completion` — the summary-with-references written back to the originating observation
+12. `artifacts_written`
 
 ## References
 
@@ -213,6 +225,7 @@ Every run must return:
 
 ## Version history
 
+- **v2.4.0** (2026-07-13): Made clear-gap tech integration autonomous (no approval gate; Step 9 reframed); reserved approval for meta/architecture amendments, overwrites, and scope conflicts. Added external-tool provenance and reader-facing reframing on integration, local-convention placement matching, and a Step 11 issue-completion rule (summary-with-references, no duplication). Updated the output contract (`integration_state` / `integration_result` / `issue_completion`).
 - **v2.3.0** (2026-07-11): Added a source-soundness gate (Step 3.5 + `09-source-soundness-gate.md`) with a gating verdict, and a hard integration precondition barring unsound or uncorroborated sources.
 - **v2.2.0** (2026-07-11): Added a deduction-validation loop (Step 6), report-quality conditions (Step 8: even-handed comparison, inline provenance, vision-vs-implementation accuracy), and two derived integration modes (Step 10: tech-article vs meta/architecture amendment plan).
 - **v2.1.0** (2026-07-06): Made article placement (folder + numeric prefix) a derived, agent-owned decision via the subject-folder template; made full corpus integration the default; barred mechanical numbering/integration-scope questions to the user.
@@ -221,7 +234,7 @@ Every run must return:
 
 <!--
 context_metadata:
-  version: "2.3.0"
+  version: "2.4.0"
   created: "2026-07-03"
-  last_updated: "2026-07-11"
+  last_updated: "2026-07-13"
 -->
