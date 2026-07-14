@@ -10,12 +10,6 @@ project:
     - "scripts/fix-broken-links/readme.md"
     - "src/IQPilot/readme.md"
     - "01.00-news/20260710.01-loop-engineering/overview.md"
-    - "01.00-news/20260710.01-loop-engineering/01-recommended-plan.md"
-    - "01.00-news/20260710.01-loop-engineering/02-improve-lh-investigate-plan.md"
-    - "01.00-news/20260710.01-loop-engineering/03-add-source-soundness-gate-plan.md"
-    - "01.00-news/20260710.01-loop-engineering/04-scope-trigger-implementation-and-coherence.md"
-    - "01.00-news/20260710.01-loop-engineering/05-an1-vision-analysis-and-amendment-list.md"
-    - "01.00-news/20260710.01-loop-engineering/06-an2-pe-artifacts-analysis-ranked-candidates.md"
     - "01.00-news/20251224-vscode-v1.107-release/01-summary.md"
     - "01.00-news/20251224-vscode-v1.107-release/02-readme.sonnet4.md"
     - "01.00-news/20260111-6-vital-rules-for-production-ready-copilot-agents/summary.md"
@@ -277,6 +271,9 @@ project:
     - "20250815-diy-ebike/summary.md"
     - "90.00-travel/paris-2025/readme.md"
     - "90.00-travel/seattle-2026/00-gita-a-san-francisco-e-seattle.prep.md"
+    # Enforcement guard: never render working folders. The portable non-publish intent is `publish: false`
+    # in each file's top YAML; this Quarto-specific guard also blocks any "_"-prefixed path (e.g. _analysis/).
+    - "!**/_*/**"
 
 website:
   title: "Dario's Learning Journey"
@@ -445,23 +442,8 @@ website:
         contents:
           # Explicit list for newest-first ordering (per context rules)
           # When adding new articles: INSERT AT TOP of this list
-          - section: "20260710 - Loop Engineering & the Learning Hub"
+          - text: "20260710 - Loop Engineering & the Learning Hub"
             href: "01.00-news/20260710.01-loop-engineering/overview.md"
-            contents:
-              - text: "Overview"
-                href: "01.00-news/20260710.01-loop-engineering/overview.md"
-              - text: "Recommended Plan"
-                href: "01.00-news/20260710.01-loop-engineering/01-recommended-plan.md"
-              - text: "Improve lh-investigate Workflow"
-                href: "01.00-news/20260710.01-loop-engineering/02-improve-lh-investigate-plan.md"
-              - text: "Add Source-Soundness Gate"
-                href: "01.00-news/20260710.01-loop-engineering/03-add-source-soundness-gate-plan.md"
-              - text: "Scope: Trigger Implementation & Coherence"
-                href: "01.00-news/20260710.01-loop-engineering/04-scope-trigger-implementation-and-coherence.md"
-              - text: "AN1: Vision Analysis & Amendments"
-                href: "01.00-news/20260710.01-loop-engineering/05-an1-vision-analysis-and-amendment-list.md"
-              - text: "AN2: PE Artifacts Ranked Candidates"
-                href: "01.00-news/20260710.01-loop-engineering/06-an2-pe-artifacts-analysis-ranked-candidates.md"
           - text: "20260214 - MCP Apps: Building Rich UIs in AI Chat"
             href: "01.00-news/20260214.4-burke-holland-mcp-apps/summary.md"
           - text: "20260214 - Understand Agent Orchestration"

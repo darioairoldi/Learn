@@ -4,6 +4,7 @@ author: "Dario Airoldi"
 date: "2026-07-11"
 categories: [plan, learning-hub, prompt-engineering, loop-engineering]
 description: "Actionable plan to fold three workflow lessons — deduction-validation loop, dual integration modes, report-quality conditions — into the lh-investigate workflow."
+publish: false  # internal working artifact — never published (engine-neutral intent honored by the publish pipeline)
 status: done
 goal: "Fold the three workflow lessons from the loop-engineering session — an explicit deduction-validation loop, a second (meta/architecture) integration mode, and explicit report-quality conditions — into the observation-to-integration workflow (authority context, prompt, and agent), so a single lh-investigate run reproduces this session end-to-end, including its correction points."
 motivation: "This conversation was a manual run of the lh-investigate workflow. Comparing the two showed the workflow already covers roughly 90% of the reasoning but under-encodes three moves the session relied on. Capturing them turns hard-won corrections into repeatable conditions so the next run doesn't repeat the same mistakes."
@@ -28,7 +29,7 @@ motivation: "This conversation was a manual run of the lh-investigate workflow. 
 
 ## 🎯 Goal
 
-Generalize this session into the workflow that already models it. The [loop-engineering analysis](overview.md) was a manual run of the observation-to-integration workflow; three reasoning moves it relied on are not yet encoded. This plan folds those three into the workflow authority, prompt, and agent so one `lh-investigate` invocation reproduces the session — including the points where the analysis had to be corrected.
+Generalize this session into the workflow that already models it. The [loop-engineering analysis](../overview.md) was a manual run of the observation-to-integration workflow; three reasoning moves it relied on are not yet encoded. This plan folds those three into the workflow authority, prompt, and agent so one `lh-investigate` invocation reproduces the session — including the points where the analysis had to be corrected.
 
 ## 🧭 Context and motivation
 
@@ -94,7 +95,7 @@ Complete when all four workstreams are done and these conditions hold:
 
 ## 📚 References
 
-- [Loop-engineering analysis](overview.md) — the session this plan generalizes; see its "A design implication: declarative prompts" section.
+- [Loop-engineering analysis](../overview.md) — the session this plan generalizes; see its "A design implication: declarative prompts" section.
 - [Recommended plan](01-recommended-plan.md) — sibling plan; `AN2` is the broader declarative-restructuring track.
 - `.copilot/context/90.00-learning-hub/08-observation-to-integration-workflow.md` — the workflow authority (primary edit target).
 - `.github/prompts/90.00-learning-hub/lh-investigate-observation-and-integrate.prompt.md` — the prompt.

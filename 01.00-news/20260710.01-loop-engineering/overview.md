@@ -186,7 +186,7 @@ The tightened thesis: **loop engineering can shift Hub prompts from procedure sp
 
 ## 🎯 Recommended next steps
 
-Actions are tracked in the sibling plan — see [01-recommended-plan.md](01-recommended-plan.md). In brief:
+Actions are tracked in an internal working plan (kept under this article's `_analysis/` folder, not published). In brief:
 
 - Capture this architecture (terminology stack + object/meta split) where the engine is defined. (🟡 todo)
 - Fill the two empty stubs that should already hold these ideas — this overview and the autonomous-streams definition. (🟡 todo)

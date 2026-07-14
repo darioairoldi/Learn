@@ -4,6 +4,7 @@ author: "Dario Airoldi"
 date: "2026-07-11"
 categories: [analysis, vision, loop-engineering, prompt-engineering, self-updating-engine]
 description: "Per-vision findings and amendment list to reconcile object/meta split, unified trigger taxonomy, and declarative condition-driven prompts."
+publish: false  # internal working artifact — never published (engine-neutral intent honored by the publish pipeline)
 ---
 
 # AN1 analysis: foundational visions and required amendments
@@ -99,9 +100,9 @@ Yes — AN1 had enough input and is actionable. The core architecture is aligned
 
 ## 📚 References
 
-- [Learning Hub concept](../../06.00-idea/learning-hub/01-learning-hub-overview/01-learning-hub-introduction.md) 📒 [Internal]
-- [Self-updating engine: vision and rationale (v1.0)](../../06.00-idea/self-updating-engine/20260622.01-self-updating-engine-vision.md) 📒 [Internal]
-- [Self-updating prompt engineering: vision and rationale (v15.11)](../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md) 📒 [Internal]
+- [Learning Hub concept](../../../06.00-idea/learning-hub/01-learning-hub-overview/01-learning-hub-introduction.md) 📒 [Internal]
+- [Self-updating engine: vision and rationale (v1.0)](../../../06.00-idea/self-updating-engine/20260622.01-self-updating-engine-vision.md) 📒 [Internal]
+- [Self-updating prompt engineering: vision and rationale (v15.11)](../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md) 📒 [Internal]
 
 <!--
 validations:

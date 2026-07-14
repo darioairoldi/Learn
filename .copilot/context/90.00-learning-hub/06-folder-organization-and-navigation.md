@@ -10,12 +10,14 @@ scope:
     - "Date prefix patterns (YYYYMMDD, YYYYMM)"
     - "Glob sorting behavior (alphabetical, oldest-first for dates)"
     - "Decision table: glob vs. explicit list"
+    - "Working/intermediate artifact marking (publish: false) and _analysis/ working folder"
   excludes:
     - "Sidebar menu item transformation (see 07-sidebar-menu-rules.md)"
     - "Quarto configuration (see _quarto.yml)"
 boundaries:
   - "MUST use hyphens (not spaces) as separator after numeric prefixes"
   - "MUST NOT use spaces in folder/file names"
+  - "MUST mark working/intermediate artifacts with `publish: false` and group them in a `_analysis/` working folder, and MUST NOT wire them into the site's render/include or navigation config"
 rationales:
   - "Kebab-case enables consistent glob patterns and tool parsing"
   - "Explicit list for news addresses glob's alphabetical limitation for newest-first ordering"
@@ -158,6 +160,57 @@ When a folder contains only one meaningful article, the folder provides context 
 | `20251224-vscode-v1.107-release/` | `Session Summary` | ✅ |
 | `20251224-vscode-v1.107-release/` | `Recording Summary: VS Code v1.107 Release Live Stream` | ❌ Redundant |
 
+---
+
+## Working / Intermediate Artifacts (Never Published)
+
+Investigation and analysis sessions produce **intermediate material** — triage notes, coverage maps, plans, analysis reports, ranked candidate lists, scope notes — that is **not** the published article. This material MUST be marked and grouped so it can never reach the site and can be removed as a unit.
+
+### Rule 1: mark intent with `publish: false` (engine-neutral)
+
+Every intermediate/working file MUST declare its intent in top YAML:
+
+```yaml
+---
+title: "..."
+publish: false   # never publish — working/internal material
+---
+```
+
+`publish: false` is the **portable source of truth**: it states the decision directly and does not depend on any rendering engine's behavior. The publish pipeline (navigation builder, menu tooling, and any static-site generator) MUST honor it and never render, list, or link the file. Absence of the key means the file is publishable (the common case).
+
+### Rule 2: group under a `_analysis/` working folder
+
+Gather all intermediate artifacts under a working folder, colocated with the article it supports:
+
+```
+01.00-news/20260710.01-loop-engineering/
+├── overview.md        # the published article (wired into navigation)
+├── images/
+└── _analysis/         # working folder — every file carries publish: false
+    ├── 01-recommended-plan.md
+    └── 05-an1-vision-analysis-and-amendment-list.md
+```
+
+The folder keeps working material together and makes bulk removal trivial. **Canonical name:** `_analysis/` (any `_`-prefixed name works — `_work/`, `_thinking/` — but use `_analysis/` for consistency).
+
+### Defense in depth (three layers, no single engine)
+
+| Layer | Mechanism | Nature |
+|---|---|---|
+| 1. Intent (portable) | `publish: false` in top YAML | Engine-neutral source of truth; every pipeline honors it |
+| 2. Organization | `_analysis/` working folder | Groups working files; trivial bulk removal |
+| 3. Enforcement (per pipeline) | Not listed in the site's include/render or navigation config | Whatever the SSG uses |
+
+**Engine bonus (not the guarantee):** some generators also skip files by name — e.g. Quarto ignores any path segment beginning with `_` or `.`, so on a Quarto site `_analysis/` is auto-excluded and `_quarto.yml` adds a `- "!**/_*/**"` render guard. Treat this as an extra safety net; the guarantee rests on `publish: false` plus not wiring the file in, which hold regardless of engine.
+
+### Boundaries
+
+- MUST mark every intermediate/working artifact with `publish: false` in its top YAML
+- MUST place every intermediate/working artifact under a `_analysis/` working folder
+- MUST NOT add any `publish: false` file (or `_analysis/` path) to the site's render/include list or navigation
+- Only the reader-facing published article is wired into navigation
+
 ## Sidebar Menu Rules
 
 **📖 Complete guidance:** [07-sidebar-menu-rules.md](./07-sidebar-menu-rules.md)
@@ -183,6 +236,6 @@ Menu generation rules are defined separately to allow flexibility when actual fo
 
 <!--
 context_metadata:
-  version: "1.0.0"
-  last_updated: "2026-05-26"
+  version: "1.1.0"
+  last_updated: "2026-07-14"
 -->

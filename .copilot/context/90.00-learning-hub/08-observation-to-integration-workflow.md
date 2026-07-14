@@ -185,7 +185,7 @@ After integrating, rewrite the originating issue/observation file (e.g. the news
 
 ## Issue-folder artifact contract
 
-Use `<issue-folder>/research/` and maintain at minimum:
+Use `<issue-folder>/_analysis/` — a **working folder** for non-published material (every file carries `publish: false`) — and maintain at minimum:
 
 1. `01-triage-interest-map.md` (includes context-harvest signals)
 2. `02-existing-coverage-map.md` (internal grounding: present/partial/absent + taxonomy)
@@ -197,6 +197,8 @@ Use `<issue-folder>/research/` and maintain at minimum:
 8. `08-approval-and-integration-proposal.md`
 
 Before returning, VALIDATE that persisted filenames match this contract and report any drift.
+
+**Never published.** Every artifact in this contract is intermediate/working material: it lives under the `_analysis/` folder, carries `publish: false` in its top YAML, and MUST NOT be added to the site's render/include or navigation config. Only the reader-facing published article is wired into navigation. 📖 `06-folder-organization-and-navigation.md` § Working / Intermediate Artifacts.
 
 ## Output contract
 
@@ -225,6 +227,7 @@ Every run must return:
 
 ## Version history
 
+- **v2.5.0** (2026-07-14): Moved the issue-folder artifact contract into a `_analysis/` working folder, required `publish: false` (engine-neutral non-publish marker) on every working artifact, and barred wiring any working artifact into the site's render/include or navigation config — only the reader-facing article is published.
 - **v2.4.0** (2026-07-13): Made clear-gap tech integration autonomous (no approval gate; Step 9 reframed); reserved approval for meta/architecture amendments, overwrites, and scope conflicts. Added external-tool provenance and reader-facing reframing on integration, local-convention placement matching, and a Step 11 issue-completion rule (summary-with-references, no duplication). Updated the output contract (`integration_state` / `integration_result` / `issue_completion`).
 - **v2.3.0** (2026-07-11): Added a source-soundness gate (Step 3.5 + `09-source-soundness-gate.md`) with a gating verdict, and a hard integration precondition barring unsound or uncorroborated sources.
 - **v2.2.0** (2026-07-11): Added a deduction-validation loop (Step 6), report-quality conditions (Step 8: even-handed comparison, inline provenance, vision-vs-implementation accuracy), and two derived integration modes (Step 10: tech-article vs meta/architecture amendment plan).
@@ -234,7 +237,7 @@ Every run must return:
 
 <!--
 context_metadata:
-  version: "2.4.0"
+  version: "2.5.0"
   created: "2026-07-03"
-  last_updated: "2026-07-13"
+  last_updated: "2026-07-14"
 -->

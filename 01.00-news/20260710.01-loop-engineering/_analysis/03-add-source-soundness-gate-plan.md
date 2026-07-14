@@ -4,6 +4,7 @@ author: "Dario Airoldi"
 date: "2026-07-11"
 categories: [plan, learning-hub, prompt-engineering, loop-engineering]
 description: "Actionable plan to add a source-soundness gate to the lh-investigate workflow — validate the source before investigation and bar integration from unsound material."
+publish: false  # internal working artifact — never published (engine-neutral intent honored by the publish pipeline)
 status: done
 goal: "Add a source-soundness gate to the observation-to-integration workflow so a source is validated for clarity, consistency, sufficiency, value, verifiability, and corroboration before deep analysis, and integration is barred from ambiguous, contradictory, or unsound material."
 motivation: "The workflow's current defences validate conclusions and fire late (the approval gate), leaving no upfront check that the source deserves to be built on. This session succeeded partly because the source was sound — an unguaranteed property. This gate operationalizes the vision's trust-calibrated-adoption and accuracy-over-everything principles at the workflow level."
@@ -32,7 +33,7 @@ Give the workflow a "garbage in" defence. Today it validates *conclusions* (evid
 
 ## 🧭 Context and motivation
 
-The [source-soundness analysis](overview.md) established the gap: the just-added improvements ([02-improve-lh-investigate-plan.md](02-improve-lh-investigate-plan.md)) harden the *reasoning* and the *output*, not the *input*. Reference classification rates a source's publisher, not its content; a sound deduction from an unsound source still passes. The dangerous case is plausible-but-unsound material that produces a credible-looking package by the approval gate.
+The [source-soundness analysis](../overview.md) established the gap: the just-added improvements ([02-improve-lh-investigate-plan.md](02-improve-lh-investigate-plan.md)) harden the *reasoning* and the *output*, not the *input*. Reference classification rates a source's publisher, not its content; a sound deduction from an unsound source still passes. The dangerous case is plausible-but-unsound material that produces a credible-looking package by the approval gate.
 
 The vision layer already holds the principle (`trust-calibrated-adoption`, `accuracy-over-everything`, hallucination containment); this plan operationalizes it as a workflow gate. The rubric lands in a **companion context file** rather than inline, to respect the authority's `[C3]` ≤2,500-token budget and follow the repo's single-source-of-truth pattern.
 
@@ -86,11 +87,11 @@ Complete when all four workstreams are done and these conditions hold:
 
 ## 📚 References
 
-- [Source-soundness analysis](overview.md) — the analysis this plan acts on.
+- [Source-soundness analysis](../overview.md) — the analysis this plan acts on.
 - [Prior workflow-improvement plan](02-improve-lh-investigate-plan.md) — the plan this extends (G1–G3).
-- [Self-updating engine vision](../../06.00-idea/self-updating-engine/20260622.01-self-updating-engine-vision.md) — `trust-calibrated-adoption`.
-- [Self-updating article-writing vision](../../06.00-idea/self-updating-article-writing/20260428.01-vision.v1.md) — `accuracy-over-everything`.
-- [Self-updating research vision](../../06.00-idea/self-updating-research/01.000-vision.v1.md) — hallucination reduction/detection/containment.
+- [Self-updating engine vision](../../../06.00-idea/self-updating-engine/20260622.01-self-updating-engine-vision.md) — `trust-calibrated-adoption`.
+- [Self-updating article-writing vision](../../../06.00-idea/self-updating-article-writing/20260428.01-vision.v1.md) — `accuracy-over-everything`.
+- [Self-updating research vision](../../../06.00-idea/self-updating-research/01.000-vision.v1.md) — hallucination reduction/detection/containment.
 - `.copilot/context/90.00-learning-hub/08-observation-to-integration-workflow.md` — the workflow authority (edit target).
 - `.github/prompts/90.00-learning-hub/lh-investigate-observation-and-integrate.prompt.md` — the prompt.
 - `.github/agents/lh-observation-investigator.agent.md` — the agent.

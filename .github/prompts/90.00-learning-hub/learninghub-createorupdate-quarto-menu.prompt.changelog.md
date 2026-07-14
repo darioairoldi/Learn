@@ -1,11 +1,15 @@
 ---
 title: "learninghub-createorupdate-quarto-menu.prompt — change history"
 description: "Per-version change history for learninghub-createorupdate-quarto-menu.prompt."
-last_updated: "2026-01-31T00:00:00Z"
+last_updated: "2026-07-14T00:00:00Z"
 status: "living"
 ---
 
 # Change history — learninghub-createorupdate-quarto-menu.prompt
+
+## v10.3.0 — 2026-07-14T00:00:00Z
+
+Added leaked-working-artifact detection: exclude files marked `publish: false` (engine-neutral non-publish marker; legacy `draft: true` also honored) and `_analysis/` / `_`-prefixed folders from `project.render` and sidebar, and detect + remove any that leaked in (prevents intermediate analysis material from being published)
 
 ## v10.1.0 — 2026-01-31T00:00:00Z
 

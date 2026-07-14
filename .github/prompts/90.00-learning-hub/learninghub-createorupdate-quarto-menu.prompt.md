@@ -32,7 +32,7 @@ You are a **Quarto navigation validator** responsible for detecting and fixing n
 
 1. **LOAD CONTEXT** — Read `06-folder-organization-and-navigation.md` first
 2. **BUILD TWO LISTS** — (a) paths in `project.render`, (b) actual files on disk
-3. **COMPARE LISTS** — MUST detect: missing files AND dangling refs
+3. **COMPARE LISTS** — MUST detect: missing files, dangling refs, AND leaked working artifacts (files marked `publish: false` — or legacy `draft: true` — or paths under a `_analysis/` / `_`-prefixed folder)
 4. **USE list_dir TO VERIFY** — For EACH path in project.render, verify it exists via `list_dir`
 5. **FIX ALL ISSUES** — Apply changes (don't just report)
 6. **VERIFY** — Run `quarto preview` after fixes
@@ -47,6 +47,7 @@ You are a **Quarto navigation validator** responsible for detecting and fixing n
 - Skip path verification step (Step 2.2)
 - Leave dangling references unfixed
 - Modify `navigation.json` (auto-generated)
+- Add any path under a `_analysis/` / `_`-prefixed working folder or any file marked `publish: false` (or legacy `draft: true`) to `project.render` or the sidebar — these are intentionally unpublished working artifacts (📖 `06-folder-organization-and-navigation.md` § Working / Intermediate Artifacts)
 
 ## Process
 
@@ -74,11 +75,12 @@ Extract `project.render` list (all quoted paths under `render:`).
 **Step 2.3:** Build inventory of actual content files:
 - Use `file_search **/*.md`
 - Filter: INCLUDE `01.00-90.00`, root docs, `scripts/README.md`, `src/*/README.md`
-- Filter: EXCLUDE `.github/`, `.copilot/`, `.vscode/`, `docs/`, `.iqpilot/`
+- Filter: EXCLUDE `.github/`, `.copilot/`, `.vscode/`, `docs/`, `.iqpilot/`, any `_analysis/` / `_`-prefixed folder, and any file marked `publish: false` (or legacy `draft: true`) in top YAML
 
 **Step 2.4:** Compare:
 - **Dangling:** In project.render BUT file doesn't exist → REMOVE
 - **Missing:** File exists BUT not in project.render → ADD
+- **Leaked working artifact:** In project.render/sidebar BUT under a `_analysis/` / `_`-prefixed folder or marked `publish: false` (or legacy `draft: true`) → REMOVE (intentionally unpublished)
 
 **Output (MANDATORY before Phase 3):**
 ```markdown
@@ -90,6 +92,10 @@ Extract `project.render` list (all quoted paths under `render:`).
 
 ### Missing from project.render (to ADD):
 - `path/to/new-article.md`
+
+### Leaked Working Artifacts (to REMOVE):
+- `path/to/_analysis/plan.md` — under a `_`-prefixed working folder (never published)
+- `path/to/internal-note.md` — marked `publish: false`
 
 ### Verified OK: N paths
 ```
@@ -184,9 +190,9 @@ run_in_terminal: quarto render
 
 <!--
 prompt_metadata:
-  version: "10.2"
+  version: "10.3"
   created: "2026-01-31T00:00:00Z"
-  last_updated: "2026-01-31T00:00:00Z"
+  last_updated: "2026-07-14T00:00:00Z"
   changelog: "learninghub-createorupdate-quarto-menu.prompt.changelog.md"
   production_ready:
     response_management: true

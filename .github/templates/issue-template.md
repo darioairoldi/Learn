@@ -5,7 +5,7 @@ author: "Your Name"
 date: "YYYY-MM-DD"
 categories: [issue, bug-report]
 description: "Issue report for [specific problem]"
-draft: true
+publish: false
 ---
 
 # Issue Report

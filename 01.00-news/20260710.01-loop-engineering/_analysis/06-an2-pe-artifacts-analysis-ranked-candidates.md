@@ -4,6 +4,7 @@ author: "Dario Airoldi"
 date: "2026-07-11"
 categories: [analysis, prompt-engineering, declarative-design, trigger-model, pe-artifacts]
 description: "Ranked candidate list of process-heavy PE artifacts for declarative condition-driven restructuring and trigger-model coherence impact."
+publish: false  # internal working artifact — never published (engine-neutral intent honored by the publish pipeline)
 ---
 
 # AN2 analysis: PE artifacts ranked for declarative restructuring
@@ -77,13 +78,13 @@ Yes, we have everything needed to proceed. The next execution step can start wit
 
 ## 📚 References
 
-- [PE meta review prompt](../../.github/prompts/00.09-pe-meta/pe-meta-review.prompt.md) 📒 [Internal]
-- [PE meta scheduled review prompt](../../.github/prompts/00.09-pe-meta/pe-meta-scheduled-review.prompt.md) 📒 [Internal]
-- [PE meta validator agent](../../.github/agents/00.09-pe-meta/pe-meta-validator.agent.md) 📒 [Internal]
-- [PE meta researcher agent](../../.github/agents/00.09-pe-meta/pe-meta-researcher.agent.md) 📒 [Internal]
-- [PE meta adherence prompt](../../.github/prompts/00.09-pe-meta/pe-meta-adherence.prompt.md) 📒 [Internal]
-- [LH investigate prompt](../../.github/prompts/90.00-learning-hub/lh-investigate-observation-and-integrate.prompt.md) 📒 [Internal]
-- [LH observation investigator agent](../../.github/agents/lh-observation-investigator.agent.md) 📒 [Internal]
+- [PE meta review prompt](../../../.github/prompts/00.09-pe-meta/pe-meta-review.prompt.md) 📒 [Internal]
+- [PE meta scheduled review prompt](../../../.github/prompts/00.09-pe-meta/pe-meta-scheduled-review.prompt.md) 📒 [Internal]
+- [PE meta validator agent](../../../.github/agents/00.09-pe-meta/pe-meta-validator.agent.md) 📒 [Internal]
+- [PE meta researcher agent](../../../.github/agents/00.09-pe-meta/pe-meta-researcher.agent.md) 📒 [Internal]
+- [PE meta adherence prompt](../../../.github/prompts/00.09-pe-meta/pe-meta-adherence.prompt.md) 📒 [Internal]
+- [LH investigate prompt](../../../.github/prompts/90.00-learning-hub/lh-investigate-observation-and-integrate.prompt.md) 📒 [Internal]
+- [LH observation investigator agent](../../../.github/agents/lh-observation-investigator.agent.md) 📒 [Internal]
 
 <!--
 validations:

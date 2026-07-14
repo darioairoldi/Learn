@@ -55,7 +55,9 @@ boundaries:
   - "MUST reserve user questions for genuine judgment calls (proposed answer, meta/architecture approval, unresolved scope conflicts)"
   - "MUST NOT ask the user to choose article numbering/positioning or whether to integrate a clear gap — these are agent-owned decisions governed by LearnHub criteria"
   - "MUST obtain explicit implementation confirmation only for meta/architecture amendments or overwrites of existing content, not for clear-gap additive integration"
-  - "MUST persist workflow artifacts in the active issue-folder research subfolder"
+  - "MUST persist ALL working/intermediate artifacts (triage, coverage, plans, analyses, scope notes, ranked lists) in the active issue-folder's `_analysis/` working folder for non-published material"
+  - "MUST mark every working/intermediate artifact with `publish: false` in its top YAML as the engine-neutral non-publish signal"
+  - "MUST NOT wire any working/intermediate artifact into `_quarto.yml` (`project.render` or `website.sidebar`) or `navigation.json` — only the reader-facing published article is added to navigation"
   - "MUST NOT modify top YAML metadata of existing articles during investigation updates"
   - "MUST NOT claim certainty when confidence is low"
 rationales:
@@ -98,6 +100,7 @@ Enforce all YAML boundaries as highest-priority constraints. If body text confli
 ### Stage C: Integration
 
 - Select integration mode by detected impact: a new tech topic → tech-article integration (below), done autonomously for a clear gap; impact on `06.00-idea` visions or `.github` PE artifacts → a gated recommended-plan amending those artifacts (under plan-execution + vision-amendment rules) instead of a placed article; mixed → both.
+- **Working artifacts never publish.** Every intermediate deliverable — triage/coverage maps, gated plans, analysis notes, scope notes, ranked lists — is created inside the issue/article folder's `_analysis/` working folder, carries `publish: false` in its top YAML, and is NEVER added to the site's render/include or navigation config. Only the reader-facing published article is wired into navigation. **📖** `.copilot/context/90.00-learning-hub/06-folder-organization-and-navigation.md` § Working / Intermediate Artifacts.
 - For a clear tech gap, integrate directly (no approval): map each conclusion to a taxonomy category and a `03.00-tech/<subject>/` target path.
 - **Derive placement, don't ask.** Compute each article's folder + numeric prefix from its taxonomy content-type via the subject-folder template (`00-overview` · `01-getting-started` · `02-concepts` · `03-how-to-*` · `04-analysis-*` · `05-reference` · `06-resources`); use a fractional `XX.YY-` prefix when a band is occupied. **When the target area follows a different local convention (e.g. a `readme.md` index + `XX.YY-topic.md` articles), MATCH it** for consistency.
 - **Provenance + reframing.** When an article describes an external tool, open it with a canonical source reference and link (and a representative image when available). Translate investigation framing into reader framing — an "understand X" investigation becomes an introduction to X, never a "problem statement".
@@ -112,7 +115,7 @@ Enforce all YAML boundaries as highest-priority constraints. If body text confli
 
 ## Required artifacts
 
-Use `<issue-folder>/research/` and maintain:
+Use `<issue-folder>/_analysis/` (a **working folder** for non-published material; every file carries `publish: false`) and maintain:
 
 1. `01-triage-interest-map.md` (includes context-harvest signals)
 2. `02-existing-coverage-map.md` (internal grounding: present/partial/absent + taxonomy)
@@ -144,10 +147,11 @@ Use `<issue-folder>/research/` and maintain:
 - [ ] Load-bearing deductions surfaced for challenge and re-derived from evidence on correction
 - [ ] Comparison even-handed with inline provenance; no implementation-vs-design conflation
 - [ ] Integration mode (article vs meta/architecture amendment) derived from impact, not asked
+- [ ] All working/intermediate artifacts placed under the `_analysis/` working folder with `publish: false`; none wired into the site's render/include or navigation config (only the reader-facing article is)
 
 <!--
 agent_metadata:
-  version: "2.4.0"
+  version: "2.5.0"
   created: "2026-07-03"
-  last_updated: "2026-07-13"
+  last_updated: "2026-07-14"
 -->

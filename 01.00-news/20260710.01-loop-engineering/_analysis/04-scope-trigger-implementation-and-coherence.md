@@ -4,6 +4,7 @@ author: "Dario Airoldi"
 date: "2026-07-11"
 categories: [scope, trigger-model, loop-engineering, self-updating-engine, learning-hub]
 description: "Scope note for ingestion trigger wiring and a unified trigger taxonomy across Learning Hub, self-updating engine, and research visions."
+publish: false  # internal working artifact — never published (engine-neutral intent honored by the publish pipeline)
 ---
 
 # Scope next: trigger implementation and coherence
@@ -116,13 +117,13 @@ The scope is now explicit and consistent with the current architecture direction
 <a id="references"></a>
 ## 📚 References
 
-- [Learning Hub concept](../../06.00-idea/learning-hub/01-learning-hub-overview/01-learning-hub-introduction.md) 📒 [Internal]  
+- [Learning Hub concept](../../../06.00-idea/learning-hub/01-learning-hub-overview/01-learning-hub-introduction.md) 📒 [Internal]  
 Source for automated prompts framing and scheduled prompt workflows.
-- [Automated content lifecycle with prompts, agents, and MCP](../../06.00-idea/learning-hub/03-automated-content-lifecycle/01-automated-content-lifecycle-with-prompts-agents-and-mcp.md) 📒 [Internal]  
+- [Automated content lifecycle with prompts, agents, and MCP](../../../06.00-idea/learning-hub/03-automated-content-lifecycle/01-automated-content-lifecycle-with-prompts-agents-and-mcp.md) 📒 [Internal]  
 Source for conference ingestion pipeline and lifecycle layering.
-- [Self-updating engine: vision and rationale (v1.0)](../../06.00-idea/self-updating-engine/20260622.01-self-updating-engine-vision.md) 📒 [Internal]  
+- [Self-updating engine: vision and rationale (v1.0)](../../../06.00-idea/self-updating-engine/20260622.01-self-updating-engine-vision.md) 📒 [Internal]  
 Source for trigger evidence, autonomy gradient, and Detect/Assess/Propose/Execute contract.
-- [Vision: future improvements and deferred infrastructure](../../06.00-idea/self-updating-research/01.001-vision-further-improvements.md) 📒 [Internal]  
+- [Vision: future improvements and deferred infrastructure](../../../06.00-idea/self-updating-research/01.001-vision-further-improvements.md) 📒 [Internal]  
 Source for research scheduled automation framing.
 
 <!--

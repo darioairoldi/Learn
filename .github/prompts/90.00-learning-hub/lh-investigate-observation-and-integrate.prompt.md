@@ -42,7 +42,7 @@ Run one complete flow from user question to integrated LearnHub outcome (autonom
 4. Separate facts, assumptions, and open questions.
 5. Produce a per-area in-depth analysis for every standard/deep track.
 6. Contrast external approaches only when recommendation quality depends on workflow-pattern choice.
-7. Persist workflow artifacts in the issue-folder research subfolder.
+7. Persist all working/intermediate artifacts in the issue-folder's `_analysis/` working folder (non-published material), each marked `publish: false`.
 8. Deliver a decision-ready result package (verdicts, coverage, conclusions, concise answer).
 9. Integrate a clear coverage gap (`absent`, tech-article mode, additive) autonomously — decide placement and structure for consistency and least redundancy; do not gate it behind approval.
 10. Derive each article's folder and numeric prefix from its taxonomy content-type via the subject-folder template (00 overview · 01 getting-started · 02 concepts · 03 how-to · 04 analysis · 05 reference · 06 resources; fractional `XX.YY-` for additional articles in one band) — but MATCH the target area's local convention when it differs (e.g. a `readme.md` index + `XX.YY-topic.md` articles).
@@ -69,6 +69,7 @@ Run one complete flow from user question to integrated LearnHub outcome (autonom
 - Never lock a challenged deduction without re-deriving it from evidence.
 - Never frame comparisons as competitive ("ahead/behind") or label an implementation-maturity gap as a design gap.
 - Never run deep analysis or integrate from an `insufficient` source, or integrate from an uncorroborated `promising-but-unverified` source.
+- Never wire a working/intermediate artifact (anything under `_analysis/` or marked `publish: false`) into the site's render/include or navigation config — only the reader-facing published article is added to navigation.
 
 ## Execution steps
 
@@ -87,7 +88,7 @@ Run one complete flow from user question to integrated LearnHub outcome (autonom
 
 ## Artifact contract
 
-Write/update under `<issue-folder>/research/`:
+Write/update under `<issue-folder>/_analysis/` (a working folder for non-published material; each file carries `publish: false`):
 
 1. `01-triage-interest-map.md` (includes context-harvest signals)
 2. `02-existing-coverage-map.md` (internal grounding: present/partial/absent + taxonomy)
@@ -119,7 +120,7 @@ Return:
 
 <!--
 prompt_metadata:
-  version: "2.3.0"
+  version: "2.4.0"
   created: "2026-07-03"
-  last_updated: "2026-07-13"
+  last_updated: "2026-07-14"
 -->

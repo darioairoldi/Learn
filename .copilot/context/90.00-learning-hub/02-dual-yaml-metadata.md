@@ -191,7 +191,8 @@ cross_references:
 **Optional:**
 - `categories`: Array of category tags
 - `description`: SEO description (string)
-- `draft`: Boolean (true hides from site)
+- `publish`: Boolean (`false` = **never published** — the repo's engine-neutral non-publish marker; see § Marking Intermediate / Working Material)
+- `draft`: Boolean — engine-specific draft flag; prefer `publish: false` for non-publication intent
 - `toc`: Boolean (table of contents)
 - `number-sections`: Boolean
 - Additional fields specific to your static site generator (Quarto, Hugo, Jekyll, etc.)
@@ -203,6 +204,25 @@ cross_references:
 - Adding/changing categories
 - Modifying description
 - Changing draft status
+
+### Marking Intermediate / Working Material (Never Published)
+
+Analysis and investigation sessions produce **intermediate artifacts** (plans, analysis notes, coverage maps, ranked candidate lists, scope notes) that must never reach the site. Mark every such file with `publish: false` in its top YAML:
+
+```yaml
+---
+title: "..."
+author: "..."
+date: "..."
+publish: false   # never publish — working/internal material
+---
+```
+
+`publish: false` is the **engine-neutral source of truth**: it states the intent directly and does not rely on any rendering engine's behavior. The publish pipeline (navigation builder, menu tooling, any static-site generator) MUST honor it. Pair it with a `_analysis/` working folder so the material is grouped and easy to remove, and never wire a `publish: false` file into the site's render/include list or navigation.
+
+> Prefer `publish: false` over engine-specific flags like `draft:` (Quarto renders drafts with a banner; Hugo and Jekyll exclude them — behavior varies), so the intent stays portable.
+
+**📖 Folder convention:** [06-folder-organization-and-navigation.md](./06-folder-organization-and-navigation.md) § Working / Intermediate Artifacts
 
 ---
 
@@ -567,6 +587,6 @@ effective:
 
 <!--
 context_metadata:
-  version: "1.2.0"
-  last_updated: "2026-06-21"
+  version: "1.3.0"
+  last_updated: "2026-07-14"
 -->

@@ -60,6 +60,7 @@ You are a **conference-ingestion orchestrator**. You discover the structured dat
 - Run `quarto preview` in an automated phase (it starts a blocking server that never returns) — use `quarto render`.
 - Attach the **event folder** to context to "check" images (it auto-expands every poster jpg into context). Inspect single files instead.
 - Modify article **top YAML** (Quarto metadata) from this prompt.
+- Wire any `_analysis/` / `_`-prefixed working folder or any file marked `publish: false` into `_quarto.yml` (`project.render`/`sidebar`) or `navigation.json` — those are intentionally unpublished; wire only reader-facing session pages (`summary.md`, master index).
 
 ## Inputs
 
@@ -123,7 +124,7 @@ You are a **conference-ingestion orchestrator**. You discover the structured dat
 ### Phase 6 — Index, menu, build
 
 6.1 Write the master `readme.md` event index: intro + source link + total count + a TOC with a **⭐ Featured** section then per-category sections, each item linking to its session and anchor.
-6.2 Wire the new folders into the Quarto sidebar (`_quarto.yml` `project.render` + sidebar) — or hand off to `/learninghub-createorupdate-quarto-menu`.
+6.2 Wire the new folders into the Quarto sidebar (`_quarto.yml` `project.render` + sidebar) — or hand off to `/learninghub-createorupdate-quarto-menu`. Wire only reader-facing session pages (`summary.md` + master index); never wire `_analysis/` / `_`-prefixed working folders or `publish: false` scratch notes.
 6.3 **Verify:** run `quarto render` (build-only). Report YAML/build status. Offer optional background `quarto preview` only if the user asks.
 
 **Final scope check:** confirm every produced folder is a public recorded session within this event; report any skipped/out-of-scope items.
@@ -216,10 +217,11 @@ Surfaced during the real Build 2026 run — these are the **additional points** 
 
 <!--
 prompt_metadata:
-  version: "1.1"
+  version: "1.2"
   created: "2026-06-14T00:00:00Z"
-  last_updated: "2026-06-14T00:00:00Z"
+  last_updated: "2026-07-14T00:00:00Z"
   changes:
+    - "v1.2: Added a working-artifact exclusion guard — never wire `_analysis/` / `_`-prefixed folders or files marked `publish: false` into `_quarto.yml`/`navigation.json`; only reader-facing session pages are published"
     - "v1.1: External-mirror material resolution — non-public transcripts/recordings resolved from Repository:ExternalRepositoryFolders (00-repository-configuration.md); added boundary, Phase 3/4 wiring, response-management rows, and Test 6"
     - "v1.0: Initial prompt — conference session-catalog ingestion modeled on the Build 2026 run; primary poster = official branded thumbnail with keynote-template + ffmpeg fallback; idempotent manifest-driven pipeline; encoded guardrails and run-learned lessons"
 -->
