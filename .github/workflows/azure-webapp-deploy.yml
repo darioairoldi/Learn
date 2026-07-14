@@ -110,6 +110,17 @@ jobs:
           $count = (Get-ChildItem docs -Filter *.html -Recurse).Count
           Write-Host "Generated $count HTML files"
 
+      - name: Compress images in output
+        # Downscale/re-encode large JPEGs in the disposable docs/ artifact only.
+        # Full-resolution originals stay in the repo untouched. Runs under Windows
+        # PowerShell 5.1 (not pwsh) so System.Drawing is available without install.
+        shell: powershell
+        run: |
+          $before = (Get-ChildItem docs -Recurse -File | Measure-Object Length -Sum).Sum / 1MB
+          & "$env:GITHUB_WORKSPACE\scripts\compress-images.ps1" -Path docs -MaxDimension 2000 -Quality 82 -MinSizeKB 400
+          $after = (Get-ChildItem docs -Recurse -File | Measure-Object Length -Sum).Sum / 1MB
+          Write-Host ("Deploy package: {0:N1} MB -> {1:N1} MB" -f $before, $after)
+
       - name: Add IIS web.config for static hosting
         shell: pwsh
         run: Copy-Item deploy/azure/web.config docs/web.config -Force
