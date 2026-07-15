@@ -1,0 +1,36 @@
+{
+    "$schema": "https://json.schemastore.org/launchsettings.json",
+    "profiles": {
+        "http": {
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "launchBrowser": true,
+            "applicationUrl": "http://localhost:5280",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        "https": {
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "launchBrowser": true,
+            "applicationUrl": "https://localhost:7280;http://localhost:5280",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        "https - Testmc": {
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "launchBrowser": true,
+            "applicationUrl": "https://localhost:7280;http://localhost:5280",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                // Load the Testmc config (storage account samplestmcstitn01) from the
+                // sibling Learn.internal repo at Learn.internal\src\Learn.Web\appsettings.Testmc.json.
+                "AppsettingsEnvironmentName": "Testmc",
+                "ExternalConfigurationFolder": "..\\..\\..\\Learn.internal"
+            }
+        }
+    }
+}

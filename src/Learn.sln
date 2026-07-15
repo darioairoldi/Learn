@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.6.11828.311 oobstable
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learn.Web", "Learn.Web\Learn.Web.csproj", "{B7605C34-214E-D064-2D55-0F887CC92B8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IQPilot", "IQPilot\IQPilot.csproj", "{B34C8E71-8894-1F7D-42F9-38C4CEAB513B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7605C34-214E-D064-2D55-0F887CC92B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7605C34-214E-D064-2D55-0F887CC92B8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7605C34-214E-D064-2D55-0F887CC92B8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7605C34-214E-D064-2D55-0F887CC92B8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B34C8E71-8894-1F7D-42F9-38C4CEAB513B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B34C8E71-8894-1F7D-42F9-38C4CEAB513B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B34C8E71-8894-1F7D-42F9-38C4CEAB513B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B34C8E71-8894-1F7D-42F9-38C4CEAB513B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DF6F9BE9-E206-4D6E-9FA9-4D10F81BF3C6}
+	EndGlobalSection
+EndGlobal

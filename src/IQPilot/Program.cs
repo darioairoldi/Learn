@@ -21,7 +21,6 @@ class Program
 
         using var observabilityManager = new ObservabilityManager();
         ILogger logger = observabilityManager.LoggerFactory.CreateLogger(typeof(Program));
-        ObservabilityRegistry.RegisterLoggerFactory(observabilityManager.LoggerFactory);
 
         using var activity = Observability.ActivitySource.StartMethodActivity(logger);
 
@@ -55,7 +54,6 @@ class Program
                     IConfiguration configuration = context.Configuration;
                     services.AddObservability(configuration, hostEnvironment);
                     observabilityManager.AttachTo(services);
-                    services.TryAddSingleton<IActivityLoggingSampler, NameBasedActivityLoggingSampler>();
 
                     // Core services
                     services.AddSingleton<MetadataManager>();
