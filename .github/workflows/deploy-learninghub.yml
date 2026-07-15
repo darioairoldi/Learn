@@ -1,64 +1,53 @@
-name: Deploy Learn.Web + Quarto content (v1)
+name: Deploy Learning Hub content to storage
 
-# Two-stage secretless (OIDC) deployment:
-#   1. Build & publish the Learn.Web blob-proxy (ASP.NET Core / Kestrel) to the
-#      Windows App Service `learn-testmc-app-itn-01`, and point it at the storage account.
-#   2. Render the Quarto site and upload the static output to the `learn` container
-#      in storage account `samplestmcstitn01`, then flush the proxy cache so the new
-#      content is served immediately.
+# Renders the Quarto site and uploads the static output to the `learn` container in
+# storage account `samplestmcstitn01`, then flushes the Learn.Web proxy cache so the
+# new content is served immediately.
 #
-# The proxy serves the site by fetching blobs from `samplestmcstitn01/learn` over HTTPS
-# (Managed Identity, no keys). See:
-#   src/docs/90. Issues/202607/20270714.01-appservice-deploy/kestrel-blob-proxy-analysis.md
+# Runs when the SITE CONTENT changes (any push that is not solely app code, workflows,
+# or deploy stubs — see paths-ignore). The app itself is deployed by deploy-learnweb.yml.
 #
-# Prerequisites (one-time, outside this workflow):
-#   - The App Service `learn-testmc-app-itn-01` has a system-assigned managed identity
-#     with the "Storage Blob Data Reader" role on `samplestmcstitn01`.
+# Prerequisites (one-time):
 #   - The GitHub OIDC identity (AZURE_CLIENT_ID/TENANT/SUBSCRIPTION secrets) has the
-#     "Storage Blob Data Contributor" role on `samplestmcstitn01` (to upload content)
-#     and rights to deploy/configure the App Service.
+#     "Storage Blob Data Contributor" role on `samplestmcstitn01` (to upload content).
 #   - Optional secret LEARN_WEB_INVALIDATE_KEY matches BlobProxy:InvalidateApiKey.
 
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - src/**
+      - .github/**
+      - deploy/**
   workflow_dispatch:
 
-# OIDC: the workflow requests a short-lived federated token from GitHub.
+# OIDC: request a short-lived federated token from GitHub.
 permissions:
   id-token: write
   contents: read
 
-# Never run two deploys to the same App Service at once.
 concurrency:
-  group: azure-webapp-deploy-v1
+  group: deploy-learninghub
   cancel-in-progress: false
 
 env:
-  AZURE_WEBAPP_NAME: learn-testmc-app-itn-01
   WEBAPP_HOSTNAME: learn-testmc-app-itn-01.azurewebsites.net
   STORAGE_ACCOUNT: samplestmcstitn01
   STORAGE_CONTAINER: learn
-  DOTNET_VERSION: "10.0.x"
   QUARTO_VERSION: "1.6.42"
 
 jobs:
-  build-and-deploy:
-    # Self-hosted Windows runner (GitHub-hosted Actions minutes are disabled).
+  deploy-content:
     runs-on: self-hosted
 
     steps:
       - name: Reset runner state to main branch
         shell: pwsh
         run: |
-          # The gh-pages workflow leaves this self-hosted runner checked out on an
-          # orphan deploy branch, which corrupts a plain checkout. Reset to main first.
           if (Test-Path ".git") {
-            Write-Host "Resetting runner state to origin/main..."
             git fetch origin main --force
             git checkout -B main origin/main --force
             git clean -fdx
-            Write-Host "Runner state reset to origin/main"
           }
 
       - name: Checkout repository
@@ -66,64 +55,6 @@ jobs:
         with:
           ref: main
           clean: true
-
-      # ── Stage 1: build & deploy the Learn.Web blob-proxy ──────────────────────
-
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
-
-      - name: Publish Learn.Web
-        shell: pwsh
-        run: |
-          # Self-contained win-x64 so the App Service does not need the .NET 10 runtime
-          # pre-installed. `dotnet publish` (Web SDK) also emits the ANCM web.config.
-          dotnet publish src/Learn.Web/Learn.Web.csproj `
-            -c Release -r win-x64 --self-contained true `
-            -o publish_learnweb
-          if (-not (Test-Path "publish_learnweb/Learn.Web.exe")) {
-            Write-Error "publish_learnweb/Learn.Web.exe missing after publish"
-            exit 1
-          }
-          Write-Host "Published Learn.Web to publish_learnweb"
-
-      - name: Azure login (OIDC)
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
-      - name: Configure App Service application settings
-        shell: pwsh
-        run: |
-          # Point the deployed proxy at the storage account. In Azure the external-config
-          # folder is not present, so the storage target is supplied as app settings.
-          $rg = az webapp list --query "[?name=='$env:AZURE_WEBAPP_NAME'].resourceGroup | [0]" -o tsv
-          if (-not $rg) { Write-Error "Could not resolve resource group for $env:AZURE_WEBAPP_NAME"; exit 1 }
-          Write-Host "Resource group: $rg"
-
-          $settings = @(
-            "BlobProxy__AccountUri=https://$env:STORAGE_ACCOUNT.blob.core.windows.net",
-            "BlobProxy__ContainerName=$env:STORAGE_CONTAINER",
-            "AppsettingsEnvironmentName=Testmc"
-          )
-          $invalidateKey = "${{ secrets.LEARN_WEB_INVALIDATE_KEY }}"
-          if ($invalidateKey) { $settings += "BlobProxy__InvalidateApiKey=$invalidateKey" }
-
-          az webapp config appsettings set `
-            --name $env:AZURE_WEBAPP_NAME --resource-group $rg `
-            --settings $settings | Out-Null
-          Write-Host "App settings updated"
-
-      - name: Deploy Learn.Web to App Service
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          package: publish_learnweb
-
-      # ── Stage 2: build the Quarto site & publish it to blob storage ───────────
 
       - name: Setup Quarto (Windows Self-Hosted)
         shell: pwsh
@@ -187,7 +118,14 @@ jobs:
           $after = (Get-ChildItem docs -Recurse -File | Measure-Object Length -Sum).Sum / 1MB
           Write-Host ("Content package: {0:N1} MB -> {1:N1} MB" -f $before, $after)
 
-      - name: Upload Quarto site to blob storage
+      - name: Azure login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Upload Learning Hub to blob storage
         shell: pwsh
         run: |
           # Ensure the container exists (Storage Blob Data Contributor allows this),
@@ -221,7 +159,7 @@ jobs:
 
       - name: Invalidate proxy cache
         # Best-effort: flush the proxy's in-memory cache so the new content is served
-        # immediately. Non-fatal if the endpoint is gated (e.g. Easy Auth).
+        # immediately. Non-fatal if the endpoint is gated.
         continue-on-error: true
         shell: pwsh
         run: |
@@ -235,10 +173,3 @@ jobs:
           } catch {
             Write-Warning "Cache invalidation call failed: $($_.Exception.Message)"
           }
-
-      - name: Azure logout
-        if: always()
-        shell: pwsh
-        run: |
-          az logout 2>$null
-          exit 0

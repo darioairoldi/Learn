@@ -74,7 +74,7 @@ $excludeDirs = '\\(\.git|\.vs|\.quarto|_freeze|_site|node_modules|bin|obj|docs|R
 
 # --- JPEG encoder setup ----------------------------------------------------
 $jpegCodec = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() |
-    Where-Object { $_.FormatID -eq [System.Drawing.Imaging.ImageFormat]::Jpeg.Guid }
+Where-Object { $_.FormatID -eq [System.Drawing.Imaging.ImageFormat]::Jpeg.Guid }
 $encParams = New-Object System.Drawing.Imaging.EncoderParameters(1)
 $encParams.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter(
     [System.Drawing.Imaging.Encoder]::Quality, [int64]$Quality)
@@ -99,11 +99,11 @@ function Get-WebPath([string]$originalFullPath) {
 
 # --- Stage 1: generate .web images -----------------------------------------
 $images = Get-ChildItem -Path $Root -Recurse -File -Include *.jpg, *.jpeg -ErrorAction SilentlyContinue |
-    Where-Object {
-        $_.FullName -notmatch $excludeDirs -and
-        $_.Name -notlike '*.web.*' -and
-        $_.Length -gt ($MinSizeKB * 1KB)
-    }
+Where-Object {
+    $_.FullName -notmatch $excludeDirs -and
+    $_.Name -notlike '*.web.*' -and
+    $_.Length -gt ($MinSizeKB * 1KB)
+}
 
 $created = 0; $copied = 0; $upToDate = 0; $beforeBytes = 0L; $afterBytes = 0L
 # Absolute paths of .web targets that exist or would exist after this run
@@ -235,7 +235,7 @@ function Get-WebUrl([string]$url, [string]$mdDir) {
 }
 
 $mdFiles = Get-ChildItem -Path $Root -Recurse -File -Include *.md, *.qmd -ErrorAction SilentlyContinue |
-    Where-Object { $_.FullName -notmatch $excludeDirs }
+Where-Object { $_.FullName -notmatch $excludeDirs }
 
 # Markdown link targets, both plain "](url)" and angle-bracketed "](<url>)"
 # (CommonMark uses <...> when the path has spaces/special chars), plus HTML src="url".
