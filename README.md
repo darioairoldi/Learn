@@ -16,7 +16,7 @@ From 40+ **Build**, **Ignite** and **YouTube** sessions analysis to Azure produc
 
 | Section | Description |
 |---------|-------------|
-| [LearnHub 💡](https://learn-testmc-app-itn-01.azurewebsites.net/) | Latest updates on VS Code releases and developer tools |
+| [LearnHub 💡](https://learn-testmc-app-itn-01.azurewebsites.net/) | Learning hub live site |
 | [News 📰](#news--updates) | Latest updates on VS Code releases and developer tools |
 | [AI & Prompt Engineering 🤖](#ai--intelligent-development) | AI-assisted development and prompt file organization |
 | [Conference Notes 🎯](#conference-notes--insights) | 40+ Build 2025 sessions with detailed analysis |
