@@ -237,7 +237,7 @@ public class Program
             return true;
         }
 
-        return http.Request.Headers.TryGetValue("X-Invalidate-Key", out var provided) && 
+        return http.Request.Headers.TryGetValue("X-Invalidate-Key", out var provided) &&
             CryptographicOperations.FixedTimeEquals(System.Text.Encoding.UTF8.GetBytes(provided.ToString()), System.Text.Encoding.UTF8.GetBytes(options.InvalidateApiKey));
     }
 
