@@ -63,10 +63,16 @@ jobs:
           ref: main
           clean: true
 
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
+      - name: Verify .NET SDK
+        shell: pwsh
+        run: |
+          # Use the .NET SDK pre-installed on the self-hosted runner. actions/setup-dotnet
+          # can't be used here: it tries to install into C:\Program Files\dotnet, which the
+          # runner service account cannot write to (the SDK is already installed there).
+          $v = dotnet --version
+          Write-Host "Using pre-installed .NET SDK: $v"
+          if ($LASTEXITCODE -ne 0) { Write-Error "dotnet SDK not available on runner"; exit 1 }
+          if (-not ($v -like '10.*')) { Write-Error "Expected .NET 10 SDK, found $v"; exit 1 }
 
       - name: Publish Learn.Web
         shell: pwsh
