@@ -1,16 +1,15 @@
-name: Deploy Quarto Site to Azure Web App
+name: Deploy Quarto Site to Azure Web App (DISABLED — superseded by azure-webapp-deploy-v1.yml)
 
-# Renders the Quarto site and deploys the static `docs/` output to the
-# Windows Azure App Service `learn-testmc-app-itn-01`.
-# Authentication is secretless via OIDC (federated credential on an Azure AD
-# app registration) — no publish profile or client secret is stored in GitHub.
+# ⚠️ DISABLED 2026-07-15.
+# Superseded by azure-webapp-deploy-v1.yml, which deploys the Learn.Web blob-proxy
+# app to the App Service `learn-testmc-app-itn-01` and publishes the Quarto site to
+# the `learn` container in storage account `samplestmcstitn01`.
 #
-# This workflow runs ALONGSIDE the existing gh-pages deployment
-# (quarto-publish.direct.yml); it does not replace it.
+# This file is kept for history only. Its automatic `push` trigger has been removed
+# and the job is guarded with `if: ${{ false }}`, so it cannot run — even via a
+# manual dispatch. To re-enable, restore the `push` trigger and remove the guard.
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 # OIDC: the workflow requests a short-lived federated token from GitHub.
@@ -29,6 +28,9 @@ env:
 
 jobs:
   build-and-deploy:
+    # DISABLED: this guard prevents execution. Remove it and restore the `push`
+    # trigger above to re-enable this legacy static-site deployment.
+    if: ${{ false }}
     # Runs on the same self-hosted Windows runner as the gh-pages workflow to
     # avoid GitHub-hosted Actions minutes (account billing is disabled).
     runs-on: self-hosted
