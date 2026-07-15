@@ -1,10 +1,15 @@
-name: Quarto Site Deploy (Direct Push - No Artifacts)
+name: Quarto Site Deploy (DISABLED — replaced by pages-redirect.yml)
+
+# ⚠️ DISABLED 2026-07-15.
+# The Learning Hub is now served by the Learn.Web blob-proxy at
+# https://learn-testmc-app-itn-01.azurewebsites.net/ (see azure-webapp-deploy-v1.yml).
+# GitHub Pages now hosts only a redirect stub, published by pages-redirect.yml.
+# This full-site gh-pages render is no longer used. Automatic triggers have been
+# removed and the job is guarded with `if: ${{ false }}` so it cannot run — even via
+# manual dispatch. To re-enable, restore the push/pull_request triggers and remove
+# the guard.
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -17,6 +22,9 @@ concurrency:
 
 jobs:
   build-and-deploy:
+    # DISABLED: this guard prevents execution. Remove it and restore the triggers
+    # above to re-enable the legacy full-site gh-pages render.
+    if: ${{ false }}
     runs-on: self-hosted
 
     steps:

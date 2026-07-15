@@ -1,0 +1,85 @@
+name: Deploy GitHub Pages redirect
+
+# Publishes a single redirect stub to the gh-pages branch. GitHub Pages then
+# forwards visitors to the Learning Hub, now served by the Learn.Web blob-proxy
+# at https://learn-testmc-app-itn-01.azurewebsites.net/.
+#
+# Replaces quarto-publish.direct.yml (disabled): the full site is no longer
+# rendered to gh-pages. Source of the page: deploy/pages-redirect/index.html.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - deploy/pages-redirect/**
+      - .github/workflows/pages-redirect.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write # push to the gh-pages branch
+
+# Share the "pages" concurrency group so Pages deploys never overlap.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy-redirect:
+    runs-on: self-hosted
+
+    steps:
+      - name: Reset runner state to main branch
+        shell: pwsh
+        run: |
+          # Self-hosted runner state is left on an orphan deploy branch by the
+          # gh-pages push below; reset to main before checkout.
+          if (Test-Path ".git") {
+            git fetch origin main --force
+            git checkout -B main origin/main --force
+            git clean -fdx
+          }
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+          clean: true
+
+      - name: Publish redirect to gh-pages
+        shell: pwsh
+        run: |
+          if (-not (Test-Path "deploy/pages-redirect/index.html")) {
+            Write-Error "deploy/pages-redirect/index.html not found"
+            exit 1
+          }
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Stage the redirect payload outside the repo (index.html + .nojekyll so
+          # GitHub Pages serves the file verbatim without Jekyll processing).
+          $tempDir = "$env:TEMP\pages-redirect-$(Get-Random)"
+          New-Item -ItemType Directory -Path $tempDir -Force | Out-Null
+          Copy-Item -Path "deploy\pages-redirect\index.html" -Destination "$tempDir\index.html" -Force
+          New-Item -ItemType File -Path "$tempDir\.nojekyll" -Force | Out-Null
+
+          # Fresh orphan branch = no history / no case-conflict carryover.
+          git branch -D gh-pages-deploy 2>$null
+          git checkout --orphan gh-pages-deploy
+          git rm -rf . 2>$null
+          Get-ChildItem -Force | Where-Object { $_.Name -ne '.git' } | Remove-Item -Recurse -Force
+
+          Copy-Item -Path "$tempDir\index.html" -Destination "index.html" -Force
+          Copy-Item -Path "$tempDir\.nojekyll" -Destination ".nojekyll" -Force
+          Remove-Item $tempDir -Recurse -Force -ErrorAction SilentlyContinue
+
+          git add -A
+          git commit -m "Deploy GitHub Pages redirect -> Azure Learning Hub" -m "From commit: $env:GITHUB_SHA"
+
+          Write-Host "Force pushing redirect to gh-pages..."
+          git push origin gh-pages-deploy:gh-pages --force
+
+          git fetch origin gh-pages
+          Write-Host ("gh-pages now at: {0}" -f (git rev-parse origin/gh-pages))
+          Write-Host "Redirect published."
