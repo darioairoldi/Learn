@@ -111,7 +111,10 @@ jobs:
       - name: Compress images in output
         # Downscale/re-encode large JPEGs in the disposable docs/ artifact only.
         # Runs under Windows PowerShell 5.1 so System.Drawing is available.
-        shell: powershell
+        # Override the shell to bypass the machine's Restricted execution policy
+        # (the default `shell: powershell` invocation has no -ExecutionPolicy flag,
+        # so the runner-generated temp .ps1 is blocked on this self-hosted runner).
+        shell: powershell -NoProfile -ExecutionPolicy Bypass -Command "& '{0}'"
         run: |
           $before = (Get-ChildItem docs -Recurse -File | Measure-Object Length -Sum).Sum / 1MB
           & "$env:GITHUB_WORKSPACE\scripts\compress-images.ps1" -Path docs -MaxDimension 2000 -Quality 82 -MinSizeKB 400
