@@ -3,7 +3,7 @@
 @inject IJSRuntime JS
 @inject ThemeState Theme
 
-<div class="page @(Theme.Dark ? "theme-dark" : null)">
+<div class="page theme-@Theme.ThemeId">
     <header class="topbar">
         <button class="nav-toggle" title="Toggle menu" @onclick="() => _navOpen = !_navOpen">☰</button>
         <a class="brand" href=""><i class="bi bi-lightbulb-fill"></i> <span>Learning Hub</span></a>
@@ -11,10 +11,19 @@
         <span class="topbar-spacer"></span>
         <TopMenu Placement="TopMenu.Group.Right" />
         <AboutMenu />
+        <button class="icon-btn" title="Search" @onclick="() => _searchOpen = true">
+            <i class="bi bi-search"></i>
+        </button>
+        <button class="icon-btn" title="Notifications" @onclick="() => _notifyOpen = !_notifyOpen">
+            <i class="bi bi-bell"></i>
+        </button>
         <button class="theme-btn" title="Toggle light/dark" @onclick="() => Theme.Toggle()">
             @(Theme.Dark ? "☀️" : "🌙")
         </button>
     </header>
+
+    <SearchOverlay Open="_searchOpen" OnClose="() => _searchOpen = false" />
+    <NotificationPanel Open="_notifyOpen" OnClose="() => _notifyOpen = false" />
 
     <div class="body">
         <nav class="sidebar @(_navOpen ? null : "collapsed")">
@@ -35,15 +44,31 @@
 
 @code {
     private bool _navOpen = true;
+    private bool _searchOpen;
+    private bool _notifyOpen;
 
     protected override void OnInitialized() => Theme.Changed += OnThemeChanged;
 
-    private void OnThemeChanged() => InvokeAsync(StateHasChanged);
+    private async void OnThemeChanged()
+    {
+        try
+        {
+            await JS.InvokeVoidAsync("localStorage.setItem", "lh-theme", Theme.ThemeId);
+        }
+        catch
+        {
+            /* JS not available during prerender */
+        }
+
+        await InvokeAsync(StateHasChanged);
+    }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
+            string? saved = await JS.InvokeAsync<string?>("localStorage.getItem", "lh-theme");
+            Theme.SetTheme(saved);
             await JS.InvokeVoidAsync("appUi.initResizer");
             await JS.InvokeVoidAsync("appUi.initTocResizer");
         }

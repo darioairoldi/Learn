@@ -1,0 +1,65 @@
+@implements IDisposable
+@inject IJSRuntime JS
+
+@if (Open)
+{
+    <div class="search-overlay" @onclick="Close">
+        <div class="search-box" @onclick:stopPropagation="true">
+            <div class="search-input-row">
+                <i class="bi bi-search search-input-icon"></i>
+                <input class="search-input" placeholder="Search articles…" @ref="_input" @bind="_query"
+                       @bind:event="oninput" @onkeydown="OnKeyDown" />
+                <button class="search-cancel" type="button" @onclick="Close">Cancel</button>
+            </div>
+            <div class="search-results">
+                @if (string.IsNullOrWhiteSpace(_query))
+                {
+                    <p class="search-hint">Type to search the Learning Hub — results will be ranked by the server.</p>
+                }
+                else
+                {
+                    <p class="search-hint">
+                        <i class="bi bi-hourglass-split"></i>
+                        Search is being wired to the server. You searched for
+                        <strong>“@_query”</strong>.
+                    </p>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public bool Open { get; set; }
+    [Parameter] public EventCallback OnClose { get; set; }
+
+    private ElementReference _input;
+    private string _query = string.Empty;
+    private bool _wasOpen;
+
+    private Task Close() => OnClose.InvokeAsync();
+
+    private async Task OnKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Escape")
+        {
+            await Close();
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (Open && !_wasOpen)
+        {
+            _wasOpen = true;
+            try { await _input.FocusAsync(); } catch { /* element not ready */ }
+        }
+        else if (!Open && _wasOpen)
+        {
+            _wasOpen = false;
+            _query = string.Empty;
+        }
+    }
+
+    public void Dispose() { }
+}

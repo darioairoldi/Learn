@@ -1,4 +1,5 @@
 @inject ThemeState Theme
+@implements IDisposable
 
 <div class="topmenu">
     <div class="topmenu-item">
@@ -11,19 +12,45 @@
             <ul class="dropdown-list">
                 <li><a class="dropdown-link" href="readme">About</a></li>
                 <li><a class="dropdown-link" href="_content-raw/LICENSE" target="_blank" rel="noopener">License</a></li>
-                <li class="dropdown-sep"><hr /></li>
-                <li><span class="dropdown-header">Theme</span></li>
-                <li>
-                    <button class="dropdown-action" type="button" @onclick="() => Theme.Toggle()">
-                        @(Theme.Dark ? "Switch to light" : "Switch to dark")
-                    </button>
+                <li class="dropdown-sep">
+                    <hr />
+                </li>
+
+                <li><span class="dropdown-subhead">Light themes</span></li>
+                @foreach (ThemeOption opt in ThemeState.Options.Where(o => !o.Dark))
+                {
+                    <li>@ThemeItem(opt)</li>
+                }
+
+                <li><span class="dropdown-subhead">Dark themes</span></li>
+                @foreach (ThemeOption opt in ThemeState.Options.Where(o => o.Dark))
+                {
+                    <li>@ThemeItem(opt)</li>
+                }
+
+                <li class="dropdown-sep">
+                    <hr />
                 </li>
                 <li>
                     <button class="dropdown-action" type="button" @onclick="() => Theme.Reset()">
-                        Reset theme
+                        <span class="theme-swatch" style="visibility:hidden"></span>Reset theme
                     </button>
                 </li>
             </ul>
         </div>
     </div>
 </div>
+
+@code {
+    protected override void OnInitialized() => Theme.Changed += OnChanged;
+
+    private void OnChanged() => InvokeAsync(StateHasChanged);
+
+    public void Dispose() => Theme.Changed -= OnChanged;
+
+    private RenderFragment ThemeItem(ThemeOption opt) => @<button
+        class="dropdown-action @(opt.Id == Theme.ThemeId ? "active" : null)" type="button"
+        @onclick="() => Theme.SetTheme(opt.Id)">
+        <span class="theme-swatch" style="background:@opt.Accent"></span>@opt.Name
+    </button>;
+}

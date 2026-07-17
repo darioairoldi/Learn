@@ -1,28 +1,53 @@
 namespace Learn.Web.Shared;
 
+/// <summary>A selectable site theme. <see cref="Accent"/> drives the picker swatch.</summary>
+public sealed record ThemeOption(string Id, string Name, bool Dark, string Accent);
+
 /// <summary>
-/// Shared, per-circuit light/dark theme state. The layout applies it as a CSS
-/// class; the standalone toggle button and the About menu's theme controls all
-/// drive it through this single source of truth.
+/// Shared, per-circuit theme state. The layout applies the selected theme as a CSS class
+/// (<c>theme-{id}</c>); the standalone toggle button and the About menu's theme picker all
+/// drive it through this single source of truth. The default light/dark pair is Cosmo and
+/// GitHub Dark.
 /// </summary>
 public sealed class ThemeState
 {
-    public bool Dark { get; private set; }
+    public const string DefaultLight = "cosmo";
+    public const string DefaultDark = "github-dark";
+
+    /// <summary>Curated light + dark themes, in menu order.</summary>
+    public static readonly IReadOnlyList<ThemeOption> Options = new[]
+    {
+        new ThemeOption("cosmo", "Cosmo", false, "#1f6feb"),
+        new ThemeOption("sandstone", "Sandstone", false, "#2f6f7d"),
+        new ThemeOption("solarized-light", "Solarized Light", false, "#268bd2"),
+        new ThemeOption("minty", "Minty", false, "#18b58c"),
+        new ThemeOption("github-dark", "GitHub Dark", true, "#388bfd"),
+        new ThemeOption("darkly", "Darkly", true, "#00bc8c"),
+        new ThemeOption("nord", "Nord", true, "#88c0d0"),
+        new ThemeOption("solarized-dark", "Solarized Dark", true, "#2aa198"),
+    };
+
+    public string ThemeId { get; private set; } = DefaultLight;
+
+    public ThemeOption Current => Options.FirstOrDefault(o => o.Id == ThemeId) ?? Options[0];
+
+    public bool Dark => Current.Dark;
 
     public event Action? Changed;
 
-    public void SetDark(bool dark)
+    public void SetTheme(string? id)
     {
-        if (Dark == dark)
+        if (string.IsNullOrEmpty(id) || id == ThemeId || Options.All(o => o.Id != id))
         {
             return;
         }
 
-        Dark = dark;
+        ThemeId = id;
         Changed?.Invoke();
     }
 
-    public void Toggle() => SetDark(!Dark);
+    /// <summary>Quick light/dark flip used by the standalone topbar button.</summary>
+    public void Toggle() => SetTheme(Dark ? DefaultLight : DefaultDark);
 
-    public void Reset() => SetDark(false);
+    public void Reset() => SetTheme(DefaultLight);
 }

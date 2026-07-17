@@ -105,16 +105,22 @@ jobs:
       - name: Upload Markdown content to blob storage
         shell: pwsh
         run: |
+          $ErrorActionPreference = 'Stop'
           # Ensure the container exists (Storage Blob Data Contributor allows this), then
           # upload the staged content. Paths are preserved:
           # content-stage/01.00-news/x/overview.md -> 01.00-news/x/overview.md.
           az storage container create `
             --account-name $env:STORAGE_ACCOUNT --name $env:STORAGE_CONTAINER `
             --auth-mode login --only-show-errors | Out-Null
+          if ($LASTEXITCODE -ne 0) {
+            throw "Could not reach/create container '$env:STORAGE_CONTAINER' on '$env:STORAGE_ACCOUNT'. Verify the OIDC identity 'github-learn-deploy' has the 'Storage Blob Data Contributor' role on the account, and that the runner's VPN to the private endpoint is connected (blob endpoint must resolve to a private 10.x IP)."
+          }
 
           az storage blob upload-batch `
             --account-name $env:STORAGE_ACCOUNT --destination $env:STORAGE_CONTAINER `
             --source content-stage --overwrite true --auth-mode login --only-show-errors | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw "Blob upload to '$env:STORAGE_ACCOUNT/$env:STORAGE_CONTAINER' failed (see errors above)." }
+
           Write-Host "Uploaded content-stage/ to $env:STORAGE_ACCOUNT/$env:STORAGE_CONTAINER"
 
       - name: Invalidate app cache
