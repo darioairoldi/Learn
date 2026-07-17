@@ -1,0 +1,23 @@
+@inject NavigationService Nav
+
+@if (_nodes is null)
+{
+    <p class="nav-loading"><em>Loading menu…</em></p>
+}
+else if (_nodes.Count == 0)
+{
+    <p class="nav-loading"><em>No navigation.json found.</em></p>
+}
+else
+{
+    <NavTree Nodes="_nodes" />
+}
+
+@code {
+    private IReadOnlyList<NavNode>? _nodes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _nodes = await Nav.GetAsync();
+    }
+}

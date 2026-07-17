@@ -1,0 +1,53 @@
+@inherits LayoutComponentBase
+@implements IDisposable
+@inject IJSRuntime JS
+@inject ThemeState Theme
+
+<div class="page @(Theme.Dark ? "theme-dark" : null)">
+    <header class="topbar">
+        <button class="nav-toggle" title="Toggle menu" @onclick="() => _navOpen = !_navOpen">☰</button>
+        <a class="brand" href=""><i class="bi bi-lightbulb-fill"></i> <span>Learning Hub</span></a>
+        <TopMenu Placement="TopMenu.Group.Left" />
+        <span class="topbar-spacer"></span>
+        <TopMenu Placement="TopMenu.Group.Right" />
+        <AboutMenu />
+        <button class="theme-btn" title="Toggle light/dark" @onclick="() => Theme.Toggle()">
+            @(Theme.Dark ? "☀️" : "🌙")
+        </button>
+    </header>
+
+    <div class="body">
+        <nav class="sidebar @(_navOpen ? null : "collapsed")">
+            <NavMenu />
+        </nav>
+        <div class="sidebar-resizer" title="Drag to resize · double-click to reset"></div>
+        <main class="content">
+            @Body
+        </main>
+        <TocPane />
+    </div>
+
+    <footer class="bottombar">
+        <span>Learning Hub · rendered on demand from Markdown — no build step.</span>
+        <span class="bottombar-right">Learn.Web · Blazor WASM (prerendered)</span>
+    </footer>
+</div>
+
+@code {
+    private bool _navOpen = true;
+
+    protected override void OnInitialized() => Theme.Changed += OnThemeChanged;
+
+    private void OnThemeChanged() => InvokeAsync(StateHasChanged);
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("appUi.initResizer");
+            await JS.InvokeVoidAsync("appUi.initTocResizer");
+        }
+    }
+
+    public void Dispose() => Theme.Changed -= OnThemeChanged;
+}

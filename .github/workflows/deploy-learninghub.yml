@@ -1,16 +1,19 @@
 name: Deploy Learning Hub content to storage
 
-# Renders the Quarto site and uploads the static output to the `learn` container in
-# storage account `samplestmcstitn01`, then flushes the Learn.Web proxy cache so the
-# new content is served immediately.
+# Uploads the Markdown SOURCE (plus images and navigation.json) directly to the `learn`
+# container in storage account `digitoolstestmcstitn01`, then flushes the Learn.Web cache.
 #
-# Runs when the SITE CONTENT changes (any push that is not solely app code, workflows,
-# or deploy stubs — see paths-ignore). The app itself is deployed by deploy-learnweb.yml.
+# There is NO Quarto build step: the Learn.Web app renders Markdown to HTML on demand
+# (markdown-first). "Publishing" is simply "upload the changed .md" — the storage account
+# holds the source of truth and HTML is produced at request time.
+#
+# Runs when the SITE CONTENT changes (any push that is not solely app code, workflows, or
+# deploy stubs — see paths-ignore). The app itself is deployed by deploy-learnweb.yml.
 #
 # Prerequisites (one-time):
 #   - The GitHub OIDC identity (AZURE_CLIENT_ID/TENANT/SUBSCRIPTION secrets) has the
-#     "Storage Blob Data Contributor" role on `samplestmcstitn01` (to upload content).
-#   - Optional secret LEARN_WEB_INVALIDATE_KEY matches BlobProxy:InvalidateApiKey.
+#     "Storage Blob Data Contributor" role on `digitoolstestmcstitn01` (to upload content).
+#   - Optional secret LEARN_WEB_INVALIDATE_KEY matches Content:InvalidateApiKey.
 
 on:
   push:
@@ -32,13 +35,10 @@ concurrency:
 
 env:
   WEBAPP_HOSTNAME: learn-testmc-app-itn-01.azurewebsites.net
-  STORAGE_ACCOUNT: samplestmcstitn01
+  STORAGE_ACCOUNT: digitoolstestmcstitn01
   STORAGE_CONTAINER: learn
-  QUARTO_VERSION: "1.6.42"
-  # The Azure CLI on the self-hosted runner bundles a 32-bit Python, which prints a harmless
-  # UserWarning ("cryptography on a 32-bit Python ...") to stderr on every invocation. It only
-  # affects CLI performance, not correctness, so silence Python warnings to keep the deploy
-  # logs clean. Remove this once a 64-bit az CLI is installed on the runner.
+  # The Azure CLI on the self-hosted runner bundles a 32-bit Python that prints a harmless
+  # cryptography UserWarning to stderr on every call; silence it to keep the logs clean.
   PYTHONWARNINGS: ignore
 
 jobs:
@@ -61,70 +61,39 @@ jobs:
           ref: main
           clean: true
 
-      - name: Setup Quarto (Windows Self-Hosted)
+      - name: Stage Markdown content
         shell: pwsh
         run: |
-          # Reuse the cached install if present; otherwise install the pinned version.
-          $quartoPath = "C:\Program Files\Quarto\bin"
-          if (Test-Path "$quartoPath\quarto.exe") {
-            $existing = & "$quartoPath\quarto.exe" --version 2>$null
-            if ($existing) {
-              Write-Host "Quarto already installed: $existing"
-              echo $quartoPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-              exit 0
-            }
-          }
-          Write-Host "Quarto not found, installing ${env:QUARTO_VERSION}..."
-          $quartoUrl = "https://github.com/quarto-dev/quarto-cli/releases/download/v${env:QUARTO_VERSION}/quarto-${env:QUARTO_VERSION}-win.msi"
-          Invoke-WebRequest -Uri $quartoUrl -OutFile "quarto-installer.msi" -UseBasicParsing
-          Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "quarto-installer.msi", "/quiet", "/norestart" -Wait
-          if (Test-Path "$quartoPath\quarto.exe") {
-            echo $quartoPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-            & "$quartoPath\quarto.exe" --version
-          } else {
-            Write-Error "Quarto installation failed"
-            exit 1
+          # Collect the site content (Markdown + images + navigation.json) into a staging
+          # folder that mirrors the repo-relative paths the app resolves at runtime, e.g.
+          # 01.00-news/x/overview.md and 01.00-news/x/images/*.png.
+          #
+          # navigation.json is taken as committed in the repo; regenerate it with
+          # scripts/generate-navigation.ps1 when the _quarto.yml sidebar changes.
+          $stage = "content-stage"
+          Remove-Item -Recurse -Force $stage -ErrorAction SilentlyContinue
+          New-Item -ItemType Directory -Path $stage | Out-Null
+
+          # Content roots: folders that hold only site content (.md/.qmd + images).
+          $roots = @(
+            "01.00-news", "02.00-events", "03.00-tech", "04.00-howto", "05.00-issues",
+            "06.00-idea", "90.00-travel", "99.00-temp",
+            "20250815-diy-battery-pack", "20250815-diy-ebike"
+          )
+          foreach ($r in $roots) {
+            if (Test-Path $r) { Copy-Item -Path $r -Destination $stage -Recurse -Force }
           }
 
-      - name: Verify required Quarto includes
-        shell: pwsh
-        run: |
-          # A missing include silently breaks the theme switcher and fails every
-          # nested document, so fail fast here.
-          $required = @("header-includes.html", "theme-light.scss", "theme-dark.scss", "styles.css")
-          $missing = $required | Where-Object { -not (Test-Path $_) }
-          if ($missing) {
-            Write-Error "Required Quarto include(s) missing from checkout: $($missing -join ', ')"
-            exit 1
+          # Root-level content + the generated navigation menu.
+          $rootFiles = @("README.md", "getting-started.md", "documentation-index.md", "index.qmd", "navigation.json")
+          foreach ($f in $rootFiles) {
+            if (Test-Path $f) { Copy-Item -Path $f -Destination $stage -Force }
           }
-          Write-Host "All required Quarto includes present"
 
-      - name: Render Quarto site
-        shell: pwsh
-        run: |
-          Remove-Item -Recurse -Force .quarto -ErrorAction SilentlyContinue
-          Remove-Item -Recurse -Force docs -ErrorAction SilentlyContinue
-          Remove-Item -Recurse -Force _freeze -ErrorAction SilentlyContinue
-          quarto render --to html
-          if (-not (Test-Path "docs/index.html")) {
-            Write-Error "docs/index.html missing after render"
-            exit 1
-          }
-          $count = (Get-ChildItem docs -Filter *.html -Recurse).Count
-          Write-Host "Generated $count HTML files"
-
-      - name: Compress images in output
-        # Downscale/re-encode large JPEGs in the disposable docs/ artifact only.
-        # Runs under Windows PowerShell 5.1 so System.Drawing is available.
-        # Override the shell to bypass the machine's Restricted execution policy
-        # (the default `shell: powershell` invocation has no -ExecutionPolicy flag,
-        # so the runner-generated temp .ps1 is blocked on this self-hosted runner).
-        shell: powershell -NoProfile -ExecutionPolicy Bypass -Command "& '{0}'"
-        run: |
-          $before = (Get-ChildItem docs -Recurse -File | Measure-Object Length -Sum).Sum / 1MB
-          & "$env:GITHUB_WORKSPACE\scripts\compress-images.ps1" -Path docs -MaxDimension 2000 -Quality 82 -MinSizeKB 400
-          $after = (Get-ChildItem docs -Recurse -File | Measure-Object Length -Sum).Sum / 1MB
-          Write-Host ("Content package: {0:N1} MB -> {1:N1} MB" -f $before, $after)
+          $mdCount = (Get-ChildItem $stage -Recurse -File -Include *.md, *.qmd).Count
+          $imgCount = (Get-ChildItem $stage -Recurse -File -Include *.png, *.jpg, *.jpeg, *.gif, *.svg, *.webp).Count
+          Write-Host "Staged $mdCount markdown files and $imgCount images under $stage"
+          if ($mdCount -eq 0) { Write-Error "No markdown staged - aborting"; exit 1 }
 
       - name: Azure login (OIDC)
         uses: azure/login@v2
@@ -133,41 +102,24 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Upload Learning Hub to blob storage
+      - name: Upload Markdown content to blob storage
         shell: pwsh
         run: |
-          # Ensure the container exists (Storage Blob Data Contributor allows this),
-          # then upload the rendered site. Paths are preserved: docs/index.html -> index.html.
+          # Ensure the container exists (Storage Blob Data Contributor allows this), then
+          # upload the staged content. Paths are preserved:
+          # content-stage/01.00-news/x/overview.md -> 01.00-news/x/overview.md.
           az storage container create `
             --account-name $env:STORAGE_ACCOUNT --name $env:STORAGE_CONTAINER `
             --auth-mode login --only-show-errors | Out-Null
 
           az storage blob upload-batch `
             --account-name $env:STORAGE_ACCOUNT --destination $env:STORAGE_CONTAINER `
-            --source docs --overwrite true --auth-mode login --only-show-errors | Out-Null
-          Write-Host "Uploaded docs/ to $env:STORAGE_ACCOUNT/$env:STORAGE_CONTAINER"
+            --source content-stage --overwrite true --auth-mode login --only-show-errors | Out-Null
+          Write-Host "Uploaded content-stage/ to $env:STORAGE_ACCOUNT/$env:STORAGE_CONTAINER"
 
-      - name: Fix web-font content types
-        shell: pwsh
-        run: |
-          # az guesses content types from extension, but may not know woff/woff2.
-          # Set them explicitly so the browser accepts the fonts.
-          $map = @{ ".woff" = "font/woff"; ".woff2" = "font/woff2" }
-          $docsRoot = (Resolve-Path "docs").Path
-          foreach ($ext in $map.Keys) {
-            Get-ChildItem docs -Recurse -File -Filter "*$ext" | ForEach-Object {
-              $blob = $_.FullName.Substring($docsRoot.Length + 1).Replace("\", "/")
-              az storage blob update `
-                --account-name $env:STORAGE_ACCOUNT --container-name $env:STORAGE_CONTAINER `
-                --name $blob --content-type $map[$ext] `
-                --auth-mode login --only-show-errors | Out-Null
-            }
-          }
-          Write-Host "Web-font content types corrected"
-
-      - name: Invalidate proxy cache
-        # Best-effort: flush the proxy's in-memory cache so the new content is served
-        # immediately. Non-fatal if the endpoint is gated.
+      - name: Invalidate app cache
+        # Best-effort: flush the app's in-memory cache so new content is served immediately.
+        # Non-fatal if the endpoint is absent or gated.
         continue-on-error: true
         shell: pwsh
         run: |
@@ -177,7 +129,7 @@ jobs:
           try {
             Invoke-WebRequest -Uri "https://$env:WEBAPP_HOSTNAME/_cache/invalidate" `
               -Method POST -Headers $headers -TimeoutSec 30 -UseBasicParsing | Out-Null
-            Write-Host "Proxy cache flushed"
+            Write-Host "App cache flushed"
           } catch {
             Write-Warning "Cache invalidation call failed: $($_.Exception.Message)"
           }

@@ -17,7 +17,11 @@ draft: true
 **Status:** Open — analysis complete; Phase 1 solution actionable ([01-issue-resolution-plan.md](01-issue-resolution-plan.md))  
 **Severity:** High (developer productivity / scalability)  
 **Component:** Quarto build pipeline and site navigation (CI/CD, `_quarto.yml`)  
-**Framework:** Quarto 1.6.42 static site generator; GitHub Actions (self-hosted runner); GitHub Pages
+**Framework:** Quarto 1.6.42 static site generator; GitHub Actions (self-hosted runner); Azure App Service blob-proxy serving from an Azure Storage account
+
+---
+
+> **⚠️ Architecture update (2026-07-15):** the `gh-pages` / GitHub Pages pipeline referenced in parts of this analysis is **disabled**. The live site is now served by the `Learn.Web` blob-proxy on Azure App Service, reading output from the `learn` container of storage account `samplestmcstitn01`; content is published by [deploy-learninghub.yml](../../../../../.github/workflows/deploy-learninghub.yml). The root causes below remain accurate — the current workflow still runs a whole-project `quarto render` and wipes caches — but the *deploy target* is blob storage, not `gh-pages`. A **markdown-first** direction that removes the build entirely is proposed in [02-markdown-first-rendering.md](02-markdown-first-rendering.md).
 
 ---
 
@@ -33,7 +37,7 @@ draft: true
 
 ## 📝 Problem statement
 
-The Learning Hub is a Quarto `website` project published to GitHub Pages. **Every deploy performs a full render of the entire site, regardless of how little changed.** A one-word edit to a single article triggers the same work as a complete rebuild: Quarto re-runs Pandoc across the whole render whitelist, and GitHub Actions force-pushes the entire `docs/` tree to `gh-pages`.
+The Learning Hub is a Quarto `website` project. **Every deploy performs a full render of the entire site, regardless of how little changed.** A one-word edit to a single article triggers the same work as a complete rebuild: Quarto re-runs Pandoc across the whole render whitelist, and CI uploads the entire regenerated `docs/` tree to the storage account (the historical, now-disabled `gh-pages` pipeline force-pushed the whole tree to `gh-pages` instead).
 
 - **Expected**: an *append-mostly* documentation site should build **incrementally** — only new or modified articles compiled to HTML and dropped into `docs/` at the correct path, with the left menu updated as an independent step.
 - **Current**: build cost is **O(site size) per change** instead of **O(change size)**. It already takes **tens of minutes**, and grows monotonically as articles accumulate.
@@ -52,7 +56,7 @@ The Learning Hub is a Quarto `website` project published to GitHub Pages. **Ever
 | Issue folder | `src/docs/90. Issues/202607/20270711.02-progressive-build/` |
 | Trigger | Build time reached "tens of minutes" as article count grew |
 | Site generator | Quarto 1.6.42 (`project.type: website`) |
-| Output directory | `docs/` (served by GitHub Pages from `gh-pages`) |
+| Output directory | `docs/` — uploaded to storage account `samplestmcstitn01/learn` and served by the `Learn.Web` App Service blob-proxy. The legacy `gh-pages` pipeline is disabled. |
 | Render whitelist size | 267 entries in `project.render` (several are `**/*.md` globs → actual page count is higher) |
 | Total renderable `.md`/`.qmd` in repo | ~1,481 files |
 | Native sidebar size | ≈340 lines under `website.sidebar.contents` |
@@ -67,15 +71,16 @@ The Learning Hub is a Quarto `website` project published to GitHub Pages. **Ever
 | Left menu | `website.sidebar.contents` (≈340 lines) | Native Quarto sidebar, **baked into every output page** |
 | Menu data (unused) | `navigation.json` via [scripts/generate-navigation.ps1](../../../../../scripts/generate-navigation.ps1) | Generated from the sidebar YAML, copied to `docs/` — **not consumed by the live site** |
 | Shared shell | `header-includes.html`, `styles.css`, `theme-*.scss` | Injected into every page |
-| CI | [.github/workflows/quarto-publish.direct.yml](../../../../../.github/workflows/quarto-publish.direct.yml) | Wipes `docs/`, `.quarto/`, `_freeze/`, runs `quarto render`, force-pushes `gh-pages` |
+| CI (current) | [.github/workflows/deploy-learninghub.yml](../../../../../.github/workflows/deploy-learninghub.yml) | Wipes `docs/`, `.quarto/`, `_freeze/`, runs whole-project `quarto render`, uploads all of `docs/` via `az storage blob upload-batch`, flushes the proxy cache |
+| CI (legacy, disabled) | [.github/workflows/quarto-publish.direct.yml](../../../../../.github/workflows/quarto-publish.direct.yml) | Historical `gh-pages` pipeline — wiped caches, full render, force-pushed `gh-pages`. Guarded off since 2026-07-15 |
 
 ## 🔄 Reproduction steps
 
 1. Make a one-line edit to any single whitelisted article (for example, a typo fix in a `summary.md`).
 2. Commit and push to `main`.
-3. Observe the CI run of [quarto-publish.direct.yml](../../../../../.github/workflows/quarto-publish.direct.yml):
-   - The **Render Quarto Project** step deletes `docs/`, `.quarto/`, `_freeze/`, then runs `quarto render --to html` across all 267 render-list entries.
-   - The **Deploy** step force-pushes the entire regenerated `docs/` tree to `gh-pages`.
+3. Observe the CI run of [deploy-learninghub.yml](../../../../../.github/workflows/deploy-learninghub.yml):
+   - The **Render Quarto site** step deletes `docs/`, `.quarto/`, `_freeze/`, then runs `quarto render --to html` across all 267 render-list entries.
+   - The **Upload** step pushes the entire regenerated `docs/` tree to the `learn` container via `az storage blob upload-batch` (the disabled legacy pipeline force-pushed to `gh-pages` instead).
 4. Measure wall-clock time: it is **independent of the change size** and scales with total article count (currently tens of minutes).
 
 **Expected (incremental):** step 3 should render only the one changed file and copy only the changed output.
@@ -84,7 +89,7 @@ The Learning Hub is a Quarto `website` project published to GitHub Pages. **Ever
 
 | Location | Role in the issue |
 |---|---|
-| [.github/workflows/quarto-publish.direct.yml](../../../../../.github/workflows/quarto-publish.direct.yml) | Cache wipe + project-wide render + full force-push |
+| [.github/workflows/deploy-learninghub.yml](../../../../../.github/workflows/deploy-learninghub.yml) | Cache wipe + project-wide render + full blob upload (current). Legacy [quarto-publish.direct.yml](../../../../../.github/workflows/quarto-publish.direct.yml) did the same then force-pushed `gh-pages` (disabled) |
 | [_quarto.yml](../../../../../_quarto.yml) `project.render` | 267 entries re-rendered every build |
 | [_quarto.yml](../../../../../_quarto.yml) `website.sidebar` | ≈340-line menu baked into every page (Root cause 1) |
 | [_quarto.yml](../../../../../_quarto.yml) `execute` | No `freeze:` configured (Root cause 4) |
@@ -101,8 +106,8 @@ flowchart TD
     A[Push to main] --> B[CI: delete docs/, .quarto/, _freeze/]
     B --> C["quarto render --to html<br/>(re-runs Pandoc on EVERY whitelisted file)"]
     C --> D["Every page HTML = content + full sidebar + shell"]
-    D --> E[Force-push ALL of docs/ to gh-pages orphan branch]
-    E --> F[GitHub Pages serves site]
+    D --> E[Upload ALL of docs/ to storage account 'learn' container]
+    E --> F[Learn.Web App Service proxy serves site]
     style B fill:#ffd5d5
     style C fill:#ffd5d5
     style E fill:#ffd5d5
@@ -198,14 +203,14 @@ Disable the native sidebar, ship `navigation.json` plus a client-side loader tha
 
 ```text
 on push:
-  1. changed = git diff --name-only <last-deployed-sha>..HEAD -- '*.md' '*.qmd'
-     render_set = changed ∩ project.render whitelist
+  1. baseline = x-src-sha metadata on blobs in the storage 'learn' container
+     render_set = source files whose current hash != deployed blob's x-src-sha
   2. for each file in render_set:
         quarto render "<file>" --to html      # writes docs/<mirrored-path>.html
-  3. if sidebar/structure changed:  regenerate navigation.json -> docs/
+  3. if sidebar/structure changed:  regenerate navigation.json -> upload
   4. if shared assets changed (css/theme/header): FULL rebuild (rare)
-  5. deploy: copy ONLY changed outputs to gh-pages, incremental commit
-  6. record HEAD as <last-deployed-sha> for the next diff
+  5. deploy: upload ONLY changed outputs (+ *_files/) to storage, stamp x-src-sha
+  6. flush the Learn.Web proxy cache
 ```
 
 Expected cost by change type after the migration:
@@ -234,7 +239,7 @@ A solution that **fully** addresses the problem (menu independence) depends on d
 1. **Sidebar-disable approach** — (a) keep `project.type: website` with an emptied/disabled sidebar, or (b) render pages via a minimal non-website profile? Option (a) is less disruptive and retains `header-includes.html`/theme/CSS injection; option (b) yields the leanest pages. *Resolves by:* a one-page prototype comparing output.
 2. **Site-wide search** — Quarto `search: true` builds a global index across all pages (a whole-site step). Keep a periodic/full-index rebuild, or adopt an incrementally-updatable client index such as Pagefind? *Resolves by:* a user preference on search behaviour + a Pagefind spike.
 3. **Acceptable JS-dependency for navigation** — client-side menu makes navigation JS-dependent (page content stays server-rendered, so per-page SEO is unaffected). Confirm this trade is acceptable for the Hub.
-4. **Baseline-SHA persistence** — where to store `<last-deployed-sha>` durably across self-hosted runner resets (a marker on `gh-pages`, a Git tag, or a workflow artifact)? *(Also relevant to Phase 1; Phase 1 adopts a sensible default — see the plan.)*
+4. **Baseline persistence** — the durable record of "what is already built" should be the **storage account itself** (per-blob `x-src-sha` metadata), not a marker on the self-hosted runner or `gh-pages`. This survives runner resets and self-heals. *(Superseded entirely if the markdown-first direction in [02-markdown-first-rendering.md](02-markdown-first-rendering.md) is adopted, since there is then no build to track.)*
 5. **Single-file render path parity** — confirm `quarto render "<file>"` writes to the identical `docs/` path as a project render, including for whitelisted `readme.md`/`summary.md` files. *(Validated in Phase 1 as a Discovery item.)*
 
 Once questions 1–3 are answered, a sibling plan `02-menu-decoupling-plan.md` becomes actionable.
@@ -261,6 +266,12 @@ Existing in-repo design note describing the content/navigation split; superseded
 
 **[01-issue-resolution-plan.md](01-issue-resolution-plan.md)** 📘 [Internal]  
 The actionable Phase 1 resolution plan derived from this analysis.
+
+**[02-markdown-first-rendering.md](02-markdown-first-rendering.md)** 📘 [Internal]  
+Proposed markdown-first direction: render Markdown on demand in the app, making Markdown the source of truth and removing the build step entirely — supersedes the phased plan if adopted.
+
+**[deploy-learninghub.yml](../../../../../.github/workflows/deploy-learninghub.yml)** 📘 [Internal]  
+The current content-deploy workflow (render + `az storage blob upload-batch` to `samplestmcstitn01/learn`), replacing the disabled `gh-pages` pipeline.
 
 <!--
 validations:

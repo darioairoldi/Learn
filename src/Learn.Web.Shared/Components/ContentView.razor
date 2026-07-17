@@ -1,0 +1,62 @@
+@inject PageLoader Loader
+@inject NavigationService Nav
+@inject TocState Toc
+@implements IDisposable
+
+<PageTitle>@(_page?.Title ?? "Learning Hub")</PageTitle>
+
+@if (_loading)
+{
+    <p class="content-loading"><em>Loading…</em></p>
+}
+else if (_page is null)
+{
+    <h1>Not found</h1>
+    <p>No Markdown source resolved for <code>@Path</code>.</p>
+}
+else
+{
+    @if (_trail.Count > 0)
+    {
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            @for (int i = 0; i < _trail.Count; i++)
+            {
+                Crumb crumb = _trail[i];
+                bool last = i == _trail.Count - 1;
+                @if (i > 0)
+                {
+                    <span class="breadcrumb-sep">›</span>
+                }
+                @if (!last && crumb.Route is not null)
+                {
+                    <a class="breadcrumb-link" href="@crumb.Route">@crumb.Text</a>
+                }
+                else
+                {
+                    <span class="breadcrumb-current">@crumb.Text</span>
+                }
+            }
+        </nav>
+    }
+    <article class="markdown-body">@((MarkupString)_page.Html)</article>
+}
+
+@code {
+    [Parameter] public string? Path { get; set; }
+
+    private RenderedPage? _page;
+    private bool _loading = true;
+    private IReadOnlyList<Crumb> _trail = Array.Empty<Crumb>();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        _loading = true;
+        Toc.SetEntries(Array.Empty<TocEntry>());
+        _page = await Loader.LoadAsync(Path);
+        _trail = await Nav.GetTrailAsync(Path);
+        _loading = false;
+        Toc.SetEntries(_page?.Toc ?? Array.Empty<TocEntry>());
+    }
+
+    public void Dispose() => Toc.SetEntries(Array.Empty<TocEntry>());
+}

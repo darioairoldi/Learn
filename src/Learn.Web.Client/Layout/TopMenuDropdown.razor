@@ -1,0 +1,31 @@
+@* Recursive dropdown body for the top-level menus. *@
+
+<ul class="dropdown-list">
+    @foreach (NavNode node in Nodes)
+    {
+        @if (node.IsSeparator)
+        {
+            <li class="dropdown-sep"><hr /></li>
+        }
+        else if (node.Href is not null)
+        {
+            <li>
+                <a class="dropdown-link" href="@NavNode.ToRoute(node.Href)">@node.Text</a>
+            </li>
+        }
+        else if (node.Section is not null)
+        {
+            <li class="dropdown-group">
+                <span class="dropdown-header">@node.Section</span>
+                @if (node.Contents is { Count: > 0 })
+                {
+                    <TopMenuDropdown Nodes="node.Contents" />
+                }
+            </li>
+        }
+    }
+</ul>
+
+@code {
+    [Parameter, EditorRequired] public IReadOnlyList<NavNode> Nodes { get; set; } = Array.Empty<NavNode>();
+}

@@ -1,0 +1,92 @@
+@inject NavigationService Nav
+
+@if (_nodes is not null)
+{
+    <nav class="topmenu">
+        @foreach (NavNode node in DisplayNodes())
+        {
+            @if (node.IsSeparator)
+            {
+                <span class="topmenu-sep"></span>
+            }
+            else if (node.Href is not null)
+            {
+                <a class="topmenu-link" href="@NavNode.ToRoute(node.Href)">
+                    @if (!string.IsNullOrEmpty(node.Icon))
+                    {
+                        <i class="bi bi-@node.Icon"></i>
+                    }
+                    <span>@Short(node.Text)</span>
+                </a>
+            }
+            else if (node.Section is not null)
+            {
+                <div class="topmenu-item">
+                    <button class="topmenu-btn" type="button">
+                        @if (!string.IsNullOrEmpty(node.Icon))
+                        {
+                            <i class="bi bi-@node.Icon"></i>
+                        }
+                        <span>@Short(node.Section)</span>
+                        <span class="caret">▾</span>
+                    </button>
+                    @if (node.Contents is { Count: > 0 })
+                    {
+                        <div class="topmenu-dropdown">
+                            <TopMenuDropdown Nodes="node.Contents" />
+                        </div>
+                    }
+                </div>
+            }
+        }
+    </nav>
+}
+
+@code {
+    public enum Group { Left, Right }
+
+    [Parameter] public Group Placement { get; set; } = Group.Left;
+
+    private IReadOnlyList<NavNode>? _nodes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _nodes = await Nav.GetAsync();
+    }
+
+    // Sections that live on the right side of the bar, in display order (matches the legacy navbar).
+    private static readonly string[] RightOrder =
+    {
+        "Issues & Solutions", "Ideas & Projects", "Culture & Travel", "Other Technologies",
+    };
+
+    private static string Key(NavNode n) => n.Section ?? n.Text ?? string.Empty;
+
+    private static bool IsRight(NavNode n) => Array.IndexOf(RightOrder, Key(n)) >= 0;
+
+    private IEnumerable<NavNode> DisplayNodes()
+    {
+        if (_nodes is null)
+        {
+            return Enumerable.Empty<NavNode>();
+        }
+
+        IEnumerable<NavNode> items = _nodes.Where(n => !n.IsSeparator);
+        return Placement == Group.Right
+            ? items.Where(IsRight).OrderBy(n => Array.IndexOf(RightOrder, Key(n)))
+            : items.Where(n => !IsRight(n));
+    }
+
+    // Compact top-level labels to match the original navbar (full names stay in the sidebar).
+    private static readonly Dictionary<string, string> ShortLabels = new(StringComparer.OrdinalIgnoreCase)
+    {
+        ["News & Updates"] = "News",
+        ["Issues & Solutions"] = "Issues",
+        ["Ideas & Projects"] = "Ideas",
+        ["Other Technologies"] = "Other",
+        ["Culture & Travel"] = "Culture",
+    };
+
+    private static string Short(string? label)
+        => label is not null && ShortLabels.TryGetValue(label, out string? s) ? s : (label ?? string.Empty);
+}
