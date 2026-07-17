@@ -11,7 +11,7 @@ description: "An analysis of Satya Nadella's Reverse Information Paradox — the
 <mark>**The Reverse Information Paradox**</mark> is a short economic argument about a quiet cost of using AI: to make a model useful, you must feed it the proprietary knowledge that makes you *you* — and in doing so, you risk handing that knowledge to whoever owns the model. This analysis captures a working session that read the essay closely and compared its prescribed answer against the Learning Hub's existing architecture.
 
 > **Source:** 
-![The Reverse Information Paradox](images/001.01-reverse-paradox-article.png)
+![The Reverse Information Paradox](images/001.01-reverse-paradox-article.png)  
 [The Reverse Information Paradox](https://snscratchpad.com/posts/reverse-information-paradox/) on the *sn scratchpad* blog, attributed to Satya Nadella, July 12, 2026 📒.  
 > 
 > The essay inverts Kenneth Arrow's classic "Information Paradox" and proposes a five-part answer — Control, Capability, Choice, Cost, and Compound — for keeping an organization's learning inside its own boundary.
