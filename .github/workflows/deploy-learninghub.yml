@@ -35,6 +35,11 @@ env:
   STORAGE_ACCOUNT: samplestmcstitn01
   STORAGE_CONTAINER: learn
   QUARTO_VERSION: "1.6.42"
+  # The Azure CLI on the self-hosted runner bundles a 32-bit Python, which prints a harmless
+  # UserWarning ("cryptography on a 32-bit Python ...") to stderr on every invocation. It only
+  # affects CLI performance, not correctness, so silence Python warnings to keep the deploy
+  # logs clean. Remove this once a 64-bit az CLI is installed on the runner.
+  PYTHONWARNINGS: ignore
 
 jobs:
   deploy-content:
