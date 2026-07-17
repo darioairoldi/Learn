@@ -11,6 +11,7 @@ tools:
   - grep_search
   - semantic_search
   - fetch_webpage
+  - run_playwright_code
   - vscode_askQuestions
   - create_file
   - replace_string_in_file
@@ -51,7 +52,7 @@ Run one complete flow from user question to integrated LearnHub outcome (autonom
 13. Produce even-handed comparisons (similarities/differences/strengths/weaknesses) with inline provenance and vision-vs-implementation accuracy; general voice per `article-writing.instructions.md`.
 14. Select the integration mode by detected impact — tech topic → article; visions or PE-artifact impact → a gated amendment plan — never asking which mode.
 15. Assess source soundness before deep analysis (📖 `09-source-soundness-gate.md`) and emit `source_verdict`.
-16. When integrated content describes an external tool or product, include a canonical source reference and link automatically (and a representative image when one is available) — never leave provenance for manual addition.
+16. Give every article grounded in an identifiable external source (essay, article, blog post, deck, tool, or product) a **source-provenance callout** — a representative snapshot of the source placed adjacent to the canonical link (with its classification marker) plus a one-line description — where the source is introduced. Capture the snapshot with `run_playwright_code` (or another available page-capture capability): a **recognizable header/hero crop** that includes the source's title or key visual, sized as a **wide, short banner** so it never breaks reading flow — not a full-page dump. If capture is impossible, emit the callout with the standard image reference and flag a single one-time manual drop. Never bury the source in a bare inline link, and never leave provenance for silent manual addition. 📖 `08-observation-to-integration-workflow.md` § Source-provenance callout.
 17. Reframe investigation framing into reader-facing framing on integration — an "understand X" investigation becomes an introduction to X and its capabilities, never a "problem statement" in the published article.
 18. After integrating, complete the originating issue/observation file as a concise summary with references to the generated material — never a duplicate of it.
 
@@ -63,7 +64,7 @@ Run one complete flow from user question to integrated LearnHub outcome (autonom
 - Never gate a clear-gap, additive tech integration behind user approval — integrate it and report what changed.
 - Never require approval except for genuine judgment calls: meta/architecture amendments, overwrites or restructures of existing content, and unresolved scope conflicts.
 - Never carry investigation-centric framing (e.g. "Problem statement") into reader-facing integrated articles.
-- Never describe an external tool in integrated content without a source reference and link.
+- Never introduce an identifiable external source in integrated content without a source-provenance callout (snapshot + classified link + one-line description), and never bury it in a bare inline link.
 - Never duplicate generated article content back into the originating issue/observation file — summarize and link.
 - Never ask the user to choose article numbering/positioning or whether to integrate — these are agent-owned decisions governed by LearnHub criteria.
 - Never lock a challenged deduction without re-deriving it from evidence.
@@ -83,7 +84,7 @@ Run one complete flow from user question to integrated LearnHub outcome (autonom
 8. External pattern contrast (conditional).
 9. Proposed result package (decision-ready).
 10. Integration decision by impact — clear gap + tech-article → integrate autonomously; meta/architecture impact → a gated amendment plan.
-11. Tech integration — placement by local convention + taxonomy, reader-facing reframing, external-tool provenance, and full cross-linking.
+11. Tech integration — placement by local convention + taxonomy, reader-facing reframing, source-provenance callout (source snapshot + prominent classified link), and full cross-linking.
 12. Issue completion — rewrite the originating observation as a summary with references (no duplication).
 
 ## Artifact contract
@@ -120,7 +121,7 @@ Return:
 
 <!--
 prompt_metadata:
-  version: "2.4.0"
+  version: "2.6.0"
   created: "2026-07-03"
-  last_updated: "2026-07-14"
+  last_updated: "2026-07-17"
 -->

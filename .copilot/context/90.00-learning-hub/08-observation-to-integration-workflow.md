@@ -13,7 +13,7 @@ scope:
     - "Autonomous integration of clear coverage gaps (additive tech content) without an approval gate"
     - "Approval reserved for genuine judgment calls (meta/architecture amendments, overwrites, scope conflicts)"
     - "Taxonomy-bound LearnHub integration that matches the target area's local convention"
-    - "External-tool provenance, reader-facing reframing, and issue completion by summary-with-references"
+    - "Source-provenance callout (representative snapshot + prominent classified link), reader-facing reframing, and issue completion by summary-with-references"
     - "Integration modes (tech-article vs meta/architecture amendment), a deduction-validation loop, and report-quality conditions"
     - "Source-soundness gate (six dimensions and a gating verdict) run before deep analysis and enforced as an integration precondition"
     - "Issue-folder artifact contracts"
@@ -34,7 +34,7 @@ boundaries:
   - "MUST map every integration target to a LearnHub taxonomy category, matching the target area's local convention when it differs from the generic template"
   - "MUST derive each article's folder and numeric prefix from its taxonomy content-type via the subject-folder template (00 overview · 01 getting-started · 02 concepts · 03 how-to · 04 analysis · 05 reference · 06 resources; fractional XX.YY- for additional articles in one band)"
   - "MUST integrate every result fully into the corpus by default: placement, cross-links matching the local convention, redundancy consolidation into the canonical article, and related-backlog closure"
-  - "MUST include a canonical source reference and link (and a representative image when available) whenever integrated content describes an external tool or product"
+  - "MUST give every identifiable external source a source-provenance callout — a representative snapshot adjacent to the canonical classified link plus a one-line description — capturing the snapshot automatically when a page-capture capability exists, else emitting the callout with the standard image reference and a flagged one-time manual capture (never a bare buried link, never silent omission)"
   - "MUST reframe investigation framing into reader-facing framing on integration (an 'understand X' investigation becomes an introduction to X, never a 'problem statement' in the published article)"
   - "MUST complete the originating issue/observation file as a concise summary with references to the generated material, never a duplicate of it"
   - "MUST reserve user questions for genuine judgment calls (proposed answer, meta/architecture approval, unresolved scope conflicts) and MUST NOT ask users to choose article numbering/positioning or whether to integrate a clear gap"
@@ -45,7 +45,7 @@ rationales:
   - "Per-area analysis guarantees critical depth instead of a single shallow package"
   - "Autonomous integration of clear gaps removes friction; approval is reserved for changes that carry real risk (amendments, overwrites, conflicts)"
   - "Taxonomy-bound integration that matches the local convention lands outputs in the right content type without fragmenting the area"
-  - "External-tool provenance, reader-facing reframing, and summary-with-references issue completion keep integrated content trustworthy and non-redundant"
+  - "A prominent source-provenance callout (snapshot + link) lets the reader recognize the source at a glance and map the article's claims back to it; reader-facing reframing and summary-with-references issue completion keep integrated content trustworthy and non-redundant"
   - "Centralized workflow context keeps prompts and agents consistent"
 ---
 
@@ -147,7 +147,7 @@ Produce a discussion-ready package:
 - confidence and assumptions
 - open decisions for user
 
-**Report-quality conditions** (all MUST hold before the package is presentable): even-handed comparison (similarities / differences / strengths / weaknesses — never competitive "ahead/behind"); inline provenance (a source callout plus claim-to-source links); vision-vs-implementation accuracy (never label an implementation-maturity gap as a design gap). General writing voice follows `article-writing.instructions.md`.
+**Report-quality conditions** (all MUST hold before the package is presentable): even-handed comparison (similarities / differences / strengths / weaknesses — never competitive "ahead/behind"); inline provenance (a **source-provenance callout** — representative snapshot + prominent classified link — plus claim-to-source links); vision-vs-implementation accuracy (never label an implementation-maturity gap as a design gap). General writing voice follows `article-writing.instructions.md`.
 
 ### Step 9: Integration autonomy vs approval gate
 
@@ -167,7 +167,11 @@ For mode (a), integrate every conclusion, mapping each to:
 - a concrete target path (prefer a `03.00-tech/<subject>/` subject folder)
 - section-level edits, sequencing, risks, and dependencies
 
-**External-tool provenance (MUST).** When an integrated article describes an external tool or product, open it with a canonical source reference and link (e.g. the GitHub repository or official docs), and embed a representative image when one is available — automatically, never left for manual addition.
+**Source-provenance callout (MUST).** When an integrated article is grounded in an identifiable external source — an essay, article, blog post, deck, tool, or product — introduce it with a **source-provenance callout**, not a bare inline link. The callout has three parts: (1) a **representative snapshot** of the source (its article header/hero or landing view), placed **adjacent to the link** so the reader maps content to source at a glance, with descriptive alt text (📖 `article-writing.instructions.md` § Images); (2) the **canonical link** carrying its reference-classification marker (📘/📗/📒/📕); (3) a **one-line description** (author, venue, date, and what it is).
+
+*Snapshot capture — automatic, with graceful fallback.* Obtain the snapshot in priority order: **(a)** capture the source with `run_playwright_code` (navigate to the URL, then screenshot the **header/hero region**) and save it to the article's `images/` folder (e.g. `images/001.01-source.png`); **(b)** if page capture is unavailable, download the source's social-preview / `og:image`; **(c)** if neither is possible in the session, still emit the complete callout with the image reference at the standard path **and raise one explicit note asking the user to drop the snapshot** — never silently omit the image or bury the source. The link and description are produced automatically regardless of capture success.
+
+*Capture quality (MUST).* The snapshot has to earn its place: **(1) recognizable** — it MUST include the source's title (and any key hero image, logo, or byline/date) so the reader instantly identifies what was analyzed; capture the top/header region, never a random mid-page slice; **(2) reasonably sized** — produce a **short banner crop** by matching the viewport width to the source's content column (so the image isn't half-empty margin) and clipping to the top region that ends just after the title/subtitle (typically ~700–1000px wide × ~300–500px tall), never a tall full-page screenshot that pushes the article text down and breaks reading flow; **(3) clean** — before capturing, hide scrollbars (`overflow:hidden`) and dismiss cookie/consent overlays that cover the title. Render it inline at content width with concise alt text.
 
 **Reader-facing reframing (MUST).** Translate investigation framing into reader framing: a "Problem statement" that means "we set out to understand X" becomes an introduction to X and its capabilities. The observation is a problem for the investigation, not for the reader.
 
@@ -227,6 +231,8 @@ Every run must return:
 
 ## Version history
 
+- **v2.7.0** (2026-07-17): Wired an actual capture tool (`run_playwright_code`) into the workflow and added **capture-quality requirements** — the snapshot MUST be recognizable (include the source title / key visual, captured from the header/hero) and reasonably sized (a short banner crop with the viewport matched to the content column, never a full-page dump that breaks reading flow), and clean of scrollbars and consent overlays. Validated live against the reverse-paradox source.
+- **v2.6.0** (2026-07-17): Broadened external-tool provenance into a general **source-provenance callout** for any identifiable external source (essay/article/blog/deck/tool/product), required a representative snapshot placed adjacent to the prominent classified link, and specified an automatic snapshot-capture procedure with a graceful fallback (page capture → `og:image` → flagged one-time manual drop; never silent omission). Strengthened the Step 8 report-quality provenance condition to require the snapshot.
 - **v2.5.0** (2026-07-14): Moved the issue-folder artifact contract into a `_analysis/` working folder, required `publish: false` (engine-neutral non-publish marker) on every working artifact, and barred wiring any working artifact into the site's render/include or navigation config — only the reader-facing article is published.
 - **v2.4.0** (2026-07-13): Made clear-gap tech integration autonomous (no approval gate; Step 9 reframed); reserved approval for meta/architecture amendments, overwrites, and scope conflicts. Added external-tool provenance and reader-facing reframing on integration, local-convention placement matching, and a Step 11 issue-completion rule (summary-with-references, no duplication). Updated the output contract (`integration_state` / `integration_result` / `issue_completion`).
 - **v2.3.0** (2026-07-11): Added a source-soundness gate (Step 3.5 + `09-source-soundness-gate.md`) with a gating verdict, and a hard integration precondition barring unsound or uncorroborated sources.
@@ -237,7 +243,7 @@ Every run must return:
 
 <!--
 context_metadata:
-  version: "2.5.0"
+  version: "2.7.0"
   created: "2026-07-03"
-  last_updated: "2026-07-14"
+  last_updated: "2026-07-17"
 -->

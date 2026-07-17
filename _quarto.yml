@@ -9,6 +9,9 @@ project:
     - "scripts/readme.md"
     - "scripts/fix-broken-links/readme.md"
     - "src/IQPilot/readme.md"
+    - "01.00-news/20260716.01-reverse-paradox/overview.md"
+    - "01.00-news/20260713.02-fabriclakehouse-wharehouse/overview.md"
+    - "01.00-news/20260713.01-markitdown/overview.md"
     - "01.00-news/20260710.01-loop-engineering/overview.md"
     - "01.00-news/20251224-vscode-v1.107-release/01-summary.md"
     - "01.00-news/20251224-vscode-v1.107-release/02-readme.sonnet4.md"
@@ -297,6 +300,12 @@ website:
       - text: "News"
         menu:
           - text: "Latest Updates"
+          - href: "01.00-news/20260716.01-reverse-paradox/overview.md"
+            text: "20260716 - Reverse Information Paradox & the Learning Hub"
+          - href: "01.00-news/20260713.02-fabriclakehouse-wharehouse/overview.md"
+            text: "20260713 - Fabric Lakehouse vs Warehouse"
+          - href: "01.00-news/20260713.01-markitdown/overview.md"
+            text: "20260713 - MarkItDown & Alternatives"
           - href: "01.00-news/20260710.01-loop-engineering/overview.md"
             text: "20260710 - Loop Engineering & the Learning Hub"
           - href: "01.00-news/20260214.4-burke-holland-mcp-apps/summary.md"
@@ -442,6 +451,12 @@ website:
         contents:
           # Explicit list for newest-first ordering (per context rules)
           # When adding new articles: INSERT AT TOP of this list
+          - text: "20260716 - Reverse Information Paradox & the Learning Hub"
+            href: "01.00-news/20260716.01-reverse-paradox/overview.md"
+          - text: "20260713 - Fabric Lakehouse vs Warehouse"
+            href: "01.00-news/20260713.02-fabriclakehouse-wharehouse/overview.md"
+          - text: "20260713 - MarkItDown & Alternatives"
+            href: "01.00-news/20260713.01-markitdown/overview.md"
           - text: "20260710 - Loop Engineering & the Learning Hub"
             href: "01.00-news/20260710.01-loop-engineering/overview.md"
           - text: "20260214 - MCP Apps: Building Rich UIs in AI Chat"
