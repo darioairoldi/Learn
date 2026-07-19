@@ -17,8 +17,8 @@
                     }
                 </span>
                 <span class="nav-label">@Node.Text</span>
-                <span class="nav-twisty" role="button" aria-label="Expand or collapse"
-                      @onclick:stopPropagation="true" @onclick:preventDefault="true" @onclick="ToggleOpenOnly"></span>
+                <span class="nav-twisty" role="button" aria-label="Expand or collapse" @onclick:stopPropagation="true"
+                      @onclick:preventDefault="true" @onclick="ToggleOpenOnly"></span>
             </summary>
             @if (_open)
             {
@@ -59,6 +59,10 @@ else if (Node.Route is not null)
     private bool _open;
     private IReadOnlyList<NavChild>? _children;
 
+    // The active route this section was last auto-opened for. Prevents later re-renders from
+    // re-opening a section the user has explicitly collapsed while staying on the same article.
+    private string? _autoOpenedForRoute;
+
     private bool InActiveBranch =>
         Node.Prefix is not null && !string.IsNullOrEmpty(CurrentRoute) &&
         (string.Equals(CurrentRoute, Node.Route, StringComparison.OrdinalIgnoreCase) ||
@@ -68,14 +72,29 @@ else if (Node.Route is not null)
 
     protected override async Task OnParametersSetAsync()
     {
-        // Auto-open for the active branch, and for freshly rendered sections while expand-all is on.
-        if (Node.IsSection && !_open && (InActiveBranch || Sidebar.AllExpanded))
+        if (!Node.IsSection)
+        {
+            return;
+        }
+
+        // Auto-open the active branch once per active route (so a user who then collapses it with the
+        // arrow keys / twisty isn't fought by later re-renders), and keep sections open while
+        // expand-all is on.
+        bool wantOpen = (InActiveBranch && _autoOpenedForRoute != CurrentRoute) || Sidebar.AllExpanded;
+        if (wantOpen && !_open)
         {
             _open = true;
             if (_children is null && Node.Prefix is not null)
             {
                 _children = await Provider.GetChildrenAsync(Node.Prefix);
             }
+        }
+
+        // Remember we've handled this active route, whether we just opened it or the user is free to
+        // keep it collapsed from here on.
+        if (InActiveBranch)
+        {
+            _autoOpenedForRoute = CurrentRoute;
         }
     }
 
