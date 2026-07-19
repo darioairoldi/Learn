@@ -1,4 +1,7 @@
 @inject NavigationService Nav
+@inject NavigationManager NavMgr
+@inject IJSRuntime JS
+@implements IDisposable
 
 @if (_nodes is null)
 {
@@ -10,14 +13,51 @@ else if (_nodes.Count == 0)
 }
 else
 {
-    <NavTree Nodes="_nodes" />
+    <CascadingValue Value="_current" Name="CurrentRoute">
+        <NavTree Nodes="_nodes" />
+    </CascadingValue>
 }
 
 @code {
     private IReadOnlyList<NavNode>? _nodes;
+    private string _current = string.Empty;
+    private bool _scrollPending;
 
     protected override async Task OnInitializedAsync()
     {
+        _current = CurrentRoute();
+        NavMgr.LocationChanged += OnLocationChanged;
         _nodes = await Nav.GetAsync();
+        _scrollPending = true;
     }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        _current = CurrentRoute();
+        _scrollPending = true;
+        InvokeAsync(StateHasChanged);
+    }
+
+    private string CurrentRoute()
+    {
+        string rel = NavMgr.ToBaseRelativePath(NavMgr.Uri);
+        int cut = rel.IndexOfAny(new[] { '?', '#' });
+        if (cut >= 0)
+        {
+            rel = rel[..cut];
+        }
+
+        return rel.Trim('/');
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (_scrollPending && _nodes is { Count: > 0 })
+        {
+            _scrollPending = false;
+            try { await JS.InvokeVoidAsync("appUi.scrollActiveNavIntoView"); } catch { /* prerender */ }
+        }
+    }
+
+    public void Dispose() => NavMgr.LocationChanged -= OnLocationChanged;
 }

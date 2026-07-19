@@ -2,10 +2,10 @@
 @implements IDisposable
 @inject IJSRuntime JS
 @inject ThemeState Theme
+@inject SidebarState Sidebar
 
 <div class="page theme-@Theme.ThemeId">
     <header class="topbar">
-        <button class="nav-toggle" title="Toggle menu" @onclick="() => _navOpen = !_navOpen">☰</button>
         <a class="brand" href=""><i class="bi bi-lightbulb-fill"></i> <span>Learning Hub</span></a>
         <TopMenu Placement="TopMenu.Group.Left" />
         <span class="topbar-spacer"></span>
@@ -26,8 +26,8 @@
     <NotificationPanel Open="_notifyOpen" OnClose="() => _notifyOpen = false" />
 
     <div class="body">
-        <nav class="sidebar @(_navOpen ? null : "collapsed")">
-            <NavMenu />
+        <nav class="sidebar @(Sidebar.Collapsed ? "rail" : null)">
+            <DynNav />
         </nav>
         <div class="sidebar-resizer" title="Drag to resize · double-click to reset"></div>
         <main class="content">
@@ -43,11 +43,26 @@
 </div>
 
 @code {
-    private bool _navOpen = true;
     private bool _searchOpen;
     private bool _notifyOpen;
+    private DotNetObjectReference<MainLayout>? _selfRef;
 
-    protected override void OnInitialized() => Theme.Changed += OnThemeChanged;
+    protected override void OnInitialized()
+    {
+        Theme.Changed += OnThemeChanged;
+        Sidebar.Changed += OnSidebarChanged;
+    }
+
+    // Called from JS when the viewport crosses the responsive breakpoint: narrow → collapse the
+    // sidebar to the icon rail (still usable via the hover flyout); wide → expand it.
+    [JSInvokable]
+    public Task SetSidebarCollapsed(bool collapsed)
+    {
+        Sidebar.SetCollapsed(collapsed);
+        return Task.CompletedTask;
+    }
+
+    private void OnSidebarChanged() => InvokeAsync(StateHasChanged);
 
     private async void OnThemeChanged()
     {
@@ -71,8 +86,15 @@
             Theme.SetTheme(saved);
             await JS.InvokeVoidAsync("appUi.initResizer");
             await JS.InvokeVoidAsync("appUi.initTocResizer");
+            _selfRef = DotNetObjectReference.Create(this);
+            await JS.InvokeVoidAsync("appUi.initResponsive", _selfRef);
         }
     }
 
-    public void Dispose() => Theme.Changed -= OnThemeChanged;
+    public void Dispose()
+    {
+        Theme.Changed -= OnThemeChanged;
+        Sidebar.Changed -= OnSidebarChanged;
+        _selfRef?.Dispose();
+    }
 }

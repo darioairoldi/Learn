@@ -7,7 +7,11 @@
             "launchBrowser": true,
             "applicationUrl": "http://localhost:5280",
             "environmentVariables": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "AppsettingsEnvironmentName": "Development",
+                "Content__Source": "FileSystem",
+                "Content__FileSystem__RootPath": "..\\..",
+                "Content__FileSystem__WatchForChanges": "true"
             }
         },
         "https": {
@@ -16,7 +20,11 @@
             "launchBrowser": true,
             "applicationUrl": "https://localhost:7280;http://localhost:5280",
             "environmentVariables": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "AppsettingsEnvironmentName": "Development",
+                "Content__Source": "FileSystem",
+                "Content__FileSystem__RootPath": "..\\..",
+                "Content__FileSystem__WatchForChanges": "true"
             }
         },
         "https - Testmc": {

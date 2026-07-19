@@ -12,7 +12,7 @@
         else if (node.Section is not null)
         {
             <li class="nav-section">
-                <details open>
+                <details open="@ContainsActive(node)">
                     <summary>
                         @if (!string.IsNullOrEmpty(node.Icon))
                         {
@@ -44,4 +44,31 @@
 
 @code {
     [Parameter, EditorRequired] public IReadOnlyList<NavNode> Nodes { get; set; } = Array.Empty<NavNode>();
+
+    [CascadingParameter(Name = "CurrentRoute")] public string? CurrentRoute { get; set; }
+
+    private bool ContainsActive(NavNode node)
+    {
+        if (node.Href is not null && Matches(node.Href))
+        {
+            return true;
+        }
+
+        if (node.Contents is not null)
+        {
+            foreach (NavNode child in node.Contents)
+            {
+                if (ContainsActive(child))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private bool Matches(string href) =>
+        !string.IsNullOrEmpty(CurrentRoute) &&
+        string.Equals(NavNode.ToRoute(href), CurrentRoute, StringComparison.OrdinalIgnoreCase);
 }

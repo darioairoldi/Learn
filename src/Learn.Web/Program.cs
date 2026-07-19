@@ -1,75 +1,113 @@
-using Learn.Web;
+using Diginsight;
+using Diginsight.AspNetCore;
+using Diginsight.Components;
+using Diginsight.Components.Configuration;
+using Diginsight.Diagnostics;
 using Learn.Web.Components;
 using Learn.Web.ContentSources;
+using Learn.Web.Endpoints;
+using Learn.Web.Navigation;
 using Learn.Web.Shared;
 using Learn.Web.Shared.Navigation;
 using Learn.Web.Shared.Rendering;
 using Learn.Web.Shared.Services;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 
-var builder = WebApplication.CreateBuilder(args);
+namespace Learn.Web;
 
-// File logging to the shared Diginsight log folder, matching the sample apps:
-//   %USERPROFILE%\LogFiles\Diginsight\Learn.Web.<yyyyMMdd>.log
-string logDir = Path.Combine(
-    Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "LogFiles", "Diginsight");
-Directory.CreateDirectory(logDir);
-log4net.GlobalContext.Properties["LogDir"] = logDir;
-builder.Logging.AddLog4Net("log4net.config");
-
-// Razor Components host with interactive WebAssembly components (prerendered by default).
-builder.Services.AddRazorComponents()
-    .AddInteractiveWebAssemblyComponents();
-
-builder.Services.Configure<ContentOptions>(builder.Configuration.GetSection("Content"));
-
-// Server-side content source: FileSystem (repo clone) in dev, Blob (storage) in prod.
-builder.Services.AddSingleton<IContentSource>(sp =>
+public class Program
 {
-    ContentOptions options = sp.GetRequiredService<IOptions<ContentOptions>>().Value;
-    IWebHostEnvironment env = sp.GetRequiredService<IWebHostEnvironment>();
-
-    if (string.Equals(options.Source, "FileSystem", StringComparison.OrdinalIgnoreCase))
+    public static void Main(string[] args)
     {
-        string root = Path.GetFullPath(Path.Combine(env.ContentRootPath, options.FileSystem.RootPath));
-        return new FileSystemContentSource(root);
+        // Diginsight early logging (console + log4net to %USERPROFILE%\LogFiles\Diginsight\Learn.Web.<date>.log).
+        using var observabilityManager = new ObservabilityManager();
+        ILogger logger = observabilityManager.LoggerFactory.CreateLogger(typeof(Program));
+
+        WebApplication app;
+        using (var activity = Observability.ActivitySource.StartMethodActivity(logger, new { args }))
+        {
+            var builder = WebApplication.CreateBuilder(args);
+
+            // Merge external/environment configuration (e.g. the Testmc overlay from the sibling
+            // Learn.internal repo, selected via AppsettingsEnvironmentName + ExternalConfigurationFolder).
+            builder.Host.ConfigureAppConfiguration2(observabilityManager.LoggerFactory);
+
+            IServiceCollection services = builder.Services;
+            IConfiguration configuration = builder.Configuration;
+            IWebHostEnvironment environment = builder.Environment;
+
+            // Diginsight telemetry integrated with OpenTelemetry (+ log4net file logging).
+            services.AddAspNetCoreObservability(configuration, environment, out IOpenTelemetryOptions openTelemetryOptions);
+            observabilityManager.AttachTo(services);
+            services.AddHttpObservability(openTelemetryOptions);
+
+            services.TryAddSingleton<EarlyLoggingManager>(observabilityManager);
+            services.AddHttpContextAccessor();
+            services.AddDynamicLogLevel<DefaultDynamicLogLevelInjector>();
+
+            // Razor Components host with interactive WebAssembly components (prerendered by default).
+            services.AddRazorComponents()
+                .AddInteractiveWebAssemblyComponents();
+
+            services.Configure<ContentOptions>(configuration.GetSection("Content"));
+
+            // Server-side content source: FileSystem (repo clone) or Blob (storage), selected by config.
+            services.AddSingleton<IContentSource>(sp =>
+            {
+                ContentOptions options = sp.GetRequiredService<IOptions<ContentOptions>>().Value;
+                IWebHostEnvironment env = sp.GetRequiredService<IWebHostEnvironment>();
+
+                if (string.Equals(options.Source, "FileSystem", StringComparison.OrdinalIgnoreCase))
+                {
+                    string root = Path.GetFullPath(Path.Combine(env.ContentRootPath, options.FileSystem.RootPath));
+                    return new FileSystemContentSource(root,
+                        sp.GetRequiredService<ILogger<FileSystemContentSource>>());
+                }
+
+                return new BlobContentSource(options.Blob.AccountUri, options.Blob.ContainerName,
+                    sp.GetRequiredService<ILogger<BlobContentSource>>());
+            });
+
+            services.AddScoped<IMarkdownRenderer, MarkdigMarkdownRenderer>();
+            services.AddScoped<PageLoader>();
+            services.AddScoped<NavigationService>();
+            services.AddScoped<TocState>();
+            services.AddScoped<ThemeState>();
+            services.AddScoped<SidebarState>();
+            // Dynamic, spec-compliant menu built on demand from the live content hierarchy.
+            services.AddMemoryCache();
+            services.AddSingleton<IContentLister>(sp => (IContentLister)sp.GetRequiredService<IContentSource>());
+            services.AddSingleton<DynamicNavBuilder>();
+            services.AddScoped<INavProvider, ServerNavProvider>();
+
+            builder.UseDiginsightServiceProvider(true);
+
+            app = builder.Build();
+            logger.LogDebug("Host built");
+
+            if (!app.Environment.IsDevelopment())
+            {
+                app.UseExceptionHandler("/error", createScopeForErrors: true);
+                app.UseHsts();
+                app.UseHttpsRedirection();
+            }
+
+            app.UseAntiforgery();
+
+            // Map fingerprinted static assets (app.css + the WASM _framework payload). Must run before
+            // AddInteractiveWebAssemblyRenderMode so the client bootstrap (blazor.web.js) is served.
+            app.MapStaticAssets();
+
+            // Content passthrough + dynamic navigation APIs (see the *Endpoints classes).
+            app.MapContentEndpoints();
+            app.MapNavEndpoints();
+
+            app.MapRazorComponents<App>()
+                .AddInteractiveWebAssemblyRenderMode()
+                .AddAdditionalAssemblies(typeof(Learn.Web.Client.Marker).Assembly);
+        }
+
+        app.Run();
     }
-
-    return new BlobContentSource(options.Blob.AccountUri, options.Blob.ContainerName);
-});
-
-builder.Services.AddScoped<IMarkdownRenderer, MarkdigMarkdownRenderer>();
-builder.Services.AddScoped<PageLoader>();
-builder.Services.AddScoped<NavigationService>();
-builder.Services.AddScoped<TocState>();
-builder.Services.AddScoped<ThemeState>();
-
-WebApplication app = builder.Build();
-
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/error", createScopeForErrors: true);
-    app.UseHsts();
-    app.UseHttpsRedirection();
 }
-
-app.UseAntiforgery();
-
-// Map fingerprinted static assets (app.css + the WASM _framework payload). Must run before
-// AddInteractiveWebAssemblyRenderMode so the client bootstrap (blazor.web.js) is served.
-app.MapStaticAssets();
-
-// Raw Markdown/asset endpoint consumed by the WASM client's HttpContentSource.
-app.MapGet("/_content-raw/{**key}", async (string key, IContentSource source, CancellationToken ct) =>
-{
-    ContentResult? result = await source.GetAsync(key, ct);
-    return result is null
-        ? Results.NotFound()
-        : Results.Bytes(result.Bytes, result.ContentType ?? "text/markdown; charset=utf-8");
-});
-
-app.MapRazorComponents<App>()
-    .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(Learn.Web.Client.Marker).Assembly);
-
-app.Run();

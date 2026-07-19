@@ -115,5 +115,166 @@ window.appUi = {
         window.addEventListener('touchmove', onMove, { passive: true });
         window.addEventListener('mouseup', stop);
         window.addEventListener('touchend', stop);
+    },
+
+    // Scroll the currently-selected sidebar item into view (called after navigation).
+    scrollActiveNavIntoView: function () {
+        try {
+            var el = document.querySelector('.sidebar .nav-link.active');
+            if (el) { el.scrollIntoView({ block: 'nearest', inline: 'nearest' }); }
+        } catch (e) { /* ignore */ }
+    },
+
+    // Responsive: collapse the sidebar to the icon rail on narrow viewports (usable via the hover
+    // flyout), expand it on wide ones. Only notifies Blazor when crossing the breakpoint.
+    initResponsive: function (dotNetRef) {
+        if (window.__lhResponsive) { return; }
+        window.__lhResponsive = true;
+
+        var breakpoint = 820;
+        var last = null;
+        var timer;
+
+        function report() {
+            var collapsed = window.innerWidth < breakpoint;
+            if (collapsed === last) { return; }
+            last = collapsed;
+            try { dotNetRef.invokeMethodAsync('SetSidebarCollapsed', collapsed); } catch (e) { /* ignore */ }
+        }
+
+        report();
+        window.addEventListener('resize', function () {
+            clearTimeout(timer);
+            timer = setTimeout(report, 120);
+        });
     }
 };
+
+// Space activates a focused link (anchors respond only to Enter by default), so Tabbing to a
+// menu/article link and pressing Space selects it — matching button-like keyboard behaviour.
+(function () {
+    if (window.__lhSpaceActivate) { return; }
+    window.__lhSpaceActivate = true;
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key !== ' ' && e.key !== 'Spacebar') { return; }
+
+        var el = document.activeElement;
+        if (!el) { return; }
+
+        if (el.tagName === 'A' && (
+            el.classList.contains('nav-link') ||
+            el.classList.contains('topmenu-link') ||
+            el.classList.contains('breadcrumb-link') ||
+            el.classList.contains('crumb-navbtn'))) {
+            e.preventDefault();
+            el.click();
+            return;
+        }
+
+        // Folder summary: Space toggles expand/collapse (via the twisty, so it never navigates).
+        if (el.tagName === 'SUMMARY' && el.closest('.dynnav')) {
+            var tw = el.querySelector('.nav-twisty');
+            if (tw) { e.preventDefault(); tw.click(); }
+        }
+    });
+})();
+
+// Sidebar keyboard: Arrow Up/Down move focus between menu items (like Tab / Shift+Tab); the menu
+// no longer scrolls on plain arrows. Ctrl+Arrow Up/Down scrolls the menu instead.
+(function () {
+    if (window.__lhArrowNav) { return; }
+    window.__lhArrowNav = true;
+
+    function menuItems() {
+        return Array.prototype.slice.call(
+            document.querySelectorAll('.dynnav .nav-list a.nav-link, .dynnav .nav-list summary'));
+    }
+
+    function scrollParent(el) {
+        var n = el;
+        while (n && n !== document.body) {
+            var s = getComputedStyle(n);
+            if (/(auto|scroll)/.test(s.overflowY) && n.scrollHeight > n.clientHeight) { return n; }
+            n = n.parentElement;
+        }
+        return document.scrollingElement || document.documentElement;
+    }
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') { return; }
+
+        var el = document.activeElement;
+        var isItem = el && ((el.tagName === 'A' && el.classList.contains('nav-link')) || el.tagName === 'SUMMARY');
+        if (!isItem || !el.closest('.dynnav')) { return; }
+
+        // Ctrl+Arrow → scroll the menu (the behaviour plain arrows used to have).
+        if (e.ctrlKey) {
+            e.preventDefault();
+            scrollParent(el).scrollBy({ top: e.key === 'ArrowDown' ? 64 : -64 });
+            return;
+        }
+
+        // Plain Arrow → move focus to the previous/next visible menu item.
+        e.preventDefault();
+        var items = menuItems();
+        var i = items.indexOf(el);
+        if (i < 0) { return; }
+        var next = e.key === 'ArrowDown' ? i + 1 : i - 1;
+        if (next >= 0 && next < items.length) {
+            items[next].focus();
+        }
+    });
+})();
+
+// Left/Right arrows on a focused folder (section) collapse/expand it (standard tree behaviour).
+// Sections are Blazor-controlled <details>, so we click the <summary> to keep Blazor's open state
+// and lazy child-loading in sync rather than toggling the DOM attribute directly.
+(function () {
+    if (window.__lhTreeArrows) { return; }
+    window.__lhTreeArrows = true;
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') { return; }
+
+        var el = document.activeElement;
+        if (!el || !el.closest('.dynnav')) { return; }
+
+        // Article link: Left arrow selects (focuses) the containing folder.
+        if (el.tagName === 'A' && el.classList.contains('nav-link')) {
+            if (e.key === 'ArrowLeft') {
+                var pd = el.closest('details');
+                var psum = pd && pd.querySelector(':scope > summary');
+                if (psum) { e.preventDefault(); psum.focus(); }
+            }
+            return;
+        }
+
+        // Folder summary: Right opens (or steps into first child); Left collapses (or steps to parent).
+        // Expand/collapse goes through the twisty so it never navigates — only structural movement.
+        if (el.tagName !== 'SUMMARY') { return; }
+
+        var details = el.parentElement;
+        if (!details || details.tagName !== 'DETAILS') { return; }
+        var twisty = el.querySelector('.nav-twisty');
+
+        if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            if (!details.open) {
+                if (twisty) { twisty.click(); } // open (no navigation)
+            } else {
+                var child = details.querySelector('ul.nav-list a.nav-link, ul.nav-list summary');
+                if (child) { child.focus(); } // already open → step into first child
+            }
+        } else { // ArrowLeft
+            e.preventDefault();
+            if (details.open) {
+                if (twisty) { twisty.click(); } // collapse (no navigation)
+            } else {
+                var parent = details.parentElement && details.parentElement.closest('details');
+                var ps = parent && parent.querySelector(':scope > summary');
+                if (ps) { ps.focus(); } // already closed → go to parent folder
+            }
+        }
+    });
+})();

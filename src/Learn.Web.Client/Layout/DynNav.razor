@@ -1,0 +1,240 @@
+@* Dynamic sidebar. Collapsed → a narrow icon rail (top-level section icons + expand button).
+   Full → a sticky toolbar (filter box, expand/collapse-all toggle, collapse-to-rail) above the
+   lazily-expanding tree. A non-empty filter switches to a flat, server-built whole-tree search. *@
+@inject INavProvider Provider
+@inject SidebarState Sidebar
+@inject NavigationManager NavMgr
+@inject IJSRuntime JS
+@implements IDisposable
+
+<div class="dynnav @(Sidebar.Collapsed ? "is-collapsed" : null)" @onkeydown="OnKeyDown">
+@if (Sidebar.Collapsed)
+{
+    <div class="sidebar-rail">
+        @if (_root is not null)
+        {
+            @foreach (NavChild n in _root)
+            {
+                @if (!string.IsNullOrEmpty(n.Icon))
+                {
+                    <button class="rail-btn @(IsActiveRail(n) ? "active" : null)" title="@n.Text" @onclick="() => OnRailClick(n)">
+                        <i class="bi bi-@n.Icon"></i>
+                    </button>
+                }
+            }
+        }
+    </div>
+}
+
+<div class="sidebar-panel">
+    <div class="sidebar-toolbar">
+        <div class="sidebar-search">
+            <i class="bi bi-search"></i>
+            <input type="search" placeholder="Filter menu…" value="@_query" @oninput="OnSearchInput"
+                   aria-label="Filter menu" />
+            @if (!string.IsNullOrEmpty(_query))
+            {
+                <button class="sidebar-search-clear" title="Clear filter" @onclick="ClearSearch">×</button>
+            }
+        </div>
+        <div class="sidebar-tools">
+            <button class="sidebar-tool" title="@(Sidebar.AllExpanded ? "Collapse all" : "Expand all")"
+                    @onclick="() => Sidebar.ToggleExpandAll()">
+                <i class="bi @(Sidebar.AllExpanded ? "bi-arrows-collapse" : "bi-arrows-expand")"></i>
+            </button>
+            @if (Sidebar.Collapsed)
+            {
+                <button class="sidebar-tool" title="Pin menu (keep open)" @onclick="() => Sidebar.SetCollapsed(false)">
+                    <i class="bi bi-pin-angle"></i>
+                </button>
+            }
+            else
+            {
+                <button class="sidebar-tool" title="Collapse menu" @onclick="() => Sidebar.SetCollapsed(true)">
+                    <i class="bi bi-chevron-double-left"></i>
+                </button>
+            }
+        </div>
+    </div>
+
+    @if (_root is null)
+    {
+        <p class="nav-loading"><em>Loading menu…</em></p>
+    }
+    else if (!string.IsNullOrWhiteSpace(_query))
+    {
+        @if (_index is null)
+        {
+            <p class="nav-loading"><em>Searching…</em></p>
+        }
+        else
+        {
+            var matches = Filter(_index, _query);
+            @if (matches.Count == 0)
+            {
+                <p class="nav-loading"><em>No matches for “@_query”.</em></p>
+            }
+            else
+            {
+                <ul class="nav-list nav-search-results">
+                    @foreach (NavLeaf m in matches)
+                    {
+                        <li>
+                            <NavLink class="nav-link" href="@m.Route" Match="NavLinkMatch.All">
+                                <span class="nav-search-text">@Highlight(m.Text, _query)</span>
+                                @if (!string.IsNullOrEmpty(m.Path))
+                                {
+                                    <span class="nav-search-path">@Highlight(m.Path, _query)</span>
+                                }
+                            </NavLink>
+                        </li>
+                    }
+                </ul>
+            }
+        }
+    }
+    else if (_root.Count == 0)
+    {
+        <p class="nav-loading"><em>No content found.</em></p>
+    }
+    else
+    {
+        <ul class="nav-list nav-top">
+            @foreach (NavChild node in _root)
+            {
+                <DynNavNode Node="node" CurrentRoute="@_current" />
+            }
+        </ul>
+    }
+</div>
+</div>
+
+@code {
+    private const int MaxResults = 200;
+    private static readonly StringComparison OIC = StringComparison.OrdinalIgnoreCase;
+
+    private IReadOnlyList<NavChild>? _root;
+    private string _current = string.Empty;
+    private bool _scrollPending;
+
+    private string _query = string.Empty;
+    private IReadOnlyList<NavLeaf>? _index;
+    private bool _indexing;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _current = CurrentRoute();
+        NavMgr.LocationChanged += OnLocationChanged;
+        _root = await Provider.GetChildrenAsync(string.Empty);
+        _scrollPending = true;
+    }
+
+    private bool IsActiveRail(NavChild n) =>
+        n.Prefix is not null && !string.IsNullOrEmpty(_current) &&
+        _current.StartsWith(n.Prefix, StringComparison.OrdinalIgnoreCase);
+
+    // Rail icon: navigate to the section's landing route if it has one; the sidebar stays collapsed
+    // (hovering the rail opens the temporary flyout for full browsing).
+    private void OnRailClick(NavChild n)
+    {
+        if (!string.IsNullOrEmpty(n.Route))
+        {
+            NavMgr.NavigateTo(n.Route);
+        }
+    }
+
+    private async Task OnSearchInput(ChangeEventArgs e)
+    {
+        _query = e.Value?.ToString() ?? string.Empty;
+
+        if (!string.IsNullOrWhiteSpace(_query) && _index is null && !_indexing)
+        {
+            _indexing = true;
+            _index = await Provider.GetIndexAsync();
+            _indexing = false;
+        }
+
+        StateHasChanged();
+    }
+
+    private void ClearSearch() => _query = string.Empty;
+
+    // Esc exits search mode and drops back to the tree, revealing/scrolling the active article.
+    private void OnKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Escape" && !string.IsNullOrEmpty(_query))
+        {
+            _query = string.Empty;
+            _scrollPending = true;
+        }
+    }
+
+    private static List<NavLeaf> Filter(IReadOnlyList<NavLeaf> index, string query) =>
+        index.Where(l => l.Text.Contains(query, OIC) || l.Path.Contains(query, OIC))
+             .Take(MaxResults)
+             .ToList();
+
+    // Wraps every case-insensitive occurrence of the query in a highlight <mark>.
+    private RenderFragment Highlight(string text, string query) => builder =>
+    {
+        query = query?.Trim() ?? string.Empty;
+        if (query.Length == 0 || string.IsNullOrEmpty(text))
+        {
+            builder.AddContent(0, text);
+            return;
+        }
+
+        int seq = 0;
+        int pos = 0;
+        while (pos < text.Length)
+        {
+            int idx = text.IndexOf(query, pos, OIC);
+            if (idx < 0)
+            {
+                builder.AddContent(seq++, text[pos..]);
+                break;
+            }
+
+            if (idx > pos)
+            {
+                builder.AddContent(seq++, text[pos..idx]);
+            }
+
+            builder.OpenElement(seq++, "mark");
+            builder.AddAttribute(seq++, "class", "nav-search-hl");
+            builder.AddContent(seq++, text.Substring(idx, query.Length));
+            builder.CloseElement();
+            pos = idx + query.Length;
+        }
+    };
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        _current = CurrentRoute();
+        _scrollPending = true;
+        InvokeAsync(StateHasChanged);
+    }
+
+    private string CurrentRoute()
+    {
+        string rel = NavMgr.ToBaseRelativePath(NavMgr.Uri);
+        int cut = rel.IndexOfAny(new[] { '?', '#' });
+        if (cut >= 0)
+        {
+            rel = rel[..cut];
+        }
+
+        return rel.Trim('/');
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (_scrollPending && _root is { Count: > 0 } && string.IsNullOrEmpty(_query) && !Sidebar.Collapsed)
+        {
+            _scrollPending = false;
+            try { await JS.InvokeVoidAsync("appUi.scrollActiveNavIntoView"); } catch { /* prerender */ }
+        }
+    }
+
+    public void Dispose() => NavMgr.LocationChanged -= OnLocationChanged;
+}

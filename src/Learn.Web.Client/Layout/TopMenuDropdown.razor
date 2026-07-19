@@ -9,20 +9,32 @@
                 <hr />
             </li>
         }
+        else if (node.Contents is { Count: > 0 })
+        {
+            @* A group: render its header (linked when the folder itself has a page) then recurse.
+               Checked BEFORE Href so folders that also carry a readme link still show their children. *@
+            <li class="dropdown-group">
+                @if (node.Href is not null)
+                {
+                    <a class="dropdown-header dropdown-link" href="@NavNode.ToRoute(node.Href)">@(node.Section ?? node.Text)</a>
+                }
+                else
+                {
+                    <span class="dropdown-header">@(node.Section ?? node.Text)</span>
+                }
+                <TopMenuDropdown Nodes="node.Contents" />
+            </li>
+        }
         else if (node.Href is not null)
         {
             <li>
-                <a class="dropdown-link" href="@NavNode.ToRoute(node.Href)">@node.Text</a>
+                <a class="dropdown-link" href="@NavNode.ToRoute(node.Href)">@(node.Text ?? node.Section)</a>
             </li>
         }
         else if (node.Section is not null)
         {
             <li class="dropdown-group">
                 <span class="dropdown-header">@node.Section</span>
-                @if (node.Contents is { Count: > 0 })
-                {
-                    <TopMenuDropdown Nodes="node.Contents" />
-                }
             </li>
         }
     }

@@ -1,7 +1,7 @@
 namespace Learn.Web.Shared;
 
-/// <summary>A selectable site theme. <see cref="Accent"/> drives the picker swatch.</summary>
-public sealed record ThemeOption(string Id, string Name, bool Dark, string Accent);
+/// <summary>A selectable site theme. <see cref="Accent"/> and <see cref="Bg"/> drive the picker swatch.</summary>
+public sealed record ThemeOption(string Id, string Name, bool Dark, string Accent, string Bg);
 
 /// <summary>
 /// Shared, per-circuit theme state. The layout applies the selected theme as a CSS class
@@ -17,14 +17,14 @@ public sealed class ThemeState
     /// <summary>Curated light + dark themes, in menu order.</summary>
     public static readonly IReadOnlyList<ThemeOption> Options = new[]
     {
-        new ThemeOption("cosmo", "Cosmo", false, "#1f6feb"),
-        new ThemeOption("sandstone", "Sandstone", false, "#2f6f7d"),
-        new ThemeOption("solarized-light", "Solarized Light", false, "#268bd2"),
-        new ThemeOption("minty", "Minty", false, "#18b58c"),
-        new ThemeOption("github-dark", "GitHub Dark", true, "#388bfd"),
-        new ThemeOption("darkly", "Darkly", true, "#00bc8c"),
-        new ThemeOption("nord", "Nord", true, "#88c0d0"),
-        new ThemeOption("solarized-dark", "Solarized Dark", true, "#2aa198"),
+        new ThemeOption("cosmo", "Cosmo", false, "#1f6feb", "#ffffff"),
+        new ThemeOption("sandstone", "Sandstone", false, "#2f6f7d", "#fcfbf7"),
+        new ThemeOption("solarized-light", "Solarized Light", false, "#268bd2", "#fdf6e3"),
+        new ThemeOption("minty", "Minty", false, "#18b58c", "#ffffff"),
+        new ThemeOption("github-dark", "GitHub Dark", true, "#388bfd", "#0d1117"),
+        new ThemeOption("darkly", "Darkly", true, "#00bc8c", "#1a1d20"),
+        new ThemeOption("nord", "Nord", true, "#88c0d0", "#2e3440"),
+        new ThemeOption("solarized-dark", "Solarized Dark", true, "#2aa198", "#002b36"),
     };
 
     public string ThemeId { get; private set; } = DefaultLight;

@@ -51,6 +51,6 @@
     private RenderFragment ThemeItem(ThemeOption opt) => @<button
         class="dropdown-action @(opt.Id == Theme.ThemeId ? "active" : null)" type="button"
         @onclick="() => Theme.SetTheme(opt.Id)">
-        <span class="theme-swatch" style="background:@opt.Accent"></span>@opt.Name
+        <span class="theme-swatch" style="--sw-bg:@opt.Bg;--sw-accent:@opt.Accent"></span>@opt.Name
     </button>;
 }

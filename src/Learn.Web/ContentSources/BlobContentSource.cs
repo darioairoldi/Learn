@@ -1,6 +1,11 @@
+using Azure;
 using Azure.Identity;
 using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using Diginsight.Diagnostics;
 using Learn.Web.Shared;
+using Learn.Web.Shared.Navigation;
+using log4net.Repository.Hierarchy;
 
 namespace Learn.Web.ContentSources;
 
@@ -8,12 +13,15 @@ namespace Learn.Web.ContentSources;
 /// Reads content from the storage account container over HTTPS using a managed/CLI identity.
 /// Used in production; the browser never sees storage credentials.
 /// </summary>
-public sealed class BlobContentSource : IContentSource
+public sealed class BlobContentSource : IContentSource, IContentLister
 {
     private readonly BlobContainerClient _container;
+    private readonly ILogger<BlobContentSource> _logger;
 
-    public BlobContentSource(string accountUri, string containerName)
+    public BlobContentSource(string accountUri, string containerName, ILogger<BlobContentSource> logger)
     {
+        _logger = logger;
+        
         var account = new Uri(accountUri.TrimEnd('/') + "/");
         var containerUri = new Uri(account, containerName);
         _container = new BlobContainerClient(containerUri, new DefaultAzureCredential());
@@ -21,6 +29,8 @@ public sealed class BlobContentSource : IContentSource
 
     public async Task<ContentResult?> GetAsync(string contentKey, CancellationToken ct = default)
     {
+        var activity = Observability.ActivitySource.StartMethodActivity(_logger, new { contentKey });
+
         BlobClient blob = _container.GetBlobClient(contentKey);
         if (!await blob.ExistsAsync(ct))
         {
@@ -33,5 +43,55 @@ public sealed class BlobContentSource : IContentSource
             ? "text/plain; charset=utf-8"
             : response.Value.Details.ContentType;
         return new ContentResult(bytes, contentType, response.Value.Details.ETag.ToString());
+    }
+
+    public async Task<IReadOnlyList<ChildEntry>> ListChildrenAsync(string prefix, CancellationToken ct = default)
+    {
+        var activity = Observability.ActivitySource.StartMethodActivity(_logger, new { prefix });
+
+        string p = (prefix ?? string.Empty).Replace('\\', '/').TrimStart('/');
+        if (p.Length > 0 && !p.EndsWith('/'))
+        {
+            p += "/";
+        }
+
+        var items = new List<ChildEntry>();
+        await foreach (BlobHierarchyItem item in _container.GetBlobsByHierarchyAsync(
+                           BlobTraits.None, BlobStates.None, delimiter: "/", prefix: p, cancellationToken: ct))
+        {
+            if (item.IsPrefix)
+            {
+                string full = item.Prefix.TrimEnd('/');
+                string name = full.Contains('/') ? full[(full.LastIndexOf('/') + 1)..] : full;
+                items.Add(new ChildEntry(name, true, full));
+            }
+            else
+            {
+                string full = item.Blob.Name;
+                string name = full.Contains('/') ? full[(full.LastIndexOf('/') + 1)..] : full;
+                items.Add(new ChildEntry(name, false, full));
+            }
+        }
+
+        return items;
+    }
+
+    public async Task<string?> ReadHeadAsync(string key, CancellationToken ct = default)
+    {
+        var activity = Observability.ActivitySource.StartMethodActivity(_logger, new { key });
+
+        BlobClient blob = _container.GetBlobClient(key);
+        try
+        {
+            // Ranged read: pull only the head of the blob, enough for the frontmatter block.
+            Response<BlobDownloadStreamingResult> resp =
+                await blob.DownloadStreamingAsync(new BlobDownloadOptions { Range = new HttpRange(0, 64 * 1024) }, ct);
+            await using Stream s = resp.Value.Content;
+            return await FrontMatter.ReadHeadAsync(s, ct);
+        }
+        catch (RequestFailedException)
+        {
+            return null;
+        }
     }
 }

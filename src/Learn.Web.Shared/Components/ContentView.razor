@@ -1,5 +1,6 @@
 @inject PageLoader Loader
 @inject NavigationService Nav
+@inject INavProvider NavProvider
 @inject TocState Toc
 @implements IDisposable
 
@@ -16,25 +17,52 @@ else if (_page is null)
 }
 else
 {
-    @if (_trail.Count > 0)
+    @if (_trail.Count > 0 || _prev is not null || _next is not null)
     {
         <nav class="breadcrumb" aria-label="Breadcrumb">
-            @for (int i = 0; i < _trail.Count; i++)
+            <div class="breadcrumb-trail">
+                @for (int i = 0; i < _trail.Count; i++)
+                {
+                    Crumb crumb = _trail[i];
+                    bool last = i == _trail.Count - 1;
+                    @if (i > 0)
+                    {
+                        <span class="breadcrumb-sep">›</span>
+                    }
+                    @if (!last && crumb.Route is not null)
+                    {
+                        <a class="breadcrumb-link" href="@crumb.Route">@crumb.Text</a>
+                    }
+                    else if (!last)
+                    {
+                        <span class="breadcrumb-section">@crumb.Text</span>
+                    }
+                    else
+                    {
+                        <span class="breadcrumb-current">@crumb.Text</span>
+                    }
+                }
+            </div>
+            @if (_prev is not null || _next is not null)
             {
-                Crumb crumb = _trail[i];
-                bool last = i == _trail.Count - 1;
-                @if (i > 0)
-                {
-                    <span class="breadcrumb-sep">›</span>
-                }
-                @if (!last && crumb.Route is not null)
-                {
-                    <a class="breadcrumb-link" href="@crumb.Route">@crumb.Text</a>
-                }
-                else
-                {
-                    <span class="breadcrumb-current">@crumb.Text</span>
-                }
+                <div class="breadcrumb-nav">
+                    @if (_prev is not null)
+                    {
+                        <a class="crumb-navbtn" href="@_prev.Route" title="@_prev.Text" aria-label="Previous article">Previous</a>
+                    }
+                    else
+                    {
+                        <span class="crumb-navbtn disabled">Previous</span>
+                    }
+                    @if (_next is not null)
+                    {
+                        <a class="crumb-navbtn" href="@_next.Route" title="@_next.Text" aria-label="Next article">Next</a>
+                    }
+                    else
+                    {
+                        <span class="crumb-navbtn disabled">Next</span>
+                    }
+                </div>
             }
         </nav>
     }
@@ -47,16 +75,68 @@ else
     private RenderedPage? _page;
     private bool _loading = true;
     private IReadOnlyList<Crumb> _trail = Array.Empty<Crumb>();
+    private NavLeaf? _prev;
+    private NavLeaf? _next;
 
     protected override async Task OnParametersSetAsync()
     {
         _loading = true;
+        _prev = _next = null;
         Toc.SetEntries(Array.Empty<TocEntry>());
         _page = await Loader.LoadAsync(Path);
         _trail = await Nav.GetTrailAsync(Path);
         _loading = false;
         Toc.SetEntries(_page?.Toc ?? Array.Empty<TocEntry>());
+
+        // Prev/next across the flat article order — loaded off the render path (index is cached).
+        _ = LoadPrevNextAsync(Path);
     }
+
+    private async Task LoadPrevNextAsync(string? forPath)
+    {
+        IReadOnlyList<NavLeaf> index = await NavProvider.GetIndexAsync();
+        if (Norm(forPath) != Norm(Path))
+        {
+            return; // navigated away while the index was loading
+        }
+
+        string cur = Norm(forPath);
+        int idx = -1;
+        for (int i = 0; i < index.Count; i++)
+        {
+            if (Norm(index[i].Route) == cur)
+            {
+                idx = i;
+                break;
+            }
+        }
+
+        _prev = idx > 0 ? index[idx - 1] : null;
+        _next = idx >= 0 && idx < index.Count - 1 ? index[idx + 1] : null;
+
+        // Fallback breadcrumb: if navigation.json had no trail for this route, build one from the
+        // index leaf's section path (text segments) plus the article title.
+        if (_trail.Count == 0 && idx >= 0)
+        {
+            NavLeaf leaf = index[idx];
+            var crumbs = new List<Crumb>();
+            if (!string.IsNullOrEmpty(leaf.Path))
+            {
+                foreach (string seg in leaf.Path.Split('›', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
+                {
+                    crumbs.Add(new Crumb(seg, null));
+                }
+            }
+
+            crumbs.Add(new Crumb(leaf.Text, null));
+            _trail = crumbs;
+        }
+
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private static string Norm(string? route) =>
+        (route ?? string.Empty).Replace('\\', '/').Trim('/').ToLowerInvariant();
 
     public void Dispose() => Toc.SetEntries(Array.Empty<TocEntry>());
 }

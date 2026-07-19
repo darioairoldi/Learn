@@ -17,5 +17,7 @@ builder.Services.AddScoped<PageLoader>();
 builder.Services.AddScoped<NavigationService>();
 builder.Services.AddScoped<TocState>();
 builder.Services.AddScoped<ThemeState>();
+builder.Services.AddScoped<SidebarState>();
+builder.Services.AddScoped<INavProvider, HttpNavProvider>();
 
 await builder.Build().RunAsync();

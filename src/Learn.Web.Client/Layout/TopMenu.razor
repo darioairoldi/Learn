@@ -1,4 +1,5 @@
 @inject NavigationService Nav
+@inject INavProvider NavProvider
 
 @if (_nodes is not null)
 {
@@ -12,22 +13,22 @@
             else if (node.Href is not null)
             {
                 <a class="topmenu-link" href="@NavNode.ToRoute(node.Href)">
-                    @if (!string.IsNullOrEmpty(node.Icon))
+                    @if (!string.IsNullOrEmpty(IconFor(node)))
                     {
-                        <i class="bi bi-@node.Icon"></i>
+                        <i class="bi bi-@IconFor(node)"></i>
                     }
-                    <span>@Short(node.Text)</span>
+                    <span>@ShortFor(node)</span>
                 </a>
             }
             else if (node.Section is not null)
             {
                 <div class="topmenu-item">
                     <button class="topmenu-btn" type="button">
-                        @if (!string.IsNullOrEmpty(node.Icon))
+                        @if (!string.IsNullOrEmpty(IconFor(node)))
                         {
-                            <i class="bi bi-@node.Icon"></i>
+                            <i class="bi bi-@IconFor(node)"></i>
                         }
-                        <span>@Short(node.Section)</span>
+                        <span>@ShortFor(node)</span>
                         <span class="caret">▾</span>
                     </button>
                     @if (node.Contents is { Count: > 0 })
@@ -49,9 +50,69 @@
 
     private IReadOnlyList<NavNode>? _nodes;
 
+    // Top-level folder → icon + short label, taken from the live folder metadata (metadata.yml) so the
+    // top bar always matches the sidebar. Keyed by the top-level folder prefix (e.g. "02.00-events").
+    private IReadOnlyDictionary<string, string?> _iconByPrefix =
+        new Dictionary<string, string?>(StringComparer.OrdinalIgnoreCase);
+    private IReadOnlyDictionary<string, string?> _shortByPrefix =
+        new Dictionary<string, string?>(StringComparer.OrdinalIgnoreCase);
+
     protected override async Task OnInitializedAsync()
     {
         _nodes = await Nav.GetAsync();
+
+        IReadOnlyList<NavChild> root = await NavProvider.GetChildrenAsync(string.Empty);
+        var byPrefix = root
+            .Where(r => !string.IsNullOrEmpty(r.Prefix))
+            .GroupBy(r => r.Prefix!, StringComparer.OrdinalIgnoreCase)
+            .Select(g => g.First())
+            .ToList();
+        _iconByPrefix = byPrefix.ToDictionary(r => r.Prefix!, r => r.Icon, StringComparer.OrdinalIgnoreCase);
+        _shortByPrefix = byPrefix.ToDictionary(r => r.Prefix!, r => r.Short, StringComparer.OrdinalIgnoreCase);
+    }
+
+    // Prefer the folder-metadata icon (matched by folder prefix); fall back to navigation.json's own.
+    private string? IconFor(NavNode n)
+    {
+        string? prefix = FolderPrefix(n);
+        return prefix is not null && _iconByPrefix.TryGetValue(prefix, out string? icon) && !string.IsNullOrEmpty(icon)
+            ? icon
+            : n.Icon;
+    }
+
+    private static string? FolderPrefix(NavNode n)
+    {
+        string? href = FirstHref(n);
+        if (string.IsNullOrEmpty(href))
+        {
+            return null;
+        }
+
+        href = href.Replace('\\', '/').TrimStart('/');
+        int slash = href.IndexOf('/');
+        return slash > 0 ? href[..slash] : null;
+    }
+
+    private static string? FirstHref(NavNode n)
+    {
+        if (!string.IsNullOrEmpty(n.Href))
+        {
+            return n.Href;
+        }
+
+        if (n.Contents is not null)
+        {
+            foreach (NavNode child in n.Contents)
+            {
+                string? href = FirstHref(child);
+                if (href is not null)
+                {
+                    return href;
+                }
+            }
+        }
+
+        return null;
     }
 
     // Sections that live on the right side of the bar, in display order (matches the legacy navbar).
@@ -77,16 +138,12 @@
             : items.Where(n => !IsRight(n));
     }
 
-    // Compact top-level labels to match the original navbar (full names stay in the sidebar).
-    private static readonly Dictionary<string, string> ShortLabels = new(StringComparer.OrdinalIgnoreCase)
+    // Compact top-level label from folder metadata (metadata.yml `short:`); falls back to the full name.
+    private string ShortFor(NavNode n)
     {
-        ["News & Updates"] = "News",
-        ["Issues & Solutions"] = "Issues",
-        ["Ideas & Projects"] = "Ideas",
-        ["Other Technologies"] = "Other",
-        ["Culture & Travel"] = "Culture",
-    };
-
-    private static string Short(string? label)
-        => label is not null && ShortLabels.TryGetValue(label, out string? s) ? s : (label ?? string.Empty);
+        string? prefix = FolderPrefix(n);
+        return prefix is not null && _shortByPrefix.TryGetValue(prefix, out string? s) && !string.IsNullOrEmpty(s)
+            ? s
+            : (n.Section ?? n.Text ?? string.Empty);
+    }
 }
