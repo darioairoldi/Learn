@@ -23,7 +23,7 @@ public static class NavEndpoints
     private static async Task<IResult> GetChildrenAsync(string? prefix, DynamicNavBuilder nav, ILoggerFactory loggerFactory, CancellationToken ct)
     {
         ILogger logger = loggerFactory.CreateLogger(typeof(NavEndpoints));
-        var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefix });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefix });
 
         return Results.Json(await nav.GetChildrenAsync(prefix ?? string.Empty, ct));
     }
@@ -31,7 +31,7 @@ public static class NavEndpoints
     private static IResult GetVersion(ILoggerFactory loggerFactory)
     {
         ILogger logger = loggerFactory.CreateLogger(typeof(NavEndpoints));
-        var activity = Observability.ActivitySource.StartMethodActivity(logger);
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger);
 
         return Results.Json(new { version = DynamicNavBuilder.Version });
     }
@@ -39,7 +39,7 @@ public static class NavEndpoints
     private static async Task<IResult> GetIndexAsync(DynamicNavBuilder nav, ILoggerFactory loggerFactory, CancellationToken ct)
     {
         ILogger logger = loggerFactory.CreateLogger(typeof(NavEndpoints));
-        var activity = Observability.ActivitySource.StartMethodActivity(logger);
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger);
 
         return Results.Json(await nav.GetIndexAsync(ct));
     }
@@ -47,7 +47,7 @@ public static class NavEndpoints
     private static IResult Invalidate(DynamicNavBuilder nav, ILoggerFactory loggerFactory)
     {
         ILogger logger = loggerFactory.CreateLogger(typeof(NavEndpoints));
-        var activity = Observability.ActivitySource.StartMethodActivity(logger);
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger);
 
         nav.Invalidate();
         return Results.Ok(new { version = DynamicNavBuilder.Version });

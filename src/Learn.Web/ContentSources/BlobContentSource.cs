@@ -21,7 +21,7 @@ public sealed class BlobContentSource : IContentSource, IContentLister
     public BlobContentSource(string accountUri, string containerName, ILogger<BlobContentSource> logger)
     {
         _logger = logger;
-        
+
         var account = new Uri(accountUri.TrimEnd('/') + "/");
         var containerUri = new Uri(account, containerName);
         _container = new BlobContainerClient(containerUri, new DefaultAzureCredential());
@@ -29,7 +29,7 @@ public sealed class BlobContentSource : IContentSource, IContentLister
 
     public async Task<ContentResult?> GetAsync(string contentKey, CancellationToken ct = default)
     {
-        var activity = Observability.ActivitySource.StartMethodActivity(_logger, new { contentKey });
+        using var activity = Observability.ActivitySource.StartMethodActivity(_logger, new { contentKey });
 
         BlobClient blob = _container.GetBlobClient(contentKey);
         if (!await blob.ExistsAsync(ct))
@@ -47,7 +47,7 @@ public sealed class BlobContentSource : IContentSource, IContentLister
 
     public async Task<IReadOnlyList<ChildEntry>> ListChildrenAsync(string prefix, CancellationToken ct = default)
     {
-        var activity = Observability.ActivitySource.StartMethodActivity(_logger, new { prefix });
+        using var activity = Observability.ActivitySource.StartMethodActivity(_logger, new { prefix });
 
         string p = (prefix ?? string.Empty).Replace('\\', '/').TrimStart('/');
         if (p.Length > 0 && !p.EndsWith('/'))
@@ -78,7 +78,7 @@ public sealed class BlobContentSource : IContentSource, IContentLister
 
     public async Task<string?> ReadHeadAsync(string key, CancellationToken ct = default)
     {
-        var activity = Observability.ActivitySource.StartMethodActivity(_logger, new { key });
+        using var activity = Observability.ActivitySource.StartMethodActivity(_logger, new { key });
 
         BlobClient blob = _container.GetBlobClient(key);
         try

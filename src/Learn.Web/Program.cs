@@ -3,6 +3,8 @@ using Diginsight.AspNetCore;
 using Diginsight.Components;
 using Diginsight.Components.Configuration;
 using Diginsight.Diagnostics;
+using Diginsight.SmartCache;
+using Diginsight.SmartCache.Externalization.Redis;
 using Learn.Web.Components;
 using Learn.Web.ContentSources;
 using Learn.Web.Endpoints;
@@ -52,8 +54,8 @@ public class Program
 
             services.Configure<ContentOptions>(configuration.GetSection("Content"));
 
-            // Server-side content source: FileSystem (repo clone) or Blob (storage), selected by config.
-            services.AddSingleton<IContentSource>(sp =>
+            // Physical server-side content source: FileSystem (repo clone) or Blob (storage), selected by config.
+            static IContentSource CreatePhysicalContentSource(IServiceProvider sp)
             {
                 ContentOptions options = sp.GetRequiredService<IOptions<ContentOptions>>().Value;
                 IWebHostEnvironment env = sp.GetRequiredService<IWebHostEnvironment>();
@@ -67,7 +69,37 @@ public class Program
 
                 return new BlobContentSource(options.Blob.AccountUri, options.Blob.ContainerName,
                     sp.GetRequiredService<ILogger<BlobContentSource>>());
-            });
+            }
+
+            // Optional SmartCache layer over the content source (off by default; config-gated).
+            // Enabled → caches Markdown source bytes in-memory; a Redis connection string adds a
+            // distributed, multi-instance backing store. When disabled, behavior is unchanged.
+            ContentOptions contentOptions = configuration.GetSection("Content").Get<ContentOptions>() ?? new ContentOptions();
+            if (contentOptions.Cache.Enabled)
+            {
+                SmartCacheBuilder smartCacheBuilder =
+                    services.AddSmartCache(configuration, environment, observabilityManager.LoggerFactory);
+
+                if (!string.IsNullOrWhiteSpace(contentOptions.Cache.Redis.Configuration))
+                {
+                    smartCacheBuilder.AddRedis(o =>
+                    {
+                        o.Configuration = contentOptions.Cache.Redis.Configuration;
+                        o.KeyPrefix = contentOptions.Cache.Redis.KeyPrefix;
+                    });
+                }
+
+                services.AddSingleton<IContentSource>(sp => new SmartCacheContentSource(
+                    CreatePhysicalContentSource(sp),
+                    sp.GetRequiredService<ISmartCache>(),
+                    sp.GetRequiredService<ICacheKeyService>(),
+                    TimeSpan.FromSeconds(contentOptions.Cache.MaxAgeSeconds),
+                    sp.GetRequiredService<ILogger<SmartCacheContentSource>>()));
+            }
+            else
+            {
+                services.AddSingleton<IContentSource>(CreatePhysicalContentSource);
+            }
 
             services.AddScoped<IMarkdownRenderer, MarkdigMarkdownRenderer>();
             services.AddScoped<PageLoader>();

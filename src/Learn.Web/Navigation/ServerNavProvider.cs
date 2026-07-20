@@ -9,14 +9,14 @@ public sealed class ServerNavProvider(DynamicNavBuilder builder, ILogger<ServerN
 {
     public Task<IReadOnlyList<NavChild>> GetChildrenAsync(string prefix, CancellationToken ct = default)
     {
-        var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefix });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefix });
 
         return builder.GetChildrenAsync(prefix, ct);
     }
 
     public Task<IReadOnlyList<NavLeaf>> GetIndexAsync(CancellationToken ct = default)
     {
-        var activity = Observability.ActivitySource.StartMethodActivity(logger);
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger);
 
         return builder.GetIndexAsync(ct);
     }

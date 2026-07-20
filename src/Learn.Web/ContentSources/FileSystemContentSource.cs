@@ -25,7 +25,7 @@ public sealed class FileSystemContentSource : IContentSource, IContentLister
 
     public async Task<ContentResult?> GetAsync(string contentKey, CancellationToken ct = default)
     {
-        var activity = Observability.ActivitySource.StartMethodActivity(_logger, new { contentKey });
+        using var activity = Observability.ActivitySource.StartMethodActivity(_logger, new { contentKey });
 
         string relative = contentKey.Replace('\\', '/').TrimStart('/');
         string full = Path.GetFullPath(Path.Combine(_root, relative));
@@ -53,7 +53,7 @@ public sealed class FileSystemContentSource : IContentSource, IContentLister
 
     public Task<IReadOnlyList<ChildEntry>> ListChildrenAsync(string prefix, CancellationToken ct = default)
     {
-        var activity = Observability.ActivitySource.StartMethodActivity(_logger, new { prefix });
+        using var activity = Observability.ActivitySource.StartMethodActivity(_logger, new { prefix });
 
         string rel = (prefix ?? string.Empty).Replace('\\', '/').Trim('/');
         string dir = string.IsNullOrEmpty(rel) ? _root : Path.GetFullPath(Path.Combine(_root, rel));
@@ -87,7 +87,7 @@ public sealed class FileSystemContentSource : IContentSource, IContentLister
 
     public async Task<string?> ReadHeadAsync(string key, CancellationToken ct = default)
     {
-        var activity = Observability.ActivitySource.StartMethodActivity(_logger, new { key });
+        using var activity = Observability.ActivitySource.StartMethodActivity(_logger, new { key });
 
         string rel = (key ?? string.Empty).Replace('\\', '/').TrimStart('/');
         string full = Path.GetFullPath(Path.Combine(_root, rel));

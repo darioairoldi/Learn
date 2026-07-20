@@ -30,7 +30,7 @@ public sealed class DynamicNavBuilder(IContentLister lister, IMemoryCache cache,
 
     public async Task<IReadOnlyList<NavChild>> GetChildrenAsync(string prefix, CancellationToken ct = default)
     {
-        var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefix });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefix });
 
         prefix = (prefix ?? string.Empty).Replace('\\', '/').Trim('/');
         string key = $"nav:{_version}:{prefix}";
@@ -47,7 +47,7 @@ public sealed class DynamicNavBuilder(IContentLister lister, IMemoryCache cache,
     /// <summary>Flattens the whole menu into navigable leaves + section breadcrumbs (cached per version).</summary>
     public async Task<IReadOnlyList<NavLeaf>> GetIndexAsync(CancellationToken ct = default)
     {
-        var activity = Observability.ActivitySource.StartMethodActivity(logger);
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger);
 
         string key = $"navindex:{_version}";
         if (cache.TryGetValue(key, out IReadOnlyList<NavLeaf>? cached) && cached is not null)
@@ -80,7 +80,7 @@ public sealed class DynamicNavBuilder(IContentLister lister, IMemoryCache cache,
 
     private async Task<IReadOnlyList<NavChild>> BuildLevelAsync(string prefix, CancellationToken ct)
     {
-        var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefix });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefix });
 
         IReadOnlyList<ChildEntry> raw = await lister.ListChildrenAsync(prefix, ct);
         var scored = new List<(SortTuple Key, NavChild Node)>();
@@ -142,7 +142,7 @@ public sealed class DynamicNavBuilder(IContentLister lister, IMemoryCache cache,
     /// <summary>Decides whether a folder is a section, a collapsed single link, or nothing.</summary>
     private async Task<NavChild?> ClassifyFolderAsync(ChildEntry folder, FolderMeta meta, CancellationToken ct)
     {
-        var activity = Observability.ActivitySource.StartMethodActivity(logger, new { folder });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { folder });
 
         IReadOnlyList<ChildEntry> kids = await lister.ListChildrenAsync(folder.Path, ct);
 
@@ -186,7 +186,7 @@ public sealed class DynamicNavBuilder(IContentLister lister, IMemoryCache cache,
     /// <summary>Reads a folder's optional <c>metadata.yml</c> overrides (absent file → no overrides).</summary>
     private async Task<FolderMeta> ReadFolderMetaAsync(string folderPath, CancellationToken ct)
     {
-        var activity = Observability.ActivitySource.StartMethodActivity(logger, new { folderPath });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { folderPath });
 
         string dir = (folderPath ?? string.Empty).Replace('\\', '/').Trim('/');
         string key = dir.Length == 0 ? "metadata.yml" : $"{dir}/metadata.yml";

@@ -152,6 +152,28 @@
           "Microsoft.Extensions.Logging.Log4Net.AspNetCore": "10.0.0"
         }
       },
+      "Diginsight.SmartCache": {
+        "type": "Direct",
+        "requested": "[3.7.*, )",
+        "resolved": "3.7.1.13",
+        "contentHash": "ezeRStJNElY5DT+ODoohtg1eagge/Oj/vKUHLWgiXDVjKQa1TKmqHjhaIvF60jXnviubY0JtauUsBO0EtWWCgw==",
+        "dependencies": {
+          "Diginsight.Core": "3.7.1.13",
+          "Diginsight.Diagnostics": "3.7.1.13",
+          "Newtonsoft.Json": "13.0.4"
+        }
+      },
+      "Diginsight.SmartCache.Externalization.Redis": {
+        "type": "Direct",
+        "requested": "[3.7.*, )",
+        "resolved": "3.7.1.13",
+        "contentHash": "xTsNN6roGSgQulbaezBcsmZa2MlrbVA2MZ9cANdL75/Nhu114Ulfqp5CE6Vl038owGhZcEJd5FFpuNOC02rjog==",
+        "dependencies": {
+          "Diginsight.Diagnostics": "3.7.1.13",
+          "Diginsight.SmartCache": "3.7.1.13",
+          "StackExchange.Redis": "2.13.1"
+        }
+      },
       "Diginsight.Stringify": {
         "type": "Direct",
         "requested": "[3.7.*, )",
@@ -499,12 +521,26 @@
         "resolved": "7.0.1",
         "contentHash": "qLANIt80UgHVjEWtDJBpqunbhfqUVcSrY8SaZcJpfFDq3ZzzQntsNyWyizb9UoNHqvK/wRgENdI163CymyEbmQ=="
       },
+      "Pipelines.Sockets.Unofficial": {
+        "type": "Transitive",
+        "resolved": "2.2.16",
+        "contentHash": "nonu9l0YrZH6krVYbskBjE7uG0VMAnvOQ9PU+RmzUsy+++vHkqzzCkHRoP877OiA3iRTxJyNDLfpcU8hrJ3/YQ=="
+      },
       "Scrutor": {
         "type": "Transitive",
         "resolved": "7.0.0",
         "contentHash": "wHWaroody48jnlLoq/REwUltIFLxplXyHTP+sttrc8P7+jkiVqf38afDidJNv4qgD/6zz2NKOYg06xLZ1bG7wQ==",
         "dependencies": {
           "Microsoft.Extensions.DependencyModel": "10.0.0"
+        }
+      },
+      "StackExchange.Redis": {
+        "type": "Transitive",
+        "resolved": "2.13.1",
+        "contentHash": "jC5wkRe8K6HPoDENUws+fl2d7+GKz+ky8SWEDzYzPx6hHt2EwxWm01gmYPWLzlT49jfYYap0guB5bExtyX9aIQ==",
+        "dependencies": {
+          "Pipelines.Sockets.Unofficial": "2.2.16",
+          "System.IO.Hashing": "10.0.2"
         }
       },
       "System.ClientModel": {

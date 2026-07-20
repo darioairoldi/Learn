@@ -19,7 +19,7 @@ public static class ContentEndpoints
     private static async Task<IResult> GetRawAsync(string key, IContentSource source, ILoggerFactory loggerFactory, CancellationToken ct)
     {
         ILogger logger = loggerFactory.CreateLogger(typeof(ContentEndpoints));
-        var activity = Observability.ActivitySource.StartMethodActivity(logger, new { key });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { key });
 
         ContentResult? result = await source.GetAsync(key, ct);
         return result is null
