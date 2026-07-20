@@ -68,6 +68,7 @@
         try
         {
             await JS.InvokeVoidAsync("localStorage.setItem", "lh-theme", Theme.ThemeId);
+            await JS.InvokeVoidAsync("appUi.rerenderMermaid");
         }
         catch
         {

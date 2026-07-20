@@ -3,7 +3,7 @@ title: "Learning Hub Concept"
 author: "Dario Airoldi"
 date: "2025-08-29"
 date-modified: last-modified
-version: "1.2"
+version: "1.4"
 description: "A comprehensive tool for transforming passive information consumption into intelligent, automated knowledge development"
 keywords: 
   - Learning Hub
@@ -41,9 +41,9 @@ principles:
   - id: incremental-integration
     priority: P1
     statement: "Integrating new or changed knowledge costs in proportion to the change, not the whole corpus."
-  - id: configuration-driven
+  - id: metadata-driven
     priority: P1
-    statement: "Layered configuration governs how the Hub discovers sources, stores material, and exposes each piece."
+    statement: "The Hub's behaviour — identity, ordering, visibility, validation, and self-update contract — is governed by metadata carried on the content itself (site, folder, article), the same metadata that drives navigation, the dual-metadata contract, and the self-updating engine; infrastructure configuration (source location, credentials, external mirrors) is a deployment detail, not a principle."
   - id: structured-knowledge-development
     priority: P1
     statement: "Learning progresses through structured, iterative development rather than stopping at the first read."
@@ -57,7 +57,7 @@ principles:
 
 > **Part of the Learning Hub.** This page is the founding **concept** (Layer ②, the Content Engine). For the
 > full three-layer picture — Platform, Content Engine, Learning Loop — and how the pieces fit, see the
-> canonical [Learning Hub definition](../00-learning-hub.md).
+> canonical [Learning Hub definition](../00-learning-hub/00-learning-hub.md).
 
 ## 📋 Table of Contents
 
@@ -79,6 +79,8 @@ The **Learning Hub** pursues a paradigm shift from traditional **passive informa
 
 This tool transforms interaction with information by implementing <mark>**intelligent gathering**</mark>, <mark>**automated update and development**</mark> and <mark>**collaborative learning**</mark>.
 
+All of this serves one goal: to let you <mark>**think ahead**</mark>. As the corpus grows and AI comes to understand your **goals**, your **scope**, and how you **reason**, the Hub turns fresh news, information, and your own **knowledge gaps** into *foresight* — helping you get *in front* of what's coming rather than just keeping up. The canonical [Learning Hub definition](../00-learning-hub/00-learning-hub.md) frames this compounding foresight as the Hub's core value.
+
 ### Core Transformation Principles
 
 These four transformations are the Hub's **declared vision principles** (see the `principles:` block in the frontmatter). The Learning Hub changes learning from:
@@ -98,15 +100,21 @@ These four transformations are the Hub's **declared vision principles** (see the
 - **"Individual learning"** → **"<mark>Collaborative learning</mark>"** — **Priority: P2** · `collaborative-learning`
   Learning pieces can be exchanged and developed across learning hub instances and, of course, it can be developed starting from (public) web resources or user provided information.
 
-### Configuration-driven Foundation
+### Metadata-driven Foundation
 
-**Priority: P1** · `configuration-driven`
+**Priority: P1** · `metadata-driven`
 
-The Learning Hub is **configuration-driven**: how it discovers sources, where it stores material, and how each piece of information is exposed are all governed by a layered configuration model rather than hard-coded behavior. Configuration is loaded from a `.NET`-style layered `appsettings.json` chain (committed defaults, environment overlays, non-versioned user overrides, and environment variables), so the same Hub adapts to different users and environments without code changes.
+The Learning Hub is **metadata-driven**: how a piece is identified, ordered, labelled, exposed, validated, and kept fresh is governed by **metadata carried on the content itself**, at three levels:
 
-A central element is the **external-repository configuration** (`Repository:ExternalRepositories`), which lets the Hub compose content that lives outside the public repository. This foundation is expected to carry **increasing responsibility over time** — as the Hub grows, more of its behavior (sources, visibility, publishing targets) will be expressed as configuration.
+- **Site and folder metadata** (`metadata.yml`) — labels, icons, order, and visibility (`hidden`, `topbar-*`) that build the navigation **at runtime**.
+- **Article metadata** — the [dual-metadata contract](../../../.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md) (identity frontmatter + validation tracking) that every governed piece carries.
+- **Self-update metadata** — each artifact's `goal`, `scope`, `boundaries`, and graded verdict, which the [self-updating engine](../../self-updating-engine/20260622.01-self-updating-engine-vision.md) reads to decide what to change (its own **metadata-driven** principle).
 
-> 📖 Configuration model: [00-repository-configuration.md](../../../.copilot/context/90.00-learning-hub/00-repository-configuration.md)
+This is the **same metadata** the Hub already relies on for navigation, quality tracking, and the self-updating loop — so content behaviour has **one vocabulary, not two**. A new ordering, label, or exposure rule is added to the piece it governs, not to a separate configuration model.
+
+**Infrastructure configuration is a thin deployment layer, not a principle.** Where content physically lives (a filesystem clone vs. object storage), credentials, the environment, and the external-mirror paths that hold non-public *source* material are read from a standard layered `appsettings.json` chain — deliberately small and machine-specific, with secrets and personal mirror paths kept in git-ignored user overrides. It configures the **app and the authoring environment**, not the meaning of the content.
+
+> 📖 Deployment configuration & external-material resolution: [00-repository-configuration.md](../../../.copilot/context/90.00-learning-hub/00-repository-configuration.md)
 
 ### Building blocks: article-writing and PE engines
 
@@ -383,6 +391,8 @@ The framework scales with growing expertise, allowing gradual sophistication inc
 
 ### Most recent changes
 
+- **v1.4 (2026-07-20)** — Switched the Hub's organizing principle from **configuration-driven** to **metadata-driven**: content behaviour (identity, ordering, visibility, validation, self-update contract) is governed by metadata carried on the content itself — the same metadata already used for navigation, the dual-metadata contract, and the self-updating engine's own metadata-driven principle. Infrastructure `appsettings.json` (source location, credentials, external mirrors) is demoted to a deployment detail rather than a central concept.
+- **v1.3 (2026-07-20)** — Named **Think ahead** as the Hub's goal in the Overview: the gather / develop / keep machinery serves *foresight* — an AI that understands the user's goals, scope, and reasoning turns news, information, and knowledge gaps into getting ahead of what's coming. Linked to the canonical master.
 - **v1.2 (2026-06-22)** — Promoted this document to the Hub's **formal vision**: declared a `principles:` block (3 P0 / 4 P1 / 1 P2) naming the existing transformation principles plus the configuration-driven, per-piece-visibility, generalized-content-engine, and incremental-integration invariants; annotated each body principle with its priority; and added a **Building blocks** section declaring the article-writing and PE engines as versioned dependencies the Hub consumes.
 - **v1.1 (2026-06-14)** — Added *Configuration-driven foundation* (layered `appsettings.json`, external repositories), *Exposure criteria & public/private sources* (per-piece visibility resolved via external mirror), *Content-type specialization* (conference/event ingestion as a flagship channel), and *Publishing & incremental integration* (publish-tool-agnostic final stage that builds only changed content).
 

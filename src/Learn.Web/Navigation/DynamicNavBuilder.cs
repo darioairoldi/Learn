@@ -58,7 +58,7 @@ public sealed class DynamicNavBuilder(IContentLister lister, IMemoryCache cache,
         var leaves = new List<NavLeaf>();
         await WalkAsync(string.Empty, string.Empty, leaves, ct);
         cache.Set(key, (IReadOnlyList<NavLeaf>)leaves,
-            new MemoryCacheEntryOptions { SlidingExpiration = TimeSpan.FromSeconds(60) });
+            new MemoryCacheEntryOptions { SlidingExpiration = TimeSpan.FromMinutes(15) });
         return leaves;
     }
 

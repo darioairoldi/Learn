@@ -56,7 +56,7 @@ This definition prevents terminology drift and keeps architecture discussions pr
 
 ## 📚 References
 
-- [Learning Hub master](../learning-hub/00-learning-hub.md) 📒 [Internal]  
+- [Learning Hub master](../learning-hub/00-learning-hub/00-learning-hub.md) 📒 [Internal]  
 The canonical three-layer definition; autonomous streams are part of Layer ③ (the Learning Loop).
 - [One engine, many streams](../self-updating-engine/00-one-engine-many-streams.md) 📒 [Internal]  
 How this stream and its siblings fold under one shared engine.

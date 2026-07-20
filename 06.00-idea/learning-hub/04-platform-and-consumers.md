@@ -8,7 +8,7 @@ description: "The Learning Hub's Platform layer — a fully dynamic Markdown-ren
 
 # Platform and consumers: the dynamic renderer and who it serves
 
-> **Chapter of** [Learning Hub: vision, strategy, implementation, and next steps](00-learning-hub.md).
+> **Chapter of** [Learning Hub: vision, strategy, implementation, and next steps](00-learning-hub/00-learning-hub.md).
 > This page details **Layer ①, the Platform**, and the audiences it generalizes to.
 
 ## Table of contents
@@ -124,7 +124,7 @@ renderer serves any Markdown-producing role, across any interaction surface.**
 
 ### Internal references
 
-- [Learning Hub: vision, strategy, implementation, and next steps](00-learning-hub.md) — the canonical definition this chapter details.
+- [Learning Hub: vision, strategy, implementation, and next steps](00-learning-hub/00-learning-hub.md) — the canonical definition this chapter details.
 - [IQPilot overview](../iqpilot/01-iqpilot-overview.md) — the content-agnostic, location-independent Content Engine product.
 - [Automated content lifecycle](03-automated-content-lifecycle/01-automated-content-lifecycle-with-prompts-agents-and-mcp.md) — how content is produced and published.
 - [Self-updating engine vision](../self-updating-engine/20260622.01-self-updating-engine-vision.md) — the machinery that keeps producers' output fresh.

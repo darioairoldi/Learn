@@ -33,6 +33,11 @@ target-audience: "Principal Consultants, Technology Leaders, IT Professionals"
 methodology: "Multi-channel Intelligence with Automated Workflows"
 ---
 
+> **Part of the Learning Hub.** This is a practical **how-to** — applying the Hub's approach to
+> technology learning. For *what* the Learning Hub is and *how* it works, see the canonical
+> [Learning Hub definition](../00-learning-hub/00-learning-hub.md); for the founding concept, see the
+> [Learning Hub introduction](01-learning-hub-introduction.md).
+
 ## Executive Summary
 
 This guide provides practical implementation strategies for applying the Learning Hub framework specifically to technology learning. It demonstrates how to transform passive information consumption into active technology intelligence, enabling professionals to identify emerging trends, understand technical implications, and maintain competitive advantage in rapidly evolving technology landscapes.

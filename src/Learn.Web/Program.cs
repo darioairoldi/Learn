@@ -107,6 +107,14 @@ public class Program
                 .AddAdditionalAssemblies(typeof(Learn.Web.Client.Marker).Assembly);
         }
 
+        // Warm the navigation index in the background so the first request (and the breadcrumb /
+        // prev-next it feeds) does not pay the full tree walk on the request path.
+        _ = Task.Run(async () =>
+        {
+            try { await app.Services.GetRequiredService<DynamicNavBuilder>().GetIndexAsync(); }
+            catch { /* best-effort warm-up */ }
+        });
+
         app.Run();
     }
 }

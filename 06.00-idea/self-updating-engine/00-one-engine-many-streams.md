@@ -8,7 +8,7 @@ description: "A short consolidation note that folds the self-updating-* visions 
 
 # One engine, many streams
 
-> **Chapter of** [Learning Hub: vision, strategy, implementation, and next steps](../learning-hub/00-learning-hub.md)
+> **Chapter of** [Learning Hub: vision, strategy, implementation, and next steps](../learning-hub/00-learning-hub/00-learning-hub.md)
 > (Layer ③, the Learning Loop). Read this to see how the several `self-updating-*` folders relate.
 
 ## The point
@@ -48,7 +48,7 @@ once, and every stream inherits the improvement.
 
 - [Self-updating engine vision](20260622.01-self-updating-engine-vision.md) — the shared machinery.
 - [Autonomous streams](../autonomous-streams/autonomous-streams.md) — the runtime instances.
-- [Learning Hub master](../learning-hub/00-learning-hub.md) — where this sits in the three-layer picture.
+- [Learning Hub master](../learning-hub/00-learning-hub/00-learning-hub.md) — where this sits in the three-layer picture.
 
 <!--
 validations:

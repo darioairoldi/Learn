@@ -20,7 +20,7 @@ Think of it as an **automated sprint retrospective** that runs after every AI se
 > sessions in VS Code, but its feedback reports are **governed Markdown** — so the Learning Hub's dynamic
 > renderer displays them **live**, alongside the editor and the AI assistant. TuneIQ is part of the Learning
 > Hub's **Learning Loop** (Layer ③). See the canonical
-> [Learning Hub definition](../learning-hub/00-learning-hub.md).
+> [Learning Hub definition](../learning-hub/00-learning-hub/00-learning-hub.md).
 
 ## The problem TuneIQ solves
 

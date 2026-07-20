@@ -373,6 +373,26 @@ body {
     padding: 0;
 }
 
+/* Mermaid: not a code block. Show a muted hint until the client turns it into a centered SVG. */
+.markdown-body pre.mermaid {
+    background: none;
+    padding: 0.5rem 0;
+    border-radius: 0;
+    overflow-x: auto;
+    text-align: center;
+    line-height: normal;
+}
+
+.markdown-body pre.mermaid:not([data-processed]) {
+    color: var(--muted, #888);
+    font-size: 0.8rem;
+}
+
+.markdown-body pre.mermaid svg {
+    max-width: 100%;
+    height: auto;
+}
+
 .markdown-body table {
     border-collapse: collapse;
 }

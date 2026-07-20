@@ -278,3 +278,64 @@ window.appUi = {
         }
     });
 })();
+
+// ---------------------------------------------------------------------------
+// Mermaid diagrams. The Markdown renderer emits ```mermaid fences as
+// <pre class="mermaid">…source…</pre>; here we lazily import Mermaid from the CDN
+// (same approach as the bootstrap-icons CDN) and turn those into SVG after each
+// content render. Diagrams re-render on theme change so they match light/dark.
+(function () {
+    var loadPromise = null;
+
+    function isDark() {
+        try {
+            var bg = getComputedStyle(document.body).backgroundColor || '';
+            var m = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+            if (!m) { return false; }
+            var lum = (0.2126 * +m[1] + 0.7152 * +m[2] + 0.0722 * +m[3]) / 255;
+            return lum < 0.5;
+        } catch (e) { return false; }
+    }
+
+    function load() {
+        if (loadPromise) { return loadPromise; }
+        loadPromise = import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs')
+            .then(function (mod) {
+                var mermaid = mod.default;
+                mermaid.initialize({ startOnLoad: false, theme: isDark() ? 'dark' : 'default' });
+                return mermaid;
+            });
+        return loadPromise;
+    }
+
+    function run(nodes) {
+        if (!nodes.length) { return; }
+        load().then(function (mermaid) {
+            nodes.forEach(function (n) {
+                if (!n.hasAttribute('data-src')) { n.setAttribute('data-src', n.textContent); }
+            });
+            try { mermaid.run({ nodes: nodes, suppressErrors: true }); } catch (e) { /* ignore */ }
+        }).catch(function () { /* ignore: leave the source visible if the CDN is unreachable */ });
+    }
+
+    window.appUi = window.appUi || {};
+
+    // Render any not-yet-processed diagrams (called after each content render).
+    window.appUi.renderMermaid = function () {
+        run(Array.prototype.slice.call(document.querySelectorAll('pre.mermaid:not([data-processed])')));
+    };
+
+    // Restore original source and re-render all diagrams with the current theme (on light/dark switch).
+    window.appUi.rerenderMermaid = function () {
+        if (!loadPromise) { window.appUi.renderMermaid(); return; }
+        var all = Array.prototype.slice.call(document.querySelectorAll('pre.mermaid'));
+        all.forEach(function (n) {
+            var src = n.getAttribute('data-src');
+            if (src !== null) { n.textContent = src; n.removeAttribute('data-processed'); }
+        });
+        load().then(function (mermaid) {
+            try { mermaid.initialize({ startOnLoad: false, theme: isDark() ? 'dark' : 'default' }); } catch (e) { /* ignore */ }
+            run(all);
+        });
+    };
+})();

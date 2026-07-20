@@ -18,7 +18,7 @@ draft: true
 
 > **Context.** This document records the outcome of the Learning Hub strategic review and specifies the
 > capability the review recommended next. For the canonical three-layer definition it builds on, see the
-> [Learning Hub master](../../../../../06.00-idea/learning-hub/00-learning-hub.md).
+> [Learning Hub master](../../../../../06.00-idea/learning-hub/00-learning-hub/00-learning-hub.md).
 
 ---
 
@@ -43,7 +43,7 @@ draft: true
 
 The strategic review consolidated roughly ten peer "visions" into **three layers and one frame**: ① a
 **Platform** that delivers, ② a **Content Engine** that produces, and ③ a **Learning Loop** that compounds —
-all under the *own-the-loop* framing. It established a single [canonical master](../../../../../06.00-idea/learning-hub/00-learning-hub.md),
+all under the *own-the-loop* framing. It established a single [canonical master](../../../../../06.00-idea/learning-hub/00-learning-hub/00-learning-hub.md),
 rescoped IQPilot (Layer ②) and TuneIQ (Layer ③) to treat the live site as a first-class surface, and folded
 the `self-updating-{prompt-engineering,article-writing,research}` trio into **one engine with per-domain
 streams**.
@@ -59,7 +59,7 @@ documentation tree and have it appear in the site with **no build and no redeplo
 ## 🧭 Strategic-review outcome
 
 - **Canonical master established** — a single entry point with Vision · Strategy · Implementation · Next
-  steps and the three-layer map. See [00-learning-hub.md](../../../../../06.00-idea/learning-hub/00-learning-hub.md).
+  steps and the three-layer map. See [00-learning-hub.md](../../../../../06.00-idea/learning-hub/00-learning-hub/00-learning-hub.md).
 - **Platform + audiences generalized** — the dynamic renderer and its customer-free consumers (learner,
   documentation manager, validation manager, app-dev doc generation). See
   [04-platform-and-consumers.md](../../../../../06.00-idea/learning-hub/04-platform-and-consumers.md).
@@ -211,7 +211,7 @@ generated documentation tree — with the smallest possible surface area.
 
 ## 📚 References
 
-- [Learning Hub master](../../../../../06.00-idea/learning-hub/00-learning-hub.md) 📒 [Internal]  
+- [Learning Hub master](../../../../../06.00-idea/learning-hub/00-learning-hub/00-learning-hub.md) 📒 [Internal]  
 The canonical three-layer definition this capability extends (Layer ① hosting Layer ② output).
 - [Platform and consumers](../../../../../06.00-idea/learning-hub/04-platform-and-consumers.md) 📒 [Internal]  
 The renderer and the audiences a documentation-manager stream serves.

@@ -19,6 +19,7 @@ public sealed class MarkdigMarkdownRenderer : IMarkdownRenderer
         .UseAdvancedExtensions()
         .UseAutoIdentifiers() // stable heading ids so the on-page TOC can link to them
         .UseYamlFrontMatter() // ignore the top Quarto/YAML metadata block instead of rendering it
+        .UseMermaid() // ```mermaid fenced blocks → <pre class="mermaid"> for client-side rendering
         .Build();
 
     public RenderedPage Render(string markdown, string contentDir)

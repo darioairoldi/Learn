@@ -12,7 +12,7 @@ The Learning Hub grew five sibling visions — a **self-updating engine**, a **c
 
 > **This page is the "why."** For the full three-layer picture — Platform, Content Engine, Learning Loop —
 > plus current implementation and next steps, see the canonical
-> [Learning Hub definition](../learning-hub/00-learning-hub.md).
+> [Learning Hub definition](../learning-hub/00-learning-hub/00-learning-hub.md).
 
 > **The frame comes from an essay.** The [Reverse Information Paradox](../../01.00-news/20260716.01-reverse-paradox/overview.md) (Satya Nadella, *sn scratchpad*, 2026) argues that using an AI model quietly transfers the knowledge that makes you unique — unless you keep your learning inside a boundary you control. The Hub reached the same architecture independently — and nothing in it is tied to a single person: the same design serves a community that shares and grows the knowledge together. This page borrows the essay's vocabulary because it names what the Hub already does.
 
@@ -33,6 +33,8 @@ The Learning Hub grew five sibling visions — a **self-updating engine**, a **c
 Every time you use an AI model, you produce **learning exhaust** — the prompts, the tool calls, the graded verdicts, and above all the *corrections* you make when the model is wrong. That exhaust is the accumulated judgment about what you value and how you measure "good." It's the most valuable thing the interaction produces, and by default it flows *outward*, to whoever owns the model.
 
 The Hub's bet is to keep it. Own the loop that generates the exhaust, keep the exhaust inside a **trust boundary** you control, and let each cycle **compound** your own <mark>*particular intelligence*</mark> — Hayek's knowledge of your own time, place, and circumstance — instead of someone else's model.
+
+Owning the loop is a means, not the end. What it buys you is the ability to **think ahead**: a compounding corpus, paired with an AI that understands your goals and how you reason, that turns news and knowledge gaps into *foresight*. That goal is the subject of the canonical [Learning Hub definition](../learning-hub/00-learning-hub/00-learning-hub.md) — this page explains *why owning the loop* is what makes it durable.
 
 ## 🧭 The five parts
 

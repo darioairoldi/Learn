@@ -1,6 +1,7 @@
 @inject PageLoader Loader
 @inject INavProvider NavProvider
 @inject TocState Toc
+@inject IJSRuntime JS
 @implements IDisposable
 
 <PageTitle>@(_page?.Title ?? "Learning Hub")</PageTitle>
@@ -81,14 +82,36 @@ else
     {
         _loading = true;
         _prev = _next = null;
+        _trail = Array.Empty<Crumb>();
         Toc.SetEntries(Array.Empty<TocEntry>());
         _page = await Loader.LoadAsync(Path);
-        _trail = Array.Empty<Crumb>();
         _loading = false;
         Toc.SetEntries(_page?.Toc ?? Array.Empty<TocEntry>());
 
-        // Prev/next across the flat article order — loaded off the render path (index is cached).
-        _ = LoadPrevNextAsync(Path);
+        // Breadcrumb + prev/next come from the (warm) flat index. Bound the wait so they prerender and
+        // appear together with the article when the index is warm, while a rare cold rebuild never
+        // blocks the page — the breadcrumb then fills in via LoadPrevNextAsync's own StateHasChanged.
+        Task navTask = LoadPrevNextAsync(Path);
+        await Task.WhenAny(navTask, Task.Delay(600));
+    }
+
+    // After each render on the interactive client, turn any ```mermaid blocks into SVG. OnAfterRender
+    // never fires during static prerender, so JS interop is safe here.
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (_loading || _page is null)
+        {
+            return;
+        }
+
+        try
+        {
+            await JS.InvokeVoidAsync("appUi.renderMermaid");
+        }
+        catch
+        {
+            // Interop can be unavailable during prerender or mid-navigation teardown; never fatal.
+        }
     }
 
     private async Task LoadPrevNextAsync(string? forPath)
@@ -130,8 +153,45 @@ else
             crumbs.Add(new Crumb(leaf.Text, null));
             _trail = crumbs;
         }
+        else if (_trail.Count == 0 && idx < 0 && !string.IsNullOrEmpty(cur))
+        {
+            // Section / index landing pages are not leaves in the flat index. Their ancestors are all
+            // real sections, so build a clickable trail cheaply from the per-level nav (no full index).
+            _trail = await BuildTrailFromRouteAsync(cur);
+        }
 
         await InvokeAsync(StateHasChanged);
+    }
+
+    // Builds a breadcrumb from a route's ancestor levels. Each level is cheap and cached, so this
+    // works for section pages the flat index does not enumerate as leaves.
+    private async Task<IReadOnlyList<Crumb>> BuildTrailFromRouteAsync(string route)
+    {
+        string[] segs = route.Split('/', StringSplitOptions.RemoveEmptyEntries);
+        var crumbs = new List<Crumb>();
+        string parent = string.Empty;
+        for (int i = 0; i < segs.Length; i++)
+        {
+            string prefix = parent.Length == 0 ? segs[i] : parent + "/" + segs[i];
+            IReadOnlyList<NavChild> level = await NavProvider.GetChildrenAsync(parent);
+            NavChild? node = null;
+            foreach (NavChild n in level)
+            {
+                if (Norm(n.Prefix) == prefix || Norm(n.Route) == prefix)
+                {
+                    node = n;
+                    break;
+                }
+            }
+
+            bool last = i == segs.Length - 1;
+            string text = node?.Text ?? _page?.Title ?? segs[i].Replace('-', ' ').Replace('_', ' ');
+            string? crumbRoute = !last && node?.Route is { Length: > 0 } r ? "/" + r.TrimStart('/') : null;
+            crumbs.Add(new Crumb(text, crumbRoute));
+            parent = prefix;
+        }
+
+        return crumbs;
     }
 
     private static string Norm(string? route) =>
