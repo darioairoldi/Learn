@@ -20,7 +20,6 @@ public sealed class SmartCacheContentSource(
     IContentSource inner,
     ISmartCache smartCache,
     ICacheKeyService cacheKeyService,
-    TimeSpan maxAge,
     ILogger<SmartCacheContentSource> logger) : IContentSource, IContentLister
 {
     public async Task<ContentResult?> GetAsync(string contentKey, CancellationToken ct = default)
@@ -33,7 +32,9 @@ public sealed class SmartCacheContentSource(
             return await inner.GetAsync(contentKey, ct);
         }
 
-        var options = new SmartCacheOperationOptions { MaxAge = maxAge };
+        // Freshness (MaxAge / expirations) comes from Diginsight:SmartCache config — including the
+        // class-aware MaxAge@SmartCacheContentSource override — via the caller type below.
+        var options = new SmartCacheOperationOptions();
         var key = new MethodCallCacheKey(cacheKeyService, typeof(SmartCacheContentSource), nameof(GetAsync), contentKey);
 
         CachedContent envelope = await smartCache.GetAsync(

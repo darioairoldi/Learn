@@ -163,6 +163,16 @@
           "Newtonsoft.Json": "13.0.4"
         }
       },
+      "Diginsight.SmartCache.Externalization.Http": {
+        "type": "Direct",
+        "requested": "[3.7.*, )",
+        "resolved": "3.7.1.13",
+        "contentHash": "LIjr5iDjSAePrAFylLG5MH7uVLo2tbR9kEc4GjBPD5wYzEUWnTsZFA/9k4HMbV25J/d9U+Z72iDS7HYc1eOkZg==",
+        "dependencies": {
+          "Diginsight.Diagnostics": "3.7.1.13",
+          "Diginsight.SmartCache": "3.7.1.13"
+        }
+      },
       "Diginsight.SmartCache.Externalization.Redis": {
         "type": "Direct",
         "requested": "[3.7.*, )",
@@ -172,6 +182,18 @@
           "Diginsight.Diagnostics": "3.7.1.13",
           "Diginsight.SmartCache": "3.7.1.13",
           "StackExchange.Redis": "2.13.1"
+        }
+      },
+      "Diginsight.SmartCache.Externalization.ServiceBus": {
+        "type": "Direct",
+        "requested": "[3.7.*, )",
+        "resolved": "3.7.1.13",
+        "contentHash": "AfbZ8w2Ag3gfjoxtuRyxdI4ThKfIx4/iVd6doBoE4EBAsPBcClyNuLVCgV4ON984CxNu+pQSLWmVic2yBY+d7w==",
+        "dependencies": {
+          "Azure.Messaging.ServiceBus": "7.20.1",
+          "Diginsight.Diagnostics": "3.7.1.13",
+          "Diginsight.SmartCache": "3.7.1.13",
+          "Polly.Core": "8.6.6"
         }
       },
       "Diginsight.Stringify": {
@@ -280,12 +302,31 @@
           "OpenTelemetry.Api": "[1.17.0, 2.0.0)"
         }
       },
+      "Azure.Core.Amqp": {
+        "type": "Transitive",
+        "resolved": "1.3.1",
+        "contentHash": "AY1ZM4WwLBb9L2WwQoWs7wS2XKYg83tp3yVVdgySdebGN0FuIszuEqCy3Nhv6qHpbkjx/NGuOTsUbF/oNGBgwA==",
+        "dependencies": {
+          "Microsoft.Azure.Amqp": "2.6.7",
+          "System.Memory.Data": "1.0.2"
+        }
+      },
       "Azure.Data.Tables": {
         "type": "Transitive",
         "resolved": "12.11.0",
         "contentHash": "MabH2HegMvZA1ocaMhEfW/idyTa3CoH64s43/V9/KFRGdVqEj0EETvd3ItDe6Bbs2teiR40KE9Kz9NLDc5DJJw==",
         "dependencies": {
           "Azure.Core": "1.44.1"
+        }
+      },
+      "Azure.Messaging.ServiceBus": {
+        "type": "Transitive",
+        "resolved": "7.20.1",
+        "contentHash": "DxCkedWPQuiXrIyFcriOhsQcZmDZW+j9d55Ev4nnK3yjMUFjlVe4Hj37fuZTJlNhC3P+7EumqBTt33R6DfOxGA==",
+        "dependencies": {
+          "Azure.Core": "1.46.2",
+          "Azure.Core.Amqp": "1.3.1",
+          "Microsoft.Azure.Amqp": "2.7.0"
         }
       },
       "Azure.Monitor.OpenTelemetry.Exporter": {
@@ -384,6 +425,11 @@
         "dependencies": {
           "Microsoft.JSInterop.WebAssembly": "10.0.10"
         }
+      },
+      "Microsoft.Azure.Amqp": {
+        "type": "Transitive",
+        "resolved": "2.7.0",
+        "contentHash": "gm/AEakujttMzrDhZ5QpRz3fICVkYDn/oDG9SmxDP+J7R8JDBXYU9WWG7hr6wQy40mY+wjUF0yUGXDPRDRNJwQ=="
       },
       "Microsoft.Azure.Cosmos": {
         "type": "Transitive",
@@ -525,6 +571,11 @@
         "type": "Transitive",
         "resolved": "2.2.16",
         "contentHash": "nonu9l0YrZH6krVYbskBjE7uG0VMAnvOQ9PU+RmzUsy+++vHkqzzCkHRoP877OiA3iRTxJyNDLfpcU8hrJ3/YQ=="
+      },
+      "Polly.Core": {
+        "type": "Transitive",
+        "resolved": "8.6.6",
+        "contentHash": "lCBL9mmhF9TZxHG3beVRkyjlLohkIC464xIAq7J7Y59C+z42hmsdUaeCKl2SIAYertOUU5TeBXyQDLDQGIKePQ=="
       },
       "Scrutor": {
         "type": "Transitive",

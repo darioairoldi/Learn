@@ -37,11 +37,15 @@
     <PackageReference Include="Diginsight.Components.Azure" Version="$(DiginsightComponentsVersion)" Condition="'$(DiginsightComponentsDirectImport)' != 'true'" />
   </ItemGroup>
 
-  <!-- Diginsight SmartCache: content-layer caching (in-memory + optional Redis backing store). -->
+  <!-- Diginsight SmartCache: content-layer caching (in-memory + HTTP direct sync + optional Service Bus / Redis). -->
   <ItemGroup>
     <ProjectReference Include="$(DiginsightSmartCacheSolutionDirectory)Diginsight.SmartCache\Diginsight.SmartCache.csproj" Condition="'$(DiginsightSmartCacheDirectImport)' == 'true'" />
+    <ProjectReference Include="$(DiginsightSmartCacheSolutionDirectory)Diginsight.SmartCache.Externalization.Http\Diginsight.SmartCache.Externalization.Http.csproj" Condition="'$(DiginsightSmartCacheDirectImport)' == 'true'" />
+    <ProjectReference Include="$(DiginsightSmartCacheSolutionDirectory)Diginsight.SmartCache.Externalization.ServiceBus\Diginsight.SmartCache.Externalization.ServiceBus.csproj" Condition="'$(DiginsightSmartCacheDirectImport)' == 'true'" />
     <ProjectReference Include="$(DiginsightSmartCacheSolutionDirectory)Diginsight.SmartCache.Externalization.Redis\Diginsight.SmartCache.Externalization.Redis.csproj" Condition="'$(DiginsightSmartCacheDirectImport)' == 'true'" />
     <PackageReference Include="Diginsight.SmartCache" Version="$(DiginsightSmartcacheVersion)" Condition="'$(DiginsightSmartCacheDirectImport)' != 'true'" />
+    <PackageReference Include="Diginsight.SmartCache.Externalization.Http" Version="$(DiginsightSmartcacheVersion)" Condition="'$(DiginsightSmartCacheDirectImport)' != 'true'" />
+    <PackageReference Include="Diginsight.SmartCache.Externalization.ServiceBus" Version="$(DiginsightSmartcacheVersion)" Condition="'$(DiginsightSmartCacheDirectImport)' != 'true'" />
     <PackageReference Include="Diginsight.SmartCache.Externalization.Redis" Version="$(DiginsightSmartcacheVersion)" Condition="'$(DiginsightSmartCacheDirectImport)' != 'true'" />
   </ItemGroup>
 

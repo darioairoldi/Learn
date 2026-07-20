@@ -4,7 +4,9 @@ using Diginsight.Components;
 using Diginsight.Components.Configuration;
 using Diginsight.Diagnostics;
 using Diginsight.SmartCache;
+using Diginsight.SmartCache.Externalization.Http;
 using Diginsight.SmartCache.Externalization.Redis;
+using Diginsight.SmartCache.Externalization.ServiceBus;
 using Learn.Web.Components;
 using Learn.Web.ContentSources;
 using Learn.Web.Endpoints;
@@ -20,6 +22,8 @@ namespace Learn.Web;
 
 public class Program
 {
+    private static readonly string SmartCacheServiceBusSubscriptionName = Guid.NewGuid().ToString("N");
+
     public static void Main(string[] args)
     {
         // Diginsight early logging (console + log4net to %USERPROFILE%\LogFiles\Diginsight\Learn.Web.<date>.log).
@@ -71,35 +75,52 @@ public class Program
                     sp.GetRequiredService<ILogger<BlobContentSource>>());
             }
 
-            // Optional SmartCache layer over the content source (off by default; config-gated).
-            // Enabled → caches Markdown source bytes in-memory; a Redis connection string adds a
-            // distributed, multi-instance backing store. When disabled, behavior is unchanged.
-            ContentOptions contentOptions = configuration.GetSection("Content").Get<ContentOptions>() ?? new ContentOptions();
-            if (contentOptions.Cache.Enabled)
-            {
-                SmartCacheBuilder smartCacheBuilder =
-                    services.AddSmartCache(configuration, environment, observabilityManager.LoggerFactory);
+            // SmartCache over the content source (Diginsight convention). Core options bind from
+            // Diginsight:SmartCache (MaxAge / AbsoluteExpiration / SlidingExpiration + class-aware
+            // overrides like MaxAge@SmartCacheContentSource). Always on; distributed sync is opt-in:
+            //   • Diginsight:SmartCache:ServiceBus (ConnectionString + TopicName) → Service Bus companion
+            //   • Diginsight:SmartCache:Redis:Configuration → Redis passive backing store
+            services.ConfigureClassAware<SmartCacheCoreOptions>(configuration.GetSection("Diginsight:SmartCache"));
 
-                if (!string.IsNullOrWhiteSpace(contentOptions.Cache.Redis.Configuration))
-                {
-                    smartCacheBuilder.AddRedis(o =>
+            SmartCacheBuilder smartCacheBuilder = services
+                .AddSmartCache(configuration, environment, observabilityManager.LoggerFactory)
+                .AddHttp();
+
+            // Distributed cross-instance invalidation via Service Bus is opt-in: only wire the Service
+            // Bus companion when it is actually configured. Otherwise AddSmartCache's default
+            // (single-instance, in-process) companion is kept — required for the DI container to
+            // resolve ICacheCompanion when running standalone (e.g. local dev, no Service Bus).
+            IConfigurationSection serviceBusSection = configuration.GetSection("Diginsight:SmartCache:ServiceBus");
+            bool serviceBusConfigured =
+                !string.IsNullOrEmpty(serviceBusSection[nameof(SmartCacheServiceBusOptions.ConnectionString)])
+                && !string.IsNullOrEmpty(serviceBusSection[nameof(SmartCacheServiceBusOptions.TopicName)]);
+            if (serviceBusConfigured)
+            {
+                smartCacheBuilder.SetServiceBusCompanion(
+                    static (_, _) => true,
+                    sbo =>
                     {
-                        o.Configuration = contentOptions.Cache.Redis.Configuration;
-                        o.KeyPrefix = contentOptions.Cache.Redis.KeyPrefix;
+                        serviceBusSection.Bind(sbo);
+                        sbo.SubscriptionName = SmartCacheServiceBusSubscriptionName;
                     });
-                }
+            }
 
-                services.AddSingleton<IContentSource>(sp => new SmartCacheContentSource(
-                    CreatePhysicalContentSource(sp),
-                    sp.GetRequiredService<ISmartCache>(),
-                    sp.GetRequiredService<ICacheKeyService>(),
-                    TimeSpan.FromSeconds(contentOptions.Cache.MaxAgeSeconds),
-                    sp.GetRequiredService<ILogger<SmartCacheContentSource>>()));
-            }
-            else
+            // Opt-in Redis passive backing store (distributed, multi-instance).
+            string? smartCacheRedis = configuration["Diginsight:SmartCache:Redis:Configuration"];
+            if (!string.IsNullOrWhiteSpace(smartCacheRedis))
             {
-                services.AddSingleton<IContentSource>(CreatePhysicalContentSource);
+                smartCacheBuilder.AddRedis(o =>
+                {
+                    o.Configuration = smartCacheRedis;
+                    o.KeyPrefix = configuration["Diginsight:SmartCache:Redis:KeyPrefix"] ?? "learn-content:";
+                });
             }
+
+            services.AddSingleton<IContentSource>(sp => new SmartCacheContentSource(
+                CreatePhysicalContentSource(sp),
+                sp.GetRequiredService<ISmartCache>(),
+                sp.GetRequiredService<ICacheKeyService>(),
+                sp.GetRequiredService<ILogger<SmartCacheContentSource>>()));
 
             services.AddScoped<IMarkdownRenderer, MarkdigMarkdownRenderer>();
             services.AddScoped<PageLoader>();
