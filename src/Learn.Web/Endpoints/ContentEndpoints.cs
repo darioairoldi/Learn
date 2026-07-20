@@ -1,3 +1,4 @@
+using Diginsight.Components.Azure.Extensions;
 using Diginsight.Diagnostics;
 using Learn.Web.Shared;
 using Microsoft.Extensions.Logging;
@@ -10,15 +11,17 @@ namespace Learn.Web.Endpoints;
 /// </summary>
 public static class ContentEndpoints
 {
+    private static ILogger? cachedLogger;
+    private static ILogger? logger => cachedLogger ??= Observability.LoggerFactory?.CreateLogger(typeof(ContentEndpoints));
+
     public static IEndpointRouteBuilder MapContentEndpoints(this IEndpointRouteBuilder app)
     {
-        app.MapGet("/_content-raw/{**key}", GetRawAsync);
+        app.MapGet("/_content-raw/{**key}", GetContentRawAsync);
         return app;
     }
 
-    private static async Task<IResult> GetRawAsync(string key, IContentSource source, ILoggerFactory loggerFactory, CancellationToken ct)
+    private static async Task<IResult> GetContentRawAsync(string key, IContentSource source, CancellationToken ct)
     {
-        ILogger logger = loggerFactory.CreateLogger(typeof(ContentEndpoints));
         using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { key });
 
         ContentResult? result = await source.GetAsync(key, ct);

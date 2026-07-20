@@ -11,42 +11,43 @@ namespace Learn.Web.Endpoints;
 /// </summary>
 public static class NavEndpoints
 {
+    private static ILogger? cachedLogger;
+    private static ILogger? logger => cachedLogger ??= Observability.LoggerFactory?.CreateLogger(typeof(NavEndpoints));
+
     public static IEndpointRouteBuilder MapNavEndpoints(this IEndpointRouteBuilder app)
     {
-        app.MapGet("/_nav/children", GetChildrenAsync);
-        app.MapGet("/_nav/version", GetVersion);
-        app.MapGet("/_nav/index", GetIndexAsync);
-        app.MapPost("/_nav/invalidate", Invalidate);
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger);
+
+        app.MapGet("/_nav/children", GetNavChildrenAsync);
+        app.MapGet("/_nav/version", GetNavVersion);
+        app.MapGet("/_nav/index", GetNavIndexAsync);
+        app.MapPost("/_nav/invalidate", InvalidateNavCache);
         return app;
     }
 
-    private static async Task<IResult> GetChildrenAsync(string? prefix, DynamicNavBuilder nav, ILoggerFactory loggerFactory, CancellationToken ct)
+    private static async Task<IResult> GetNavChildrenAsync(string? prefix, DynamicNavBuilder nav, CancellationToken ct)
     {
-        ILogger logger = loggerFactory.CreateLogger(typeof(NavEndpoints));
         using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefix });
 
         return Results.Json(await nav.GetChildrenAsync(prefix ?? string.Empty, ct));
     }
 
-    private static IResult GetVersion(ILoggerFactory loggerFactory)
+    private static IResult GetNavVersion()
     {
-        ILogger logger = loggerFactory.CreateLogger(typeof(NavEndpoints));
         using var activity = Observability.ActivitySource.StartMethodActivity(logger);
 
         return Results.Json(new { version = DynamicNavBuilder.Version });
     }
 
-    private static async Task<IResult> GetIndexAsync(DynamicNavBuilder nav, ILoggerFactory loggerFactory, CancellationToken ct)
+    private static async Task<IResult> GetNavIndexAsync(DynamicNavBuilder nav, CancellationToken ct)
     {
-        ILogger logger = loggerFactory.CreateLogger(typeof(NavEndpoints));
         using var activity = Observability.ActivitySource.StartMethodActivity(logger);
 
         return Results.Json(await nav.GetIndexAsync(ct));
     }
 
-    private static IResult Invalidate(DynamicNavBuilder nav, ILoggerFactory loggerFactory)
+    private static IResult InvalidateNavCache(DynamicNavBuilder nav)
     {
-        ILogger logger = loggerFactory.CreateLogger(typeof(NavEndpoints));
         using var activity = Observability.ActivitySource.StartMethodActivity(logger);
 
         nav.Invalidate();

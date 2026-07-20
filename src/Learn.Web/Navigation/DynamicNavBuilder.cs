@@ -21,6 +21,8 @@ public sealed class DynamicNavBuilder(IContentLister lister, IMemoryCache cache,
     /// <summary>Drops all cached levels and advances the version (call after content writes).</summary>
     public void Invalidate()
     {
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger);
+
         Interlocked.Increment(ref _version);
         if (cache is MemoryCache mc)
         {

@@ -16,7 +16,8 @@
                         <span>@ShortFor(node)</span>
                         <span class="caret">▾</span>
                     </button>
-                    @if (node.Prefix is not null && _children.TryGetValue(node.Prefix, out IReadOnlyList<NavChild>? kids) && kids.Count > 0)
+                    @if (node.Prefix is not null && _children.TryGetValue(node.Prefix, out IReadOnlyList<NavChild>? kids) &&
+        kids.Count > 0)
                     {
                         <div class="topmenu-dropdown">
                             <TopMenuDropdown Nodes="kids" />
@@ -38,54 +39,3 @@
     </nav>
 }
 
-@code {
-    public enum Group { Left, Right }
-
-    [Parameter] public Group Placement { get; set; } = Group.Left;
-
-    // Top-level items shown in the bar (the Home link + top-level sections), built live from the
-    // content hierarchy via the runtime nav provider. Their labels/icons/short/visibility/side come
-    // straight from the folder metadata carried on each NavChild.
-    private IReadOnlyList<NavChild>? _root;
-
-    // Immediate children of each displayed section, prefetched for the dropdown (cached in-memory).
-    private readonly Dictionary<string, IReadOnlyList<NavChild>> _children = new(StringComparer.OrdinalIgnoreCase);
-
-    protected override async Task OnInitializedAsync()
-    {
-        IReadOnlyList<NavChild> root = await NavProvider.GetChildrenAsync(string.Empty);
-
-        // The top bar shows the Home link (empty route) plus top-level sections; other root links
-        // (e.g. Getting Started, Documentation Index) stay in the sidebar only.
-        _root = root.Where(c => c.IsSection || string.IsNullOrEmpty(c.Route)).ToList();
-
-        // Prefetch the immediate children of the sections THIS placement will show (each level is cached).
-        foreach (NavChild section in DisplayNodes().Where(c => c.IsSection && c.Prefix is not null))
-        {
-            _children[section.Prefix!] = await NavProvider.GetChildrenAsync(section.Prefix!);
-        }
-    }
-
-    // Folders marked `topbar-hidden` in metadata.yml are dropped from the top bar (still in the sidebar).
-    // A node is LEFT when its metadata says `topbar-align: left`; link items with no folder prefix
-    // (e.g. Home) default left; unmarked section folders default right.
-    private static bool IsLeft(NavChild c) =>
-        c.TopbarAlign is { } align
-            ? align.Equals("left", StringComparison.OrdinalIgnoreCase)
-            : string.IsNullOrEmpty(c.Prefix);
-
-    private IEnumerable<NavChild> DisplayNodes()
-    {
-        if (_root is null)
-        {
-            return Enumerable.Empty<NavChild>();
-        }
-
-        IEnumerable<NavChild> items = _root.Where(c => !c.TopbarHidden);
-        return Placement == Group.Right ? items.Where(c => !IsLeft(c)) : items.Where(IsLeft);
-    }
-
-    // Compact top-level label from folder metadata (`short:`); falls back to the full name.
-    private static string ShortFor(NavChild c) =>
-        !string.IsNullOrEmpty(c.Short) ? c.Short! : c.Text;
-}
