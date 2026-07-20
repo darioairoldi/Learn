@@ -157,7 +157,7 @@ public sealed class DynamicNavBuilder(IContentLister lister, IMemoryCache cache,
         if (subFolders.Count > 0 || articles.Count > 1)
         {
             string? href = index is not null || articles.Count > 0 ? Route(folder.Path) : null;
-            return new NavChild(meta.Label ?? NavRules.Label(folder.Name), href, folder.Path, icon, true, true, meta.Short);
+            return new NavChild(meta.Label ?? NavRules.Label(folder.Name), href, folder.Path, icon, true, true, meta.Short, meta.TopbarHidden, meta.TopbarAlign);
         }
 
         // Collapse: exactly one article (or only an index/readme) → single link.

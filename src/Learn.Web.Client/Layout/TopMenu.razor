@@ -3,7 +3,7 @@
 
 @if (_nodes is not null)
 {
-    <nav class="topmenu">
+    <nav class="topmenu @(Placement == Group.Right ? "topmenu-right" : "topmenu-left")">
         @foreach (NavNode node in DisplayNodes())
         {
             @if (node.IsSeparator)
@@ -57,6 +57,14 @@
     private IReadOnlyDictionary<string, string?> _shortByPrefix =
         new Dictionary<string, string?>(StringComparer.OrdinalIgnoreCase);
 
+    // Top-level folder prefixes that opted out of the top bar (metadata.yml `topbar-hidden: true`),
+    // yet remain visible in the sidebar.
+    private HashSet<string> _topbarHidden = new(StringComparer.OrdinalIgnoreCase);
+
+    // Top-level folder prefix → top-bar side ("left"/"right") from metadata.yml `topbar-align`.
+    private IReadOnlyDictionary<string, string?> _alignByPrefix =
+        new Dictionary<string, string?>(StringComparer.OrdinalIgnoreCase);
+
     protected override async Task OnInitializedAsync()
     {
         _nodes = await Nav.GetAsync();
@@ -69,6 +77,9 @@
             .ToList();
         _iconByPrefix = byPrefix.ToDictionary(r => r.Prefix!, r => r.Icon, StringComparer.OrdinalIgnoreCase);
         _shortByPrefix = byPrefix.ToDictionary(r => r.Prefix!, r => r.Short, StringComparer.OrdinalIgnoreCase);
+        _topbarHidden = byPrefix.Where(r => r.TopbarHidden).Select(r => r.Prefix!)
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+        _alignByPrefix = byPrefix.ToDictionary(r => r.Prefix!, r => r.TopbarAlign, StringComparer.OrdinalIgnoreCase);
     }
 
     // Prefer the folder-metadata icon (matched by folder prefix); fall back to navigation.json's own.
@@ -115,15 +126,25 @@
         return null;
     }
 
-    // Sections that live on the right side of the bar, in display order (matches the legacy navbar).
-    private static readonly string[] RightOrder =
+    // Folders marked `topbar-hidden` in metadata.yml are dropped from the top bar (still in sidebar).
+    private bool IsTopbarHidden(NavNode n)
     {
-        "Issues & Solutions", "Ideas & Projects", "Culture & Travel", "Other Technologies",
-    };
+        string? prefix = FolderPrefix(n);
+        return prefix is not null && _topbarHidden.Contains(prefix);
+    }
 
-    private static string Key(NavNode n) => n.Section ?? n.Text ?? string.Empty;
+    // A node belongs to the LEFT group when its folder metadata says `topbar-align: left`. Link items
+    // with no folder prefix (e.g. Home) also default left; unmarked section folders default right.
+    private bool IsLeft(NavNode n)
+    {
+        string? prefix = FolderPrefix(n);
+        if (prefix is not null && _alignByPrefix.TryGetValue(prefix, out string? align) && align is not null)
+        {
+            return align.Equals("left", StringComparison.OrdinalIgnoreCase);
+        }
 
-    private static bool IsRight(NavNode n) => Array.IndexOf(RightOrder, Key(n)) >= 0;
+        return prefix is null;
+    }
 
     private IEnumerable<NavNode> DisplayNodes()
     {
@@ -132,10 +153,10 @@
             return Enumerable.Empty<NavNode>();
         }
 
-        IEnumerable<NavNode> items = _nodes.Where(n => !n.IsSeparator);
+        IEnumerable<NavNode> items = _nodes.Where(n => !n.IsSeparator && !IsTopbarHidden(n));
         return Placement == Group.Right
-            ? items.Where(IsRight).OrderBy(n => Array.IndexOf(RightOrder, Key(n)))
-            : items.Where(n => !IsRight(n));
+            ? items.Where(n => !IsLeft(n))
+            : items.Where(IsLeft);
     }
 
     // Compact top-level label from folder metadata (metadata.yml `short:`); falls back to the full name.

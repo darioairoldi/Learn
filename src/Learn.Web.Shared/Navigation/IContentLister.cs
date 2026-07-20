@@ -25,7 +25,9 @@ public sealed record NavChild(
     string? Icon,
     bool IsSection,
     bool HasChildren,
-    string? Short = null);
+    string? Short = null,
+    bool TopbarHidden = false,
+    string? TopbarAlign = null);
 
 /// <summary>A flattened navigable article (leaf) with its section breadcrumb — used by menu search.</summary>
 public sealed record NavLeaf(string Text, string Route, string Path);

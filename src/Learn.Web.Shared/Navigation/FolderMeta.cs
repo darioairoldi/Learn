@@ -13,10 +13,12 @@ namespace Learn.Web.Shared.Navigation;
 /// <param name="Icon">Bootstrap icon name overriding the icon heuristic.</param>
 /// <param name="Order">Explicit sort weight (ascending) overriding the name-based ordering.</param>
 /// <param name="Hidden">When true the folder is excluded from navigation entirely.</param>
-public sealed record FolderMeta(string? Label, string? Short, string? Icon, double? Order, bool Hidden)
+/// <param name="TopbarHidden">When true the folder is excluded from the top bar only (still shown in the sidebar).</param>
+/// <param name="TopbarAlign">Top-bar side for the folder: <c>left</c> or <c>right</c> (null = default: right for folders).</param>
+public sealed record FolderMeta(string? Label, string? Short, string? Icon, double? Order, bool Hidden, bool TopbarHidden, string? TopbarAlign)
 {
     /// <summary>No overrides — every field falls back to the code defaults.</summary>
-    public static readonly FolderMeta None = new(null, null, null, null, false);
+    public static readonly FolderMeta None = new(null, null, null, null, false, false, null);
 
     // Flat "key: value" lines only (no nesting needed). Tolerates surrounding --- fences.
     private static readonly Regex KeyRx = new(
@@ -33,6 +35,8 @@ public sealed record FolderMeta(string? Label, string? Short, string? Icon, doub
         string? label = null, shortLabel = null, icon = null;
         double? order = null;
         bool hidden = false;
+        bool topbarHidden = false;
+        string? topbarAlign = null;
 
         foreach (Match m in KeyRx.Matches(yaml))
         {
@@ -59,10 +63,18 @@ public sealed record FolderMeta(string? Label, string? Short, string? Icon, doub
                 case "hidden" or "nav-hidden":
                     hidden = value.Equals("true", StringComparison.OrdinalIgnoreCase);
                     break;
+                case "topbar-hidden" or "nav-topbar-hidden" or "hidden-topbar":
+                    topbarHidden = value.Equals("true", StringComparison.OrdinalIgnoreCase);
+                    break;
+                case "topbar-align" or "nav-topbar-align":
+                    topbarAlign = value.Equals("left", StringComparison.OrdinalIgnoreCase) ? "left"
+                        : value.Equals("right", StringComparison.OrdinalIgnoreCase) ? "right"
+                        : null;
+                    break;
             }
         }
 
-        return new FolderMeta(label, shortLabel, icon, order, hidden);
+        return new FolderMeta(label, shortLabel, icon, order, hidden, topbarHidden, topbarAlign);
     }
 
     private static string Unquote(string v)
