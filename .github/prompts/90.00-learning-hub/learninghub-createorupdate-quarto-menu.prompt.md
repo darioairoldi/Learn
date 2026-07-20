@@ -1,204 +1,42 @@
 ---
 name: learninghub-createorupdate-quarto-menu
-description: "Validate and fix Quarto navigation: detect dangling refs, sync project.render, enforce sorting rules"
+description: "DEPRECATED — the Learning Hub navigation is built at runtime by Learn.Web; there is no _quarto.yml to validate or fix"
 agent: agent
 model: claude-opus-4.6
 domain: "learning-hub"
 tools:
   - read_file
-  - list_dir
-  - file_search
-  - replace_string_in_file
-  - multi_replace_string_in_file
-  - run_in_terminal
-argument-hint: 'Describe sidebar change (e.g., "add tech/Containers" or "full audit" to verify all articles)'
+argument-hint: '(deprecated — navigation updates automatically; no action needed)'
 ---
 
-# Quarto Navigation Validation & Fix
+# DEPRECATED — Quarto Navigation Validation & Fix
 
-Validate `_quarto.yml` **by comparing paths against actual files** and fix all issues.
+> **This prompt is retired.** The Learning Hub is no longer a Quarto static site. Navigation is built
+> **at runtime** by `DynamicNavBuilder` (`src/Learn.Web`) from the live content hierarchy — there is
+> **no `_quarto.yml`, `project.render`, or `navigation.json`** to validate or fix.
 
-**📖 Navigation Rules:** 
-- `.copilot/context/90.00-learning-hub/06-folder-organization-and-navigation.md` — Folder naming conventions
-- `.copilot/context/90.00-learning-hub/07-sidebar-menu-rules.md` — Menu generation rules
+## Why it is retired
 
-## Your Role
+- A menu item exists **because its folder/file exists** in the content source (filesystem or Azure Blob) — nothing to wire.
+- Ordering, labels, icons, and visibility come from the deterministic `NavRules` plus optional per-folder
+  `metadata.yml` (`label`/`short`/`icon`/`order`/`hidden`/`topbar-hidden`/`topbar-align`).
+- Working artifacts stay out of the menu automatically: `_`/`.`-prefixed folders are skipped and
+  `publish: false` files are excluded — no allow-list to maintain.
 
-You are a **Quarto navigation validator** responsible for detecting and fixing navigation errors.
+## What to do instead
 
-## 🚨 CRITICAL BOUNDARIES
-
-### ✅ Always Do
-
-1. **LOAD CONTEXT** — Read `06-folder-organization-and-navigation.md` first
-2. **BUILD TWO LISTS** — (a) paths in `project.render`, (b) actual files on disk
-3. **COMPARE LISTS** — MUST detect: missing files, dangling refs, AND leaked working artifacts (files marked `publish: false` — or legacy `draft: true` — or paths under a `_analysis/` / `_`-prefixed folder)
-4. **USE list_dir TO VERIFY** — For EACH path in project.render, verify it exists via `list_dir`
-5. **FIX ALL ISSUES** — Apply changes (don't just report)
-6. **VERIFY** — Run `quarto preview` after fixes
-
-### ⚠️ Ask First
-- Before removing sections or reordering top-level structure
-- Before modifying navbar (outside sidebar scope)
-
-### 🚫 Never Do
-- Run `quarto preview` in an automated phase (it starts a long-running server that never returns and blocks the agent)
-- Trust `quarto render` alone for dangling detection (it skips missing files silently)
-- Skip path verification step (Step 2.2)
-- Leave dangling references unfixed
-- Modify `navigation.json` (auto-generated)
-- Add any path under a `_analysis/` / `_`-prefixed working folder or any file marked `publish: false` (or legacy `draft: true`) to `project.render` or the sidebar — these are intentionally unpublished working artifacts (📖 `06-folder-organization-and-navigation.md` § Working / Intermediate Artifacts)
-
-## Process
-
-### Phase 1: Load Configuration
-
-```
-read_file: .copilot/context/90.00-learning-hub/06-folder-organization-and-navigation.md
-read_file: .copilot/context/90.00-learning-hub/07-sidebar-menu-rules.md
-read_file: _quarto.yml
-```
-
-Extract `project.render` list (all quoted paths under `render:`).
-
----
-
-### Phase 2: Detect Dangling References 
-
-**Step 2.1:** Extract all paths from `project.render` into a list.
-
-**Step 2.2:** For EACH path in the list, verify it exists:
-- Use `list_dir` on the parent folder
-- Check if the filename appears in the listing
-- **If NOT found → Mark as DANGLING**
-
-**Step 2.3:** Build inventory of actual content files:
-- Use `file_search **/*.md`
-- Filter: INCLUDE `01.00-90.00`, root docs, `scripts/README.md`, `src/*/README.md`
-- Filter: EXCLUDE `.github/`, `.copilot/`, `.vscode/`, `docs/`, `.iqpilot/`, any `_analysis/` / `_`-prefixed folder, and any file marked `publish: false` (or legacy `draft: true`) in top YAML
-
-**Step 2.4:** Compare:
-- **Dangling:** In project.render BUT file doesn't exist → REMOVE
-- **Missing:** File exists BUT not in project.render → ADD
-- **Leaked working artifact:** In project.render/sidebar BUT under a `_analysis/` / `_`-prefixed folder or marked `publish: false` (or legacy `draft: true`) → REMOVE (intentionally unpublished)
-
-**Output (MANDATORY before Phase 3):**
-```markdown
-## Phase 2 Results: Path Verification
-
-### Dangling References (to REMOVE):
-- `path/to/missing.md` — Folder exists but file not found
-- `path/with/typo.md` — Folder does not exist
-
-### Missing from project.render (to ADD):
-- `path/to/new-article.md`
-
-### Leaked Working Artifacts (to REMOVE):
-- `path/to/_analysis/plan.md` — under a `_`-prefixed working folder (never published)
-- `path/to/internal-note.md` — marked `publish: false`
-
-### Verified OK: N paths
-```
-
----
-
-### Phase 3: Apply Fixes
-
-**For dangling refs:** Use `replace_string_in_file` to remove each line from project.render.
-
-**For missing files:** Use `replace_string_in_file` to add to project.render (maintain alphabetical order within sections).
-
-**For News section:** Ensure explicit list with newest-first ordering (per context rules).
-
----
-
-### Phase 4: Verification
-
-**Step 4.1:** Build the site (build-only, returns — do NOT use `quarto preview` here):
-```
-run_in_terminal: quarto render
-```
-
-**Step 4.2:** Check automated output for:
-- ✅ No YAML syntax errors
-- ✅ Build completes successfully
-
-**Step 4.3:** Offer optional visual verification (only if the user wants it). `quarto preview` starts a long-running dev server, so launch it as a background task — never as a blocking command:
-> "Build passed. If you'd like to verify the sidebar visually, I can start `quarto preview` in the background; otherwise I'll provide the summary now."
-
-**Final Output (after user confirmation):**
-```markdown
-## ✅ Navigation Fixed
-
-- **Removed:** N dangling references
-- **Added:** N missing articles  
-- **News ordering:** [Verified newest-first / N/A]
-- **Build:** passed
-- **Visual verification:** [User confirmed / User reported issues]
-```
-
----
-
-## Response Management
-
-| Scenario | Response |
-|----------|----------|
-| Path looks like typo | Show correct path if found, ask user to confirm removal |
-| Many dangling refs | List all with likely causes, confirm before bulk removal |
-| quarto render fails | Check YAML syntax, show error, fix and re-run |
-
----
-
-## Error Recovery
-
-| Failure | Recovery |
-|---------|----------|
-| `list_dir` on path fails | Parent folder doesn't exist → Path is dangling |
-| `file_search` returns empty | Use recursive `list_dir` from root |
-| `replace_string_in_file` fails | Use smaller, more specific oldString context |
-
----
-
-## Embedded Test Scenarios
-
-### Test 1: Typo Detection
-**Input:** project.render contains "BRK204 Wharts" but folder is "BRK204 Whats"
-**Pass:** Phase 2 detects dangling ref, Phase 3 removes it
-
-### Test 2: Missing Article Detection
-**Input:** New file added to `01.00-news/` folder
-**Pass:** Phase 2 detects missing, Phase 3 adds to project.render AND News sidebar list
-
-### Test 3: Full Audit
-**Input:** "full audit"
-**Pass:** All paths verified individually, all issues listed with actions
-
-### Test 4: Folder Deletion Recovery
-**Input:** Entire folder deleted but refs remain in project.render
-**Pass:** All refs to deleted folder detected as dangling and removed
-
-### Test 5: News Section Ordering
-**Input:** Audit `01.00-news/`
-**Pass:** Sidebar uses explicit list, newest date-prefix first
-
----
-
-## Reference
-
-**Context:** `.copilot/context/90.00-learning-hub/06-folder-organization-and-navigation.md`
-**Quarto:** [Navigation docs](https://quarto.org/docs/websites/website-navigation.html)
+- **Add or change content** → create/edit the Markdown in the content source; it appears on the next request.
+- **Adjust a folder's label / icon / order / visibility** → edit that folder's `metadata.yml`.
+- **Understand the rules** →
+  - 📖 `.copilot/context/90.00-learning-hub/06-folder-organization-and-navigation.md`
+  - 📖 `.copilot/context/90.00-learning-hub/07-sidebar-menu-rules.md`
+  - Implementation: `src/Learn.Web/Navigation/DynamicNavBuilder.cs`, `src/Learn.Web.Shared/Navigation/NavRules.cs`
 
 <!--
 prompt_metadata:
-  version: "10.3"
+  version: "11.0.0"
   created: "2026-01-31T00:00:00Z"
-  last_updated: "2026-07-14T00:00:00Z"
+  last_updated: "2026-07-20T00:00:00Z"
   changelog: "learninghub-createorupdate-quarto-menu.prompt.changelog.md"
-  production_ready:
-    response_management: true
-    error_recovery: true
-    embedded_tests: 5
-    token_budget_compliant: true
-    token_count_estimate: 920
-    reliability_improvement: "Path verification + visual confirmation prevents false negatives"
+  status: "deprecated"
 -->

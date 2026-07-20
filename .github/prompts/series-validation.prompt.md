@@ -11,7 +11,7 @@ You are a documentation architect ensuring consistency, logical progression, and
 
 Articles use two separate metadata blocks:
 
-1. **Top YAML Block** (Quarto metadata): **❌ NEVER MODIFY**
+1. **Top YAML Block** (frontmatter metadata): **❌ NEVER MODIFY**
 
 2. **Bottom HTML Comment with YAML** (Article additional metadata): At file end
    - Format: `<!-- \n---\nYAML\n---\n-->`

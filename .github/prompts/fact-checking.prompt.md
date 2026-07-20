@@ -14,7 +14,7 @@ Verify all factual claims, technical details, and references in the article agai
 ## Critical Rules - Dual YAML Metadata
 
 **IMPORTANT**: This repository uses dual YAML blocks in articles:
-1. **Top YAML Block** (Quarto metadata): title, author, date, categories, etc.
+1. **Top YAML Block** (frontmatter metadata): title, author, date, categories, etc.
    - ❌ **NEVER MODIFY THIS BLOCK**
 2. **Bottom YAML Block** (Article additional metadata): grammar, readability, facts, etc.
    - ✅ Update ONLY the `facts` section in this block

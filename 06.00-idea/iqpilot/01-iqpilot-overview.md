@@ -16,6 +16,13 @@ By seamlessly integrating with GitHub Copilot and VS Code, IQPilot provides AI-a
 Think of IQPilot as a quality assurance tool for written content - like ESLint for code quality, but for documentation quality.  
 You write the content, IQPilot ensures it meets your standards.
 
+> **Scope update: the Learning Hub is now a first-class surface.** IQPilot was first designed for interaction
+> through GitHub Copilot and VS Code. The Learning Hub is now a **fully dynamic Markdown-rendering platform**
+> that renders IQPilot's governed Markdown **live, with no build step** — so the site sits *alongside* the editor
+> and the AI assistant as a first-class interaction and delivery surface, not just a publish target. IQPilot is
+> the Learning Hub's **Content Engine** (Layer ②). See the canonical
+> [Learning Hub definition](../learning-hub/00-learning-hub.md).
+
 ## The Problem IQPilot Solves
 
 ### Before IQPilot

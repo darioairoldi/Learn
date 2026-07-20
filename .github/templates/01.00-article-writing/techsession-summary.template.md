@@ -1,5 +1,5 @@
 ---
-# Quarto Metadata
+# Frontmatter metadata
 title: "Recording Summary: [Event/Topic Name]"
 author: "Your Name"
 date: "YYYY-MM-DD"

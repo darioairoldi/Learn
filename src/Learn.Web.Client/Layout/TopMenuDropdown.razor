@@ -1,45 +1,25 @@
-@* Recursive dropdown body for the top-level menus. *@
+@* Dropdown body for a top-level menu: the section's immediate children as links, built live from
+   the content hierarchy. Sub-sections link to their own landing page (deeper levels live in the
+   sidebar); a child folder with no page of its own renders as a plain header. *@
 
 <ul class="dropdown-list">
-    @foreach (NavNode node in Nodes)
+    @foreach (NavChild node in Nodes)
     {
-        @if (node.IsSeparator)
-        {
-            <li class="dropdown-sep">
-                <hr />
-            </li>
-        }
-        else if (node.Contents is { Count: > 0 })
-        {
-            @* A group: render its header (linked when the folder itself has a page) then recurse.
-               Checked BEFORE Href so folders that also carry a readme link still show their children. *@
-            <li class="dropdown-group">
-                @if (node.Href is not null)
-                {
-                    <a class="dropdown-header dropdown-link" href="@NavNode.ToRoute(node.Href)">@(node.Section ?? node.Text)</a>
-                }
-                else
-                {
-                    <span class="dropdown-header">@(node.Section ?? node.Text)</span>
-                }
-                <TopMenuDropdown Nodes="node.Contents" />
-            </li>
-        }
-        else if (node.Href is not null)
+        @if (node.Route is not null)
         {
             <li>
-                <a class="dropdown-link" href="@NavNode.ToRoute(node.Href)">@(node.Text ?? node.Section)</a>
+                <a class="dropdown-link" href="@node.Route">@node.Text</a>
             </li>
         }
-        else if (node.Section is not null)
+        else
         {
             <li class="dropdown-group">
-                <span class="dropdown-header">@node.Section</span>
+                <span class="dropdown-header">@node.Text</span>
             </li>
         }
     }
 </ul>
 
 @code {
-    [Parameter, EditorRequired] public IReadOnlyList<NavNode> Nodes { get; set; } = Array.Empty<NavNode>();
+    [Parameter] public IReadOnlyList<NavChild> Nodes { get; set; } = Array.Empty<NavChild>();
 }

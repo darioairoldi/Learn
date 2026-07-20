@@ -1,26 +1,26 @@
 ---
 title: "Folder Organization and Navigation Rules"
-description: "Establishes folder naming conventions (kebab-case with numeric prefixes), date-prefix patterns, glob sorting limitations, and decision framework for explicit vs. glob-based navigation"
+description: "Establishes folder naming conventions (kebab-case with numeric prefixes), date-prefix patterns, and deterministic runtime navigation ordering built from the live content hierarchy"
 domain: "learning-hub"
-goal: "Codify kebab-case naming, numeric prefix patterns, and glob-vs-explicit decision rules that enable consistent folder discovery and ordering"
+goal: "Codify kebab-case naming, numeric prefix patterns, and deterministic ordering rules that enable consistent folder discovery and ordering"
 scope:
   covers:
     - "Full kebab-case rule (spaces → hyphens)"
     - "Numeric prefix patterns (XX.YY- format)"
     - "Date prefix patterns (YYYYMMDD, YYYYMM)"
-    - "Glob sorting behavior (alphabetical, oldest-first for dates)"
-    - "Decision table: glob vs. explicit list"
+    - "Runtime navigation ordering (numeric ascending; news presented newest-first)"
+    - "metadata.yml order override for folders"
     - "Working/intermediate artifact marking (publish: false) and _analysis/ working folder"
   excludes:
     - "Sidebar menu item transformation (see 07-sidebar-menu-rules.md)"
-    - "Quarto configuration (see _quarto.yml)"
+    - "Runtime nav implementation (see DynamicNavBuilder / NavRules in src/Learn.Web)"
 boundaries:
   - "MUST use hyphens (not spaces) as separator after numeric prefixes"
   - "MUST NOT use spaces in folder/file names"
-  - "MUST mark working/intermediate artifacts with `publish: false` and group them in a `_analysis/` working folder, and MUST NOT wire them into the site's render/include or navigation config"
+  - "MUST mark working/intermediate artifacts with `publish: false` and group them in a `_analysis/` working folder, and MUST NOT wire them into navigation"
 rationales:
-  - "Kebab-case enables consistent glob patterns and tool parsing"
-  - "Explicit list for news addresses glob's alphabetical limitation for newest-first ordering"
+  - "Kebab-case enables clean request-time routing and consistent tooling"
+  - "The runtime navigation builder presents news newest-first without manual list maintenance"
 ---
 
 # Folder Organization and Navigation Rules
@@ -72,37 +72,20 @@ Time-sensitive content uses date prefixes with hyphen separator:
 
 ---
 
-### ⚠️ CRITICAL: Glob Sorting Behavior (Quarto Limitation)
+### Ordering (runtime, dynamic navigation)
 
-**Fundamental fact:** Quarto glob patterns (`**/*.md`) sort **ALPHABETICALLY**, which produces **OLDEST-FIRST** for YYYYMMDD prefixes:
+Navigation is built at **runtime** by `DynamicNavBuilder` / `NavRules` (`src/Learn.Web`) from the live
+content hierarchy — there is no glob list or `_quarto.yml` to maintain, and no build step. Ordering is
+deterministic:
 
-```
-Glob order (alphabetical):
-20251111...  ← First (oldest)
-20251224...
-20260130...  ← Last (newest)
-```
+- **Numeric-prefix folders** (`NN.NN-name`) sort **ascending by prefix**, keeping the numbered areas grouped.
+- **Date-prefixed content** (`YYYYMMDD-…`) under `01.00-news/` is presented **newest-first** (the builder
+  inverts date order for news); date folders elsewhere sort ascending.
+- **`metadata.yml` `order:`** overrides the derived weight for any folder (ascending; joins the numeric group).
+- Ties break by name (ordinal).
 
-**Globs CANNOT produce newest-first ordering.** This is a Quarto limitation, not a configuration option.
-
-#### Decision Table: Glob vs Explicit List
-
-| Requirement | Use Glob | Use Explicit List |
-|-------------|----------|-------------------|
-| Auto-discover new content | ✅ YES | ❌ NO (manual maintenance) |
-| Newest-first ordering | ❌ NO (impossible) | ✅ YES |
-| Oldest-first acceptable | ✅ YES | ✅ YES |
-| Non-date prefixed folders | ✅ YES (sorts correctly) | Optional |
-
-#### Recommended Approach by Section
-
-| Section | Recommended | Rationale |
-|---------|-------------|----------|
-| `01.00-news/` | **Explicit list** | News requires newest-first; manual maintenance is acceptable |
-| `02.00-events/` | **Glob** | Events sorted by session ID (alphabetical is fine) |
-| `03.00-tech/` | **Glob** | Alphabetical by topic is appropriate |
-| `04.00-howto/` | **Glob** | Alphabetical is appropriate |
-| `05.00-issues/` | **Glob** | Alphabetical is appropriate |
+Because discovery is automatic, **new content appears in the menu as soon as it exists in the content
+source** — no list to edit, no rebuild.
 
 ### Kebab-Case Standard
 
@@ -118,7 +101,7 @@ Glob order (alphabetical):
 ❌ Bad: PromptEngineering/         (PascalCase)
 ```
 
-**Rationale:** Quarto compiles paths to URLs. Full kebab-case produces clean, consistent, SEO-friendly addresses with no encoding issues.
+**Rationale:** the renderer maps file paths to URLs at request time. Full kebab-case produces clean, consistent, SEO-friendly addresses with no encoding issues.
 
 ## Folder Organization Patterns
 
@@ -200,15 +183,15 @@ The folder keeps working material together and makes bulk removal trivial. **Can
 |---|---|---|
 | 1. Intent (portable) | `publish: false` in top YAML | Engine-neutral source of truth; every pipeline honors it |
 | 2. Organization | `_analysis/` working folder | Groups working files; trivial bulk removal |
-| 3. Enforcement (per pipeline) | Not listed in the site's include/render or navigation config | Whatever the SSG uses |
+| 3. Enforcement (runtime) | Not surfaced by the navigation builder | The nav builder skips it |
 
-**Engine bonus (not the guarantee):** some generators also skip files by name — e.g. Quarto ignores any path segment beginning with `_` or `.`, so on a Quarto site `_analysis/` is auto-excluded and `_quarto.yml` adds a `- "!**/_*/**"` render guard. Treat this as an extra safety net; the guarantee rests on `publish: false` plus not wiring the file in, which hold regardless of engine.
+**Builder bonus (not the guarantee):** the runtime navigation builder skips any path segment beginning with `_` or `.` (`NavRules.IsExcludedName`), so `_analysis/` is auto-excluded from the menu. Treat this as an extra safety net; the guarantee rests on `publish: false` plus not wiring the file in, which hold regardless of engine.
 
 ### Boundaries
 
 - MUST mark every intermediate/working artifact with `publish: false` in its top YAML
 - MUST place every intermediate/working artifact under a `_analysis/` working folder
-- MUST NOT add any `publish: false` file (or `_analysis/` path) to the site's render/include list or navigation
+- MUST NOT add any `publish: false` file (or `_analysis/` path) to navigation
 - Only the reader-facing published article is wired into navigation
 
 ## Sidebar Menu Rules
@@ -221,7 +204,7 @@ Menu generation rules are defined separately to allow flexibility when actual fo
 - Numeric prefixes removed together with separator (hyphen OR space)
 - Date prefixes preserved in menu items
 - YAML `title:` field takes precedence over filename transformation
-- Globs sort alphabetically (newest-first requires explicit lists)
+- Runtime ordering is deterministic — news is presented newest-first automatically
 
 ---
 
@@ -236,6 +219,6 @@ Menu generation rules are defined separately to allow flexibility when actual fo
 
 <!--
 context_metadata:
-  version: "1.1.0"
-  last_updated: "2026-07-14"
+  version: "1.2.0"
+  last_updated: "2026-07-20"
 -->

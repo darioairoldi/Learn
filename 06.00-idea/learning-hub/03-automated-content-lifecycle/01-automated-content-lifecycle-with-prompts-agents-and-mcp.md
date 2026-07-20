@@ -419,7 +419,7 @@ The table below describes each validation dimension, what it checks, and which t
 | # | Dimension | What it checks | Tool | New? |
 |---|-----------|---------------|------|------|
 | 10 | **Article naming** | Filename follows kebab-case convention with numeric prefix; matches `article_metadata.filename`; no spaces, uppercase, or special characters | `iqpilot/metadata/validate` (MCP) | Extend |
-| 11 | **Reachability from menu** | Article appears in `_quarto.yml` navigation; rendered page is accessible from the site menu | `iqpilot/navigation/check` (MCP) | **New** |
+| 11 | **Reachability from menu** | Article is discoverable by the runtime navigation builder (correct folder placement; not `publish: false` / `hidden`) so it appears in the live menu | `iqpilot/navigation/check` (MCP) | **New** |
 | 12 | **Links validation** | All internal cross-references resolve to existing files; anchor fragments (`#section`) match actual headings; external URLs return HTTP 200 | `iqpilot/xref/validate` (MCP) | **New** |
 
 #### Validation mapping per content type
@@ -470,7 +470,7 @@ validation_dimensions:
     description: "Kebab-case filename, numeric prefix, metadata match"
   reachability:
     tool: "iqpilot/navigation/check"
-    description: "Article appears in _quarto.yml navigation"
+    description: "Article is discoverable by the runtime navigation builder (folder placement; not publish:false/hidden)"
   links:
     tool: "iqpilot/xref/validate"
     description: "Internal refs resolve, external URLs return 200"
@@ -1252,7 +1252,6 @@ tools:
 - Create new taxonomy-aligned files from extracted content
 - Update all cross-references across affected articles
 - Update `_subject.yml` manifest
-- Update `_quarto.yml` navigation
 - Validate no broken links remain after restructuring
 
 **Boundaries:**
@@ -1384,7 +1383,7 @@ content-creation-coordinator
 │
 └── PHASE F: PUBLISH (infrastructure)
     ├── 15. Update _subject.yml manifest
-    ├── 16. Update _quarto.yml navigation
+    ├── 16. Content lands in source → menu updates at runtime (no nav edit)
     └── 17. Run publish-ready prompt (final gate)
 ```
 
@@ -1526,15 +1525,15 @@ The following tools address gaps discovered during the prompt engineering review
 
 #### `iqpilot/navigation/check`
 
-**Purpose:** Verify that an article is reachable from the site navigation (`_quarto.yml`) and that its rendered page appears in the menu tree.
+**Purpose:** Verify that an article will be surfaced by the **runtime navigation builder** — correct folder placement under the content hierarchy, not excluded (`_`/`.`-prefixed, `publish: false`, or `metadata.yml` `hidden`) — so it appears in the live menu. There is no navigation file to edit; reachability is a property of placement and metadata.
 
-**Why MCP:** Navigation-config parsing and menu-tree traversal are deterministic I/O operations.
+**Why MCP:** Applying the deterministic `NavRules` discovery/exclusion checks to a path is a pure I/O operation.
 
 **Parameters:**
 - `filePath` (string) — Article path
-- `navConfig` (string, optional) — Path to `_quarto.yml`
+- `contentRoot` (string, optional) — Content source root
 
-**Returns:** Reachable yes/no, the menu path if present, and a suggested insertion point if missing.
+**Returns:** Reachable yes/no, the computed menu path, and the reason if excluded.
 
 ---
 
@@ -1618,20 +1617,19 @@ When articles grow too large, drift from their category, or need deeper treatmen
 | Update manifest | MCP | `iqpilot/subject/manifest` | Updated `_subject.yml` |
 | Validate post-restructure | Orchestration | `subject-audit-coordinator` | Full audit of restructured subject |
 
-### Phase 7: Publish — integrate incrementally
+### Phase 7: Publish — content goes live immediately
 
-Publishing is the **terminal lifecycle stage** and is deliberately **publish-tool-agnostic**: the current implementation renders a static site, but the vision does not mandate any particular generator.
+Publishing is the **terminal lifecycle stage**. The current implementation is a **dynamic web app** (`Learn.Web`) that renders Markdown → HTML **on demand at request time** and builds the navigation menu **at runtime** from the live content hierarchy. There is **no build step and no static output** — the vision remains publish-tool-agnostic, but the live implementation has already superseded the old static-site generator.
 
-The governing principle is **incremental integration**: integrating new or changed content must build **only what changed**, not the entire corpus. Integration cost should scale with the size of the change, not the size of the Hub.
+The governing principle — **incremental integration** (integration cost scales with the size of the change, not the size of the Hub) — is now satisfied **structurally**: because rendering and navigation happen per request, adding or changing content has *zero* corpus-wide cost.
 
 | Task | Layer | Tool | Output |
 |------|-------|------|--------|
-| Detect changed content | Script/MCP | change detection | Set of new/modified articles since last publish |
-| Build only changed content | Script | incremental build | Rendered output for the changed set |
-| Update navigation | Script | `generate-navigation.ps1` | Refreshed site menu |
-| Integrate into site | Script | publish step | Updated published site |
+| Land content in the source | Git/upload | filesystem (dev) or Azure Blob (prod) | New/changed Markdown available to the app |
+| Render | Runtime | `Learn.Web` (Markdig) | HTML produced on demand, per request |
+| Navigation | Runtime | `DynamicNavBuilder` (`/_nav`) | Menu rebuilt live from the content hierarchy |
 
-> **Known limitation.** The current generator requires a **full rebuild on every change**. The vision names this as a constraint to move past \u2014 a future publisher should build incrementally so that adding one article does not re-render the whole site.
+> **Resolved.** The old generator required a **full rebuild on every change**; that constraint is gone. A new or edited article is live on the next request — no rebuild, no menu edit, no publish job.
 
 ### Visualization: Lifecycle automation flow
 

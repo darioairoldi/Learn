@@ -1,5 +1,5 @@
 ---
-# Quarto Metadata (required for rendering)
+# Frontmatter metadata (required for rendering)
 title: "Article Title"
 author: "Your Name"
 date: "YYYY-MM-DD"

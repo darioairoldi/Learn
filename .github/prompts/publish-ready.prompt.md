@@ -13,7 +13,7 @@ Run a comprehensive final check before an article is published, verifying all va
 ## Critical Rules - Dual YAML Metadata
 
 **IMPORTANT**: This repository uses dual YAML blocks in articles:
-1. **Top YAML Block** (Quarto metadata): title, author, date, categories, etc.
+1. **Top YAML Block** (frontmatter metadata): title, author, date, categories, etc.
    - ❌ **NEVER MODIFY THIS BLOCK** (unless explicitly updating document metadata)
 2. **Bottom YAML Block** (Article additional metadata): All validation results, article tracking
    - ✅ Read this block to check validation status

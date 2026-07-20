@@ -69,7 +69,7 @@ Do NOT use this skill for:
 
 ### Issue: Top YAML Modified by Validation
 
-**Symptom**: Quarto metadata changed unexpectedly  
+**Symptom**: Frontmatter metadata changed unexpectedly  
 **Solution**: Validation should ONLY modify bottom HTML comment metadata. Restore top YAML from git history.
 
 ### Issue: Broken Internal Links

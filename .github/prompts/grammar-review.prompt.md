@@ -16,7 +16,7 @@ Review the provided article for grammar, spelling, and punctuation issues, then 
 ## Critical Rules - Dual YAML Metadata
 
 **IMPORTANT**: This repository uses dual YAML blocks in articles:
-1. **Top YAML Block** (Quarto metadata): title, author, date, categories, etc.
+1. **Top YAML Block** (frontmatter metadata): title, author, date, categories, etc.
    - ❌ **NEVER MODIFY THIS BLOCK**
 2. **Bottom YAML Block** (Article additional metadata): grammar, readability, validations, etc.
    - ✅ Update ONLY the `grammar` section in this block

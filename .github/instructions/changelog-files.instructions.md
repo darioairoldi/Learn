@@ -29,7 +29,7 @@ A changelog file (`*.changelog.md`) is the **single source of truth for one docu
 
 ### Not published, hidden best-effort
 
-- A changelog file MUST NEVER be added to the Quarto `render:` allow-list in `_quarto.yml`. This is the durable guarantee that it never appears on the published site.
+- A changelog file MUST NEVER be wired into the site navigation as a reader-facing page. This is the durable guarantee that it never appears on the published site.
 - A changelog file SHOULD carry the filesystem hidden attribute where the host OS supports it. This is a local Explorer convenience only and is NOT versioned; absence of OS support is acceptable and MUST NOT be treated as an error.
 
 ### Frontmatter

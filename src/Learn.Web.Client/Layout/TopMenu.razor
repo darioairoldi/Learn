@@ -1,43 +1,38 @@
-@inject NavigationService Nav
 @inject INavProvider NavProvider
 
-@if (_nodes is not null)
+@if (_root is not null)
 {
     <nav class="topmenu @(Placement == Group.Right ? "topmenu-right" : "topmenu-left")">
-        @foreach (NavNode node in DisplayNodes())
+        @foreach (NavChild node in DisplayNodes())
         {
-            @if (node.IsSeparator)
-            {
-                <span class="topmenu-sep"></span>
-            }
-            else if (node.Href is not null)
-            {
-                <a class="topmenu-link" href="@NavNode.ToRoute(node.Href)">
-                    @if (!string.IsNullOrEmpty(IconFor(node)))
-                    {
-                        <i class="bi bi-@IconFor(node)"></i>
-                    }
-                    <span>@ShortFor(node)</span>
-                </a>
-            }
-            else if (node.Section is not null)
+            @if (node.IsSection)
             {
                 <div class="topmenu-item">
                     <button class="topmenu-btn" type="button">
-                        @if (!string.IsNullOrEmpty(IconFor(node)))
+                        @if (!string.IsNullOrEmpty(node.Icon))
                         {
-                            <i class="bi bi-@IconFor(node)"></i>
+                            <i class="bi bi-@node.Icon"></i>
                         }
                         <span>@ShortFor(node)</span>
                         <span class="caret">▾</span>
                     </button>
-                    @if (node.Contents is { Count: > 0 })
+                    @if (node.Prefix is not null && _children.TryGetValue(node.Prefix, out IReadOnlyList<NavChild>? kids) && kids.Count > 0)
                     {
                         <div class="topmenu-dropdown">
-                            <TopMenuDropdown Nodes="node.Contents" />
+                            <TopMenuDropdown Nodes="kids" />
                         </div>
                     }
                 </div>
+            }
+            else if (node.Route is not null)
+            {
+                <a class="topmenu-link" href="@node.Route">
+                    @if (!string.IsNullOrEmpty(node.Icon))
+                    {
+                        <i class="bi bi-@node.Icon"></i>
+                    }
+                    <span>@ShortFor(node)</span>
+                </a>
             }
         }
     </nav>
@@ -48,123 +43,49 @@
 
     [Parameter] public Group Placement { get; set; } = Group.Left;
 
-    private IReadOnlyList<NavNode>? _nodes;
+    // Top-level items shown in the bar (the Home link + top-level sections), built live from the
+    // content hierarchy via the runtime nav provider. Their labels/icons/short/visibility/side come
+    // straight from the folder metadata carried on each NavChild.
+    private IReadOnlyList<NavChild>? _root;
 
-    // Top-level folder → icon + short label, taken from the live folder metadata (metadata.yml) so the
-    // top bar always matches the sidebar. Keyed by the top-level folder prefix (e.g. "02.00-events").
-    private IReadOnlyDictionary<string, string?> _iconByPrefix =
-        new Dictionary<string, string?>(StringComparer.OrdinalIgnoreCase);
-    private IReadOnlyDictionary<string, string?> _shortByPrefix =
-        new Dictionary<string, string?>(StringComparer.OrdinalIgnoreCase);
-
-    // Top-level folder prefixes that opted out of the top bar (metadata.yml `topbar-hidden: true`),
-    // yet remain visible in the sidebar.
-    private HashSet<string> _topbarHidden = new(StringComparer.OrdinalIgnoreCase);
-
-    // Top-level folder prefix → top-bar side ("left"/"right") from metadata.yml `topbar-align`.
-    private IReadOnlyDictionary<string, string?> _alignByPrefix =
-        new Dictionary<string, string?>(StringComparer.OrdinalIgnoreCase);
+    // Immediate children of each displayed section, prefetched for the dropdown (cached in-memory).
+    private readonly Dictionary<string, IReadOnlyList<NavChild>> _children = new(StringComparer.OrdinalIgnoreCase);
 
     protected override async Task OnInitializedAsync()
     {
-        _nodes = await Nav.GetAsync();
-
         IReadOnlyList<NavChild> root = await NavProvider.GetChildrenAsync(string.Empty);
-        var byPrefix = root
-            .Where(r => !string.IsNullOrEmpty(r.Prefix))
-            .GroupBy(r => r.Prefix!, StringComparer.OrdinalIgnoreCase)
-            .Select(g => g.First())
-            .ToList();
-        _iconByPrefix = byPrefix.ToDictionary(r => r.Prefix!, r => r.Icon, StringComparer.OrdinalIgnoreCase);
-        _shortByPrefix = byPrefix.ToDictionary(r => r.Prefix!, r => r.Short, StringComparer.OrdinalIgnoreCase);
-        _topbarHidden = byPrefix.Where(r => r.TopbarHidden).Select(r => r.Prefix!)
-            .ToHashSet(StringComparer.OrdinalIgnoreCase);
-        _alignByPrefix = byPrefix.ToDictionary(r => r.Prefix!, r => r.TopbarAlign, StringComparer.OrdinalIgnoreCase);
-    }
 
-    // Prefer the folder-metadata icon (matched by folder prefix); fall back to navigation.json's own.
-    private string? IconFor(NavNode n)
-    {
-        string? prefix = FolderPrefix(n);
-        return prefix is not null && _iconByPrefix.TryGetValue(prefix, out string? icon) && !string.IsNullOrEmpty(icon)
-            ? icon
-            : n.Icon;
-    }
+        // The top bar shows the Home link (empty route) plus top-level sections; other root links
+        // (e.g. Getting Started, Documentation Index) stay in the sidebar only.
+        _root = root.Where(c => c.IsSection || string.IsNullOrEmpty(c.Route)).ToList();
 
-    private static string? FolderPrefix(NavNode n)
-    {
-        string? href = FirstHref(n);
-        if (string.IsNullOrEmpty(href))
+        // Prefetch the immediate children of the sections THIS placement will show (each level is cached).
+        foreach (NavChild section in DisplayNodes().Where(c => c.IsSection && c.Prefix is not null))
         {
-            return null;
+            _children[section.Prefix!] = await NavProvider.GetChildrenAsync(section.Prefix!);
+        }
+    }
+
+    // Folders marked `topbar-hidden` in metadata.yml are dropped from the top bar (still in the sidebar).
+    // A node is LEFT when its metadata says `topbar-align: left`; link items with no folder prefix
+    // (e.g. Home) default left; unmarked section folders default right.
+    private static bool IsLeft(NavChild c) =>
+        c.TopbarAlign is { } align
+            ? align.Equals("left", StringComparison.OrdinalIgnoreCase)
+            : string.IsNullOrEmpty(c.Prefix);
+
+    private IEnumerable<NavChild> DisplayNodes()
+    {
+        if (_root is null)
+        {
+            return Enumerable.Empty<NavChild>();
         }
 
-        href = href.Replace('\\', '/').TrimStart('/');
-        int slash = href.IndexOf('/');
-        return slash > 0 ? href[..slash] : null;
+        IEnumerable<NavChild> items = _root.Where(c => !c.TopbarHidden);
+        return Placement == Group.Right ? items.Where(c => !IsLeft(c)) : items.Where(IsLeft);
     }
 
-    private static string? FirstHref(NavNode n)
-    {
-        if (!string.IsNullOrEmpty(n.Href))
-        {
-            return n.Href;
-        }
-
-        if (n.Contents is not null)
-        {
-            foreach (NavNode child in n.Contents)
-            {
-                string? href = FirstHref(child);
-                if (href is not null)
-                {
-                    return href;
-                }
-            }
-        }
-
-        return null;
-    }
-
-    // Folders marked `topbar-hidden` in metadata.yml are dropped from the top bar (still in sidebar).
-    private bool IsTopbarHidden(NavNode n)
-    {
-        string? prefix = FolderPrefix(n);
-        return prefix is not null && _topbarHidden.Contains(prefix);
-    }
-
-    // A node belongs to the LEFT group when its folder metadata says `topbar-align: left`. Link items
-    // with no folder prefix (e.g. Home) also default left; unmarked section folders default right.
-    private bool IsLeft(NavNode n)
-    {
-        string? prefix = FolderPrefix(n);
-        if (prefix is not null && _alignByPrefix.TryGetValue(prefix, out string? align) && align is not null)
-        {
-            return align.Equals("left", StringComparison.OrdinalIgnoreCase);
-        }
-
-        return prefix is null;
-    }
-
-    private IEnumerable<NavNode> DisplayNodes()
-    {
-        if (_nodes is null)
-        {
-            return Enumerable.Empty<NavNode>();
-        }
-
-        IEnumerable<NavNode> items = _nodes.Where(n => !n.IsSeparator && !IsTopbarHidden(n));
-        return Placement == Group.Right
-            ? items.Where(n => !IsLeft(n))
-            : items.Where(IsLeft);
-    }
-
-    // Compact top-level label from folder metadata (metadata.yml `short:`); falls back to the full name.
-    private string ShortFor(NavNode n)
-    {
-        string? prefix = FolderPrefix(n);
-        return prefix is not null && _shortByPrefix.TryGetValue(prefix, out string? s) && !string.IsNullOrEmpty(s)
-            ? s
-            : (n.Section ?? n.Text ?? string.Empty);
-    }
+    // Compact top-level label from folder metadata (`short:`); falls back to the full name.
+    private static string ShortFor(NavChild c) =>
+        !string.IsNullOrEmpty(c.Short) ? c.Short! : c.Text;
 }

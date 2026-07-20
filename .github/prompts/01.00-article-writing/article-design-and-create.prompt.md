@@ -26,7 +26,7 @@ scope:
     - "Series-level review (see article-review-series-for-consistency-gaps-and-extensions)"
     - "Multi-article orchestration (see documentation-design)"
 boundaries:
-  - "MUST include both YAML metadata blocks (top Quarto + bottom validation HTML comment)"
+  - "MUST include both YAML metadata blocks (top frontmatter + bottom validation HTML comment)"
   - "MUST classify all references using emoji system (📘 📗 📒 📕)"
   - "MUST check workspace for existing articles on the topic before creating"
   - "MUST NOT modify top YAML of existing articles"
@@ -55,7 +55,7 @@ Create complete, publication-ready articles by:
 ### ✅ Always Do
 - Research topic comprehensively before writing (Phase 2-3)
 - Verify all claims with authoritative sources
-- Include both YAML metadata blocks (top: Quarto, bottom: validation)
+- Include both YAML metadata blocks (top: frontmatter, bottom: validation)
 - Classify all references (📘 Official, 📗 Verified Community, 📒 Community, 📕 Unverified)
 - Discover and document alternatives (main alternatives in body, comparisons in appendix)
 - Check workspace for related articles to avoid duplication
@@ -79,7 +79,7 @@ Create complete, publication-ready articles by:
 - Use outdated sources (check publication dates)
 
 **Dual YAML Metadata Architecture:**
-- **Top YAML (Lines 1-10):** Quarto metadata (title, author, date, categories, description)
+- **Top YAML (Lines 1-10):** frontmatter metadata (title, author, date, categories, description)
 - **Bottom YAML (HTML comment at end):** Validation metadata (all validation types, article metadata, cross-references)
 
 See: `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md` for parsing guidelines.
@@ -288,7 +288,7 @@ Before drafting (Phase 6), verify all content design decisions are in place. Thi
 
 **Content Requirements:**
 
-1. **Top YAML Block** - Quarto metadata (title, author, date, categories, description)
+1. **Top YAML Block** - frontmatter metadata (title, author, date, categories, description)
 2. **Article Body** - Following Phase 5 outline with TOC, introduction, main sections, code examples, conclusion
 3. **References Section** - Classified references from Phase 4
 4. **Appendices** (if applicable) - Alternative comparisons, advanced topics

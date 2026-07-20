@@ -163,10 +163,10 @@ Draft → In-Review → Published → [Updates/Revisions] → Archived
 ❌ Bad: configureAzureKeyVault.md
 ```
 
-**Rationale**: When Quarto compiles Markdown to HTML, the filename becomes the URL path. Kebab-case produces readable, SEO-friendly URLs:
+**Rationale**: the renderer maps each file path to a URL at request time, so the filename becomes the URL path. Kebab-case produces readable, SEO-friendly URLs:
 
-- `docs/configure-azure-key-vault.html` → Clean and scannable
-- `docs/Configure%20Azure%20Key%20Vault.html` → URL-encoded spaces are ugly
+- `/configure-azure-key-vault` → Clean and scannable
+- `/Configure%20Azure%20Key%20Vault` → URL-encoded spaces are ugly
 
 **Rules**:
 - Use lowercase letters only
@@ -300,6 +300,6 @@ Located in `.copilot/scripts/`, these handle programmatic tasks:
 
 <!--
 context_metadata:
-  version: "1.0.0"
-  last_updated: "2026-05-26"
+  version: "1.0.1"
+  last_updated: "2026-07-20"
 -->

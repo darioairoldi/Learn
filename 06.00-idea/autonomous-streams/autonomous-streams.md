@@ -56,6 +56,10 @@ This definition prevents terminology drift and keeps architecture discussions pr
 
 ## 📚 References
 
+- [Learning Hub master](../learning-hub/00-learning-hub.md) 📒 [Internal]  
+The canonical three-layer definition; autonomous streams are part of Layer ③ (the Learning Loop).
+- [One engine, many streams](../self-updating-engine/00-one-engine-many-streams.md) 📒 [Internal]  
+How this stream and its siblings fold under one shared engine.
 - [Self-updating engine: vision and rationale (v1.0)](../self-updating-engine/20260622.01-self-updating-engine-vision.md) 📒 [Internal]  
 Defines the portable machinery that autonomous streams instantiate.
 - [Loop engineering and the Learning Hub: analysis and alignment](../../01.00-news/20260710.01-loop-engineering/overview.md) 📒 [Internal]  

@@ -40,7 +40,7 @@ principles:
     statement: "The Hub handles every piece of information at its own suitable visibility, resolving non-shareable material from an external mirror and never copying it into the public repository."
   - id: incremental-integration
     priority: P1
-    statement: "Integrating new knowledge builds only the new or changed content."
+    statement: "Integrating new or changed knowledge costs in proportion to the change, not the whole corpus."
   - id: configuration-driven
     priority: P1
     statement: "Layered configuration governs how the Hub discovers sources, stores material, and exposes each piece."
@@ -54,6 +54,10 @@ principles:
     priority: P2
     statement: "The Hub shares learning pieces across instances and external sources."
 ---
+
+> **Part of the Learning Hub.** This page is the founding **concept** (Layer ②, the Content Engine). For the
+> full three-layer picture — Platform, Content Engine, Learning Loop — and how the pieces fit, see the
+> canonical [Learning Hub definition](../00-learning-hub.md).
 
 ## 📋 Table of Contents
 
@@ -198,9 +202,9 @@ The **external-repository configuration** is the mechanism that satisfies this: 
 
 **Priority: P1** · `incremental-integration`
 
-Publishing is the **final lifecycle stage**, and it is deliberately **publish-tool-agnostic** — the current implementation renders a static site, but the vision does not mandate any specific generator.
+Publishing is the **final lifecycle stage**, and it is deliberately **publish-tool-agnostic**. The current implementation is a **dynamic web app** (`Learn.Web`) that renders Markdown on demand and builds its navigation at runtime from the live content hierarchy — so content is live the moment it lands, with no build step. The vision does not mandate this (or any) particular delivery mechanism.
 
-The Hub mandates an **incremental build strategy**: integrating new knowledge must build **only the new or changed content**, not the entire corpus. A mandatory full rebuild on every change (the behavior of the current generator) is named here as a **limitation the vision intends to move past** — integration cost should scale with the size of the change, not the size of the Hub.
+The principle is **incremental integration**: integrating new or changed knowledge must cost in proportion to the change, not the size of the whole corpus. The live implementation satisfies this **structurally** — because rendering and navigation happen per request, adding or changing an article has zero corpus-wide cost. (The earlier static-site generator required a full rebuild on every change; that limitation is gone.)
 
 ---
 

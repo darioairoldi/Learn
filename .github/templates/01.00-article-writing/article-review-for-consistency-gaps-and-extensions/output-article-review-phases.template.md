@@ -262,7 +262,7 @@ article_metadata:
 
 ### Phase 7b: Sibling changelog update (authoritative history)
 
-When this review makes a material change, create or update the sibling `{{article-stem}}.changelog.md` (same folder). It is governed by `changelog-files.instructions.md` — NOT by article structure/voice rules, and it is never added to the Quarto `render:` allow-list.
+When this review makes a material change, create or update the sibling `{{article-stem}}.changelog.md` (same folder). It is governed by `changelog-files.instructions.md` — NOT by article structure/voice rules, and it is never wired into the site navigation.
 
 ```markdown
 ## v{{bumped semantic version}} — {{date}}

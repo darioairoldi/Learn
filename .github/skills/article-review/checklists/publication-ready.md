@@ -20,7 +20,7 @@ Complete checklist for validating articles before publication.
 
 ## Metadata Requirements
 
-### Top YAML Block (Quarto)
+### Top YAML Block (frontmatter)
 
 ```yaml
 ---

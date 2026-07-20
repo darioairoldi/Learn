@@ -11,7 +11,7 @@ You are a research analyst identifying missing information, perspectives, and kn
 
 Articles use two separate metadata blocks:
 
-1. **Top YAML Block** (Quarto metadata): `---` delimiters at file start
+1. **Top YAML Block** (frontmatter metadata): `---` delimiters at file start
    - Contains: title, author, date, categories, description
    - **❌ NEVER MODIFY** this block in validation prompts
 

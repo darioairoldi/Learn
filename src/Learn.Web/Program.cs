@@ -71,7 +71,6 @@ public class Program
 
             services.AddScoped<IMarkdownRenderer, MarkdigMarkdownRenderer>();
             services.AddScoped<PageLoader>();
-            services.AddScoped<NavigationService>();
             services.AddScoped<TocState>();
             services.AddScoped<ThemeState>();
             services.AddScoped<SidebarState>();

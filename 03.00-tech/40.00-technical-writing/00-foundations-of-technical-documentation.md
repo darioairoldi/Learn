@@ -480,9 +480,9 @@ This repository synthesizes guidelines from multiple sources:
 
 ### Dual metadata architecture
 
-Our unique contribution: separate Quarto rendering metadata from validation tracking.
+Our unique contribution: separate renderer frontmatter from validation tracking.
 
-**Top YAML (Quarto):**
+**Top YAML (frontmatter):**
 ```yaml
 ---
 title: "Article Title"
@@ -505,7 +505,7 @@ validation_scores:
 -->
 ```
 
-This separation follows the single-responsibility principle: Quarto metadata controls rendering; validation metadata tracks quality.
+This separation follows the single-responsibility principle: the renderer frontmatter controls rendering; validation metadata tracks quality.
 
 See [02-dual-yaml-metadata.md](../../.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md) for complete guidelines.
 

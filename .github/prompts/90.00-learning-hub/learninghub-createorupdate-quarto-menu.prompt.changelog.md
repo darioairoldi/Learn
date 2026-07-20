@@ -1,11 +1,15 @@
 ---
 title: "learninghub-createorupdate-quarto-menu.prompt — change history"
 description: "Per-version change history for learninghub-createorupdate-quarto-menu.prompt."
-last_updated: "2026-07-14T00:00:00Z"
+last_updated: "2026-07-20T00:00:00Z"
 status: "living"
 ---
 
 # Change history — learninghub-createorupdate-quarto-menu.prompt
+
+## v11.0.0 — 2026-07-20T00:00:00Z
+
+DEPRECATED — the Learning Hub migrated from the Quarto static site to a dynamic Blazor app (`Learn.Web`) that builds navigation at runtime from the live content hierarchy. There is no `_quarto.yml` / `project.render` / `navigation.json` to validate. The prompt body is now a deprecation stub pointing to the runtime builder (`DynamicNavBuilder` / `NavRules`) and per-folder `metadata.yml`.
 
 ## v10.3.0 — 2026-07-14T00:00:00Z
 

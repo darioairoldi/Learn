@@ -19,10 +19,10 @@ context_dependencies:
 ## CRITICAL Rules
 
 - **[C6]** MUST contain these required sections in order:
-  1. **Repository Identity** — repo name, owner, content scope, SSG, output directory
+  1. **Repository Identity** — repo name, owner, content scope, rendering model, content source
   2. **General Rules** — reference table pointing to canonical sources (context/instruction files) — NEVER duplicate rules inline
   3. **PE Artifact Map** — quick-reference table of all artifact types, locations, and triggers
-  4. **Repo-Specific Rules** — content area prefixes, Quarto config, tooling (MetadataWatcher, scripts)
+  4. **Repo-Specific Rules** — content area prefixes, app/rendering config, tooling (MetadataWatcher, scripts)
   5. **Cross-Cutting Conventions** — repo-specific conventions not covered elsewhere
 - **[C3]** MUST stay concise — this file injects into EVERY prompt. Minimize token footprint.
 
@@ -46,7 +46,7 @@ Update `copilot-instructions.md` when:
 - A new artifact type is introduced (add to PE Artifact Map)
 - Content area prefixes change (update Repo-Specific Rules)
 - A new instruction or context file is created that affects repo-wide conventions (add to General Rules table)
-- Quarto configuration changes significantly (update Repo-Specific Rules)
+- Rendering or app configuration changes significantly (update Repo-Specific Rules)
 
 ## Quality Checklist
 

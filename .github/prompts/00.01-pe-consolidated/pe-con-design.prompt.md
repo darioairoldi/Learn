@@ -18,7 +18,7 @@ handoffs:
   - label: "Validate Artifact"
     agent: pe-con-validator
     send: true
-argument-hint: '<artifact-type> <description> — e.g., "agent for reviewing Quarto configuration" or "hook for PreToolUse deny on .env files"'
+argument-hint: '<artifact-type> <description> — e.g., "agent for reviewing article frontmatter" or "hook for PreToolUse deny on .env files"'
 goal: "Orchestrate multi-phase creation of any PE artifact type with quality gates via consolidated dispatch"
 scope:
   covers:
@@ -54,7 +54,7 @@ Agent, Prompt, Context file, Instruction file, Skill, Template, Hook, Prompt sni
 Specify the artifact type and description:
 
 ```
-/pe-con-design agent for reviewing Quarto site configuration
+/pe-con-design agent for reviewing article frontmatter
 /pe-con-design hook for PreToolUse deny on .env files
 /pe-con-design context file for MCP server patterns
 /pe-con-design prompt for generating tech session summaries

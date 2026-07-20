@@ -1,5 +1,5 @@
 ---
-# Quarto Metadata
+# Frontmatter metadata
 title: "How to [Accomplish Specific Task]"
 author: "Your Name"
 date: "YYYY-MM-DD"

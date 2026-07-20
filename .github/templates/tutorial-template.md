@@ -1,5 +1,5 @@
 ---
-# Quarto Metadata
+# Frontmatter metadata
 title: "Tutorial: [Learning Objective]"
 author: "Your Name"
 date: "YYYY-MM-DD"

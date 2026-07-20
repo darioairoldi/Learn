@@ -364,7 +364,7 @@ Link text MUST contain <mark>trigger words</mark> that match what readers are lo
 - Proper file paths (use relative paths)
 
 **Diagram rules:**
-- **Prefer Mermaid** for diagrams-as-code (renders natively in GitHub and Quarto)
+- **Prefer Mermaid** for diagrams-as-code (renders natively in GitHub and most Markdown renderers)
 - **Complementary principle:** State concept in text → show with visual → explain what visual shows. Never just "as shown in Figure 3."
 - **Max 5 annotations** per screenshot — split into multiple if more needed
 - **Complex diagrams:** Short alt text + detailed text description below for diagrams with 4+ relationships

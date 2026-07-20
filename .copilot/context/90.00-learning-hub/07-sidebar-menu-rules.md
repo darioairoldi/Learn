@@ -1,6 +1,6 @@
 ---
-title: "Sidebar Menu Rules for Quarto Navigation"
-description: "Defines transformation rules for converting folder/file names to sidebar menu items — numeric prefix removal, date-separator normalization, and Title Case application"
+title: "Sidebar Menu Rules (Runtime Navigation)"
+description: "Defines transformation rules for converting folder/file names to sidebar menu items — numeric prefix removal, date-separator normalization, and Title Case application — as implemented by the runtime navigation builder"
 domain: "learning-hub"
 goal: "Establish deterministic rules for transforming folder/file names into readable sidebar menu items"
 scope:
@@ -12,7 +12,7 @@ scope:
     - "Transformation examples and regex patterns"
   excludes:
     - "Folder naming conventions (see 06-folder-organization-and-navigation.md)"
-    - "Navigation menu generation logic (see Quarto configuration)"
+    - "Runtime nav implementation (see DynamicNavBuilder / NavRules in src/Learn.Web)"
 boundaries:
   - "MUST normalize date separators to space-dash-space format"
   - "MUST NOT modify the content after the separator"
@@ -21,13 +21,13 @@ rationales:
   - "Date separator normalization prevents visual inconsistency from varied input formats"
 ---
 
-# Sidebar Menu Rules for Quarto Navigation
+# Sidebar Menu Rules (Runtime Navigation)
 
-**Purpose**: Define rules for generating sidebar menu items from folder/file structures, independent of strict naming conventions.
+**Purpose**: Define rules for generating sidebar menu items from folder/file structures, independent of strict naming conventions. These rules are implemented by the **runtime navigation builder** (`DynamicNavBuilder` / `NavRules` in `src/Learn.Web`), which builds the live menu from the content hierarchy on each request — there is no menu file to maintain.
 
 **Referenced by**: 
-- `.github/prompts/90.00-learning-hub/learninghub-createorupdate-quarto-menu.prompt.md`
-- `_quarto.yml` (sidebar configuration)
+- `src/Learn.Web/Navigation/DynamicNavBuilder.cs` and `src/Learn.Web.Shared/Navigation/NavRules.cs` (implementation)
+- Per-folder `metadata.yml` (label/short/icon/order/hidden/topbar-hidden/topbar-align overrides)
 
 ---
 
@@ -130,7 +130,7 @@ When determining menu item text, use this priority:
 Transform filenames to menu text using:
 
 ```
-1. Remove extension (.md, .qmd)
+1. Remove extension (.md)
 2. Remove numeric prefix + separator (same rules as folders)
 3. Replace hyphens/underscores with spaces
 4. Apply Title Case
@@ -157,39 +157,19 @@ Menu items should avoid redundancy with parent context:
 
 ---
 
-## Glob vs Explicit List Strategy
+## Ordering (runtime)
 
-### ⚠️ Quarto Glob Sorting Limitation
+The runtime navigation builder discovers content automatically and orders it deterministically — there
+are no globs or explicit lists to maintain:
 
-**Fundamental fact:** Quarto globs (`**/*.md`) sort **ALPHABETICALLY**, producing **oldest-first** for date prefixes:
+- **Numeric-prefix folders** (`NN.NN-name`) sort **ascending by prefix**.
+- **Date-prefixed content** under `01.00-news/` is presented **newest-first**; date folders elsewhere sort ascending.
+- **`metadata.yml` `order:`** overrides the derived weight for a folder (ascending; joins the numeric group).
+- Ties break by name (ordinal).
 
-```
-Alphabetical order (what globs produce):
-20251111...  ← First (oldest)
-20251224...
-20260130...  ← Last (newest)
-```
+New content appears in the menu as soon as it exists in the content source — no list edit, no rebuild.
 
-**Globs CANNOT produce newest-first ordering.** This is a Quarto limitation.
-
-### Decision Matrix
-
-| Requirement | Use Glob | Use Explicit List |
-|-------------|----------|-------------------|
-| Auto-discover new content | ✅ YES | ❌ NO (manual maintenance) |
-| Newest-first ordering | ❌ IMPOSSIBLE | ✅ YES |
-| Oldest-first acceptable | ✅ YES | ✅ YES |
-| Non-date prefixed content | ✅ YES | Optional |
-
-### Recommended Strategy by Section
-
-| Section | Strategy | Rationale |
-|---------|----------|-----------|
-| News (`01.00-*`) | **Explicit list** | Requires newest-first |
-| Events (`02.00-*`) | **Glob** | Sorted by session ID is fine |
-| Tech (`03.00-*`) | **Glob** | Alphabetical is appropriate |
-| How-To (`04.00-*`) | **Glob** | Alphabetical is appropriate |
-| Issues (`05.00-*`) | **Glob** | Alphabetical is appropriate |
+**📖 Ordering details:** [06-folder-organization-and-navigation.md](./06-folder-organization-and-navigation.md) § Ordering (runtime, dynamic navigation)
 
 ---
 
@@ -209,13 +189,13 @@ When a folder contains only one meaningful article, **collapse to single menu en
   text: "20251224 VS Code Release"
 ```
 
-**Detection:** Folder contains exactly one `.md` or `.qmd` file (excluding `readme.md`, `index.md` used for other purposes).
+**Detection:** Folder contains exactly one `.md` file (excluding `readme.md`, `index.md` used for other purposes).
 
 ### Index Files
 
 | File | Behavior |
 |------|----------|
-| `index.md` / `index.qmd` | Represents parent folder (folder title used) |
+| `index.md` | Represents parent folder (folder title used) |
 | `readme.md` / `README.md` | Represents parent folder (folder title used) |
 | `_index.md` | Hugo convention — treat as index |
 
@@ -235,40 +215,15 @@ Choose Bootstrap Icons semantically:
 
 ---
 
-## Menu Generation Workflow
+## How the runtime builder applies these rules
 
-### For Glob-Based Sections
+1. `DynamicNavBuilder` lists one level of the content hierarchy from the content source (filesystem or Blob).
+2. Working/asset folders (`_`/`.`-prefixed, `images/`) are skipped; `publish: false` files are excluded.
+3. Each remaining folder/file becomes a menu item, its label derived via the **Title Resolution Order** above.
+4. Items are ordered deterministically (numeric ascending; news newest-first); `metadata.yml` `order:` overrides.
+5. `metadata.yml` supplies per-folder `label`/`short`/`icon`, and `hidden`/`topbar-hidden`/`topbar-align` control visibility and placement.
 
-1. Define glob pattern in `_quarto.yml`
-2. Quarto auto-discovers files
-3. Menu items derived using Title Resolution Order
-4. Sorting is alphabetical (Quarto limitation)
-
-```yaml
-- section: "Technologies"
-  contents: "03.00-tech/**/*.md"
-```
-
-### For Explicit-List Sections
-
-1. List files explicitly in `_quarto.yml`
-2. Order determines display order (newest-first for dates)
-3. Menu items derived using Title Resolution Order
-4. Maintain manually when adding new content
-
-```yaml
-- section: "News & Updates"
-  contents:
-    - "01.00-news/20260130-topic/article.md"  # newest
-    - "01.00-news/20260124-topic/article.md"
-    - "01.00-news/20260111-topic/article.md"  # oldest
-```
-
-### Adding New Content to Explicit Lists
-
-1. Add new entry at **TOP** of list (for newest-first)
-2. Run `quarto preview` to verify
-3. Commit navigation changes with content
+Adding content = create the folder/file in the content source. It appears in the menu on the next request — no list to edit, no preview build, no commit to a navigation file.
 
 ---
 
@@ -283,10 +238,9 @@ Choose Bootstrap Icons semantically:
 - [ ] YAML title takes precedence when available
 
 ### Navigation Strategy
-- [ ] News sections use explicit lists (newest-first)
-- [ ] Non-date sections use globs (alphabetical)
+- [ ] News is presented newest-first (automatic)
 - [ ] Single-article folders collapsed
-- [ ] Icons selected semantically
+- [ ] Icons selected semantically (via metadata.yml or heuristic)
 
 ### Tolerance
 - [ ] Handles kebab-case names (`01.00-news/`)
@@ -298,7 +252,7 @@ Choose Bootstrap Icons semantically:
 ## References
 
 - **Internal**: [06-folder-organization-and-navigation.md](./06-folder-organization-and-navigation.md) — Folder naming conventions (prescriptive)
-- **External**: [Quarto Sidebar Documentation](https://quarto.org/docs/websites/website-navigation.html#side-navigation)
+- **Implementation**: `src/Learn.Web/Navigation/DynamicNavBuilder.cs`, `src/Learn.Web.Shared/Navigation/NavRules.cs`
 - **External**: [Bootstrap Icons](https://icons.getbootstrap.com/)
 
 ---
@@ -307,11 +261,12 @@ Choose Bootstrap Icons semantically:
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
+| 2.0.0 | 2026-07-20 | Reframed for the runtime dynamic navigation builder (removed Quarto/glob/_quarto.yml); rules now map to DynamicNavBuilder/NavRules + metadata.yml | System |
 | 1.1.0 | 2026-01-31 | Added standard separator format rule for date prefixes (` - `) | System |
 | 1.0.0 | 2026-01-31 | Initial version — separated from 06-folder-organization-and-navigation.md | System |
 
 <!--
 context_metadata:
-  version: "1.0.0"
-  last_updated: "2026-05-26"
+  version: "2.0.0"
+  last_updated: "2026-07-20"
 -->

@@ -153,7 +153,7 @@ Run validations in this order (skip if IQPilot handles automatically):
 ### Deploy
 
 1. Add article to appropriate content folder
-2. Update `_quarto.yml` if article should appear in navigation
+2. Navigation updates automatically — the runtime builder surfaces the folder/file (no config to edit)
 3. Commit and push
 4. Set review schedule: 90 days for technical, annually for concepts
 

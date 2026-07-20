@@ -1,6 +1,6 @@
 name: Deploy Learning Hub content to storage
 
-# Uploads the Markdown SOURCE (plus images and navigation.json) directly to the `learn`
+# Uploads the Markdown SOURCE (plus images) directly to the `learn`
 # container in storage account `digitoolstestmcstitn01`, then flushes the Learn.Web cache.
 #
 # There is NO Quarto build step: the Learn.Web app renders Markdown to HTML on demand
@@ -64,12 +64,9 @@ jobs:
       - name: Stage Markdown content
         shell: pwsh
         run: |
-          # Collect the site content (Markdown + images + navigation.json) into a staging
-          # folder that mirrors the repo-relative paths the app resolves at runtime, e.g.
-          # 01.00-news/x/overview.md and 01.00-news/x/images/*.png.
-          #
-          # navigation.json is taken as committed in the repo; regenerate it with
-          # scripts/generate-navigation.ps1 when the _quarto.yml sidebar changes.
+          # Collect the site content (Markdown + images) into a staging folder that mirrors the
+          # repo-relative paths the app resolves at runtime, e.g. 01.00-news/x/overview.md and
+          # 01.00-news/x/images/*.png. Navigation is built at runtime by the app — nothing to stage.
           $stage = "content-stage"
           Remove-Item -Recurse -Force $stage -ErrorAction SilentlyContinue
           New-Item -ItemType Directory -Path $stage | Out-Null
@@ -84,8 +81,8 @@ jobs:
             if (Test-Path $r) { Copy-Item -Path $r -Destination $stage -Recurse -Force }
           }
 
-          # Root-level content + the generated navigation menu.
-          $rootFiles = @("README.md", "getting-started.md", "documentation-index.md", "index.qmd", "navigation.json")
+          # Root-level content pages.
+          $rootFiles = @("README.md", "getting-started.md", "documentation-index.md")
           foreach ($f in $rootFiles) {
             if (Test-Path $f) { Copy-Item -Path $f -Destination $stage -Force }
           }

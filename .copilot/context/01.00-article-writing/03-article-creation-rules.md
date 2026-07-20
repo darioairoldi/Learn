@@ -124,7 +124,7 @@ Every article MUST identify its type and follow the corresponding structure patt
 ## 📋 Required Article Elements
 
 ### YAML Frontmatter (Top Block)
-**Purpose:** Quarto rendering metadata (NEVER modify from validation prompts)
+**Purpose:** Renderer frontmatter metadata (NEVER modify from validation prompts)
 
 ```yaml
 ---

@@ -57,7 +57,7 @@ boundaries:
   - "MUST obtain explicit implementation confirmation only for meta/architecture amendments or overwrites of existing content, not for clear-gap additive integration"
   - "MUST persist ALL working/intermediate artifacts (triage, coverage, plans, analyses, scope notes, ranked lists) in the active issue-folder's `_analysis/` working folder for non-published material"
   - "MUST mark every working/intermediate artifact with `publish: false` in its top YAML as the engine-neutral non-publish signal"
-  - "MUST NOT wire any working/intermediate artifact into `_quarto.yml` (`project.render` or `website.sidebar`) or `navigation.json` — only the reader-facing published article is added to navigation"
+  - "MUST NOT surface any working/intermediate artifact in navigation — only the reader-facing published article appears (the runtime builder excludes `_`/`.`-prefixed folders and `publish: false` files automatically)"
   - "MUST NOT modify top YAML metadata of existing articles during investigation updates"
   - "MUST NOT claim certainty when confidence is low"
 rationales:

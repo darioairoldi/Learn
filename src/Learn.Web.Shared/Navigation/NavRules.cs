@@ -91,8 +91,13 @@ public static class NavRules
         return n is "index" or "readme";
     }
 
-    /// <summary>Underscore- or dot-prefixed folders/files are working/infrastructure material (excluded).</summary>
-    public static bool IsExcludedName(string name) => name.StartsWith('_') || name.StartsWith('.');
+    /// <summary>
+    /// Non-navigable names: underscore-/dot-prefixed working or infrastructure material, and sidecar
+    /// changelog files (<c>*.changelog.md</c>), which are metadata, never reader-facing pages.
+    /// </summary>
+    public static bool IsExcludedName(string name) =>
+        name.StartsWith('_') || name.StartsWith('.') ||
+        name.EndsWith(".changelog.md", StringComparison.OrdinalIgnoreCase);
 
     /// <summary>Asset folders hold images/media, not navigable pages — they never form menu sections.</summary>
     public static bool IsAssetFolder(string name) =>

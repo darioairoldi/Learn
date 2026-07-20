@@ -16,7 +16,7 @@ Assess whether the target audience will understand the article's content, concep
 ## Critical Rules - Dual Metadata Blocks
 
 **IMPORTANT**: This repository uses dual metadata blocks:
-1. **Top YAML Block** (Quarto metadata): title, author, date, categories, etc.
+1. **Top YAML Block** (frontmatter metadata): title, author, date, categories, etc.
    - ❌ **NEVER MODIFY THIS BLOCK**
 2. **Bottom HTML Comment with YAML** (Article additional metadata): `<!-- \n---\nYAML\n---\n-->`
    - ✅ Update ONLY the `understandability` section

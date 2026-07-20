@@ -1,5 +1,5 @@
 ---
-# Quarto Metadata
+# Frontmatter metadata
 title: "Issue: [Brief Title]"
 author: "Your Name"
 date: "YYYY-MM-DD"

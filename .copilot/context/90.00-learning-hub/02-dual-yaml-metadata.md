@@ -5,7 +5,7 @@ domain: "learning-hub"
 goal: "Establish the canonical two-block metadata structure that decouples document rendering from internal validation tracking"
 scope:
   covers:
-    - "Top YAML block for document metadata (rendering, site generation)"
+    - "Top YAML block for document metadata (rendering, navigation)"
     - "Bottom HTML comment YAML block for validation metadata (hidden from readers)"
     - "Complete article structure with both blocks"
     - "Metadata vs. validation split rationale"
@@ -14,7 +14,7 @@ scope:
     - "Specific validation criteria per category (see 03-validation-criteria.md)"
     - "Reference classification schemes (see 04-reference-classification.md)"
 boundaries:
-  - "MUST keep top YAML reserved for static site generator frontmatter"
+  - "MUST keep top YAML reserved for the site renderer's frontmatter (title/author/date/etc.)"
   - "MUST NOT allow validation prompts to modify top YAML block"
   - "MUST ensure bottom block remains valid HTML comment"
   - "MUST treat top YAML as stable identity metadata: discourage edits, require explicit user request, allow autonomous edits only when provably additive and non-breaking"
@@ -29,7 +29,7 @@ rationales:
 
 All articles use **two metadata blocks** with clear separation:
 
-1. **Top YAML Block** — **stable / identity** metadata (visible, for rendering and site generation)
+1. **Top YAML Block** — **stable / identity** metadata (visible, for rendering and navigation)
 2. **Bottom HTML Comment with YAML** — **volatile / validation** metadata (hidden from rendering)
 
 The split is by **stability**, not merely by visibility:
@@ -38,7 +38,7 @@ The split is by **stability**, not merely by visibility:
 - **Bottom = volatile / validation metadata.** It is **generated and refreshed by the deterministic engine** (validation status, scores, timestamps). It changes constantly and carries no stable identity — nothing should depend on its exact prior value.
 
 **Key Benefits:**
-- ✅ Static site generators (Quarto, Hugo, Jekyll, etc.) render articles using top YAML
+- ✅ The site renderer (Learn.Web / Markdig) renders articles using the top YAML; any Markdown processor recognizes it
 - ✅ Bottom metadata completely hidden from readers
 - ✅ All metadata travels with article (no orphaned files)
 - ✅ YAML structure preserved for easy parsing
@@ -51,9 +51,9 @@ The split is by **stability**, not merely by visibility:
 ```markdown
 ---
 # TOP YAML BLOCK: Document Metadata
-# Purpose: Document rendering and site generation
+# Purpose: Document rendering and navigation
 # Modified by: Authors manually (NOT by validation prompts)
-# Used by: Static site generator (Quarto, Hugo, Jekyll, etc.), site navigation
+# Used by: The site renderer (Learn.Web / Markdig) + runtime navigation
 # Compatibility: Standard YAML frontmatter recognized by most Markdown processors
 title: "Your Article Title"
 author: "Author Name"
@@ -195,7 +195,7 @@ cross_references:
 - `draft`: Boolean — engine-specific draft flag; prefer `publish: false` for non-publication intent
 - `toc`: Boolean (table of contents)
 - `number-sections`: Boolean
-- Additional fields specific to your static site generator (Quarto, Hugo, Jekyll, etc.)
+- Additional fields recognized by the site renderer or standard Markdown processors
 
 ### When Authors Should Update Top YAML:
 
@@ -218,9 +218,9 @@ publish: false   # never publish — working/internal material
 ---
 ```
 
-`publish: false` is the **engine-neutral source of truth**: it states the intent directly and does not rely on any rendering engine's behavior. The publish pipeline (navigation builder, menu tooling, any static-site generator) MUST honor it. Pair it with a `_analysis/` working folder so the material is grouped and easy to remove, and never wire a `publish: false` file into the site's render/include list or navigation.
+`publish: false` is the **engine-neutral source of truth**: it states the intent directly and does not rely on any rendering engine's behavior. The publish pipeline (the runtime navigation builder and any menu tooling) MUST honor it. Pair it with a `_analysis/` working folder so the material is grouped and easy to remove, and never wire a `publish: false` file into navigation.
 
-> Prefer `publish: false` over engine-specific flags like `draft:` (Quarto renders drafts with a banner; Hugo and Jekyll exclude them — behavior varies), so the intent stays portable.
+> Prefer `publish: false` over engine-specific flags like `draft:` (draft handling varies across generators), so the intent stays portable and the runtime builder can honor it directly.
 
 **📖 Folder convention:** [06-folder-organization-and-navigation.md](./06-folder-organization-and-navigation.md) § Working / Intermediate Artifacts
 
@@ -337,8 +337,8 @@ Per-article change history is externalized to a **sibling changelog file**, mirr
 - **Reference + fallback.** `article_metadata.changelog:` MAY name the file explicitly. When the field is absent, tooling assumes the convention sibling `<article-stem>.changelog.md` **if a file with that name exists**; otherwise the article has no changelog yet.
 - **Single source of truth.** The sibling file is the ONLY place per-version history is recorded. The article's bottom metadata MUST NOT carry a parallel history.
 - **Not a normal article.** Changelog files are NOT subject to article structure/voice rules (TOC, introduction/conclusion, Microsoft voice, reference classification). They are governed by `changelog-files.instructions.md`.
-- **Not published.** Changelog files are excluded from the static-site render set (the Quarto `render:` allow-list never lists them), so they never appear on the published site.
-- **Hidden (best-effort).** Changelog files SHOULD carry the filesystem hidden attribute where the host supports it; this is a local Explorer convenience only (not versioned) — the durable "not published" guarantee comes from the render allow-list.
+- **Not published.** Changelog files are never wired into navigation and are excluded by the publish pipeline, so they never appear on the live site.
+- **Hidden (best-effort).** Changelog files SHOULD carry the filesystem hidden attribute where the host supports it; this is a local Explorer convenience only (not versioned) — the durable "not published" guarantee comes from not wiring them into navigation.
 - **Maintained by the review process.** The article-review process is the authoritative writer of changelog entries; see `documentation.instructions.md` § Article change history.
 
 ### ✅ Rules for Validation Prompts
@@ -431,7 +431,7 @@ write_file(article_path, updated_content)
 
 ### ❌ DON'T:
 
-- **NEVER modify top YAML block** (Quarto metadata)
+- **NEVER modify top YAML block** (renderer frontmatter)
 - Don't delete other validation sections
 - Don't change field names or structure
 - Don't remove sections you don't understand
@@ -579,7 +579,6 @@ effective:
 
 ## Reference Links
 
-- [Quarto YAML Options](https://quarto.org/docs/reference/formats/html.html)
 - [YAML Specification](https://yaml.org/spec/1.2/spec.html)
 - [HTML Comments](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started#html_comments)
 - Article templates: `.github/templates/*.md`
@@ -587,6 +586,6 @@ effective:
 
 <!--
 context_metadata:
-  version: "1.3.0"
-  last_updated: "2026-07-14"
+  version: "1.3.1"
+  last_updated: "2026-07-20"
 -->

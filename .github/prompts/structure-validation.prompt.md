@@ -13,7 +13,7 @@ Verify that the article follows the required template structure, includes all ma
 ## Critical Rules - Dual YAML Metadata
 
 **IMPORTANT**: This repository uses dual YAML blocks in articles:
-1. **Top YAML Block** (Quarto metadata): title, author, date, categories, etc.
+1. **Top YAML Block** (frontmatter metadata): title, author, date, categories, etc.
    - ❌ **NEVER MODIFY THIS BLOCK**
 2. **Bottom YAML Block** (Article additional metadata): grammar, readability, structure, etc.
    - ✅ Update ONLY the `structure` section in this block

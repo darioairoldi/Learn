@@ -24,7 +24,7 @@
 
 | Metadata Block | Status | Notes |
 |----------------|--------|-------|
-| Top YAML (Quarto) | ✅/❌ | |
+| Top YAML (frontmatter) | ✅/❌ | |
 | Bottom HTML (Validation) | ✅/❌ | |
 
 ## Reference Classification

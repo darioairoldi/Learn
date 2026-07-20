@@ -14,7 +14,6 @@ builder.Services.AddScoped(_ => new HttpClient { BaseAddress = new Uri(builder.H
 builder.Services.AddScoped<IContentSource, HttpContentSource>();
 builder.Services.AddScoped<IMarkdownRenderer, MarkdigMarkdownRenderer>();
 builder.Services.AddScoped<PageLoader>();
-builder.Services.AddScoped<NavigationService>();
 builder.Services.AddScoped<TocState>();
 builder.Services.AddScoped<ThemeState>();
 builder.Services.AddScoped<SidebarState>();

@@ -1,6 +1,6 @@
 ---
 name: learninghub-ensure-kebab-notation
-description: "Enforce full kebab-case naming repo-wide with quarto render validation loop"
+description: "Enforce full kebab-case naming repo-wide with a link-integrity validation loop"
 agent: agent
 model: claude-opus-4.6
 domain: "learning-hub"
@@ -16,11 +16,11 @@ argument-hint: '"full scan" for repo-wide, or path like "02.00-events/" for spec
 
 # Full Kebab-Case Naming Enforcement
 
-Enforce **100% kebab-case** for ALL content folders/files, update `_quarto.yml` and all references, and iteratively fix broken links via `quarto render`.
+Enforce **100% kebab-case** for ALL content folders/files, update all references, and iteratively fix broken links.
 
 ## Your Role
 
-You are a **naming convention enforcer** responsible for ensuring ALL folders and files use lowercase kebab-case with NO spaces. You MUST scan systematically, rename deepest-first to avoid path breaks, and validate with `quarto render` until clean.
+You are a **naming convention enforcer** responsible for ensuring ALL folders and files use lowercase kebab-case with NO spaces. You MUST scan systematically, rename deepest-first to avoid path breaks, and validate link integrity until clean.
 
 ## 🚨 CRITICAL BOUNDARIES
 
@@ -39,9 +39,9 @@ You are a **naming convention enforcer** responsible for ensuring ALL folders an
 
 3. **RENAME DEEPEST FIRST** — Avoid breaking parent paths during rename
 
-4. **UPDATE ALL REFERENCES** — Fix paths in `_quarto.yml`, instruction files, prompt files, and markdown files referencing renamed paths
+4. **UPDATE ALL REFERENCES** — Fix paths in instruction files, prompt files, and markdown files referencing renamed paths
 
-5. **RUN quarto render VALIDATION LOOP** — Parse warnings, fix broken links, repeat until clean
+5. **RUN A LINK-VALIDATION LOOP** — Check internal links (e.g. `scripts/check-links-enhanced.ps1`), fix broken references, repeat until clean
 
 ### ⚠️ Ask First
 
@@ -89,22 +89,21 @@ Execute renames using `Rename-Item`. Process deepest paths first to avoid breaki
 
 1. **Search for old paths:** Use `grep_search` to find all files referencing old folder names
 2. **Update paths:** Use `multi_replace_string_in_file` to batch update references
-3. **Priority files:** `_quarto.yml`, `.github/instructions/*.md`, `.github/prompts/**/*.md`, `.copilot/context/**/*.md`
+3. **Priority files:** `.github/instructions/*.md`, `.github/prompts/**/*.md`, `.copilot/context/**/*.md`
 
-### Phase 4: Quarto Render Validation Loop
+### Phase 4: Link Validation Loop
 
 ```powershell
-$output = quarto render 2>&1
-$warnings = $output | Select-String "WARN.*Unable to resolve|ERROR"
+$broken = & 'scripts/check-links-enhanced.ps1' 2>&1 | Select-String "broken|Unable to resolve|missing"
 ```
 
-**For each broken link:** Identify correct path → Update source file → Re-run render.
+**For each broken link:** Identify correct path → Update source file → Re-run the check.
 
-**Repeat until:** No warnings remain.
+**Repeat until:** No broken links remain.
 
 ### Phase 5: Summary
 
-Report: folders renamed, files renamed, reference updates, link fixes, final render status.
+Report: folders renamed, files renamed, reference updates, link fixes, final link status.
 
 ## Response Management
 
@@ -112,7 +111,7 @@ Report: folders renamed, files renamed, reference updates, link fixes, final ren
 |----------|--------|
 | **Rename fails** | Report file in use, wait 2 seconds, retry once |
 | **Target exists** | Report conflict, ask user for resolution |
-| **Broken link in render** | Auto-fix if path is clear, else ask user |
+| **Broken link** | Auto-fix if path is clear, else ask user |
 | **>30 items** | Present full list, get explicit confirmation |
 | **Reference not found** | Log warning, continue with other references |
 | **Unknown folder type** | Ask user if folder should be renamed |
@@ -124,7 +123,7 @@ Report: folders renamed, files renamed, reference updates, link fixes, final ren
 | `run_in_terminal` fails | Check path exists, retry with escaped paths |
 | `grep_search` returns no results | Verify folder names, try broader pattern |
 | `replace_string_in_file` fails | Read file to verify content, retry with exact match |
-| `quarto render` hangs | Kill process after 5 min, report partial results |
+| link check hangs | Kill process after 5 min, report partial results |
 | Case-only rename is a no-op | On case-insensitive filesystems (Windows), rename via a temporary name first (`BRK-Sessions` → `brk-sessions-tmp` → `brk-sessions`) so the change is tracked by git |
 
 ## Test Scenarios
@@ -134,7 +133,7 @@ Report: folders renamed, files renamed, reference updates, link fixes, final ren
 3. **Nested uppercase:** `02.00-events/202506-build-2025/BRK - Sessions/` → `02.00-events/202506-build-2025/brk-sessions/`
 4. **Already valid:** `05.02-prompt-engineering/` → No changes
 5. **Reference update:** Update `applyTo` in instruction files after rename
-6. **Quarto link recovery:** Parse `WARN: Unable to resolve`, fix path, re-render
+6. **Broken-link recovery:** Detect an unresolved link, fix the path, re-check
 7. **Skip root infrastructure:** `.github/` folder itself → NOT renamed (only subfolders)
 
 <!--

@@ -61,7 +61,7 @@ Description (2-4 sentences): what it covers, why valuable, when to use it.
 Articles use **two metadata blocks**—never confuse them:
 
 ### Top YAML (File Start)
-**Purpose:** Quarto rendering metadata  
+**Purpose:** Frontmatter rendering metadata  
 **Who edits:** Authors manually  
 **❌ NEVER modify from validation prompts**
 

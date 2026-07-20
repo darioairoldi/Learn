@@ -450,27 +450,23 @@ Different users navigate differently. Design for multiple journeys:
 
 ### Navigation patterns in this repository
 
-From [_quarto.yml](../../_quarto.yml):
+Navigation is built **at runtime** from the live folder hierarchy — there is no navigation config file to
+maintain. Each top-level content area is a numbered folder, and the menu mirrors the tree:
 
-```yaml
-website:
-  sidebar:
-    contents:
-      - section: "News"
-        contents: "01.00-news/**"
-      - section: "Events"
-        contents: "02.00-events/**"
-      - section: "Technical"
-        contents: "03.00-tech/**"
-      - section: "How-To"
-        contents: "04.00-howto/**"
+```text
+01.00-news/        → News
+02.00-events/      → Events
+03.00-tech/        → Technical
+04.00-howto/       → How-To
 ```
+
+An optional per-folder `metadata.yml` overrides the derived label, icon, order, and visibility.
 
 **Design rationale:**
 - **Numbered prefixes** enforce ordering (Category + Hierarchy)
 - **Date prefixes** on folders provide chronological context (Time)
 - **Topic sections** group related content (Category)
-- **Automatic sidebar** from Quarto reduces maintenance
+- **Automatic navigation** from the folder hierarchy reduces maintenance
 
 ## 📄 Page structure patterns
 
@@ -1009,10 +1005,10 @@ Reordering changes the prerequisite chain and reading paths. Minimize disruption
 
 ### Navigation design
 
-From [_quarto.yml](../../_quarto.yml):
-- **Sidebar:** Auto-generated from folder structure
-- **TOCs:** Manual in major articles
-- **Breadcrumbs:** Via Quarto navigation
+Navigation is generated at runtime by the app (Learn.Web / DynamicNavBuilder):
+- **Sidebar:** Auto-generated from the folder structure
+- **TOCs:** Generated per page from headings
+- **Breadcrumbs:** Built from the content hierarchy
 - **Cross-references:** Markdown links with descriptive text
 
 ### Structural standards
@@ -1020,7 +1016,7 @@ From [_quarto.yml](../../_quarto.yml):
 From [documentation.instructions.md](../../.github/instructions/documentation.instructions.md):
 
 **Required article elements:**
-1. YAML front matter (Quarto metadata)
+1. YAML front matter (renderer frontmatter)
 2. Title matching filename
 3. Table of Contents (for articles > 500 words)
 4. Introduction stating scope
@@ -1096,14 +1092,14 @@ Topic-based authoring principles for web-era documentation, arguing every topic 
 
 ### Repository-specific documentation
 
-**[_quarto.yml](../../_quarto.yml)** [Internal Reference]  
-This repository's navigation configuration and site structure.
+**[07-sidebar-menu-rules.md](../../.copilot/context/90.00-learning-hub/07-sidebar-menu-rules.md)** [Internal Reference]  
+This repository's runtime navigation rules (built by Learn.Web / DynamicNavBuilder).
 
 **[Documentation Instructions - Structure](../../.github/instructions/documentation.instructions.md#structure)** [Internal Reference]  
 Required article elements and structural standards for this repository.
 
-**[generate-navigation.ps1](../../scripts/generate-navigation.ps1)** [Internal Reference]  
-Script for generating navigation structure from folder hierarchy.
+**[DynamicNavBuilder.cs](../../src/Learn.Web/Navigation/DynamicNavBuilder.cs)** [Internal Reference]  
+Builds the navigation at runtime from the folder hierarchy.
 
 ---
 

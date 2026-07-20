@@ -1,8 +1,8 @@
 ---
 title: "Repository Configuration (appsettings.json) and External Material Resolution"
 description: "Defines the .NET-style layered appsettings.json configuration model for Learning Hub — environment + folder-depth + internal/external + non-versioned user precedence — and how non-public session material (video, slides, transcripts) in an external repository mirror is resolved automatically"
-version: "1.1.0"
-last_updated: "2026-06-14"
+version: "1.1.1"
+last_updated: "2026-07-20"
 domain: "learning-hub"
 goal: "Codify a deterministic, .NET-analogous configuration layering so private/non-shareable material can live in an external repository mirror and be resolved automatically without polluting the public repo"
 scope:
@@ -16,7 +16,7 @@ scope:
     - "External material resolution (transcript/video/slides) by mirrored relative path"
   excludes:
     - "Folder naming conventions (see 06-folder-organization-and-navigation.md)"
-    - "Quarto rendering configuration (see _quarto.yml)"
+    - "Runtime rendering/navigation (see Learn.Web / DynamicNavBuilder)"
     - "Dual article metadata (see 02-dual-yaml-metadata.md)"
 boundaries:
   - "MUST treat the public repo (Learn) as the base layer and never require private values to live in it"

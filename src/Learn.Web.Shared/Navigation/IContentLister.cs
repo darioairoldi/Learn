@@ -31,3 +31,6 @@ public sealed record NavChild(
 
 /// <summary>A flattened navigable article (leaf) with its section breadcrumb — used by menu search.</summary>
 public sealed record NavLeaf(string Text, string Route, string Path);
+
+/// <summary>One breadcrumb segment: display text and an optional link route.</summary>
+public sealed record Crumb(string Text, string? Route);

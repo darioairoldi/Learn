@@ -216,7 +216,7 @@ Run `article-review-series-for-consistency-gaps-and-extensions.prompt.md` which 
 ### Phase 6: Publish
 
 1. Publish articles in order (00 first)
-2. Add all articles to `_quarto.yml` navigation
+2. Navigation updates automatically — the runtime builder surfaces each article (no config to edit)
 3. Validate all cross-links work
 4. Update series overview (article 00) with final article list
 

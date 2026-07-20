@@ -262,7 +262,7 @@ Proceed with Phase 6? (yes/no)
 
 ## Article Dual YAML Metadata Structure
 
-**Top YAML Block** (Quarto metadata - lines 1-10):
+**Top YAML Block** (frontmatter metadata - lines 1-10):
 ```yaml
 ---
 title: "[Article Title]"

@@ -72,7 +72,7 @@ The dual metadata system uses <mark>two separate YAML blocks</mark>—one for
 rendering, one for validation tracking.
 
 <mark>Never modify the top YAML block</mark> from validation prompts—it's 
-reserved for Quarto frontmatter.
+reserved for renderer frontmatter.
 
 Authentication tokens have a <mark>24-hour expiration</mark> regardless of 
 activity.

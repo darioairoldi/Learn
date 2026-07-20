@@ -10,6 +10,10 @@ description: "A short overview that ties the Learning Hub's five sibling visions
 
 The Learning Hub grew five sibling visions — a **self-updating engine**, a **cost-control** strategy, **TuneIQ**, **self-updating prompt engineering**, and **autonomous streams**. Read separately they look like five projects. Read together they're one bet: *own the loop that turns using AI into accumulating your own intelligence.* This overview names that bet and points to where each part lives.
 
+> **This page is the "why."** For the full three-layer picture — Platform, Content Engine, Learning Loop —
+> plus current implementation and next steps, see the canonical
+> [Learning Hub definition](../learning-hub/00-learning-hub.md).
+
 > **The frame comes from an essay.** The [Reverse Information Paradox](../../01.00-news/20260716.01-reverse-paradox/overview.md) (Satya Nadella, *sn scratchpad*, 2026) argues that using an AI model quietly transfers the knowledge that makes you unique — unless you keep your learning inside a boundary you control. The Hub reached the same architecture independently — and nothing in it is tied to a single person: the same design serves a community that shares and grows the knowledge together. This page borrows the essay's vocabulary because it names what the Hub already does.
 
 ## Table of contents

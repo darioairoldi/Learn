@@ -51,7 +51,7 @@ Load these context files before writing:
 ### ✅ Always Do
 - Read research report or improvement specification completely before writing
 - Follow Diátaxis type structure for each article (tutorial/how-to/reference/explanation)
-- Include both YAML metadata blocks (top Quarto + bottom validation HTML comment)
+- Include both YAML metadata blocks (top frontmatter + bottom validation HTML comment)
 - Apply emoji prefixes on all H2 headings
 - Classify all references using emoji system (📘 Official, 📗 Verified Community, 📒 Community, 📕 Unverified)
 - Use contractions, second person, sentence-style capitalization consistently
@@ -75,7 +75,7 @@ Load these context files before writing:
 
 ### 🚫 Never Do
 - **NEVER create articles without research phase input** — require research report or specification
-- **NEVER modify the top YAML block** of existing articles (Quarto metadata: title, author, date, categories)
+- **NEVER modify the top YAML block** of existing articles (frontmatter metadata: title, author, date, categories)
 - **NEVER skip required article elements** (YAML, TOC, intro, body, conclusion, references, metadata)
 - **NEVER add unverified claims without 📕 classification**
 - **NEVER delete existing content** — move deprecated information to appendix sections

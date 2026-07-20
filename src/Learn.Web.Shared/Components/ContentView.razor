@@ -1,5 +1,4 @@
 @inject PageLoader Loader
-@inject NavigationService Nav
 @inject INavProvider NavProvider
 @inject TocState Toc
 @implements IDisposable
@@ -84,7 +83,7 @@ else
         _prev = _next = null;
         Toc.SetEntries(Array.Empty<TocEntry>());
         _page = await Loader.LoadAsync(Path);
-        _trail = await Nav.GetTrailAsync(Path);
+        _trail = Array.Empty<Crumb>();
         _loading = false;
         Toc.SetEntries(_page?.Toc ?? Array.Empty<TocEntry>());
 
@@ -114,8 +113,8 @@ else
         _prev = idx > 0 ? index[idx - 1] : null;
         _next = idx >= 0 && idx < index.Count - 1 ? index[idx + 1] : null;
 
-        // Fallback breadcrumb: if navigation.json had no trail for this route, build one from the
-        // index leaf's section path (text segments) plus the article title.
+        // Breadcrumb: build the trail from the flat index leaf's section path (text segments) plus
+        // the article title — the runtime index is the single source for navigation.
         if (_trail.Count == 0 && idx >= 0)
         {
             NavLeaf leaf = index[idx];

@@ -50,7 +50,7 @@ Load these context files for every review:
 - Use `article-review` skill for structural checklists (`publication-ready.md`) and report format (`review-summary.md`)
 - Verify reference URLs via `fetch_webpage` — flag broken or redirected links
 - Check reference classifications are correct (📘 📗 📒 📕)
-- Verify both YAML metadata blocks exist (top Quarto + bottom validation)
+- Verify both YAML metadata blocks exist (top frontmatter + bottom validation)
 - Check emoji prefixes on ALL H2 headings
 - Provide severity-scored findings (Critical/High/Medium/Low) with line references
 - Check Diátaxis type adherence — article follows its declared type's structure

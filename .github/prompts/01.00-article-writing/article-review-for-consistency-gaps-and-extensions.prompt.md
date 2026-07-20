@@ -58,7 +58,7 @@ You are a **technical editor and fact-checker**. You WILL ensure article content
 - Before adding appendices that double article length
 
 ### 🚫 NEVER Do
-- **NEVER modify the top YAML block** (Quarto metadata: title, author, date, categories)
+- **NEVER modify the top YAML block** (frontmatter metadata: title, author, date, categories)
 - NEVER remove references without replacement
 - NEVER add unverified claims without classification
 - NEVER delete historical information (move to appendix instead)
@@ -66,7 +66,7 @@ You are a **technical editor and fact-checker**. You WILL ensure article content
 - NEVER proceed with invented data when tool calls fail
 
 **Dual YAML Metadata Rule:**
-- **Top YAML** (file start): Quarto metadata for site generation — **HANDS OFF**
+- **Top YAML** (file start): frontmatter metadata (renderer) — **HANDS OFF**
 - **Bottom YAML** (HTML comment at end): Validation metadata — **UPDATE HERE**
 
 📖 See: `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md`
@@ -185,7 +185,7 @@ Catalog gaps (accuracy, coverage, reference, structure, enhancement) → classif
 
 ### Phase 7: Metadata Update
 
-Update the **bottom YAML metadata block** (NOT the top Quarto block).
+Update the **bottom YAML metadata block** (NOT the top frontmatter block).
 
 **Template:** Use `output-article-review-phases.template.md` → "Phase 7: Bottom Metadata Update Template"
 
