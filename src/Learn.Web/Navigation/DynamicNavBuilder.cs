@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using Diginsight.Diagnostics;
 using Learn.Web.Shared.Navigation;
 using Microsoft.Extensions.Caching.Memory;
@@ -14,6 +15,12 @@ namespace Learn.Web.Navigation;
 public sealed class DynamicNavBuilder(IContentLister lister, IMemoryCache cache, ILogger<DynamicNavBuilder> logger)
 {
     private static long _version = 1;
+
+    // In-flight builds coalesced per cache key: concurrent identical requests (e.g. the sidebar and
+    // both top-bar halves all asking for the root during one prerender, or several browser tabs)
+    // share a single build instead of each doing the full filesystem walk (cache-stampede avoidance).
+    private readonly ConcurrentDictionary<string, Task<IReadOnlyList<NavChild>>> _childrenInFlight = new();
+    private readonly ConcurrentDictionary<string, Task<IReadOnlyList<NavLeaf>>> _indexInFlight = new();
 
     /// <summary>Current nav version; bumps on <see cref="Invalidate"/>.</summary>
     public static long Version => Interlocked.Read(ref _version);
@@ -41,7 +48,23 @@ public sealed class DynamicNavBuilder(IContentLister lister, IMemoryCache cache,
             return cached;
         }
 
-        IReadOnlyList<NavChild> built = await BuildLevelAsync(prefix, ct);
+        // Coalesce concurrent misses for the same level onto one build (see _childrenInFlight).
+        Task<IReadOnlyList<NavChild>> build = _childrenInFlight.GetOrAdd(key, k => BuildAndCacheChildrenAsync(k, prefix));
+        try
+        {
+            return await build.WaitAsync(ct);
+        }
+        finally
+        {
+            _childrenInFlight.TryRemove(new KeyValuePair<string, Task<IReadOnlyList<NavChild>>>(key, build));
+        }
+    }
+
+    private async Task<IReadOnlyList<NavChild>> BuildAndCacheChildrenAsync(string key, string prefix)
+    {
+        // Built with a shared lifetime (CancellationToken.None) so one caller cancelling does not
+        // abort the build the other coalesced callers are awaiting.
+        IReadOnlyList<NavChild> built = await BuildLevelAsync(prefix, CancellationToken.None);
         cache.Set(key, built, new MemoryCacheEntryOptions { SlidingExpiration = TimeSpan.FromSeconds(60) });
         return built;
     }
@@ -57,8 +80,22 @@ public sealed class DynamicNavBuilder(IContentLister lister, IMemoryCache cache,
             return cached;
         }
 
+        // Coalesce concurrent misses onto one whole-tree walk (the walk is the expensive cold path).
+        Task<IReadOnlyList<NavLeaf>> build = _indexInFlight.GetOrAdd(key, k => BuildAndCacheIndexAsync(k));
+        try
+        {
+            return await build.WaitAsync(ct);
+        }
+        finally
+        {
+            _indexInFlight.TryRemove(new KeyValuePair<string, Task<IReadOnlyList<NavLeaf>>>(key, build));
+        }
+    }
+
+    private async Task<IReadOnlyList<NavLeaf>> BuildAndCacheIndexAsync(string key)
+    {
         var leaves = new List<NavLeaf>();
-        await WalkAsync(string.Empty, string.Empty, leaves, ct);
+        await WalkAsync(string.Empty, string.Empty, leaves, CancellationToken.None);
         cache.Set(key, (IReadOnlyList<NavLeaf>)leaves,
             new MemoryCacheEntryOptions { SlidingExpiration = TimeSpan.FromMinutes(15) });
         return leaves;

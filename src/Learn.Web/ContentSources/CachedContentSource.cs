@@ -16,11 +16,11 @@ namespace Learn.Web.ContentSources;
 /// to the inner source unchanged (navigation keeps its own cache).
 /// </para>
 /// </summary>
-public sealed class SmartCacheContentSource(
+public sealed class CachedContentSource(
     IContentSource inner,
     ISmartCache smartCache,
     ICacheKeyService cacheKeyService,
-    ILogger<SmartCacheContentSource> logger) : IContentSource, IContentLister
+    ILogger<CachedContentSource> logger) : IContentSource, IContentLister
 {
     public async Task<ContentResult?> GetAsync(string contentKey, CancellationToken ct = default)
     {
@@ -33,15 +33,15 @@ public sealed class SmartCacheContentSource(
         }
 
         // Freshness (MaxAge / expirations) comes from Diginsight:SmartCache config — including the
-        // class-aware MaxAge@SmartCacheContentSource override — via the caller type below.
+        // class-aware MaxAge@CachedContentSource override — via the caller type below.
         var options = new SmartCacheOperationOptions();
-        var key = new MethodCallCacheKey(cacheKeyService, typeof(SmartCacheContentSource), nameof(GetAsync), contentKey);
+        var key = new MethodCallCacheKey(cacheKeyService, typeof(CachedContentSource), nameof(GetAsync), contentKey);
 
         CachedContent envelope = await smartCache.GetAsync(
             key,
             async innerCt => new CachedContent(await inner.GetAsync(contentKey, innerCt)),
             options,
-            callerType: typeof(SmartCacheContentSource),
+            callerType: typeof(CachedContentSource),
             cancellationToken: ct);
 
         return envelope.Result;

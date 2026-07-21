@@ -77,7 +77,7 @@ public class Program
 
             // SmartCache over the content source (Diginsight convention). Core options bind from
             // Diginsight:SmartCache (MaxAge / AbsoluteExpiration / SlidingExpiration + class-aware
-            // overrides like MaxAge@SmartCacheContentSource). Always on; distributed sync is opt-in:
+            // overrides like MaxAge@CachedContentSource). Always on; distributed sync is opt-in:
             //   • Diginsight:SmartCache:ServiceBus (ConnectionString + TopicName) → Service Bus companion
             //   • Diginsight:SmartCache:Redis:Configuration → Redis passive backing store
             services.ConfigureClassAware<SmartCacheCoreOptions>(configuration.GetSection("Diginsight:SmartCache"));
@@ -116,11 +116,11 @@ public class Program
                 });
             }
 
-            services.AddSingleton<IContentSource>(sp => new SmartCacheContentSource(
+            services.AddSingleton<IContentSource>(sp => new CachedContentSource(
                 CreatePhysicalContentSource(sp),
                 sp.GetRequiredService<ISmartCache>(),
                 sp.GetRequiredService<ICacheKeyService>(),
-                sp.GetRequiredService<ILogger<SmartCacheContentSource>>()));
+                sp.GetRequiredService<ILogger<CachedContentSource>>()));
 
             services.AddScoped<IMarkdownRenderer, MarkdigMarkdownRenderer>();
             services.AddScoped<PageLoader>();

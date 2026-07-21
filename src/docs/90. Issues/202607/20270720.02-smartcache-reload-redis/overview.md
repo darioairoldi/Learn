@@ -152,7 +152,7 @@ runs standalone, so it needs the **default local companion** to remain in place.
 |------|------|
 | `src/Learn.Web/appsettings.json` | `Diginsight:SmartCache` configuration section |
 | `src/Learn.Web/Program.cs` | SmartCache registration + companion wiring |
-| `src/Learn.Web/ContentSources/SmartCacheContentSource.cs` | Cache decorator over `IContentSource` |
+| `src/Learn.Web/ContentSources/CachedContentSource.cs` | Cache decorator over `IContentSource` |
 | `src/Learn.Web/ContentOptions.cs` | Removed the obsolete `Content:Cache` options |
 | `src/Learn.Web/Learn.Web.csproj` | SmartCache package references |
 
@@ -172,7 +172,7 @@ block that came in with the reference paste (Cosmos-specific, unused here).
   "SmartCache": {
     "MaxAge": "00:05",
     // Class-aware override example (freshness per caller type):
-    // "MaxAge@SmartCacheContentSource": "12:00",
+    // "MaxAge@CachedContentSource": "12:00",
     "AbsoluteExpiration": "1",
     "SlidingExpiration": "04:00",
     "ServiceBus": {
@@ -232,10 +232,10 @@ if (!string.IsNullOrWhiteSpace(smartCacheRedis))
 
 ### Fix #3 — config-driven `MaxAge` in the cache decorator
 
-`SmartCacheContentSource` no longer takes a `maxAge` constructor argument. It issues
-`new SmartCacheOperationOptions()` and passes `callerType: typeof(SmartCacheContentSource)`, so the
+`CachedContentSource` no longer takes a `maxAge` constructor argument. It issues
+`new SmartCacheOperationOptions()` and passes `callerType: typeof(CachedContentSource)`, so the
 freshness window comes from configuration — the global `Diginsight:SmartCache:MaxAge` (`00:05`) plus the
-optional class-aware override `MaxAge@SmartCacheContentSource`.
+optional class-aware override `MaxAge@CachedContentSource`.
 
 ### Why these fixes
 
@@ -252,9 +252,9 @@ optional class-aware override `MaxAge@SmartCacheContentSource`.
 
 - **Runtime verification (Diginsight log).** Two requests for the same file produced the expected
   sequence:
-  - Request 1 → `SmartCacheContentSource.GetAsync` → `SmartCache.GetAsync` **Cache miss** →
+  - Request 1 → `CachedContentSource.GetAsync` → `SmartCache.GetAsync` **Cache miss** →
     `FileSystemContentSource.GetAsync` (reads file) → `SmartCache.SetValue`.
-  - Request 2 → **Cache hit** (`callerType:SmartCacheContentSource`; minimum creation date =
+  - Request 2 → **Cache hit** (`callerType:CachedContentSource`; minimum creation date =
     `now − 5min`, exactly the `MaxAge=00:05` window).
 - **Console is disabled in dev** (`Observability:ConsoleEnabled=false`); verification relies on
   `%USERPROFILE%\LogFiles\Diginsight\Learn.Web.<yyyyMMdd>.log`, not stdout.
@@ -263,7 +263,7 @@ optional class-aware override `MaxAge@SmartCacheContentSource`.
   in single-instance deployments.
 - **Reload / freshness consideration (open).** Global `MaxAge` is `00:05`. In dev, the FileSystem
   source uses `WatchForChanges`, but SmartCache is **not** invalidated on file change — an edited
-  Markdown file can be up to 5 minutes stale. The class-aware `MaxAge@SmartCacheContentSource`
+  Markdown file can be up to 5 minutes stale. The class-aware `MaxAge@CachedContentSource`
   override is left commented as the tuning knob; a change-driven invalidation hook is a possible
   future improvement.
 
@@ -279,10 +279,10 @@ optional class-aware override `MaxAge@SmartCacheContentSource`.
 - [x] Unrelated `QueryCostMetricRecorder` reference-paste block removed
 - [x] `Program.cs` wires the Service Bus companion only when configured; default local companion kept
 - [x] Opt-in Redis backing store wired only when `Redis:Configuration` is non-empty
-- [x] `SmartCacheContentSource` uses config-driven `MaxAge` (no `maxAge` ctor arg)
+- [x] `CachedContentSource` uses config-driven `MaxAge` (no `maxAge` ctor arg)
 - [x] Build succeeds (0 errors; 2 pre-existing `CS8604` nullable-logger warnings, unrelated)
 - [x] Server boots cleanly (DI ValidateOnBuild passes with the default local companion)
-- [x] Log confirms **Cache miss → Cache hit** through `SmartCacheContentSource`
+- [x] Log confirms **Cache miss → Cache hit** through `CachedContentSource`
 - [x] Headed browser smoke test: **11/12** checks pass (the 12th is an expected `index.md` probe 404)
 
 **Follow-up actions:**
@@ -345,7 +345,7 @@ while attempting to activate 'Diginsight.SmartCache.SmartCache'.
 |------|--------|
 | `src/Learn.Web/appsettings.json` | Single `Diginsight:SmartCache` block; removed duplicate + `QueryCostMetricRecorder` |
 | `src/Learn.Web/Program.cs` | `ConfigureClassAware<SmartCacheCoreOptions>`; conditional Service Bus companion; opt-in Redis |
-| `src/Learn.Web/ContentSources/SmartCacheContentSource.cs` | Config-driven `MaxAge` (removed ctor arg) |
+| `src/Learn.Web/ContentSources/CachedContentSource.cs` | Config-driven `MaxAge` (removed ctor arg) |
 | `src/Learn.Web/ContentOptions.cs` | Removed obsolete `Content:Cache` / `CacheOptions` / `RedisOptions` |
 | `src/Learn.Web/Learn.Web.csproj` | Added `.Externalization.Http` + `.Externalization.ServiceBus` package refs |
 
