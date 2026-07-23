@@ -164,11 +164,16 @@ public class Program
                 .AddAdditionalAssemblies(typeof(Learn.Web.Client.Marker).Assembly);
         }
 
-        // Warm the navigation index in the background so the first request (and the breadcrumb /
-        // prev-next it feeds) does not pay the full tree walk on the request path.
+        // Warm the navigation index and every per-level cache entry in the background so the first
+        // request (and expand-all) does not pay cold origin fetches on the request path.
         _ = Task.Run(async () =>
         {
-            try { await app.Services.GetRequiredService<INavBuilder>().GetIndexAsync(); }
+            try
+            {
+                var cachedNav = app.Services.GetRequiredService<CachedDynamicNavBuilder>();
+                await cachedNav.GetIndexAsync();
+                await cachedNav.WarmAllLevelsAsync();
+            }
             catch { /* best-effort warm-up */ }
         });
 

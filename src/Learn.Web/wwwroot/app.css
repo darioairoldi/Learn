@@ -1114,6 +1114,33 @@ body {
     padding: 0.5rem;
 }
 
+/* Thin indeterminate progress bar shown while a nav level is loading */
+.nav-level-loading {
+    height: 2px;
+    margin: 0.35rem 0.5rem 0.2rem;
+    background: var(--border);
+    border-radius: 1px;
+    overflow: hidden;
+    position: relative;
+}
+
+.nav-level-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -30%;
+    height: 100%;
+    width: 30%;
+    background: var(--accent, teal);
+    border-radius: 1px;
+    animation: nav-level-slide 1.2s ease-in-out infinite;
+}
+
+@keyframes nav-level-slide {
+    0% { left: -30%; }
+    100% { left: 100%; }
+}
+
 /* ---- bottombar ---- */
 .bottombar {
     display: flex;

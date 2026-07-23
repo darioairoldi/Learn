@@ -25,11 +25,20 @@ public static class NavEndpoints
         return app;
     }
 
-    private static async Task<IResult> GetNavChildrenAsync(string? prefix, INavBuilder nav, CancellationToken ct)
+    private static async Task<IResult> GetNavChildrenAsync(string? prefix, INavBuilder nav, CachedDynamicNavBuilder cachedNav, CancellationToken ct)
     {
         using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefix });
 
-        return Results.Json(await nav.GetChildrenAsync(prefix ?? string.Empty, ct));
+        var children = await nav.GetChildrenAsync(prefix ?? string.Empty, ct);
+
+        // Fire-and-forget: warm +2 levels deeper so the next expand is instant.
+        _ = Task.Run(async () =>
+        {
+            try { await cachedNav.WarmLevelsAsync(prefix ?? string.Empty, 3, CancellationToken.None); }
+            catch { /* best-effort */ }
+        });
+
+        return Results.Json(children);
     }
 
     private static IResult GetNavVersion()

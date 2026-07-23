@@ -51,13 +51,10 @@ public sealed class CachedDynamicNavBuilder(
 
         // Path-addressed key: Invalidate(path) drops this level when the changed path is on its branch.
         // CoalesceRacingCacheMisses gives the cache-stampede protection that used to be a manual
-        // ConcurrentDictionary; SlidingExpiration mirrors the previous 60s idle eviction (MaxAge still
-        // inherits Diginsight:SmartCache config).
-        var options = new SmartCacheOperationOptions
-        {
-            CoalesceRacingCacheMisses = true,
-            SlidingExpiration = TimeSpan.FromSeconds(60),
-        };
+        // ConcurrentDictionary. Freshness (MaxAge / SlidingExpiration / AbsoluteExpiration) comes from
+        // Diginsight:SmartCache config — including any class-aware override such as
+        // SlidingExpiration@CachedDynamicNavBuilder — resolved via the caller type below.
+        var options = new SmartCacheOperationOptions { CoalesceRacingCacheMisses = true };
         var key = new ContentPathCacheKey("nav-level", prefix);
 
         string levelPrefix = prefix;
@@ -75,14 +72,10 @@ public sealed class CachedDynamicNavBuilder(
     {
         using var activity = Observability.ActivitySource.StartMethodActivity(logger);
 
-        // The whole-tree walk is the expensive cold path, so coalesce racing misses and hold the
-        // result longer (15 min idle) than a single level. Keyed at the root path so any content
-        // change invalidates it.
-        var options = new SmartCacheOperationOptions
-        {
-            CoalesceRacingCacheMisses = true,
-            SlidingExpiration = TimeSpan.FromMinutes(15),
-        };
+        // The whole-tree walk is the expensive cold path, so coalesce racing misses. Freshness comes
+        // from Diginsight:SmartCache config (class-aware via CachedDynamicNavBuilder), keyed at the
+        // root path so any content change invalidates it.
+        var options = new SmartCacheOperationOptions { CoalesceRacingCacheMisses = true };
         var key = new ContentPathCacheKey("nav-index", string.Empty);
 
         NavIndexEnvelope envelope = await smartCache.GetAsync(
@@ -93,6 +86,35 @@ public sealed class CachedDynamicNavBuilder(
             cancellationToken: ct);
 
         return envelope.Items;
+    }
+
+    /// <summary>
+    /// Pre-warms every nav level through the cache by recursively calling <see cref="GetChildrenAsync"/>
+    /// for every section prefix at each depth. Call after startup so expand-all is instant.
+    /// </summary>
+    public Task WarmAllLevelsAsync(CancellationToken ct = default)
+        => WarmLevelAsync(string.Empty, int.MaxValue, ct);
+
+    /// <summary>
+    /// Pre-warms nav levels starting at <paramref name="prefix"/> down to <paramref name="depth"/> additional levels.
+    /// Use to ensure N+2 levels ahead of a selected node are cache-hot.
+    /// </summary>
+    public Task WarmLevelsAsync(string prefix, int depth, CancellationToken ct = default)
+        => depth <= 0 ? Task.CompletedTask : WarmLevelAsync(prefix, depth, ct);
+
+    private async Task WarmLevelAsync(string prefix, int remainingDepth, CancellationToken ct)
+    {
+        if (remainingDepth <= 0) return;
+
+        var children = await GetChildrenAsync(prefix, ct);
+
+        foreach (var child in children)
+        {
+            if (child.IsSection && child.Prefix is not null)
+            {
+                await WarmLevelAsync(child.Prefix, remainingDepth - 1, ct);
+            }
+        }
     }
 
     /// <summary>Serializable envelope so a built level round-trips through SmartCache (incl. Redis).</summary>

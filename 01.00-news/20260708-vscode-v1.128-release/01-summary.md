@@ -128,6 +128,8 @@ bring-your-own-key support. Release 1.128 deepens the Agents window into a
 multi-chat, subagent-aware workspace and graduates Copilot Vision to general
 availability.
 
+**Next release:** [What's new in VS Code 1.130](../20260722-vscode-v1.130-release/01-summary.md) — Agent Host architecture, assisted tool approvals, cross-harness worktrees, TypeScript 7.
+
 ## References
 
 **[Visual Studio Code 1.128 release notes](https://code.visualstudio.com/updates/v1_128)** 📘 [Official]

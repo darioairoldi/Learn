@@ -43,7 +43,7 @@ The menu is built **one level at a time** from the live content hierarchy; conte
 
 | Concern | Server (prerender) | WASM (browser) |
 |---|---|---|
-| **Menu** | [ServerNavProvider](../../../../../src/Learn.Web/Navigation/ServerNavProvider.cs) → [DynamicNavBuilder](../../../../../src/Learn.Web/Navigation/DynamicNavBuilder.cs) | [HttpNavProvider](../../../../../src/Learn.Web.Client/HttpNavProvider.cs) → `/_nav/*` → `DynamicNavBuilder` |
+| **Menu** | [ServerNavProvider](../../../../../src/Learn.Web/Navigation/ServerNavProvider.cs) → [INavBuilder](../../../../../src/Learn.Web/Navigation/INavBuilder.cs) → [CachedDynamicNavBuilder](../../../../../src/Learn.Web/Navigation/CachedDynamicNavBuilder.cs) → [DynamicNavBuilder](../../../../../src/Learn.Web/Navigation/DynamicNavBuilder.cs) | [HttpNavProvider](../../../../../src/Learn.Web.Client/HttpNavProvider.cs) → `/_nav/*` → `CachedDynamicNavBuilder` → `DynamicNavBuilder` |
 | **Content** | [CachedContentSource](../../../../../src/Learn.Web/ContentSources/CachedContentSource.cs) → FileSystem/Blob | [HttpContentSource](../../../../../src/Learn.Web.Client/HttpContentSource.cs) → `/_content-raw/*` → `CachedContentSource` |
 | **Menu UI** | — | [TopMenu](../../../../../src/Learn.Web.Client/Layout/TopMenu.razor.cs) (×2), [DynNav](../../../../../src/Learn.Web.Client/Layout/DynNav.razor.cs), [DynNavNode](../../../../../src/Learn.Web.Client/Layout/DynNavNode.razor.cs) |
 | **Content UI** | [ContentView](../../../../../src/Learn.Web.Shared/Components/ContentView.razor.cs) + [PageLoader](../../../../../src/Learn.Web.Shared/Services/PageLoader.cs) | same (shared RCL) |
@@ -64,17 +64,20 @@ The menu is fetched **level-by-level, per prefix**. Three components drive it on
 sequenceDiagram
     participant UI as TopMenu ×2 + DynNav + DynNavNode
     participant NP as INavProvider
+    participant CB as CachedDynamicNavBuilder
     participant NB as DynamicNavBuilder
     participant FS as Content store
 
     UI->>NP: GetChildrenAsync("")           %% L1 (root)
-    NP->>NB: build/serve level "" (cached, coalesced)
-    NB-->>NP: root sections
+    NP->>CB: GetChildrenAsync (SmartCache lookup)
+    CB->>NB: GetChildrenAsync (on cache miss)
+    NB->>FS: ListChildren + ReadHead
+    NB-->>CB: built level
+    CB-->>NP: root sections (cached + coalesced)
     NP-->>UI: root
     UI->>NP: GetChildrenAsync(section)       %% L2 per top section (top bar)
     UI->>NP: GetChildrenAsync(active/ancestor) %% active branch (sidebar)
-    NP->>NB: build/serve each level (cache hit after first)
-    NB->>FS: ListChildren + ReadHead (only on a cold level)
+    NP->>CB: serve each level (cache hit after first)
 ```
 
 Deeper levels load **lazily** — a sidebar section fetches its children the first time it opens (or
@@ -125,8 +128,8 @@ any page needs prev/next or search.
 
 | Layer | Where | What it caches | Policy |
 |---|---|---|---|
-| **Server nav cache** | `DynamicNavBuilder` → **SmartCache** | one built level per prefix; the flat index | level: **60 s sliding**; index: **15 min sliding**; keyed on `ContentPathCacheKey` (path-invalidatable) |
-| **Server nav coalescing** | `DynamicNavBuilder` (SmartCache `CoalesceRacingCacheMisses`) | in-flight builds | concurrent same-key callers share one origin build (single-flight) |
+| **Server nav cache** | `CachedDynamicNavBuilder` → **SmartCache** | one built level per prefix; the flat index | level: **60 s sliding**; index: **15 min sliding**; keyed on `ContentPathCacheKey` (path-invalidatable) |
+| **Server nav coalescing** | `CachedDynamicNavBuilder` (SmartCache `CoalesceRacingCacheMisses`) | in-flight builds | concurrent same-key callers share one origin build (single-flight) |
 | **Client nav cache** | `HttpNavProvider` (`Dictionary<prefix, Task>`) | the fetch **task** per prefix + the index task | in-memory for the session; shared across sidebar + both top bars |
 | **Top-bar cache** | `TopMenu` (`Dictionary`) | prefetched L2 children per placement | in-memory for the component lifetime |
 | **Server content cache** | `CachedContentSource` → **SmartCache** | Markdown **source bytes** per key | **MaxAge 01:00:00** (in-memory), racing-miss **coalescing**; keyed on `ContentPathCacheKey` (path-invalidatable) |
@@ -151,8 +154,8 @@ branch — **across every node** — instead of flushing the whole cache.
 
 | Trigger | Call | What is evicted |
 |---|---|---|
-| Content write at a path | `POST /_nav/invalidate?path={key}` → `DynamicNavBuilder.Invalidate(path)` | the cached **article** at that path **+** every **menu level** that lists an ancestor of it **+** the flat **index** — on all nodes |
-| Bulk / "everything changed" | `POST /_nav/invalidate` → `DynamicNavBuilder.Invalidate()` | the entire content + navigation cache (empty-path rule) |
+| Content write at a path | `POST /_nav/invalidate?path={key}` → `CachedDynamicNavBuilder.Invalidate(path)` | the cached **article** at that path **+** every **menu level** that lists an ancestor of it **+** the flat **index** — on all nodes |
+| Bulk / "everything changed" | `POST /_nav/invalidate` → `CachedDynamicNavBuilder.Invalidate()` | the entire content + navigation cache (empty-path rule) |
 
 How the branch match works ([`IsInvalidatedBy`](../../../../../src/Learn.Web/Caching/ContentPathCacheKey.cs)):
 a key at path `K` is dropped by a rule for path `P` when either is an **ancestor-or-self** of the
@@ -160,23 +163,24 @@ other. So a write at `03.00-tech/x/article.md` evicts the article, the levels fo
 `03.00-tech` and the root, and the whole-tree index — but **not** sibling articles like
 `03.00-tech/x/other.md`, which stay cached.
 
-**The `_version` counter is kept** as the **client** signal: `Invalidate(...)` bumps it, and clients
-poll `/_nav/version` to drop their own per-prefix task cache. SmartCache invalidation is server-side
-only (it cannot tell the browser to refetch), so the two mechanisms are complementary — SmartCache
-evicts the server entries precisely and cross-node; the version bump tells clients to reload.
+**The `_version` counter** lives on `CachedDynamicNavBuilder` as the **client** signal:
+`Invalidate(...)` bumps it, and clients poll `/_nav/version` to drop their own per-prefix task
+cache. SmartCache invalidation is server-side only (it cannot tell the browser to refetch), so the
+two mechanisms are complementary — SmartCache evicts the server entries precisely and cross-node;
+the version bump tells clients to reload.
 
 ```mermaid
 sequenceDiagram
     participant W as Content writer
     participant EP as /_nav/invalidate?path=…
-    participant NB as DynamicNavBuilder
+    participant CB as CachedDynamicNavBuilder
     participant SC as SmartCache (shared)
     participant N2 as Other nodes
 
     W->>EP: POST path = a/b/c.md
-    EP->>NB: Invalidate("a/b/c.md")
-    NB->>NB: bump _version  (client signal)
-    NB->>SC: Invalidate(ContentPathInvalidationRule("a/b/c.md"))
+    EP->>CB: Invalidate("a/b/c.md")
+    CB->>CB: bump _version  (client signal)
+    CB->>SC: Invalidate(ContentPathInvalidationRule("a/b/c.md"))
     SC->>SC: drop content a/b/c.md + nav levels a/b, a, "" + index
     SC-->>N2: broadcast rule over companion (same eviction on every node)
 ```
@@ -208,10 +212,11 @@ the background.**
 **Yes — both, at multiple layers.**
 
 - **Menu loading:**
-  - **Server:** per-level results cached in **SmartCache** (60 s sliding), the index cached (15 min
-    sliding); concurrent identical builds are **coalesced** (single-flight via
-    `CoalesceRacingCacheMisses`). Entries are keyed on a path-addressed `ContentPathCacheKey`, so a
-    content write evicts just the affected branch (article + its menu levels) on every node.
+  - **Server:** `CachedDynamicNavBuilder` (decorator over `DynamicNavBuilder`) caches per-level
+    results in **SmartCache** (60 s sliding), the index cached (15 min sliding); concurrent identical
+    builds are **coalesced** (single-flight via `CoalesceRacingCacheMisses`). Entries are keyed on a
+    path-addressed `ContentPathCacheKey`, so a content write evicts just the affected branch (article
+    + its menu levels) on every node. `DynamicNavBuilder` itself is pure logic (no caching concern).
   - **Client:** `HttpNavProvider` caches the in-flight **task** per prefix (and the index), so the
     sidebar and both top bars share **one** request per level; `TopMenu` keeps its own prefetched L2.
     Clients drop this cache when the `/_nav/version` counter bumps.
