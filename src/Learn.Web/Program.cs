@@ -130,6 +130,11 @@ public class Program
             services.AddMemoryCache();
             services.AddSingleton<IContentLister>(sp => (IContentLister)sp.GetRequiredService<IContentSource>());
             services.AddSingleton<DynamicNavBuilder>();
+            services.AddSingleton<CachedDynamicNavBuilder>(sp => new CachedDynamicNavBuilder(
+                sp.GetRequiredService<DynamicNavBuilder>(),
+                sp.GetRequiredService<ISmartCache>(),
+                sp.GetRequiredService<ILogger<CachedDynamicNavBuilder>>()));
+            services.AddSingleton<INavBuilder>(sp => sp.GetRequiredService<CachedDynamicNavBuilder>());
             services.AddScoped<INavProvider, ServerNavProvider>();
 
             builder.UseDiginsightServiceProvider(true);
@@ -163,7 +168,7 @@ public class Program
         // prev-next it feeds) does not pay the full tree walk on the request path.
         _ = Task.Run(async () =>
         {
-            try { await app.Services.GetRequiredService<DynamicNavBuilder>().GetIndexAsync(); }
+            try { await app.Services.GetRequiredService<INavBuilder>().GetIndexAsync(); }
             catch { /* best-effort warm-up */ }
         });
 

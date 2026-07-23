@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 namespace Learn.Web.Endpoints;
 
 /// <summary>
-/// Dynamic navigation API, built live from the content store by <see cref="DynamicNavBuilder"/>:
+/// Dynamic navigation API, built live from the content store by <see cref="CachedDynamicNavBuilder"/>:
 /// one menu level per call, a monotonic version, a flattened article index (for menu search /
 /// prev-next), and an invalidation hook for content writers.
 /// </summary>
@@ -25,7 +25,7 @@ public static class NavEndpoints
         return app;
     }
 
-    private static async Task<IResult> GetNavChildrenAsync(string? prefix, DynamicNavBuilder nav, CancellationToken ct)
+    private static async Task<IResult> GetNavChildrenAsync(string? prefix, INavBuilder nav, CancellationToken ct)
     {
         using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefix });
 
@@ -36,17 +36,17 @@ public static class NavEndpoints
     {
         using var activity = Observability.ActivitySource.StartMethodActivity(logger);
 
-        return Results.Json(new { version = DynamicNavBuilder.Version });
+        return Results.Json(new { version = CachedDynamicNavBuilder.Version });
     }
 
-    private static async Task<IResult> GetNavIndexAsync(DynamicNavBuilder nav, CancellationToken ct)
+    private static async Task<IResult> GetNavIndexAsync(INavBuilder nav, CancellationToken ct)
     {
         using var activity = Observability.ActivitySource.StartMethodActivity(logger);
 
         return Results.Json(await nav.GetIndexAsync(ct));
     }
 
-    private static IResult InvalidateNavCache(string? path, DynamicNavBuilder nav)
+    private static IResult InvalidateNavCache(string? path, CachedDynamicNavBuilder nav)
     {
         using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { path });
 
@@ -60,6 +60,6 @@ public static class NavEndpoints
             nav.Invalidate(path);
         }
 
-        return Results.Ok(new { version = DynamicNavBuilder.Version });
+        return Results.Ok(new { version = CachedDynamicNavBuilder.Version });
     }
 }

@@ -155,8 +155,8 @@
       "Diginsight.SmartCache": {
         "type": "Direct",
         "requested": "[3.7.*, )",
-        "resolved": "3.7.1.13",
-        "contentHash": "ezeRStJNElY5DT+ODoohtg1eagge/Oj/vKUHLWgiXDVjKQa1TKmqHjhaIvF60jXnviubY0JtauUsBO0EtWWCgw==",
+        "resolved": "3.7.1.14",
+        "contentHash": "iQb/gWlrSvI/TjUwLR8/ObZfRU2uOmzptUkMLwWUv5nQU0+X5sJ97fGp3NHXZPVsvlBG+NwcXIptTnB9VHzF3g==",
         "dependencies": {
           "Diginsight.Core": "3.7.1.13",
           "Diginsight.Diagnostics": "3.7.1.13",
@@ -166,33 +166,33 @@
       "Diginsight.SmartCache.Externalization.Http": {
         "type": "Direct",
         "requested": "[3.7.*, )",
-        "resolved": "3.7.1.13",
-        "contentHash": "LIjr5iDjSAePrAFylLG5MH7uVLo2tbR9kEc4GjBPD5wYzEUWnTsZFA/9k4HMbV25J/d9U+Z72iDS7HYc1eOkZg==",
+        "resolved": "3.7.1.14",
+        "contentHash": "fb1Tgg5fNB0vVmiU7Fz50jD0TaC+h6IZF5resz4Fjjt8P3bzAg7fB4ebVnehF7+QGMYD6RPPXqmOVYe5i8HExQ==",
         "dependencies": {
           "Diginsight.Diagnostics": "3.7.1.13",
-          "Diginsight.SmartCache": "3.7.1.13"
+          "Diginsight.SmartCache": "3.7.1.14"
         }
       },
       "Diginsight.SmartCache.Externalization.Redis": {
         "type": "Direct",
         "requested": "[3.7.*, )",
-        "resolved": "3.7.1.13",
-        "contentHash": "xTsNN6roGSgQulbaezBcsmZa2MlrbVA2MZ9cANdL75/Nhu114Ulfqp5CE6Vl038owGhZcEJd5FFpuNOC02rjog==",
+        "resolved": "3.7.1.14",
+        "contentHash": "XzKqyextGLF0uSRGxoilToH86VHd2cjplMia82J80VEbF7Wz3jjlbH5WoybeHrTMuEF3OuJ416tv1/1ttI+JOQ==",
         "dependencies": {
           "Diginsight.Diagnostics": "3.7.1.13",
-          "Diginsight.SmartCache": "3.7.1.13",
+          "Diginsight.SmartCache": "3.7.1.14",
           "StackExchange.Redis": "2.13.1"
         }
       },
       "Diginsight.SmartCache.Externalization.ServiceBus": {
         "type": "Direct",
         "requested": "[3.7.*, )",
-        "resolved": "3.7.1.13",
-        "contentHash": "AfbZ8w2Ag3gfjoxtuRyxdI4ThKfIx4/iVd6doBoE4EBAsPBcClyNuLVCgV4ON984CxNu+pQSLWmVic2yBY+d7w==",
+        "resolved": "3.7.1.14",
+        "contentHash": "f7W4jknkQLtlZSxDnelTDYEKS5at5kZNiNRnnRx/PHKm5wzQFwllwBGBNLaL96IvvhcaXUKWdFkZWpDtWiGYEA==",
         "dependencies": {
           "Azure.Messaging.ServiceBus": "7.20.1",
           "Diginsight.Diagnostics": "3.7.1.13",
-          "Diginsight.SmartCache": "3.7.1.13",
+          "Diginsight.SmartCache": "3.7.1.14",
           "Polly.Core": "8.6.6"
         }
       },

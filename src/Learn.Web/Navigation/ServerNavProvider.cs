@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 namespace Learn.Web.Navigation;
 
 /// <summary>Server-side <see cref="INavProvider"/> — builds levels in-process (used during prerender).</summary>
-public sealed class ServerNavProvider(DynamicNavBuilder builder, ILogger<ServerNavProvider> logger) : INavProvider
+public sealed class ServerNavProvider(INavBuilder builder, ILogger<ServerNavProvider> logger) : INavProvider
 {
     public async Task<IReadOnlyList<NavChild>> GetChildrenAsync(string prefix, CancellationToken ct = default)
     {
