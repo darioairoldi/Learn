@@ -27,10 +27,14 @@ public sealed record NavChild(
     bool HasChildren,
     string? Short = null,
     bool TopbarHidden = false,
-    string? TopbarAlign = null);
+    string? TopbarAlign = null,
+    DateTimeOffset? Date = null,
+    string? Author = null,
+    int? ArticleCount = null,
+    DateTimeOffset? LatestArticleUtc = null);
 
 /// <summary>A flattened navigable article (leaf) with its section breadcrumb — used by menu search.</summary>
-public sealed record NavLeaf(string Text, string Route, string Path);
+public sealed record NavLeaf(string Text, string Route, string Path, DateTimeOffset? Date = null, string? Author = null);
 
 /// <summary>One breadcrumb segment: display text and an optional link route.</summary>
 public sealed record Crumb(string Text, string? Route);

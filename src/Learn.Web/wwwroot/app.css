@@ -1137,8 +1137,13 @@ body {
 }
 
 @keyframes nav-level-slide {
-    0% { left: -30%; }
-    100% { left: 100%; }
+    0% {
+        left: -30%;
+    }
+
+    100% {
+        left: 100%;
+    }
 }
 
 /* ---- bottombar ---- */
@@ -1151,6 +1156,11 @@ body {
 
 .bottombar-right {
     color: var(--muted);
+}
+
+.bottombar-left,
+.bottombar-right {
+    white-space: nowrap;
 }
 
 /* ---- theme palettes ---- */

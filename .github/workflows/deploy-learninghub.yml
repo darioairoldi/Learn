@@ -1,7 +1,9 @@
 name: Deploy Learning Hub content to storage
 
-# Uploads the Markdown SOURCE (plus images) directly to the `learn`
-# container in storage account `digitoolstestmcstitn01`, then flushes the Learn.Web cache.
+# Resets the `learn` container in storage account `digitoolstestmcstitn01`, then uploads the
+# Markdown SOURCE (plus images) directly to it and flushes the Learn.Web cache. The reset makes
+# the deployment a full mirror: any folder/article removed from the repo is also removed from
+# storage (upload alone never deletes stale blobs).
 #
 # There is NO Quarto build step: the Learn.Web app renders Markdown to HTML on demand
 # (markdown-first). "Publishing" is simply "upload the changed .md" — the storage account
@@ -99,12 +101,12 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Upload Markdown content to blob storage
+      - name: Reset and upload Markdown content to blob storage
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
           # Ensure the container exists (Storage Blob Data Contributor allows this), then
-          # upload the staged content. Paths are preserved:
+          # reset it and upload the staged content. Paths are preserved:
           # content-stage/01.00-news/x/overview.md -> 01.00-news/x/overview.md.
           az storage container create `
             --account-name $env:STORAGE_ACCOUNT --name $env:STORAGE_CONTAINER `
@@ -113,12 +115,20 @@ jobs:
             throw "Could not reach/create container '$env:STORAGE_CONTAINER' on '$env:STORAGE_ACCOUNT'. Verify the OIDC identity 'github-learn-deploy' has the 'Storage Blob Data Contributor' role on the account, and that the runner's VPN to the private endpoint is connected (blob endpoint must resolve to a private 10.x IP)."
           }
 
+          # Reset the container BEFORE uploading so any folder/article deleted from the repo is
+          # also removed from storage after deployment. upload-batch only adds/overwrites; it never
+          # deletes stale blobs, so without this a removed article would linger in the site.
+          az storage blob delete-batch `
+            --account-name $env:STORAGE_ACCOUNT --source $env:STORAGE_CONTAINER `
+            --auth-mode login --only-show-errors | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw "Failed to reset container '$env:STORAGE_CONTAINER' on '$env:STORAGE_ACCOUNT' before upload." }
+
           az storage blob upload-batch `
             --account-name $env:STORAGE_ACCOUNT --destination $env:STORAGE_CONTAINER `
             --source content-stage --overwrite true --auth-mode login --only-show-errors | Out-Null
           if ($LASTEXITCODE -ne 0) { throw "Blob upload to '$env:STORAGE_ACCOUNT/$env:STORAGE_CONTAINER' failed (see errors above)." }
 
-          Write-Host "Uploaded content-stage/ to $env:STORAGE_ACCOUNT/$env:STORAGE_CONTAINER"
+          Write-Host "Reset and uploaded content-stage/ to $env:STORAGE_ACCOUNT/$env:STORAGE_CONTAINER"
 
       - name: Invalidate app cache
         # Best-effort: flush the app's in-memory cache so new content is served immediately.

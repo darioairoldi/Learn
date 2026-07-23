@@ -128,7 +128,7 @@ any page needs prev/next or search.
 
 | Layer | Where | What it caches | Policy |
 |---|---|---|---|
-| **Server nav cache** | `CachedDynamicNavBuilder` → **SmartCache** | one built level per prefix; the flat index | level: **60 s sliding**; index: **15 min sliding**; keyed on `ContentPathCacheKey` (path-invalidatable) |
+| **Server nav cache** | `CachedDynamicNavBuilder` → **SmartCache** | one built level per prefix; the flat index | expiration **inherited from `Diginsight:SmartCache` config** (class-aware via `CachedDynamicNavBuilder`; default **4 h sliding**, MaxAge 1 h); keyed on `ContentPathCacheKey` (path-invalidatable) |
 | **Server nav coalescing** | `CachedDynamicNavBuilder` (SmartCache `CoalesceRacingCacheMisses`) | in-flight builds | concurrent same-key callers share one origin build (single-flight) |
 | **Client nav cache** | `HttpNavProvider` (`Dictionary<prefix, Task>`) | the fetch **task** per prefix + the index task | in-memory for the session; shared across sidebar + both top bars |
 | **Top-bar cache** | `TopMenu` (`Dictionary`) | prefetched L2 children per placement | in-memory for the component lifetime |
@@ -213,7 +213,9 @@ the background.**
 
 - **Menu loading:**
   - **Server:** `CachedDynamicNavBuilder` (decorator over `DynamicNavBuilder`) caches per-level
-    results in **SmartCache** (60 s sliding), the index cached (15 min sliding); concurrent identical
+    results in **SmartCache** with **config-driven expiration** (inherited from `Diginsight:SmartCache`,
+    class-aware via `CachedDynamicNavBuilder` — default **4 h sliding**, MaxAge 1 h); the index cached the
+    same way; concurrent identical
     builds are **coalesced** (single-flight via `CoalesceRacingCacheMisses`). Entries are keyed on a
     path-addressed `ContentPathCacheKey`, so a content write evicts just the affected branch (article
     + its menu levels) on every node. `DynamicNavBuilder` itself is pure logic (no caching concern).
@@ -239,7 +241,7 @@ cache rather than caching bytes itself.
 | Question | Answer |
 |---|---|
 | Visible & top-level prioritized? | **Yes** — menu L1+L2 + active article + breadcrumb render first; prev/next + whole-tree index are backgrounded; startup pre-warm hides the cold walk. |
-| Menu loading cached? | **Yes** — server **SmartCache** (level 60 s / index 15 min) + single-flight coalescing, path-invalidatable keys; client per-prefix task cache shared across sidebar and top bars. |
+| Menu loading cached? | **Yes** — server **SmartCache** (expiration config-driven, default 4 h sliding / MaxAge 1 h) + single-flight coalescing, path-invalidatable keys; client per-prefix task cache shared across sidebar and top bars. |
 | Content loading cached? | **Yes (server-side)** — `CachedContentSource` + SmartCache (MaxAge 1 h) with racing-miss coalescing; the client re-requests but is answered from the server cache. |
 | Invalidation | **Path-scoped, cross-node** — one `ContentPathInvalidationRule` drops the article **and** its menu branch on every node; the `/_nav/version` bump tells clients to reload. |
 

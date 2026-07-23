@@ -15,7 +15,9 @@ namespace Learn.Web.Shared.Navigation;
 /// <param name="Hidden">When true the folder is excluded from navigation entirely.</param>
 /// <param name="TopbarHidden">When true the folder is excluded from the top bar only (still shown in the sidebar).</param>
 /// <param name="TopbarAlign">Top-bar side for the folder: <c>left</c> or <c>right</c> (null = default: right for folders).</param>
-public sealed record FolderMeta(string? Label, string? Short, string? Icon, double? Order, bool Hidden, bool TopbarHidden, string? TopbarAlign)
+/// <param name="ArticleCount">Seed count of articles under the folder (recursive); overridden by the computed nav value.</param>
+/// <param name="LatestArticleUtc">Seed timestamp of the newest article under the folder; overridden by the computed nav value.</param>
+public sealed record FolderMeta(string? Label, string? Short, string? Icon, double? Order, bool Hidden, bool TopbarHidden, string? TopbarAlign, int? ArticleCount = null, DateTimeOffset? LatestArticleUtc = null)
 {
     /// <summary>No overrides — every field falls back to the code defaults.</summary>
     public static readonly FolderMeta None = new(null, null, null, null, false, false, null);
@@ -37,6 +39,8 @@ public sealed record FolderMeta(string? Label, string? Short, string? Icon, doub
         bool hidden = false;
         bool topbarHidden = false;
         string? topbarAlign = null;
+        int? articleCount = null;
+        DateTimeOffset? latestArticle = null;
 
         foreach (Match m in KeyRx.Matches(yaml))
         {
@@ -71,10 +75,22 @@ public sealed record FolderMeta(string? Label, string? Short, string? Icon, doub
                         : value.Equals("right", StringComparison.OrdinalIgnoreCase) ? "right"
                         : null;
                     break;
+                case "article-count" or "nav-article-count" or "articles":
+                    if (int.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out int ac))
+                    {
+                        articleCount = ac;
+                    }
+                    break;
+                case "latest-article" or "nav-latest-article" or "updated":
+                    if (DateTimeOffset.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out DateTimeOffset la))
+                    {
+                        latestArticle = la;
+                    }
+                    break;
             }
         }
 
-        return new FolderMeta(label, shortLabel, icon, order, hidden, topbarHidden, topbarAlign);
+        return new FolderMeta(label, shortLabel, icon, order, hidden, topbarHidden, topbarAlign, articleCount, latestArticle);
     }
 
     private static string Unquote(string v)

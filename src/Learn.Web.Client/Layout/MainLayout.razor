@@ -1,8 +1,10 @@
 @inherits LayoutComponentBase
 @implements IDisposable
+@using Learn.Web.Shared.Navigation
 @inject IJSRuntime JS
 @inject ThemeState Theme
 @inject SidebarState Sidebar
+@inject INavProvider Nav
 
 <div class="page theme-@Theme.ThemeId">
     <header class="topbar">
@@ -36,8 +38,8 @@
     </div>
 
     <footer class="bottombar">
-        <span>Learning Hub · rendered on demand from Markdown — no build step.</span>
-        <span class="bottombar-right">Learn.Web · Blazor WASM (prerendered)</span>
+        <span class="bottombar-left">Total Articles: @TotalArticlesText</span>
+        <span class="bottombar-right">@LastChangeText</span>
     </footer>
 </div>
 

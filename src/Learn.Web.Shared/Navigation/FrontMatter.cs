@@ -1,10 +1,11 @@
+using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Learn.Web.Shared.Navigation;
 
 /// <summary>Relevant fields parsed from an article's top YAML frontmatter.</summary>
-public sealed record FrontMatterInfo(string? Title, bool Publish, bool Draft)
+public sealed record FrontMatterInfo(string? Title, bool Publish, bool Draft, string? Author = null, string? Date = null)
 {
     public static readonly FrontMatterInfo Default = new(null, true, false);
 
@@ -23,6 +24,8 @@ public static class FrontMatter
     private static readonly Regex TitleRx = new(@"(?m)^\s*title\s*:\s*(.+?)\s*$", RegexOptions.Compiled);
     private static readonly Regex PublishRx = new(@"(?m)^\s*publish\s*:\s*(false|true)\s*$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
     private static readonly Regex DraftRx = new(@"(?m)^\s*draft\s*:\s*(true|false)\s*$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+    private static readonly Regex AuthorRx = new(@"(?m)^\s*author\s*:\s*(.+?)\s*$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+    private static readonly Regex DateRx = new(@"(?m)^\s*date\s*:\s*(.+?)\s*$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
     private static readonly Regex H1Rx = new(@"(?m)^#\s+(.+?)\s*$", RegexOptions.Compiled);
 
     /// <summary>Parses frontmatter fields from a file's leading text (header + maybe some body).</summary>
@@ -42,7 +45,9 @@ public static class FrontMatter
         string? title = Clean(TitleRx.Match(header).Groups[1].Value);
         bool publish = !(PublishRx.Match(header) is { Success: true } p && p.Groups[1].Value.Equals("false", StringComparison.OrdinalIgnoreCase));
         bool draft = DraftRx.Match(header) is { Success: true } d && d.Groups[1].Value.Equals("true", StringComparison.OrdinalIgnoreCase);
-        return new FrontMatterInfo(title, publish, draft);
+        string? author = Clean(AuthorRx.Match(header).Groups[1].Value);
+        string? date = Clean(DateRx.Match(header).Groups[1].Value);
+        return new FrontMatterInfo(title, publish, draft, author, date);
     }
 
     /// <summary>Title from frontmatter, else the first H1 heading, else null.</summary>
@@ -65,6 +70,19 @@ public static class FrontMatter
         }
 
         return null;
+    }
+
+    /// <summary>Parses a frontmatter <c>date:</c> string into a UTC-assumed offset (null when absent/unparseable).</summary>
+    public static DateTimeOffset? ParseDate(string? raw)
+    {
+        if (string.IsNullOrWhiteSpace(raw))
+        {
+            return null;
+        }
+
+        return DateTimeOffset.TryParse(raw, CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out DateTimeOffset dto)
+            ? dto
+            : null;
     }
 
     /// <summary>Reads the leading bytes of a stream up to the closing <c>---</c> (capped), as UTF-8 text.</summary>

@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using Diginsight.Diagnostics;
 using Learn.Web.Shared.Navigation;
 using Microsoft.Extensions.Logging;
@@ -15,6 +16,10 @@ public sealed class DynamicNavBuilder(
     IContentLister lister,
     ILogger<DynamicNavBuilder> logger) : INavBuilder
 {
+    // Recursive per-folder aggregates (article count + newest date), populated by the index walk and
+    // consumed by ClassifyFolderAsync to override the metadata.yml seed on the folder node.
+    private readonly ConcurrentDictionary<string, (int Count, DateTimeOffset? Latest)> _folderAgg = new();
+
     public async Task<IReadOnlyList<NavChild>> GetChildrenAsync(string prefix, CancellationToken ct = default)
     {
         using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefix });
@@ -32,20 +37,38 @@ public sealed class DynamicNavBuilder(
         return leaves;
     }
 
-    private async Task WalkAsync(string prefix, string path, List<NavLeaf> leaves, CancellationToken ct)
+    private async Task<(int Count, DateTimeOffset? Latest)> WalkAsync(string prefix, string path, List<NavLeaf> leaves, CancellationToken ct)
     {
+        int count = 0;
+        DateTimeOffset? latest = null;
+
         foreach (NavChild n in await GetChildrenAsync(prefix, ct))
         {
             if (n.IsSection && n.Prefix is not null)
             {
                 string childPath = path.Length == 0 ? n.Text : $"{path} › {n.Text}";
-                await WalkAsync(n.Prefix, childPath, leaves, ct);
+                (int subCount, DateTimeOffset? subLatest) = await WalkAsync(n.Prefix, childPath, leaves, ct);
+                count += subCount;
+                if (subLatest is { } sl && (latest is null || sl > latest))
+                {
+                    latest = sl;
+                }
             }
             else if (!string.IsNullOrEmpty(n.Route))
             {
-                leaves.Add(new NavLeaf(n.Text, n.Route, path));
+                leaves.Add(new NavLeaf(n.Text, n.Route, path, n.Date, n.Author));
+                count++;
+                if (n.Date is { } nd && (latest is null || nd > latest))
+                {
+                    latest = nd;
+                }
             }
         }
+
+        // Cache the recursive aggregate so the next build of this folder's level overrides its
+        // metadata.yml seed with the true (computed) count and newest-article date.
+        _folderAgg[prefix] = (count, latest);
+        return (count, latest);
     }
 
     private async Task<IReadOnlyList<NavChild>> BuildLevelAsync(string prefix, CancellationToken ct)
@@ -83,7 +106,8 @@ public sealed class DynamicNavBuilder(
             else if (NavRules.IsMarkdown(entry.Name) && !NavRules.IsIndexName(entry.Name))
             {
                 string? head = await lister.ReadHeadAsync(entry.Path, ct);
-                if (FrontMatter.Parse(head).Hidden)
+                FrontMatterInfo fm = FrontMatter.Parse(head);
+                if (fm.Hidden)
                 {
                     continue;
                 }
@@ -91,7 +115,8 @@ public sealed class DynamicNavBuilder(
                 string label = FrontMatter.ResolveTitle(head)
                     ?? NavRules.Label(Path.GetFileNameWithoutExtension(entry.Name));
                 scored.Add((NavRules.SortKey(entry.Name),
-                    new NavChild(label, Route(entry.Path), null, null, false, false)));
+                    new NavChild(label, Route(entry.Path), null, null, false, false,
+                        Date: FrontMatter.ParseDate(fm.Date), Author: fm.Author)));
             }
         }
 
@@ -127,7 +152,10 @@ public sealed class DynamicNavBuilder(
         if (subFolders.Count > 0 || articles.Count > 1)
         {
             string? href = index is not null || articles.Count > 0 ? Route(folder.Path) : null;
-            return new NavChild(meta.Label ?? NavRules.Label(folder.Name), href, folder.Path, icon, true, true, meta.Short, meta.TopbarHidden, meta.TopbarAlign);
+            (int? articleCount, DateTimeOffset? latestUtc) = FolderAggregate(folder.Path, meta);
+            return new NavChild(meta.Label ?? NavRules.Label(folder.Name), href, folder.Path, icon, true, true,
+                meta.Short, meta.TopbarHidden, meta.TopbarAlign,
+                ArticleCount: articleCount, LatestArticleUtc: latestUtc);
         }
 
         // Collapse: exactly one article (or only an index/readme) → single link.
@@ -139,7 +167,8 @@ public sealed class DynamicNavBuilder(
 
         // Collapsed folders render as article links: no folder symbol unless metadata.yml sets one.
         string? head = await lister.ReadHeadAsync(single.Path, ct);
-        if (articles.Count == 1 && FrontMatter.Parse(head).Hidden)
+        FrontMatterInfo singleFm = FrontMatter.Parse(head);
+        if (articles.Count == 1 && singleFm.Hidden)
         {
             return index is null ? null
                 : new NavChild(meta.Label ?? NavRules.Label(folder.Name), Route(folder.Path), null, meta.Icon, false, false);
@@ -150,8 +179,15 @@ public sealed class DynamicNavBuilder(
             ? NavRules.WithDatePrefix(folder.Name, title)
             : NavRules.Label(folder.Name));
         string route = single == index ? Route(folder.Path) : Route(single.Path);
-        return new NavChild(label, route, null, meta.Icon, false, false);
+        return new NavChild(label, route, null, meta.Icon, false, false,
+            Date: FrontMatter.ParseDate(singleFm.Date), Author: singleFm.Author);
     }
+
+    /// <summary>Folder aggregates: the computed recursive value when available, else the metadata.yml seed.</summary>
+    private (int? Count, DateTimeOffset? Latest) FolderAggregate(string folderPath, FolderMeta meta) =>
+        _folderAgg.TryGetValue(folderPath, out (int Count, DateTimeOffset? Latest) agg)
+            ? (agg.Count, agg.Latest)
+            : (meta.ArticleCount, meta.LatestArticleUtc);
 
     /// <summary>Reads a folder's optional <c>metadata.yml</c> overrides (absent file → no overrides).</summary>
     private async Task<FolderMeta> ReadFolderMetaAsync(string folderPath, CancellationToken ct)
