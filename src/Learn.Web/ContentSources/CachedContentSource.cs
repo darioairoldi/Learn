@@ -1,5 +1,6 @@
 using Diginsight.Diagnostics;
 using Diginsight.SmartCache;
+using Learn.Web.Caching;
 using Learn.Web.Shared;
 using Learn.Web.Shared.Navigation;
 
@@ -19,7 +20,6 @@ namespace Learn.Web.ContentSources;
 public sealed class CachedContentSource(
     IContentSource inner,
     ISmartCache smartCache,
-    ICacheKeyService cacheKeyService,
     ILogger<CachedContentSource> logger) : IContentSource, IContentLister
 {
     public async Task<ContentResult?> GetAsync(string contentKey, CancellationToken ct = default)
@@ -34,8 +34,12 @@ public sealed class CachedContentSource(
 
         // Freshness (MaxAge / expirations) comes from Diginsight:SmartCache config — including the
         // class-aware MaxAge@CachedContentSource override — via the caller type below.
-        var options = new SmartCacheOperationOptions();
-        var key = new MethodCallCacheKey(cacheKeyService, typeof(CachedContentSource), nameof(GetAsync), contentKey);
+        // CoalesceRacingCacheMisses enables SmartCache single-flight: concurrent misses for the same
+        // key share one origin fetch, so this decorator no longer needs its own in-flight guard.
+        // The path-addressed key lets a content write invalidate this exact entry (and the menu
+        // levels above it) via ContentPathInvalidationRule.
+        var options = new SmartCacheOperationOptions { CoalesceRacingCacheMisses = true };
+        var key = new ContentPathCacheKey("content", ContentPathCacheKey.Normalize(contentKey));
 
         CachedContent envelope = await smartCache.GetAsync(
             key,

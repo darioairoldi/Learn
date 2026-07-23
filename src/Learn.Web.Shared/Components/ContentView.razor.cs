@@ -25,11 +25,15 @@ public partial class ContentView
         _loading = false;
         Toc.SetEntries(_page?.Toc ?? Array.Empty<TocEntry>());
 
-        // Breadcrumb + prev/next come from the (warm) flat index. Bound the wait so they prerender and
-        // appear together with the article when the index is warm, while a rare cold rebuild never
-        // blocks the page — the breadcrumb then fills in via LoadPrevNextAsync's own StateHasChanged.
-        Task navTask = LoadPrevNextAsync(Path);
-        await Task.WhenAny(navTask, Task.Delay(600));
+        // Breadcrumb is built from cheap per-level nav (the active-branch levels are already cached)
+        // plus the article title — no dependency on the whole-tree flat index, so first paint (and
+        // prerender) is never blocked by a cold index walk.
+        string route = Norm(Path);
+        _trail = route.Length == 0 ? Array.Empty<Crumb>() : await BuildTrailFromRouteAsync(route);
+
+        // Prev/next needs the ordered flat index; load it in the background so it never blocks the
+        // article — this also warms the index for menu search — and it renders itself when ready.
+        _ = LoadPrevNextAsync(Path);
     }
 
     // After each render on the interactive client, turn any ```mermaid blocks into SVG. OnAfterRender
@@ -51,53 +55,39 @@ public partial class ContentView
         }
     }
 
+    // Prev/next comes from the ordered flat index. It runs in the background (launched from
+    // OnParametersSetAsync) so a cold whole-tree index walk never blocks the article or breadcrumb;
+    // it renders itself when ready.
     private async Task LoadPrevNextAsync(string? forPath)
     {
-        IReadOnlyList<NavLeaf> index = await NavProvider.GetIndexAsync();
-        if (Norm(forPath) != Norm(Path))
+        try
         {
-            return; // navigated away while the index was loading
-        }
-
-        string cur = Norm(forPath);
-        int idx = -1;
-        for (int i = 0; i < index.Count; i++)
-        {
-            if (Norm(index[i].Route) == cur)
+            IReadOnlyList<NavLeaf> index = await NavProvider.GetIndexAsync();
+            if (Norm(forPath) != Norm(Path))
             {
-                idx = i;
-                break;
+                return; // navigated away while the index was loading
             }
-        }
 
-        _prev = idx > 0 ? index[idx - 1] : null;
-        _next = idx >= 0 && idx < index.Count - 1 ? index[idx + 1] : null;
-
-        // Breadcrumb: build the trail from the flat index leaf's section path (text segments) plus
-        // the article title — the runtime index is the single source for navigation.
-        if (_trail.Count == 0 && idx >= 0)
-        {
-            NavLeaf leaf = index[idx];
-            var crumbs = new List<Crumb>();
-            if (!string.IsNullOrEmpty(leaf.Path))
+            string cur = Norm(forPath);
+            int idx = -1;
+            for (int i = 0; i < index.Count; i++)
             {
-                foreach (string seg in leaf.Path.Split('›', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
+                if (Norm(index[i].Route) == cur)
                 {
-                    crumbs.Add(new Crumb(seg, null));
+                    idx = i;
+                    break;
                 }
             }
 
-            crumbs.Add(new Crumb(leaf.Text, null));
-            _trail = crumbs;
-        }
-        else if (_trail.Count == 0 && idx < 0 && !string.IsNullOrEmpty(cur))
-        {
-            // Section / index landing pages are not leaves in the flat index. Their ancestors are all
-            // real sections, so build a clickable trail cheaply from the per-level nav (no full index).
-            _trail = await BuildTrailFromRouteAsync(cur);
-        }
+            _prev = idx > 0 ? index[idx - 1] : null;
+            _next = idx >= 0 && idx < index.Count - 1 ? index[idx + 1] : null;
 
-        await InvokeAsync(StateHasChanged);
+            await InvokeAsync(StateHasChanged);
+        }
+        catch
+        {
+            // Background prev/next is best-effort; never surface a fault (e.g. disposed mid-navigation).
+        }
     }
 
     // Builds a breadcrumb from a route's ancestor levels. Each level is cheap and cached, so this

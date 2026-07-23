@@ -46,11 +46,20 @@ public static class NavEndpoints
         return Results.Json(await nav.GetIndexAsync(ct));
     }
 
-    private static IResult InvalidateNavCache(DynamicNavBuilder nav)
+    private static IResult InvalidateNavCache(string? path, DynamicNavBuilder nav)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(logger);
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { path });
 
-        nav.Invalidate();
+        // No path → whole cache (content + nav, every node); a path → just that branch.
+        if (string.IsNullOrWhiteSpace(path))
+        {
+            nav.Invalidate();
+        }
+        else
+        {
+            nav.Invalidate(path);
+        }
+
         return Results.Ok(new { version = DynamicNavBuilder.Version });
     }
 }

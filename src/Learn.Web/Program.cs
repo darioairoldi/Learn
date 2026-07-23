@@ -119,7 +119,6 @@ public class Program
             services.AddSingleton<IContentSource>(sp => new CachedContentSource(
                 CreatePhysicalContentSource(sp),
                 sp.GetRequiredService<ISmartCache>(),
-                sp.GetRequiredService<ICacheKeyService>(),
                 sp.GetRequiredService<ILogger<CachedContentSource>>()));
 
             services.AddScoped<IMarkdownRenderer, MarkdigMarkdownRenderer>();
