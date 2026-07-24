@@ -11,6 +11,12 @@
                 <a class="dropdown-link" href="@node.Route">@node.Text</a>
             </li>
         }
+        else if (node.Prefix is not null)
+        {
+            <li>
+                <a class="dropdown-link" href="@(node.Prefix.TrimEnd('/'))">@node.Text</a>
+            </li>
+        }
         else
         {
             <li class="dropdown-group">

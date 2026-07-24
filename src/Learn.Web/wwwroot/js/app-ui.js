@@ -263,7 +263,7 @@ window.appUi = {
             if (!details.open) {
                 if (twisty) { twisty.click(); } // open (no navigation)
             } else {
-                var child = details.querySelector('ul.nav-list a.nav-link, ul.nav-list summary');
+                var child = details.querySelector(':scope > ul.nav-list a.nav-link, :scope > ul.nav-list summary');
                 if (child) { child.focus(); } // already open → step into first child
             }
         } else { // ArrowLeft

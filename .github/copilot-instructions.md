@@ -72,6 +72,7 @@ The following rules are defined in context files and instruction files. They app
 - **Folder metadata**: optional per-folder `metadata.yml` (`label`/`short`/`icon`/`order`/`hidden`/`topbar-hidden`/`topbar-align`) drives the sidebar and top bar
 - **Top YAML in articles is renderer frontmatter** (title/author/date) — NEVER modify from validation prompts
 - **Observability**: Diginsight (server project only)
+- **Local testing**: ALWAYS run the server in a **visible console window** (a normal foreground terminal, NOT a hidden/background process) so the user can see it and stop it (Ctrl+C) to repeat a test. Rebuild `Learn.Web` (do not use `--no-build`) so client WASM changes are served.
 
 ### MetadataWatcher
 

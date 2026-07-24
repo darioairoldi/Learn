@@ -30,6 +30,16 @@ public sealed class CachedDynamicNavBuilder(
     public void Invalidate() => Invalidate(string.Empty);
 
     /// <summary>
+    /// Evicts every cached navigation <c>level</c> (but not the flattened index or the content cache)
+    /// without bumping the version. Used by the startup warm-up: the recursive per-folder counts are
+    /// only known after <see cref="GetIndexAsync"/> walks the tree, so any level built on the request
+    /// path before that finished was cached with null counts. Dropping those levels lets
+    /// <see cref="WarmAllLevelsAsync"/> rebuild them with the now-computed counts.
+    /// </summary>
+    public void InvalidateLevels() =>
+        smartCache.Invalidate(new ContentPathInvalidationRule(string.Empty, Kind: "nav-level"));
+
+    /// <summary>
     /// Invalidates just the branch touched by a content write at <paramref name="path"/>: the cached
     /// article plus every menu level that lists an ancestor of it, on every node. Still bumps the
     /// version so clients (which hold only a single version number, not per-path state) refetch.

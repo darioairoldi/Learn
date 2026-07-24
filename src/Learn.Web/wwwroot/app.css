@@ -428,12 +428,11 @@ body {
 }
 
 /* The left group absorbs the free space and stays left-aligned right after the brand, pushing the
-   right group (+ About + controls) flush against the right browser border. With overflow hidden and
-   min-width:0, shrinking the window clips the left group's overflow rather than overflowing the bar. */
+   right group (+ About + controls) flush against the right browser border. min-width:0 lets the
+   group shrink below its content size when the window narrows. */
 .topmenu-left {
     flex: 1 1 auto;
     min-width: 0;
-    overflow: hidden;
     justify-content: flex-start;
 }
 
@@ -494,7 +493,8 @@ body {
     z-index: 60;
 }
 
-.topmenu-item:hover .topmenu-dropdown {
+.topmenu-item:hover .topmenu-dropdown,
+.topmenu-item.open .topmenu-dropdown {
     display: block;
 }
 

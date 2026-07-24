@@ -8,8 +8,23 @@ public partial class DynNavNode
     [Parameter, EditorRequired] public NavChild Node { get; set; } = default!;
     [Parameter] public string CurrentRoute { get; set; } = string.Empty;
 
+    // Bubble-up counter: this node reports its recursive subtree article count to its parent; the
+    // parent replaces our previous contribution (never double counts) and re-reports upward. Passed
+    // as a plain Action (not an EventCallback) so reporting never forces ancestor re-renders — only
+    // the footer refreshes, via the debounced NavStats.
+    [Parameter] public Action<(string Key, NavCount Value)>? OnCounted { get; set; }
+
     private bool _open;
     private IReadOnlyList<NavChild>? _children;
+
+    // Latest counts reported by our (loaded) children, keyed by the child's own key.
+    private readonly Dictionary<string, NavCount> _childCounts = new(StringComparer.OrdinalIgnoreCase);
+
+    // Last value we pushed to the parent, so we skip redundant reports.
+    private NavCount? _reported;
+
+    // Stable identity for this node within its parent's child set.
+    private string CountKey => Node.Prefix ?? Node.Route ?? Node.Text;
 
     // The active route this section was last auto-opened for. Prevents later re-renders from
     // re-opening a section the user has explicitly collapsed while staying on the same article.
@@ -26,6 +41,7 @@ public partial class DynNavNode
     {
         if (!Node.IsSection)
         {
+            ReportCount(); // a leaf article contributes immediately (Home / empty routes contribute 0)
             return;
         }
 
@@ -47,6 +63,63 @@ public partial class DynNavNode
         if (InActiveBranch)
         {
             _autoOpenedForRoute = CurrentRoute;
+        }
+
+        // Report our subtree count: the server's recursive estimate while collapsed, the computed sum
+        // of our children once they have loaded and reported.
+        ReportCount();
+    }
+
+    // Computes this node's recursive article count and pushes it to the parent when it changed.
+    private void ReportCount()
+    {
+        NavCount value;
+        if (!Node.IsSection)
+        {
+            value = string.IsNullOrEmpty(Node.Route)
+                ? new NavCount(0, null, null)                          // Home and other non-article links
+                : new NavCount(1, Node.Date, Node.Author);            // a navigable article
+        }
+        else if (_children is null || _childCounts.Count == 0)
+        {
+            // Collapsed (or children not reported yet) → trust the server's recursive aggregate so the
+            // total is right without expanding, and avoid a transient drop to 0.
+            value = new NavCount(Node.ArticleCount ?? 0, Node.LatestArticleUtc, null);
+        }
+        else
+        {
+            int count = 0;
+            DateTimeOffset? latest = null;
+            string? author = null;
+            foreach (NavCount c in _childCounts.Values)
+            {
+                count += c.Count;
+                if (c.LatestUtc is { } l && (latest is null || l > latest))
+                {
+                    latest = l;
+                    author = c.LatestAuthor;
+                }
+            }
+
+            value = new NavCount(count, latest, author);
+        }
+
+        if (_reported == value)
+        {
+            return;
+        }
+
+        _reported = value;
+        OnCounted?.Invoke((CountKey, value));
+    }
+
+    // A child reported its subtree count → fold it in and, if we are expanded, re-report upward.
+    private void OnChildCounted((string Key, NavCount Value) report)
+    {
+        _childCounts[report.Key] = report.Value;
+        if (_children is not null)
+        {
+            ReportCount();
         }
     }
 

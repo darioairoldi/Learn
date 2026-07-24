@@ -10,6 +10,25 @@
 {
     <p class="content-loading"><em>Loading…</em></p>
 }
+else if (_page is null && _sectionChildren is not null)
+{
+    <article class="markdown-body section-landing">
+        <h1>@SectionTitle()</h1>
+        <ul class="section-landing-list">
+            @foreach (NavChild child in _sectionChildren)
+            {
+                @if (child.Route is not null)
+                {
+                    <li><a href="@child.Route">@child.Text</a></li>
+                }
+                else
+                {
+                    <li><span class="section-landing-header">@child.Text</span></li>
+                }
+            }
+        </ul>
+    </article>
+}
 else if (_page is null)
 {
     <h1>Not found</h1>

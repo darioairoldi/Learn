@@ -126,6 +126,7 @@ public class Program
             services.AddScoped<TocState>();
             services.AddScoped<ThemeState>();
             services.AddScoped<SidebarState>();
+            services.AddScoped<NavStats>();
             // Dynamic, spec-compliant menu built on demand from the live content hierarchy.
             services.AddMemoryCache();
             services.AddSingleton<IContentLister>(sp => (IContentLister)sp.GetRequiredService<IContentSource>());
@@ -172,6 +173,10 @@ public class Program
             {
                 var cachedNav = app.Services.GetRequiredService<CachedDynamicNavBuilder>();
                 await cachedNav.GetIndexAsync();
+                // The walk above filled the recursive per-folder counts. Any level a client requested
+                // while it was still running got cached with null counts, so drop those levels before
+                // (re)warming them so they rebuild with the computed counts.
+                cachedNav.InvalidateLevels();
                 await cachedNav.WarmAllLevelsAsync();
             }
             catch { /* best-effort warm-up */ }

@@ -23,7 +23,9 @@ public sealed record ContentPathCacheKey(string Kind, string Path) : IInvalidata
     public bool IsInvalidatedBy(IInvalidationRule invalidationRule, out Func<Task>? invalidationCallback)
     {
         invalidationCallback = null;
-        return invalidationRule is ContentPathInvalidationRule rule && OnSameBranch(Path, rule.Path);
+        return invalidationRule is ContentPathInvalidationRule rule
+            && (rule.Kind is null || string.Equals(rule.Kind, Kind, StringComparison.Ordinal))
+            && OnSameBranch(Path, rule.Path);
     }
 
     /// <summary>
@@ -52,5 +54,7 @@ public sealed record ContentPathCacheKey(string Kind, string Path) : IInvalidata
 /// the companion. An empty <paramref name="Path"/> invalidates the entire content/navigation cache.
 /// </summary>
 /// <param name="Path">Normalized content path that changed, or the empty string for "everything".</param>
+/// <param name="Kind">When set, restricts the rule to entries of that <see cref="ContentPathCacheKey.Kind"/>
+/// (e.g. only <c>nav-level</c>); <c>null</c> matches every kind on the branch.</param>
 [CacheInterchangeName("LPIR")]
-public sealed record ContentPathInvalidationRule(string Path) : IInvalidationRule;
+public sealed record ContentPathInvalidationRule(string Path, string? Kind = null) : IInvalidationRule;

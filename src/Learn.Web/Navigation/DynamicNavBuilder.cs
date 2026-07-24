@@ -151,7 +151,7 @@ public sealed class DynamicNavBuilder(
         // Section: has meaningful subfolders, or more than one article.
         if (subFolders.Count > 0 || articles.Count > 1)
         {
-            string? href = index is not null || articles.Count > 0 ? Route(folder.Path) : null;
+            string? href = Route(folder.Path);
             (int? articleCount, DateTimeOffset? latestUtc) = FolderAggregate(folder.Path, meta);
             return new NavChild(meta.Label ?? NavRules.Label(folder.Name), href, folder.Path, icon, true, true,
                 meta.Short, meta.TopbarHidden, meta.TopbarAlign,

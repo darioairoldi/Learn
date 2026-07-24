@@ -14,16 +14,30 @@ public partial class ContentView
     private IReadOnlyList<Crumb> _trail = Array.Empty<Crumb>();
     private NavLeaf? _prev;
     private NavLeaf? _next;
+    private IReadOnlyList<NavChild>? _sectionChildren;
 
     protected override async Task OnParametersSetAsync()
     {
         _loading = true;
         _prev = _next = null;
         _trail = Array.Empty<Crumb>();
+        _sectionChildren = null;
         Toc.SetEntries(Array.Empty<TocEntry>());
         _page = await Loader.LoadAsync(Path);
         _loading = false;
         Toc.SetEntries(_page?.Toc ?? Array.Empty<TocEntry>());
+
+        // When no markdown content exists, check if this is a section with children
+        // and show a section landing page instead of "Not found".
+        if (_page is null && !string.IsNullOrEmpty(Path))
+        {
+            string prefix = Path.Replace('\\', '/').Trim('/') + "/";
+            var children = await NavProvider.GetChildrenAsync(prefix);
+            if (children.Count > 0)
+            {
+                _sectionChildren = children;
+            }
+        }
 
         // Breadcrumb is built from cheap per-level nav (the active-branch levels are already cached)
         // plus the article title — no dependency on the whole-tree flat index, so first paint (and
@@ -123,6 +137,18 @@ public partial class ContentView
 
     private static string Norm(string? route) =>
         (route ?? string.Empty).Replace('\\', '/').Trim('/').ToLowerInvariant();
+
+    /// <summary>Derive a human-readable title from the current path for section landing pages.</summary>
+    private string SectionTitle()
+    {
+        string path = (Path ?? string.Empty).Replace('\\', '/').Trim('/');
+        string lastSeg = path.Contains('/') ? path[(path.LastIndexOf('/') + 1)..] : path;
+        // Strip numeric prefix (e.g. "02.01-azure" → "azure") and title-case
+        int dash = lastSeg.IndexOf('-');
+        string raw = dash >= 0 ? lastSeg[(dash + 1)..] : lastSeg;
+        return System.Globalization.CultureInfo.CurrentCulture.TextInfo
+            .ToTitleCase(raw.Replace('-', ' ').Replace('_', ' '));
+    }
 
     public void Dispose() => Toc.SetEntries(Array.Empty<TocEntry>());
 }

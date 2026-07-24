@@ -26,6 +26,40 @@ public partial class DynNav
         NavMgr.LocationChanged += OnLocationChanged;
         _root = await Provider.GetChildrenAsync(string.Empty);
         _scrollPending = true;
+
+        // If the server has not yet filled the recursive per-folder counts (cold start), re-pull the
+        // cheap, cached root level a few times so the footer total lands — reusing the very same nav
+        // query the menu already issues, never a dedicated "count" call.
+        if (_root.Any(n => n.IsSection && n.ArticleCount is null))
+        {
+            _ = ConvergeCountsAsync();
+        }
+    }
+
+    // A root node reported its recursive subtree count → forward it to the status-bar aggregator,
+    // which sums the roots and refreshes the footer (debounced, non-blocking).
+    private void OnRootCounted((string Key, NavCount Value) report) => Stats.SetRoot(report.Key, report.Value);
+
+    // Cold-start convergence: the server computes recursive folder counts during its background
+    // warm-up (a whole-tree walk that can take a while). Re-fetch the root level from the origin
+    // (bypassing the client cache) on a gentle interval until every root section carries a count, so
+    // the footer total lands once the server is warm. Fire-and-forget: never blocks anything, and it
+    // reuses the very same nav query the menu already issues — never a dedicated "count" call.
+    private async Task ConvergeCountsAsync()
+    {
+        // ~4 minutes of gentle polling (48 × 5s) comfortably covers a cold whole-tree warm-up.
+        for (int attempt = 0; attempt < 48; attempt++)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(5));
+            IReadOnlyList<NavChild> refreshed = await Provider.RefreshChildrenAsync(string.Empty);
+            _root = refreshed;
+            await InvokeAsync(StateHasChanged);
+
+            if (refreshed.Where(n => n.IsSection).All(n => n.ArticleCount is not null))
+            {
+                break; // all root sections now carry computed counts
+            }
+        }
     }
 
     private bool IsActiveRail(NavChild n) =>

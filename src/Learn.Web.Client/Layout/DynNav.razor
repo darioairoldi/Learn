@@ -4,6 +4,7 @@
 @inject INavProvider Provider
 @inject SidebarState Sidebar
 @inject NavigationManager NavMgr
+@inject NavStats Stats
 @inject IJSRuntime JS
 @implements IDisposable
 
@@ -99,10 +100,10 @@
     }
     else
     {
-        <ul class="nav-list nav-top">
+        <ul class="nav-list nav-top" role="tree">
             @foreach (NavChild node in _root)
             {
-                <DynNavNode Node="node" CurrentRoute="@_current" />
+                <DynNavNode Node="node" CurrentRoute="@_current" OnCounted="OnRootCounted" />
             }
         </ul>
     }

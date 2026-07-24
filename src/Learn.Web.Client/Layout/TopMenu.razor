@@ -7,8 +7,8 @@
         {
             @if (node.IsSection)
             {
-                <div class="topmenu-item">
-                    <button class="topmenu-btn" type="button">
+                <div class="topmenu-item @(IsOpen(node) ? "open" : null)">
+                    <button class="topmenu-btn" type="button" @onclick="() => ToggleAsync(node)">
                         @if (!string.IsNullOrEmpty(node.Icon))
                         {
                             <i class="bi bi-@node.Icon"></i>

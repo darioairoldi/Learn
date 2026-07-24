@@ -25,6 +25,14 @@ public sealed class HttpNavProvider(HttpClient http) : INavProvider
         return task;
     }
 
+    /// <summary>Drops the cached task for <paramref name="prefix"/> so the next fetch re-hits the API.</summary>
+    public Task<IReadOnlyList<NavChild>> RefreshChildrenAsync(string prefix, CancellationToken ct = default)
+    {
+        prefix ??= string.Empty;
+        _children.Remove(prefix);
+        return GetChildrenAsync(prefix, ct);
+    }
+
     private async Task<IReadOnlyList<NavChild>> FetchChildrenAsync(string prefix, CancellationToken ct)
     {
         try
