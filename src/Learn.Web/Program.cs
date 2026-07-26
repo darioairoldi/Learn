@@ -139,6 +139,11 @@ public class Program
             services.AddSingleton<INavBuilder>(sp => sp.GetRequiredService<CachedDynamicNavBuilder>());
             services.AddScoped<INavProvider, ServerNavProvider>();
 
+            // Live navigation metadata push: SignalR hub + the publisher that broadcasts folder
+            // aggregates on content change and once the startup warm-up has computed the counts.
+            services.AddSignalR();
+            services.AddSingleton<NavChangePublisher>();
+
             builder.UseDiginsightServiceProvider(true);
 
             app = builder.Build();
@@ -160,6 +165,7 @@ public class Program
             // Content passthrough + dynamic navigation APIs (see the *Endpoints classes).
             app.MapContentEndpoints();
             app.MapNavEndpoints();
+            app.MapHub<NavHub>(NavHubContract.Route);
 
             app.MapRazorComponents<App>()
                 .AddInteractiveWebAssemblyRenderMode()
@@ -179,6 +185,10 @@ public class Program
                 // (re)warming them so they rebuild with the computed counts.
                 cachedNav.InvalidateLevels();
                 await cachedNav.WarmAllLevelsAsync();
+
+                // Counts are computed now — push them to any connected clients so the footer total
+                // lands without cold-start polling.
+                await app.Services.GetRequiredService<NavChangePublisher>().PublishCountsReadyAsync();
             }
             catch { /* best-effort warm-up */ }
         });

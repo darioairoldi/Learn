@@ -3,6 +3,7 @@ using Learn.Web.Shared.Navigation;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.JSInterop;
 
 namespace Learn.Web.Client.Layout;
@@ -20,6 +21,11 @@ public partial class DynNav
     private IReadOnlyList<NavLeaf>? _index;
     private bool _indexing;
 
+    // Live nav-metadata push (WASM only; null during server prerender). Replaces the old cold-start
+    // count polling: the server pushes root counts once warm-up finishes and per-folder counts on
+    // every content change.
+    private NavHubClient? _hub;
+
     protected override async Task OnInitializedAsync()
     {
         _current = CurrentRoute();
@@ -27,12 +33,18 @@ public partial class DynNav
         _root = await Provider.GetChildrenAsync(string.Empty);
         _scrollPending = true;
 
-        // If the server has not yet filled the recursive per-folder counts (cold start), re-pull the
-        // cheap, cached root level a few times so the footer total lands — reusing the very same nav
-        // query the menu already issues, never a dedicated "count" call.
-        if (_root.Any(n => n.IsSection && n.ArticleCount is null))
+        // Subscribe to the metadata hub so folder counts and the footer total arrive by push — no
+        // polling. Only in the browser; the server prerender has no hub registered.
+        if (OperatingSystem.IsBrowser())
         {
-            _ = ConvergeCountsAsync();
+            _hub = Services.GetService<NavHubClient>();
+            if (_hub is not null)
+            {
+                _hub.MetadataChanged += OnAggregatesPushed;
+                _hub.CountsReady += OnAggregatesPushed;
+                _hub.Reconnected += OnHubReconnected;
+                await _hub.StartAsync();
+            }
         }
     }
 
@@ -44,30 +56,39 @@ public partial class DynNav
         Stats.SetRoot(report.Key, label, report.Value);
     }
 
-    // Cold-start convergence: the server computes recursive folder counts during its background
-    // warm-up (a whole-tree walk that can take a while). Re-fetch the root level from the origin
-    // (bypassing the client cache) on a gentle interval until every root section carries a count, so
-    // the footer total lands once the server is warm. Fire-and-forget: never blocks anything, and it
-    // reuses the very same nav query the menu already issues — never a dedicated "count" call.
-    private async Task ConvergeCountsAsync()
-    {
-        // ~4 minutes of gentle polling (48 × 5s) comfortably covers a cold whole-tree warm-up.
-        for (int attempt = 0; attempt < 48; attempt++)
+    // Server pushed updated absolute folder aggregates (either a content change or the warm-up
+    // CountsReady). Apply them to the cached tree locally (no refetch), seed the footer total from
+    // the authoritative root values (works even when the tree isn't rendered), and nudge open
+    // sections to re-read their now-updated cached counts.
+    private void OnAggregatesPushed(IReadOnlyList<NavAggregateDelta> deltas)
+        => _ = InvokeAsync(async () =>
         {
-            await Task.Delay(TimeSpan.FromSeconds(5));
-            IReadOnlyList<NavChild> refreshed = await Provider.RefreshChildrenAsync(string.Empty);
-            _root = refreshed;
-            await InvokeAsync(StateHasChanged);
+            (Provider as HttpNavProvider)?.ApplyAggregates(deltas);
+            _root = await Provider.GetChildrenAsync(string.Empty);
 
-            if (refreshed.Where(n => n.IsSection).All(n => n.ArticleCount is not null))
+            foreach (NavAggregateDelta d in deltas)
             {
-                // Server counts are fully computed now — tell every open section to re-pull its child
-                // level so sub-folder counts that were unknown (0) at first fetch update too.
-                Sidebar.RequestCountsRefresh();
-                break; // all root sections now carry computed counts
+                if (!d.Prefix.Contains('/', StringComparison.Ordinal))
+                {
+                    string label = _root?.FirstOrDefault(n => string.Equals(n.Prefix, d.Prefix, OIC))?.Text ?? d.Prefix;
+                    Stats.SetRoot(d.Prefix, label, new FolderArticleStats(d.ArticleCount, d.LatestUtc, d.Author));
+                }
             }
-        }
-    }
+
+            Sidebar.RequestCountsRefresh();
+            StateHasChanged();
+        });
+
+    // Reconnected after a drop → messages may have been missed while offline, so re-pull the root
+    // level fresh from the origin and re-sync open sections. This is the only remaining fallback
+    // (no interval polling).
+    private void OnHubReconnected()
+        => _ = InvokeAsync(async () =>
+        {
+            _root = await Provider.RefreshChildrenAsync(string.Empty);
+            Sidebar.RequestCountsRefresh();
+            StateHasChanged();
+        });
 
     private bool IsActiveRail(NavChild n) =>
         n.Prefix is not null && !string.IsNullOrEmpty(_current) &&
@@ -176,5 +197,14 @@ public partial class DynNav
         }
     }
 
-    public void Dispose() => NavMgr.LocationChanged -= OnLocationChanged;
+    public void Dispose()
+    {
+        NavMgr.LocationChanged -= OnLocationChanged;
+        if (_hub is not null)
+        {
+            _hub.MetadataChanged -= OnAggregatesPushed;
+            _hub.CountsReady -= OnAggregatesPushed;
+            _hub.Reconnected -= OnHubReconnected;
+        }
+    }
 }

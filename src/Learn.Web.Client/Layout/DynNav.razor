@@ -6,6 +6,7 @@
 @inject NavigationManager NavMgr
 @inject NavStats Stats
 @inject IJSRuntime JS
+@inject IServiceProvider Services
 @implements IDisposable
 
 <div class="dynnav @(Sidebar.Collapsed ? "is-collapsed" : null)" @onkeydown="OnKeyDown">
