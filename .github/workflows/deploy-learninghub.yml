@@ -73,21 +73,23 @@ jobs:
           Remove-Item -Recurse -Force $stage -ErrorAction SilentlyContinue
           New-Item -ItemType Directory -Path $stage | Out-Null
 
-          # Content roots: folders that hold only site content (.md/.qmd + images).
-          $roots = @(
-            "01.00-news", "02.00-events", "03.00-tech", "04.00-howto", "05.00-issues",
-            "06.00-idea", "90.00-travel", "99.00-temp",
-            "20250815-diy-battery-pack", "20250815-diy-ebike"
-          )
-          foreach ($r in $roots) {
-            if (Test-Path $r) { Copy-Item -Path $r -Destination $stage -Recurse -Force }
-          }
+          # Content is every top-level folder and Markdown page at the repo root EXCEPT app code,
+          # deployment infrastructure, and tooling. Enumerating (deny-list) instead of maintaining an
+          # allow-list means new or renamed content folders (e.g. 85.00-other/, or renamed root pages)
+          # deploy automatically and can never drift out of sync with the site. The previous hard-coded
+          # list left stale articles in storage and dropped renamed ones from the menu. The app's own
+          # nav builder applies the same exclusions (dot/underscore-prefixed and infra folders), so
+          # storage mirrors exactly what the site renders.
+          $excludeDirs = @("src", "deploy", "scripts", "docs", "AzuriteConfig", "bin", "obj", "node_modules")
 
-          # Root-level content pages.
-          $rootFiles = @("README.md", "getting-started.md", "documentation-index.md")
-          foreach ($f in $rootFiles) {
-            if (Test-Path $f) { Copy-Item -Path $f -Destination $stage -Force }
-          }
+          # Top-level content folders: skip infra dirs and any dot/underscore-prefixed working folder.
+          Get-ChildItem -Directory | Where-Object {
+            $_.Name -notin $excludeDirs -and $_.Name -notlike ".*" -and $_.Name -notlike "_*"
+          } | ForEach-Object { Copy-Item -LiteralPath $_.FullName -Destination $stage -Recurse -Force }
+
+          # Top-level content pages (Markdown only; other root files are config/build/licence, not content).
+          Get-ChildItem -File | Where-Object { $_.Extension -in ".md", ".qmd" } |
+            ForEach-Object { Copy-Item -LiteralPath $_.FullName -Destination $stage -Force }
 
           $mdCount = (Get-ChildItem $stage -Recurse -File -Include *.md, *.qmd).Count
           $imgCount = (Get-ChildItem $stage -Recurse -File -Include *.png, *.jpg, *.jpeg, *.gif, *.svg, *.webp).Count
