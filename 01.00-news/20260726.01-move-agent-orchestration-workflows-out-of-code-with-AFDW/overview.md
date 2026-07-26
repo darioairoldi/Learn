@@ -16,7 +16,7 @@ description: "What Microsoft Agent Framework Declarative Workflows 1.0 delivers 
 
 The upshot, stated up front: in most multi-agent apps the orchestration — the order of steps, the branches, the handoffs — lives inside the program, which makes it hard to review, version, and change. Declarative workflows make that orchestration **explicit and external**: it becomes a document you can diff, review, and ship on its own, with **no runtime tradeoff** because it loads into the same `Workflow` type as code-first orchestration.
 
-## Table of contents
+## Table of contents 
  
 - 📌 [Summary](#summary)
 - 🔍 [What declarative workflows are](#what-declarative-workflows-are)
