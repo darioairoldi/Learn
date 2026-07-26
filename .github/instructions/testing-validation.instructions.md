@@ -51,7 +51,7 @@ Screenshots MUST show the element under test in its validated state.
 - **Location**: a `_validation/` subfolder **inside the work item's own folder**, kept **together with the issue/use-case definition** it validates. Images go in `_validation/images/`.
   - If the change has no work-item folder, create one under `src/docs/90. Issues/<yyyymm>/<yyyymmdd>.NN-<slug>/` and put `_validation/` inside it.
   - Do **not** put these issue-side validation docs in `src/docs/95. Validations/` — that folder is owned by the validator agent, which manages validations against the use-cases catalog. It is a separate concern from the per-issue `_validation/` artifact.
-- **Markdown filename**: `validation-sequence.md` (fixed name). For repeated validation rounds of the same item, use `NN-validation-sequence.md` (`01-`, `02-`, …).
+- **Markdown filename**: `<yyyymmdd>.<NN>-validation-sequence.md` — always prefixed with the reverse date and a sequence number (e.g. `20260726.01-validation-sequence.md`). This ensures chronological ordering and allows multiple validation rounds for the same work item (`.01`, `.02`, …).
 - **Image filenames**: `NN-<short-slug>.png` (e.g. `01-hover-folder-shows-own-count.png`), referenced with relative paths (`images/NN-….png`).
 - Mark the file **`publish: false`** in frontmatter — it is a working artifact, never wired into site navigation.
 

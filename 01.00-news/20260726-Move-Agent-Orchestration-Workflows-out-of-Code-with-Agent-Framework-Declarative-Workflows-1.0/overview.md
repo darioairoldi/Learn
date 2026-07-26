@@ -5,7 +5,7 @@ date: "2026-07-26"
 categories: [ai-agents, agent-framework, orchestration, dotnet, python]
 description: "What Microsoft Agent Framework Declarative Workflows 1.0 delivers — defining multi-agent orchestration as a versionable YAML document that loads into the same runtime as code-first workflows, across .NET and Python."
 ---
-
+ 
 # Agent Framework Declarative Workflows 1.0: orchestration as YAML, not code
 
 <mark>**Declarative workflows**</mark> let you define how agents coordinate — the sequence of steps, the branching, the state changes, and when a human steps in — as a **YAML document** rather than as control flow buried in application code. Microsoft Agent Framework loads that document into a standard `Workflow` you can run, stream, and compose exactly like a code-first one. With the **1.0** milestone, this authoring style is now stable across both SDKs.
