@@ -20,5 +20,6 @@ builder.Services.AddScoped<SidebarState>();
 builder.Services.AddScoped<NavStats>();
 builder.Services.AddScoped<ArticleState>();
 builder.Services.AddScoped<INavProvider, HttpNavProvider>();
+builder.Services.AddScoped<NavHubClient>();
 
 await builder.Build().RunAsync();

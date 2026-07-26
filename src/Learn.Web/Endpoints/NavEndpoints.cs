@@ -55,7 +55,7 @@ public static class NavEndpoints
         return Results.Json(await nav.GetIndexAsync(ct));
     }
 
-    private static IResult InvalidateNavCache(string? path, CachedDynamicNavBuilder nav)
+    private static IResult InvalidateNavCache(string? path, CachedDynamicNavBuilder nav, NavChangePublisher publisher)
     {
         using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { path });
 
@@ -68,6 +68,10 @@ public static class NavEndpoints
         {
             nav.Invalidate(path);
         }
+
+        // Recompute the affected folder aggregates and push them to connected clients (debounced),
+        // so sidebar counts and the footer total update live without polling.
+        publisher.PublishChangeAsync(path ?? string.Empty);
 
         return Results.Ok(new { version = CachedDynamicNavBuilder.Version });
     }

@@ -33,6 +33,57 @@ public sealed class HttpNavProvider(HttpClient http) : INavProvider
         return GetChildrenAsync(prefix, ct);
     }
 
+    /// <summary>
+    /// Applies server-pushed absolute folder aggregates to the in-memory cache: for every already
+    /// loaded level, any child whose <c>Prefix</c> matches a delta has its <c>ArticleCount</c> and
+    /// <c>LatestArticleUtc</c> replaced (records copied via <c>with</c>). No HTTP — this is the live,
+    /// poll-free update path. Returns true if any cached entry changed.
+    /// </summary>
+    public bool ApplyAggregates(IReadOnlyList<NavAggregateDelta> deltas)
+    {
+        if (deltas is null || deltas.Count == 0)
+        {
+            return false;
+        }
+
+        var byPrefix = new Dictionary<string, NavAggregateDelta>(StringComparer.OrdinalIgnoreCase);
+        foreach (NavAggregateDelta d in deltas)
+        {
+            byPrefix[d.Prefix] = d;
+        }
+
+        bool anyChanged = false;
+        foreach (string levelPrefix in _children.Keys.ToArray())
+        {
+            Task<IReadOnlyList<NavChild>> task = _children[levelPrefix];
+            if (task is not { IsCompletedSuccessfully: true })
+            {
+                continue; // don't touch in-flight levels; they'll fetch the fresh count on completion
+            }
+
+            IReadOnlyList<NavChild> current = task.Result;
+            List<NavChild>? updated = null;
+            for (int i = 0; i < current.Count; i++)
+            {
+                NavChild child = current[i];
+                if (child.Prefix is { } p && byPrefix.TryGetValue(p, out NavAggregateDelta? d) && d is not null
+                    && (child.ArticleCount != d.ArticleCount || child.LatestArticleUtc != d.LatestUtc))
+                {
+                    updated ??= new List<NavChild>(current);
+                    updated[i] = child with { ArticleCount = d.ArticleCount, LatestArticleUtc = d.LatestUtc };
+                }
+            }
+
+            if (updated is not null)
+            {
+                _children[levelPrefix] = Task.FromResult<IReadOnlyList<NavChild>>(updated);
+                anyChanged = true;
+            }
+        }
+
+        return anyChanged;
+    }
+
     private async Task<IReadOnlyList<NavChild>> FetchChildrenAsync(string prefix, CancellationToken ct)
     {
         try

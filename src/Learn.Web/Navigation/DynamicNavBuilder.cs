@@ -37,6 +37,17 @@ public sealed class DynamicNavBuilder(
         return leaves;
     }
 
+    public async Task RecomputeSubtreeAsync(string prefix, CancellationToken ct = default)
+    {
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefix });
+
+        prefix = (prefix ?? string.Empty).Replace('\\', '/').Trim('/');
+        // Walk only this branch so a single-folder change refreshes just its (and its ancestors')
+        // aggregates instead of the whole tree. The leaves list is discarded — only the _folderAgg
+        // side effect matters here.
+        await WalkAsync(prefix, prefix, new List<NavLeaf>(), ct);
+    }
+
     private async Task<(int Count, DateTimeOffset? Latest)> WalkAsync(string prefix, string path, List<NavLeaf> leaves, CancellationToken ct)
     {
         int count = 0;

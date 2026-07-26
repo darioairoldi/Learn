@@ -226,8 +226,9 @@ public partial class DynNavNode
         }
     }
 
-    // Cold-start counts converged → an open section re-pulls its child level so any folder count that
-    // was still unknown (rendered as 0) when it first loaded is replaced with the computed value.
+    // Counts converged / pushed → an open section re-reads its child level so any folder count that
+    // was still unknown (rendered as 0) or stale when it first loaded is replaced with the current
+    // value. Reads from the client cache (which the metadata push updates in place) — no API hit.
     private async void OnRefreshCounts()
     {
         if (!Node.IsSection || Node.Prefix is null || _children is null)
@@ -235,7 +236,7 @@ public partial class DynNavNode
             return;
         }
 
-        _children = await Provider.RefreshChildrenAsync(Node.Prefix);
+        _children = await Provider.GetChildrenAsync(Node.Prefix);
         ReportCount();
         await InvokeAsync(StateHasChanged);
     }
