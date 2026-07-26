@@ -12,16 +12,22 @@ public partial class DynNavNode
     // parent replaces our previous contribution (never double counts) and re-reports upward. Passed
     // as a plain Action (not an EventCallback) so reporting never forces ancestor re-renders — only
     // the footer refreshes, via the debounced NavStats.
-    [Parameter] public Action<(string Key, NavCount Value)>? OnCounted { get; set; }
+    [Parameter] public Action<(string Key, FolderArticleStats Value)>? OnCounted { get; set; }
+
+    // Parent section info for article-hover reporting: when hovering an article, the footer shows
+    // its containing section's label and count.
+    [Parameter] public string? ParentPrefix { get; set; }
+    [Parameter] public string? ParentLabel { get; set; }
+    [Parameter] public int? ParentCount { get; set; }
 
     private bool _open;
     private IReadOnlyList<NavChild>? _children;
 
     // Latest counts reported by our (loaded) children, keyed by the child's own key.
-    private readonly Dictionary<string, NavCount> _childCounts = new(StringComparer.OrdinalIgnoreCase);
+    private readonly Dictionary<string, FolderArticleStats> _childCounts = new(StringComparer.OrdinalIgnoreCase);
 
     // Last value we pushed to the parent, so we skip redundant reports.
-    private NavCount? _reported;
+    private FolderArticleStats? _reported;
 
     // Stable identity for this node within its parent's child set.
     private string CountKey => Node.Prefix ?? Node.Route ?? Node.Text;
@@ -35,13 +41,28 @@ public partial class DynNavNode
         (string.Equals(CurrentRoute, Node.Route, StringComparison.OrdinalIgnoreCase) ||
          CurrentRoute.StartsWith(Node.Prefix + "/", StringComparison.OrdinalIgnoreCase));
 
-    protected override void OnInitialized() => Sidebar.ExpandAllRequested += OnExpandAll;
+    protected override void OnInitialized()
+    {
+        Sidebar.ExpandAllRequested += OnExpandAll;
+        Sidebar.RefreshCountsRequested += OnRefreshCounts;
+    }
 
     protected override async Task OnParametersSetAsync()
     {
         if (!Node.IsSection)
         {
             ReportCount(); // a leaf article contributes immediately (Home / empty routes contribute 0)
+
+            // When this article IS the active route, report its parent section as the footer baseline.
+            // This handles navigation (click) where no new mouseover fires because the pointer is
+            // already over the element when the DOM re-renders. It is the lowest-priority tier, so it
+            // never overwrites a hover/focus highlight.
+            if (ParentPrefix is not null && !string.IsNullOrEmpty(Node.Route) &&
+                string.Equals(CurrentRoute, Node.Route, StringComparison.OrdinalIgnoreCase))
+            {
+                Stats.SetSelectedSection(ParentPrefix, ParentLabel, ParentCount);
+            }
+
             return;
         }
 
@@ -73,25 +94,25 @@ public partial class DynNavNode
     // Computes this node's recursive article count and pushes it to the parent when it changed.
     private void ReportCount()
     {
-        NavCount value;
+        FolderArticleStats value;
         if (!Node.IsSection)
         {
             value = string.IsNullOrEmpty(Node.Route)
-                ? new NavCount(0, null, null)                          // Home and other non-article links
-                : new NavCount(1, Node.Date, Node.Author);            // a navigable article
+                ? new FolderArticleStats(0, null, null)                          // Home and other non-article links
+                : new FolderArticleStats(1, Node.Date, Node.Author);            // a navigable article
         }
         else if (_children is null || _childCounts.Count == 0)
         {
             // Collapsed (or children not reported yet) → trust the server's recursive aggregate so the
             // total is right without expanding, and avoid a transient drop to 0.
-            value = new NavCount(Node.ArticleCount ?? 0, Node.LatestArticleUtc, null);
+            value = new FolderArticleStats(Node.ArticleCount ?? 0, Node.LatestArticleUtc, null);
         }
         else
         {
             int count = 0;
             DateTimeOffset? latest = null;
             string? author = null;
-            foreach (NavCount c in _childCounts.Values)
+            foreach (FolderArticleStats c in _childCounts.Values)
             {
                 count += c.Count;
                 if (c.LatestUtc is { } l && (latest is null || l > latest))
@@ -101,7 +122,7 @@ public partial class DynNavNode
                 }
             }
 
-            value = new NavCount(count, latest, author);
+            value = new FolderArticleStats(count, latest, author);
         }
 
         if (_reported == value)
@@ -114,7 +135,7 @@ public partial class DynNavNode
     }
 
     // A child reported its subtree count → fold it in and, if we are expanded, re-report upward.
-    private void OnChildCounted((string Key, NavCount Value) report)
+    private void OnChildCounted((string Key, FolderArticleStats Value) report)
     {
         _childCounts[report.Key] = report.Value;
         if (_children is not null)
@@ -177,5 +198,51 @@ public partial class DynNavNode
         }
     }
 
-    public void Dispose() => Sidebar.ExpandAllRequested -= OnExpandAll;
+    // Pointer entered or keyboard focused this item ("marked for selection") → highest-priority footer
+    // override. Sections report themselves (the folder itself); articles report their parent section.
+    private void OnPointerEnter()
+    {
+        if (Node.IsSection && Node.Prefix is not null)
+        {
+            Stats.SetHoverSection(Node.Prefix, Node.Text, _reported?.Count);
+        }
+        else if (ParentPrefix is not null)
+        {
+            Stats.SetHoverSection(ParentPrefix, ParentLabel, ParentCount);
+        }
+    }
+
+    // Pointer/focus left this item → drop the override (guarded by key) so the footer reverts to the
+    // selected article's section.
+    private void OnPointerLeave()
+    {
+        if (Node.IsSection && Node.Prefix is not null)
+        {
+            Stats.ClearHoverSection(Node.Prefix);
+        }
+        else if (ParentPrefix is not null)
+        {
+            Stats.ClearHoverSection(ParentPrefix);
+        }
+    }
+
+    // Cold-start counts converged → an open section re-pulls its child level so any folder count that
+    // was still unknown (rendered as 0) when it first loaded is replaced with the computed value.
+    private async void OnRefreshCounts()
+    {
+        if (!Node.IsSection || Node.Prefix is null || _children is null)
+        {
+            return;
+        }
+
+        _children = await Provider.RefreshChildrenAsync(Node.Prefix);
+        ReportCount();
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        Sidebar.ExpandAllRequested -= OnExpandAll;
+        Sidebar.RefreshCountsRequested -= OnRefreshCounts;
+    }
 }

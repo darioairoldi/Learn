@@ -19,6 +19,16 @@ public sealed class SidebarState
     /// <summary>Raised on expand-all (true) / collapse-all (false) so live nodes react.</summary>
     public event Action<bool>? ExpandAllRequested;
 
+    /// <summary>
+    /// Raised once the server's recursive folder counts have converged (cold-start warm-up finished),
+    /// so live nav sections re-pull their child level and replace any count that was still unknown
+    /// (shown as 0) when they first loaded.
+    /// </summary>
+    public event Action? RefreshCountsRequested;
+
+    /// <summary>Signals live nav sections to re-fetch their child levels so stale folder counts update.</summary>
+    public void RequestCountsRefresh() => RefreshCountsRequested?.Invoke();
+
     public void ToggleCollapsed()
     {
         Collapsed = !Collapsed;

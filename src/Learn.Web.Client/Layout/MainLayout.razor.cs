@@ -10,35 +10,44 @@ public partial class MainLayout
     private bool _notifyOpen;
     private DotNetObjectReference<MainLayout>? _selfRef;
 
+    private string SectionLine
+    {
+        get
+        {
+            if (Stats.ActiveSectionLabel is { } label && Stats.ActiveSectionCount is { } count)
+            {
+                return $"{label}: {count:N0} articles";
+            }
+
+            return string.Empty;
+        }
+    }
+
     private string TotalArticlesText
     {
         get
         {
             if (!Stats.HasData)
             {
-                return "…"; // no menu node has reported a count yet
+                return "…";
             }
 
-            // Locale-aware thousands separator (browser culture in Blazor WASM). The count grows as
-            // the menu discovers/loads nodes, so this reflects "known so far".
-            return Stats.TotalArticles.ToString("N0");
+            return $"{Stats.TotalArticles:N0} articles";
         }
     }
 
-    private string LastChangeText
+    private string ArticleLine => Article.Title is { } title ? $"Article: {title}" : string.Empty;
+
+    private string ArticleMetaLine
     {
         get
         {
-            if (Stats.LatestUtc is not { } lastChange)
+            if (Article.WordCount is { } wc)
             {
-                return string.Empty;
+                return $"Words: {wc:N0}";
             }
 
-            // Short date in the browser's locale/format; local time zone is the browser's in WASM.
-            string date = lastChange.ToLocalTime().ToString("d");
-            return string.IsNullOrWhiteSpace(Stats.LatestAuthor)
-                ? $"Last Change: {date}"
-                : $"Author: {Stats.LatestAuthor} · Last Change: {date}";
+            return string.Empty;
         }
     }
 
@@ -50,7 +59,10 @@ public partial class MainLayout
         // The footer counter is fed by the navigation menu as it loads (see NavStats): no dedicated
         // count query, and refreshes are debounced so they never impact rendering.
         Stats.Changed += OnStatsChanged;
+        Article.Changed += OnArticleChanged;
     }
+
+    private void OnArticleChanged() => InvokeAsync(StateHasChanged);
 
     private void OnStatsChanged() => InvokeAsync(StateHasChanged);
 
@@ -98,6 +110,7 @@ public partial class MainLayout
         Theme.Changed -= OnThemeChanged;
         Sidebar.Changed -= OnSidebarChanged;
         Stats.Changed -= OnStatsChanged;
+        Article.Changed -= OnArticleChanged;
         _selfRef?.Dispose();
     }
 }

@@ -127,6 +127,7 @@ public class Program
             services.AddScoped<ThemeState>();
             services.AddScoped<SidebarState>();
             services.AddScoped<NavStats>();
+            services.AddScoped<ArticleState>();
             // Dynamic, spec-compliant menu built on demand from the live content hierarchy.
             services.AddMemoryCache();
             services.AddSingleton<IContentLister>(sp => (IContentLister)sp.GetRequiredService<IContentSource>());

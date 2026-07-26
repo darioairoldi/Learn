@@ -5,6 +5,7 @@
 @inject ThemeState Theme
 @inject SidebarState Sidebar
 @inject NavStats Stats
+@inject ArticleState Article
 
 <div class="page theme-@Theme.ThemeId">
     <header class="topbar">
@@ -38,8 +39,8 @@
     </div>
 
     <footer class="bottombar">
-        <span class="bottombar-left">Total Articles: @TotalArticlesText</span>
-        <span class="bottombar-right">@LastChangeText</span>
+        <span class="bottombar-left">@SectionLine<br />Total: @TotalArticlesText</span>
+        <span class="bottombar-right">@ArticleLine<br />@ArticleMetaLine</span>
     </footer>
 </div>
 

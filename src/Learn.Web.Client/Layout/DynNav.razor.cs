@@ -38,7 +38,11 @@ public partial class DynNav
 
     // A root node reported its recursive subtree count → forward it to the status-bar aggregator,
     // which sums the roots and refreshes the footer (debounced, non-blocking).
-    private void OnRootCounted((string Key, NavCount Value) report) => Stats.SetRoot(report.Key, report.Value);
+    private void OnRootCounted((string Key, FolderArticleStats Value) report)
+    {
+        string label = _root?.FirstOrDefault(n => string.Equals(n.Prefix, report.Key, OIC))?.Text ?? report.Key;
+        Stats.SetRoot(report.Key, label, report.Value);
+    }
 
     // Cold-start convergence: the server computes recursive folder counts during its background
     // warm-up (a whole-tree walk that can take a while). Re-fetch the root level from the origin
@@ -57,6 +61,9 @@ public partial class DynNav
 
             if (refreshed.Where(n => n.IsSection).All(n => n.ArticleCount is not null))
             {
+                // Server counts are fully computed now — tell every open section to re-pull its child
+                // level so sub-folder counts that were unknown (0) at first fetch update too.
+                Sidebar.RequestCountsRefresh();
                 break; // all root sections now carry computed counts
             }
         }

@@ -11,8 +11,8 @@ public interface IMarkdownRenderer
     RenderedPage Render(string markdown, string contentDir);
 }
 
-/// <summary>The HTML body, title, and table of contents produced from a Markdown document.</summary>
-public sealed record RenderedPage(string Html, string Title, IReadOnlyList<TocEntry> Toc);
+/// <summary>The HTML body, title, table of contents, and word count produced from a Markdown document.</summary>
+public sealed record RenderedPage(string Html, string Title, IReadOnlyList<TocEntry> Toc, int WordCount);
 
 /// <summary>A single heading in the on-page table of contents.</summary>
 public sealed record TocEntry(int Level, string Text, string Id);

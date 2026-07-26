@@ -27,6 +27,16 @@ public partial class ContentView
         _loading = false;
         Toc.SetEntries(_page?.Toc ?? Array.Empty<TocEntry>());
 
+        // Push current article metadata to the footer status bar.
+        if (_page is not null)
+        {
+            Article.Set(_page.Title, _page.WordCount);
+        }
+        else
+        {
+            Article.Clear();
+        }
+
         // When no markdown content exists, check if this is a section with children
         // and show a section landing page instead of "Not found".
         if (_page is null && !string.IsNullOrEmpty(Path))

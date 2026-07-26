@@ -1,4 +1,5 @@
 using System.Text;
+using System.Text.RegularExpressions;
 using Markdig;
 using Markdig.Renderers;
 using Markdig.Renderers.Html;
@@ -22,6 +23,8 @@ public sealed class MarkdigMarkdownRenderer : IMarkdownRenderer
         .UseMermaid() // ```mermaid fenced blocks → <pre class="mermaid"> for client-side rendering
         .Build();
 
+    private static readonly Regex WordCountRx = new(@"(?m)^\s*word_count\s*:\s*~?(\d+)", RegexOptions.Compiled);
+
     public RenderedPage Render(string markdown, string contentDir)
     {
         markdown ??= string.Empty;
@@ -30,13 +33,52 @@ public sealed class MarkdigMarkdownRenderer : IMarkdownRenderer
         RewriteRelativeUrls(document, contentDir ?? string.Empty);
         IReadOnlyList<TocEntry> toc = BuildToc(document);
 
+        // Prefer the author-declared word_count from article_metadata; fall back to computed.
+        int wordCount = ParseWordCount(markdown) ?? CountWords(document);
+
         using var writer = new StringWriter();
         var renderer = new HtmlRenderer(writer);
         Pipeline.Setup(renderer);
         renderer.Render(document);
         writer.Flush();
 
-        return new RenderedPage(writer.ToString(), ExtractTitle(markdown), toc);
+        return new RenderedPage(writer.ToString(), ExtractTitle(markdown), toc, wordCount);
+    }
+
+    private static int? ParseWordCount(string markdown)
+    {
+        Match m = WordCountRx.Match(markdown);
+        return m.Success && int.TryParse(m.Groups[1].Value, out int wc) ? wc : null;
+    }
+
+    private static int CountWords(MarkdownDocument document)
+    {
+        int count = 0;
+        foreach (MarkdownObject node in document.Descendants())
+        {
+            if (node is LiteralInline literal)
+            {
+                ReadOnlySpan<char> span = literal.Content.ToString().AsSpan();
+                bool inWord = false;
+                foreach (char c in span)
+                {
+                    if (char.IsLetterOrDigit(c))
+                    {
+                        if (!inWord) { count++; inWord = true; }
+                    }
+                    else
+                    {
+                        inWord = false;
+                    }
+                }
+            }
+            else if (node is CodeInline code && code.Content.Length > 0)
+            {
+                count++; // treat inline code as one "word"
+            }
+        }
+
+        return count;
     }
 
     private static IReadOnlyList<TocEntry> BuildToc(MarkdownDocument document)
