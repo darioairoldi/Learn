@@ -15,6 +15,11 @@
 appsettings.user.json
 appsettings.*.user.json
 
+# Content staging folder built by .github/workflows/deploy-learninghub.yml before blob upload.
+# Lives at the repo root and is disposable; ignoring it keeps a leftover copy from a failed run
+# out of commits (and out of the workflow's own root-folder enumeration).
+content-stage/
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
