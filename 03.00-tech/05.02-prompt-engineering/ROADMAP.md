@@ -39,7 +39,7 @@ The series follows the [Diátaxis framework](https://diataxis.fr/) with six cont
 | 01.01 | [Appendix: Getting started reference material](./02-getting-started/01.01-appendix-getting-started-reference.md) | ✅ Published |
 | 02.00 | [How to name and organize prompt files](./02-getting-started/02.00-how-to-name-and-organize-prompt-files.md) | ✅ Published |
 
-### 03-concepts (8 articles)
+### 03-concepts (9 articles)
 
 | Number | Title | Status |
 |--------|-------|--------|
@@ -51,6 +51,7 @@ The series follows the [Diátaxis framework](https://diataxis.fr/) with six cont
 | 01.07 | [Understanding LLM models and model selection](./03-concepts/01.07-understanding-llm-models-and-model-selection.md) | ✅ Published |
 | 01.08 | [Chat modes, Agent HQ, and execution contexts](./03-concepts/01.08-chat-modes-agent-hq-and-execution-contexts.md) | ✅ Published |
 | 01.09 | [Understanding Copilot Memory and persistent context](./03-concepts/01.09-understanding-copilot-memory-and-persistent-context.md) | ✅ Published |
+| 01.10 | [Understanding voice input, dictation, and read-aloud](./03-concepts/01.10-understanding-voice-input-dictation-and-read-aloud.md) | ✅ Published |
 
 ### 04-howto (21 articles)
 
