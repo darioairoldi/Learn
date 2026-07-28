@@ -83,7 +83,10 @@ jobs:
           $excludeDirs = @("src", "deploy", "scripts", "docs", "AzuriteConfig", "bin", "obj", "node_modules")
 
           # Top-level content folders: skip infra dirs and any dot/underscore-prefixed working folder.
+          # $stage lives at the repo root, so it is itself enumerated here; without excluding it the
+          # copy fails with "Cannot overwrite the item ...\content-stage with itself".
           Get-ChildItem -Directory | Where-Object {
+            $_.Name -ne $stage -and
             $_.Name -notin $excludeDirs -and $_.Name -notlike ".*" -and $_.Name -notlike "_*"
           } | ForEach-Object { Copy-Item -LiteralPath $_.FullName -Destination $stage -Recurse -Force }
 

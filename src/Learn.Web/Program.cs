@@ -179,16 +179,32 @@ public class Program
             try
             {
                 var cachedNav = app.Services.GetRequiredService<CachedDynamicNavBuilder>();
+                var publisher = app.Services.GetRequiredService<NavChangePublisher>();
+
+                // Progressive warm-up: walk one root branch at a time and, after each, push the
+                // growing set of computed root counts. This lets the footer total climb during
+                // startup (e.g. 2 → 20 → 88 → …) instead of sitting at the cold value until the
+                // whole tree has been walked and then jumping straight to the final total.
+                foreach (var root in await cachedNav.GetChildrenAsync(string.Empty))
+                {
+                    if (!root.IsSection || root.Prefix is null)
+                    {
+                        continue;
+                    }
+
+                    await cachedNav.RecomputeSubtreeAsync(root.Prefix); // fills _folderAgg for this branch
+                    cachedNav.InvalidateLevels();                       // root level rebuilds with the new count
+                    await publisher.PublishCountsReadyAsync();          // push all counts known so far
+                }
+
+                // Build the flattened search index (the content-source cache is warm now, so this is
+                // cheap) and warm every level so the first expand-all is instant.
                 await cachedNav.GetIndexAsync();
-                // The walk above filled the recursive per-folder counts. Any level a client requested
-                // while it was still running got cached with null counts, so drop those levels before
-                // (re)warming them so they rebuild with the computed counts.
                 cachedNav.InvalidateLevels();
                 await cachedNav.WarmAllLevelsAsync();
 
-                // Counts are computed now — push them to any connected clients so the footer total
-                // lands without cold-start polling.
-                await app.Services.GetRequiredService<NavChangePublisher>().PublishCountsReadyAsync();
+                // Final authoritative push so every root count is current after the full warm-up.
+                await publisher.PublishCountsReadyAsync();
             }
             catch { /* best-effort warm-up */ }
         });
