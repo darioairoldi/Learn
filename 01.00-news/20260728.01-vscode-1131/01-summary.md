@@ -140,8 +140,6 @@ Earlier releases in this series:
 - [What's new in VS Code 1.130](../20260722-vscode-v1.130-release/01-summary.md) — the Agent Host and AHP, assisted tool approvals, TypeScript 7
 - [What's new in VS Code 1.128](../20260708-vscode-v1.128-release/01-summary.md) — earlier Agents window work
 
-The investigation trail for this entry is in [`_analysis/`](./_analysis/).
-
 ---
 
 ## References

@@ -10,6 +10,8 @@ format:
     toc-depth: 3
 ---
 
+# Azure Table Storage Access with C#
+
 ## Overview
 **Azure Table Storage** is a NoSQL key/attribute store service that provides **fast and cost-effective storage** for structured, non-relational data.<br> This guide covers the available approaches and libraries for accessing Azure Table Storage using C#.
 

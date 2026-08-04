@@ -192,6 +192,8 @@ The folder keeps working material together and makes bulk removal trivial. **Can
 - MUST mark every intermediate/working artifact with `publish: false` in its top YAML
 - MUST place every intermediate/working artifact under a `_analysis/` working folder
 - MUST NOT add any `publish: false` file (or `_analysis/` path) to navigation
+- MUST keep information flow one-way: working analysis MAY inform or be synthesized into published content, but published content MUST NOT link to, name, or direct readers to `_analysis/`, any other intermediate working folder, a `publish: false` artifact, or an internal research trail
+- MUST validate publishable files before completion and remove every reference or link to intermediate working folders and `publish: false` artifacts
 - Only the reader-facing published article is wired into navigation
 
 ## Sidebar Menu Rules

@@ -10,6 +10,8 @@ format:
     toc-depth: 3
 ---
 
+# Azure Blob Storage Access Approaches with C#
+
 ## Overview
 **Azure Blob Storage** is Microsoft's object storage solution for the cloud, providing **massively scalable and secure storage** for unstructured data such as documents, media files, backups, and application data.<br> This guide covers the available approaches and libraries for accessing Azure Blob Storage using C#.
 

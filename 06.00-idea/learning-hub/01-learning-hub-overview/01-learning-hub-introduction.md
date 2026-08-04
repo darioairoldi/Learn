@@ -2,7 +2,6 @@
 title: "Learning Hub Concept"
 author: "Dario Airoldi"
 date: "2025-08-29"
-date-modified: last-modified
 version: "1.4"
 description: "A comprehensive tool for transforming passive information consumption into intelligent, automated knowledge development"
 keywords: 
@@ -15,17 +14,6 @@ categories:
   - Framework
   - Learning
   - Knowledge Management
-format:
-  html:
-    toc: true
-    toc-depth: 3
-    number-sections: true
-    code-fold: true
-    theme: cosmo
-  pdf:
-    toc: true
-    number-sections: true
-    colorlinks: true
 status: "Foundation Architecture"
 audience: "Knowledge Workers, Consultants, Technology Professionals"
 principles:
@@ -55,9 +43,12 @@ principles:
     statement: "The Hub shares learning pieces across instances and external sources."
 ---
 
-> **Part of the Learning Hub.** This page is the founding **concept** (Layer ②, the Content Engine). For the
-> full three-layer picture — Platform, Content Engine, Learning Loop — and how the pieces fit, see the
-> canonical [Learning Hub definition](../00-learning-hub/00-learning-hub.md).
+# Learning Hub Concept
+
+> **Chapter of** [Learning Hub: vision, strategy, implementation](../00-learning-hub/00-learning-hub.md).
+> This page details the founding **concept** behind **Layer ②, the Content Engine** — how the Hub turns many
+> sources into a governed, growing corpus. Its four transformations elaborate the canonical Gather / Keep /
+> Enrich / Learn-in-context moves; see the map there for the full three-layer picture.
 
 ## 📋 Table of Contents
 
@@ -81,24 +72,24 @@ This tool transforms interaction with information by implementing <mark>**intell
 
 All of this serves one goal: to let you <mark>**think ahead**</mark>. As the corpus grows and AI comes to understand your **goals**, your **scope**, and how you **reason**, the Hub turns fresh news, information, and your own **knowledge gaps** into *foresight* — helping you get *in front* of what's coming rather than just keeping up. The canonical [Learning Hub definition](../00-learning-hub/00-learning-hub.md) frames this compounding foresight as the Hub's core value.
 
-### Core Transformation Principles
+### Core transformation principles — elaborating the canonical moves
 
-These four transformations are the Hub's **declared vision principles** (see the `principles:` block in the frontmatter). The Learning Hub changes learning from:
+The canonical [Learning Hub definition](../00-learning-hub/00-learning-hub.md) names the Hub's moves as **Gather, Keep, Enrich, Learn in context, Think ahead**. This chapter's four transformations (the Hub's **declared vision principles** — see the `principles:` block in the frontmatter) are the Content Engine's elaboration of those same moves, not a second vocabulary:
 
-- **"Information sparse"** → **"<mark>Information centric</mark>"** — **Priority: P0** · `information-centric`
+- **"Information sparse"** → **"<mark>Information centric</mark>"** — **Priority: P0** · `information-centric` · elaborates **Gather + Keep**
   Information is developed iteratively into the Learning hub, with help of Copilot.
   Copilot assists in gathering, curating and developing information, making it more accessible and actionable.
 
-- **"Random learning"** → **"<mark>Structured knowledge development</mark>"** — **Priority: P1** · `structured-knowledge-development`
+- **"Random learning"** → **"<mark>Structured knowledge development</mark>"** — **Priority: P1** · `structured-knowledge-development` · elaborates **Enrich**
   Learning now progresses with the development of information. It doesn't stop at the first read.
 
-- **"Passive consumption and development"** → **"<mark>Active critical analysis</mark> and <mark>creative development</mark>"** — **Priority: P1** · `active-critical-and-creative-development`
+- **"Passive consumption and development"** → **"<mark>Active critical analysis</mark> and <mark>creative development</mark>"** — **Priority: P1** · `active-critical-and-creative-development` · elaborates **Learn in context**
   The Learning Hub actively processes information, into the first creation and also into the development iterations.  
   Learning hub assists in organizing information for readability, consistency, understandability and knowledge gaps removal.  
   Learning hub assists critical analysis and development with <mark>creative thinking techniques</mark>.
 
-- **"Individual learning"** → **"<mark>Collaborative learning</mark>"** — **Priority: P2** · `collaborative-learning`
-  Learning pieces can be exchanged and developed across learning hub instances and, of course, it can be developed starting from (public) web resources or user provided information.
+- **"Individual learning"** → **"<mark>Collaborative learning</mark>"** — **Priority: P2** · `collaborative-learning` · extends **Enrich** beyond one instance
+  Learning pieces can be exchanged and developed across learning hub instances and, of course, it can be developed starting from (public) web resources or user provided information. This is the one facet the canonical moves don't name explicitly — sharing developed knowledge *across* instances and sources, not just within one.
 
 ### Metadata-driven Foundation
 
@@ -402,3 +393,13 @@ The framework scales with growing expertise, allowing gradual sophistication inc
 **Implementation Time:** 2-4 weeks for full framework  
 **Maintenance:** 30-45 minutes daily, 2 hours weekly  
 **Expected Impact:** Significant knowledge acceleration within 2-3 months
+
+<!--
+validations:
+  grammar: {status: "not_run", last_run: null}
+  readability: {status: "not_run", last_run: null}
+article_metadata:
+  filename: "01-learning-hub-introduction.md"
+  created: "2025-08-29"
+  status: "founding-concept"
+-->

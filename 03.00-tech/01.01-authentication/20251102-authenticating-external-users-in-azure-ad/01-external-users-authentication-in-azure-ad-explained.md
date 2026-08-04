@@ -12,6 +12,8 @@ format:
     code-fold: true
 ---
 
+# External Users Authentication in Azure AD Explained
+
 ## Overview
 
 This article provides a comprehensive guide to understanding **<mark>how external user authentication works** in Azure Active Directory (Azure AD). 

@@ -12,6 +12,8 @@ format:
     code-tools: true
 ---
 
+# 🌐 HowTo: Expose My Computer with No-IP DDNS
+
 
 **Dynamic DNS (DDNS)** is a great way to make your home computer accessible from anywhere, even if your ISP gives you a dynamic public IP. 
 

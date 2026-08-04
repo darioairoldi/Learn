@@ -2,7 +2,6 @@
 title: "Using Learning Hub for Learning Technologies"
 author: "Dario Airoldi"
 date: "2025-08-29"
-date-modified: last-modified
 version: "1.0"
 description: "Practical implementation strategies for applying the Learning Hub framework to technology learning, enabling accelerated mastery and early trend identification"
 keywords:
@@ -17,21 +16,12 @@ categories:
   - Learning Framework
   - Professional Development
   - Cloud Computing
-format:
-  html:
-    toc: true
-    toc-depth: 3
-    number-sections: true
-    code-fold: true
-    theme: cosmo
-  pdf:
-    toc: true
-    number-sections: true
-    colorlinks: true
 focus-areas: "Information Technology, Cloud Computing, Microsoft Technologies"
 target-audience: "Principal Consultants, Technology Leaders, IT Professionals"
 methodology: "Multi-channel Intelligence with Automated Workflows"
 ---
+
+# Using Learning Hub for Learning Technologies
 
 > **Part of the Learning Hub.** This is a practical **how-to** — applying the Hub's approach to
 > technology learning. For *what* the Learning Hub is and *how* it works, see the canonical
@@ -717,3 +707,13 @@ The framework scales from individual learning optimization to organizational tec
 **Daily Commitment:** 30-45 minutes for intelligence review, 60-90 minutes for laboratory work  
 **Weekly Commitment:** 2-3 hours for deep analysis and strategic planning  
 **Expected ROI:** Significant professional impact within 2-3 months, industry recognition within 6 months
+
+<!--
+validations:
+  grammar: {status: "not_run", last_run: null}
+  readability: {status: "not_run", last_run: null}
+article_metadata:
+  filename: "02-using-learning-hub-for-learning-technologies.md"
+  created: "2025-08-29"
+  status: "how-to"
+-->

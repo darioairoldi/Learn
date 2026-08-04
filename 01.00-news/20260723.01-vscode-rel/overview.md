@@ -25,7 +25,7 @@ For the full write-up — including the Agent Host process model, the three-tier
 
 ## Why this entry points elsewhere
 
-Two dated news folders captured the same 1.130 release. To keep navigation clean and avoid maintaining two copies, the canonical July 22 entry holds the full article and this entry links to it. The investigation trail is in [`_analysis/`](./_analysis/).
+Two dated news folders captured the same 1.130 release. To keep navigation clean and avoid maintaining two copies, the canonical July 22 entry holds the full article and this entry links to it.
 
 ## References
 

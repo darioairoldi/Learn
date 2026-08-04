@@ -25,10 +25,6 @@ The durable write-up now lives in the Markdown tech area:
 - **[Similar tools and alternatives](../../03.00-tech/20.01-markdown/04-markitdown/02.01-similar-tools-and-alternatives.md)** — an even-handed comparison.
 - Series index: **[MarkItDown](../../03.00-tech/20.01-markdown/04-markitdown/readme.md)**.
 
-## 🗂️ Research trail
-
-The investigation artifacts (triage, coverage map, per-area analyses, and the integration record) are preserved under [research/](research/) for provenance.
-
 ## 📚 References
 
 - [MarkItDown — GitHub repository](https://github.com/microsoft/markitdown) 📘 [Official]

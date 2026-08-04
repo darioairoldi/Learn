@@ -26,7 +26,6 @@ The upshot, stated up front: the **base weights haven't moved since August 2025*
 - ⚖️ [Choosing gpt-oss inside the Foundry Local catalog](#choosing-gpt-oss-inside-the-foundry-local-catalog)
 - 🔗 [How this relates to the Hub's local-AI content](#how-this-relates-to-the-hubs-local-ai-content)
 - 📚 [References](#references)
-- 🧾 [Research trail](#research-trail)
 
 ---
 
@@ -217,18 +216,6 @@ The published benchmark table comparing both gpt-oss sizes against o3 and o4-min
 
 **[gpt-oss-120b & gpt-oss-20b Model Card (arXiv:2508.10925)](https://arxiv.org/abs/2508.10925)** 📗 [Verified Community]  
 The technical paper behind the release, published August 8, 2025. Use it for architecture and evaluation methodology detail that the product pages compress.
-
----
-
-## 🧾 Research trail
-
-Working notes behind this article:
-
-- [Triage and interest map](_analysis/01-triage-interest-map.md)
-- [Existing coverage map](_analysis/02-existing-coverage-map.md)
-- [Source-soundness gate verdict](_analysis/03-source-soundness-gate-verdict.md) — including the verdict revision that led to this article
-- [Analysis: one year of an open-weight model](_analysis/05-analysis/one-year-of-an-open-weight-model.md)
-- [Integration record](_analysis/08-approval-and-integration-proposal.md)
 
 <!--
 validations:

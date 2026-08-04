@@ -27,10 +27,6 @@ The durable write-up now lives in the data tech area:
 - **[Mapping Fabric to legacy Microsoft data products](../../03.00-tech/03.01-data/04-microsoft-fabric/04.01-mapping-fabric-to-legacy-data-products.md)** — Synapse, ADLS, Analysis Services, and Azure SQL.
 - Series index: **[Microsoft Fabric data stores](../../03.00-tech/03.01-data/04-microsoft-fabric/readme.md)**.
 
-## 🗂️ Research trail
-
-The investigation artifacts (triage, coverage map, per-area analyses, and the integration record) are preserved under [research/](research/) for provenance.
-
 ## 📚 References
 
 - [Fabric decision guide: choose between Warehouse and Lakehouse](https://learn.microsoft.com/en-us/fabric/fundamentals/decision-guide-lakehouse-warehouse) 📘 [Official]

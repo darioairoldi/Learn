@@ -79,7 +79,7 @@ The series follows the [Diátaxis framework](https://diataxis.fr/) with six cont
 | 13.01 | [Appendix: Token optimization patterns](./04-howto/13.01-appendix-token-optimization-patterns.md) | ✅ Published |
 | 14.00 | [How to use prompts with the GitHub Copilot SDK](./04-howto/14.00-how-to-use-prompts-with-the-github-copilot-sdk.md) | ✅ Published |
 
-### 05-analysis (5 articles)
+### 05-analysis (6 articles)
 
 | Number | Title | Status |
 |--------|-------|--------|
@@ -88,6 +88,7 @@ The series follows the [Diátaxis framework](https://diataxis.fr/) with six cont
 | 21.1 | [Prompt creation multi-agent flow — Implementation plan](./05-analysis/21.1-example-prompt-interacting-with-agents-plan.md) | ✅ Published |
 | 21.2 | [Appendix: Orchestration plan specifications](./05-analysis/21.2-appendix-orchestration-plan-specifications.md) | ✅ Published |
 | 22 | [Prompts and markdown structure for a documentation site](./05-analysis/22-prompts-and-markdown-structure-for-a-documentation-site.md) | ✅ Published (unlisted) |
+| 23 | [Optimizing AI systems on the cost-to-outcome frontier](./05-analysis/23-optimizing-ai-systems-on-the-cost-to-outcome-frontier.md) | ✅ Published |
 
 ### 06-reference (3 articles)
 
@@ -117,7 +118,7 @@ The series follows the [Diátaxis framework](https://diataxis.fr/) with six cont
 - **15.00–19.00**: How-to guides — reserved for future topics
 - **20–29**: Case studies and applied patterns
 
-**Total: 42 articles** (40 published + 1 stub + 1 unlisted)
+**Total: 43 articles** (41 published + 1 stub + 1 unlisted)
 
 ---
 

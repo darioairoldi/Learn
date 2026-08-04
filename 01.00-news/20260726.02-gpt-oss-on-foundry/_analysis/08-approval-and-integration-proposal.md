@@ -49,7 +49,7 @@ The teaser is retained as a secondary link inside the References entry, since it
 
 The submitted subject ("gpt-oss launched on Azure AI Foundry") failed the gate. The **published** subject is different: *what a year of a frozen open-weight model looks like, and how the surrounding roadmaps moved*. The article therefore treats the August 2025 post as a dated baseline to measure against rather than as news, and says so in the lead.
 
-No triage vocabulary survives in the published text — no "verdict", no "why this didn't become an article", no gate references. The research trail is linked at the end as working notes.
+No triage vocabulary survives in the published text — no "verdict", no "why this didn't become an article", no gate references. The working analysis informs the article but isn't referenced from published content.
 
 ## Cross-linking
 

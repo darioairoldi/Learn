@@ -32,18 +32,18 @@ learns your goals — so that learning stops being a race to keep up and becomes
 
 It rests on four moves:
 
-- **Gather** — bring what you learn from many sources into one place: feeds, papers, transcripts, event
+- **<mark>Gather</mark>** — bring what you learn from many sources into one place: feeds, papers, transcripts, event
   proceedings, and your own notes, normalized into a single corpus.
-- **Keep** — nothing is read once and discarded; every worthwhile piece becomes part of a growing store you
+- **<mark>Keep</mark>** — nothing is read once and discarded; every worthwhile piece becomes part of a growing store you
   control.
-- **Enrich** — with AI's help, each piece is *developed*, not merely stored: analysed, connected to what you
+- **<mark>Enrich</mark>** — with AI's help, each piece is *developed*, not merely stored: analysed, connected to what you
   already know, organised for clarity, checked for gaps and stale facts, and kept fresh. Learning does not
   stop at the first read.
-- **Learn in context** — the Hub is a **place to learn**. *You* do the active thinking — critical analysis
+- **<mark>Learn in context</mark>** — the Hub is a **place to learn**. *You* do the active thinking — critical analysis
   and creative development — while *AI works alongside you*, gathering, curating, developing, and validating.
   The corpus itself becomes the context that makes both your questions and the AI's help sharper.
 
-- **Think ahead** Gathering, keeping, and enriching aren't about a tidy archive; they're about
+- **<mark>Think ahead</mark>** — Gathering, keeping, and enriching aren't about a tidy archive; they're about
 **foresight**. As the corpus grows and the AI learns your goals, your scope, and how you reason, the Hub helps
 you get *in front* of the flow: it turns fresh news and information into implications for **you**, surfaces
 what matters early, and exposes your **knowledge gaps** before they bite. Each cycle leaves you thinking
@@ -189,6 +189,7 @@ for how the retired static-site build became this live renderer.
 | Frame | [Own your learning loop](../../own-your-learning-loop/01-own-your-learning-loop-overview.md) | The economic rationale over all three layers |
 | ① Platform | [Platform and consumers](../04-platform-and-consumers.md) | The dynamic renderer and its generalized audiences |
 | ② Content Engine | [Learning Hub introduction](../01-learning-hub-overview/01-learning-hub-introduction.md) | The knowledge-development concept |
+| ② Content Engine | [Using Learning Hub for learning technologies](../01-learning-hub-overview/02-using-learning-hub-for-learning-technologies.md) | The practical how-to for technology learning |
 | ② Content Engine | [Documentation taxonomy](../02-documentation-taxonomy/01-learning-hub-documentation-taxonomy.md) | The seven content categories |
 | ② Content Engine | [Automated content lifecycle](../03-automated-content-lifecycle/01-automated-content-lifecycle-with-prompts-agents-and-mcp.md) | Research → develop → create → review → publish |
 | ② Content Engine | [IQPilot](../../iqpilot/01-iqpilot-overview.md) | The productized content-quality tool |

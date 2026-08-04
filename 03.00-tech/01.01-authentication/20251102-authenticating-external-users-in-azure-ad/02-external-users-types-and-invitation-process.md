@@ -12,6 +12,8 @@ format:
     code-fold: true
 ---
 
+# External User Types and Invitation Process in Azure AD/Entra ID
+
 ## Table of Contents
 
 - [Understanding External User Types 🔑](#understanding-external-user-types)

@@ -53,7 +53,7 @@ Deliberately **excludes** setting IDs — the 1.131 notes name none, and the pub
 
 ## Deliverable 4 — issue completion
 
-`overview.md` becomes a short pointer to `01-summary.md` and `_analysis/`, matching the pattern used by `20260723.01-vscode-rel/overview.md`, with proper frontmatter added. It will not duplicate the summary.
+`overview.md` becomes a short pointer to the published `01-summary.md`, with proper frontmatter added. It doesn't duplicate the summary or expose working analysis.
 
 ## Explicitly out of scope
 

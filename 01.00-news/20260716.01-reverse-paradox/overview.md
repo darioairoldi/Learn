@@ -158,7 +158,7 @@ Together these turn the paradox's five parts from a description of what the Hub 
 
 ## 🔧 What this session changed
 
-Alongside this analysis, the essay's vocabulary was applied to the Hub's visions rather than just noted: *learning exhaust* and the *trust boundary* were named and *Compound* reframed in the [self-updating engine vision](../../06.00-idea/self-updating-engine/20260622.01-self-updating-engine-vision.md) (v1.1.0), the *Choice* test was added to the [cost-control deck](../../06.00-idea/prompt-engineering-and-azure-openai-cost-control/20260503.01-slidescontent.md) (Slide 5.8), and a consolidating [own your learning loop](../../06.00-idea/own-your-learning-loop/01-own-your-learning-loop-overview.md) overview was created. Those were framing sharpenings; the substantive direction is in [How the Hub could evolve](#how-the-hub-could-evolve). Full trail in this article's `_analysis/` folder.
+Alongside this analysis, the essay's vocabulary was applied to the Hub's visions rather than just noted: *learning exhaust* and the *trust boundary* were named and *Compound* reframed in the [self-updating engine vision](../../06.00-idea/self-updating-engine/20260622.01-self-updating-engine-vision.md) (v1.1.0), the *Choice* test was added to the [cost-control deck](../../06.00-idea/prompt-engineering-and-azure-openai-cost-control/20260503.01-slidescontent.md) (Slide 5.8), and a consolidating [own your learning loop](../../06.00-idea/own-your-learning-loop/01-own-your-learning-loop-overview.md) overview was created. Those were framing sharpenings; the substantive direction is in [How the Hub could evolve](#how-the-hub-could-evolve).
 
 ---
 

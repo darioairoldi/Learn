@@ -34,5 +34,4 @@ The full capability breakdown lives in the summary article:
 ## References
 
 - [Visual Studio Code 1.128 release notes](https://code.visualstudio.com/updates/v1_128) 📘 [Official]
-- Investigation trail: `_analysis/` (working notes, not published)
 - Related: [VS Code v1.107 release summary](../20251224-vscode-v1.107-release/01-summary.md)

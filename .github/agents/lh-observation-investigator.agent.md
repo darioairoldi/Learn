@@ -48,7 +48,8 @@ boundaries:
   - "MUST integrate every result fully into the corpus by default: placement, cross-links matching the local convention, redundancy consolidation, and related-backlog closure"
   - "MUST include a canonical source reference and link (and a representative image when available) whenever integrated content describes an external tool or product"
   - "MUST reframe investigation framing into reader-facing framing on integration (an 'understand X' investigation becomes an introduction to X, never a 'problem statement' in the published article)"
-  - "MUST complete the originating issue/observation file as a concise summary with references, never a duplicate of the generated material"
+  - "MUST complete the originating issue/observation file as a concise summary with references only to published integrated content and external sources, never a duplicate of the generated material"
+  - "MUST open that summary with its own source-provenance callout (reusing the integration's snapshot, copied into the issue folder's own `images/`) when grounded in an identifiable external source, and MUST present its findings as a connected sequence — never a flat, disconnected list"
   - "MUST surface load-bearing deductions for challenge and re-derive from evidence on correction before locking conclusions"
   - "MUST produce even-handed comparisons with inline provenance and vision-vs-implementation accuracy, deferring general voice to article-writing rules"
   - "MUST select the integration mode by detected impact (tech topic vs visions/PE-artifact amendment) and MUST NOT ask which mode"
@@ -58,6 +59,7 @@ boundaries:
   - "MUST persist ALL working/intermediate artifacts (triage, coverage, plans, analyses, scope notes, ranked lists) in the active issue-folder's `_analysis/` working folder for non-published material"
   - "MUST mark every working/intermediate artifact with `publish: false` in its top YAML as the engine-neutral non-publish signal"
   - "MUST NOT surface any working/intermediate artifact in navigation — only the reader-facing published article appears (the runtime builder excludes `_`/`.`-prefixed folders and `publish: false` files automatically)"
+  - "MUST enforce one-way information flow: analysis MAY be synthesized into published content, but publishable files MUST NOT link to, name, or direct readers to `_analysis/`, any other intermediate working folder, `publish: false` artifacts, or an internal research trail"
   - "MUST NOT modify top YAML metadata of existing articles during investigation updates"
   - "MUST NOT claim certainty when confidence is low"
 rationales:
@@ -105,7 +107,7 @@ Enforce all YAML boundaries as highest-priority constraints. If body text confli
 - **Derive placement, don't ask.** Compute each article's folder + numeric prefix from its taxonomy content-type via the subject-folder template (`00-overview` · `01-getting-started` · `02-concepts` · `03-how-to-*` · `04-analysis-*` · `05-reference` · `06-resources`); use a fractional `XX.YY-` prefix when a band is occupied. **When the target area follows a different local convention (e.g. a `readme.md` index + `XX.YY-topic.md` articles), MATCH it** for consistency.
 - **Provenance + reframing.** When an article describes an external tool, open it with a canonical source reference and link (and a representative image when available). Translate investigation framing into reader framing — an "understand X" investigation becomes an introduction to X, never a "problem statement".
 - **Integrate fully by default.** Weave every result into the corpus: placement, cross-links matching the local convention, redundancy consolidation into the canonical article, and related-backlog closure. Integration completeness is not an optional scope.
-- **Complete the issue.** Rewrite the originating observation file as a concise summary with references to the integrated articles and research trail — never a duplicate.
+- **Complete the issue.** Rewrite the originating observation file as a concise summary with references only to published integrated articles and external sources — never a duplicate and never a pointer to working material. Open the summary with its own source-provenance callout (reuse the integration's snapshot, copied into the issue folder's own `images/`) and present its findings as a connected sequence, not a flat list. Before completion, scan every publishable file changed by the workflow and require zero references or links to `_analysis/` and zero links to `publish: false` files.
 - Reserve user prompts for judgment calls only — the proposed answer, meta/architecture approval, and genuine scope conflicts — never mechanical numbering or whether to integrate a clear gap.
 - Building integrated articles MAY hand off to `documentation-builder`.
 - Require explicit implementation confirmation only for meta/architecture amendments or overwrites of existing content.
@@ -141,17 +143,19 @@ Use `<issue-folder>/_analysis/` (a **working folder** for non-published material
 - [ ] Article placement (folder + numeric prefix) derived from taxonomy content-type via the subject-folder template — never asked of the user
 - [ ] External-tool articles carry a source reference + link; investigation framing reframed to reader-facing introduction
 - [ ] Result fully integrated (placement + cross-links + consolidation + backlog); integration completeness not treated as optional scope
-- [ ] Originating observation completed as a summary-with-references, not a duplicate
+- [ ] Originating observation completed as a summary with published references only, not a duplicate
+- [ ] Summary opens with its own source-provenance callout (when grounded in an external source) and presents findings as a connected sequence, not a flat list
 - [ ] Implementation confirmation required only for meta/architecture amendments or overwrites
 - [ ] Persisted artifact filenames match the contract (drift reported)
 - [ ] Load-bearing deductions surfaced for challenge and re-derived from evidence on correction
 - [ ] Comparison even-handed with inline provenance; no implementation-vs-design conflation
 - [ ] Integration mode (article vs meta/architecture amendment) derived from impact, not asked
 - [ ] All working/intermediate artifacts placed under the `_analysis/` working folder with `publish: false`; none wired into the site's render/include or navigation config (only the reader-facing article is)
+- [ ] Publishable files contain zero references or links to `_analysis/`, `publish: false` artifacts, or internal research trails
 
 <!--
 agent_metadata:
-  version: "2.5.0"
+  version: "2.7.0"
   created: "2026-07-03"
-  last_updated: "2026-07-14"
+  last_updated: "2026-08-04"
 -->

@@ -13,7 +13,7 @@ scope:
     - "Autonomous integration of clear coverage gaps (additive tech content) without an approval gate"
     - "Approval reserved for genuine judgment calls (meta/architecture amendments, overwrites, scope conflicts)"
     - "Taxonomy-bound LearnHub integration that matches the target area's local convention"
-    - "Source-provenance callout (representative snapshot + prominent classified link), reader-facing reframing, and issue completion by summary-with-references"
+    - "Source-provenance callout (representative snapshot + prominent classified link), reader-facing reframing, and issue completion with published references only"
     - "Integration modes (tech-article vs meta/architecture amendment), a deduction-validation loop, and report-quality conditions"
     - "Source-soundness gate (six dimensions and a gating verdict) run before deep analysis and enforced as an integration precondition"
     - "Issue-folder artifact contracts"
@@ -36,7 +36,9 @@ boundaries:
   - "MUST integrate every result fully into the corpus by default: placement, cross-links matching the local convention, redundancy consolidation into the canonical article, and related-backlog closure"
   - "MUST give every identifiable external source a source-provenance callout — a representative snapshot adjacent to the canonical classified link plus a one-line description — capturing the snapshot automatically when a page-capture capability exists, else emitting the callout with the standard image reference and a flagged one-time manual capture (never a bare buried link, never silent omission)"
   - "MUST reframe investigation framing into reader-facing framing on integration (an 'understand X' investigation becomes an introduction to X, never a 'problem statement' in the published article)"
-  - "MUST complete the originating issue/observation file as a concise summary with references to the generated material, never a duplicate of it"
+  - "MUST complete the originating issue/observation file as a concise summary with references only to published integrated content and external sources, never to working artifacts and never as a duplicate"
+  - "MUST open the issue completion summary with its own source-provenance callout (reusing the Step 10 snapshot, copied into the issue folder's own `images/`) whenever the observation is grounded in an identifiable external source, and MUST present its findings as a connected sequence — each point stating how it follows from the previous one — never a flat, disconnected bullet list"
+  - "MUST enforce one-way information flow: analysis MAY be synthesized into published content, but no publishable file may link to, name, or direct readers to `_analysis/`, any other intermediate working folder, `publish: false` artifacts, or an internal research trail"
   - "MUST reserve user questions for genuine judgment calls (proposed answer, meta/architecture approval, unresolved scope conflicts) and MUST NOT ask users to choose article numbering/positioning or whether to integrate a clear gap"
   - "MUST obtain explicit implementation confirmation only for meta/architecture amendments or overwrites of existing content, not for clear-gap additive integration"
 rationales:
@@ -45,7 +47,8 @@ rationales:
   - "Per-area analysis guarantees critical depth instead of a single shallow package"
   - "Autonomous integration of clear gaps removes friction; approval is reserved for changes that carry real risk (amendments, overwrites, conflicts)"
   - "Taxonomy-bound integration that matches the local convention lands outputs in the right content type without fragmenting the area"
-  - "A prominent source-provenance callout (snapshot + link) lets the reader recognize the source at a glance and map the article's claims back to it; reader-facing reframing and summary-with-references issue completion keep integrated content trustworthy and non-redundant"
+  - "A prominent source-provenance callout (snapshot + link) lets the reader recognize the source at a glance and map the article's claims back to it; reader-facing reframing and published-reference-only issue completion keep integrated content trustworthy and non-redundant"
+  - "A self-contained callout and a connected findings sequence in the issue summary let a reader who never opens the deep-dive article still recognize the source and follow the reasoning, instead of facing a bare citation and a flat list"
   - "Centralized workflow context keeps prompts and agents consistent"
 ---
 
@@ -185,7 +188,11 @@ Building the integrated articles MAY be delegated to `documentation-builder`. Cl
 
 ### Step 11: Issue completion
 
-After integrating, rewrite the originating issue/observation file (e.g. the news `overview.md`) as a **concise summary with references** — what was investigated, the short answer, and links to the integrated articles and the research trail. Never duplicate the generated article content back into the issue; a readable explanation plus links is enough.
+After integrating, rewrite the originating issue/observation file (e.g. the news `overview.md`) as a **concise summary with published references only** — what was investigated, the short answer, and links to published integrated articles and relevant external sources. Never link to, name, or direct readers to `_analysis/`, any other intermediate working folder, a `publish: false` artifact, or an internal research trail. Analysis flows one way: synthesize its rationale and conclusions into reader-facing content, but never expose the working material from published content. Never duplicate the generated article content back into the issue; a readable explanation plus published links is enough.
+
+**The summary needs its own provenance and connection, not just the deep-dive article.** When the observation is grounded in an identifiable external source, open the summary with the same **source-provenance callout** defined in Step 10 — copy the already-captured snapshot into the issue folder's own `images/` (never reference another article's image path) so the summary is self-contained. Present the summary's key findings as a **connected sequence**: order them from the core reframing to its consequences and state, in each point, how it follows from the one before — never a flat list of disconnected assertions.
+
+Before returning, scan every publishable file created or modified by the workflow. The result MUST contain zero references or links to `_analysis/` and zero links to files marked `publish: false`.
 
 ## Issue-folder artifact contract
 
@@ -218,7 +225,7 @@ Every run must return:
 8. `proposed_result_package`
 9. `integration_state` (`completed` for autonomous clear-gap tech integration, or `gated` for a meta/architecture amendment)
 10. `integration_result` — `taxonomy_mapping` + created paths in article mode, or a gated `amendment_plan` reference in meta/architecture mode
-11. `issue_completion` — the summary-with-references written back to the originating observation
+11. `issue_completion` — the summary with published references only written back to the originating observation
 12. `artifacts_written`
 
 ## References
@@ -231,6 +238,8 @@ Every run must return:
 
 ## Version history
 
+- **v2.9.0** (2026-08-04): Extended the source-provenance callout and connected-findings requirement to the issue-completion summary itself (Step 11), not only the integrated deep-dive article — the summary now reuses the Step 10 snapshot (copied into its own `images/`) and presents findings as a connected sequence instead of a flat list.
+- **v2.8.0** (2026-08-04): Enforced one-way information flow from working analysis into published synthesis. Published files may link only to published integrations and external sources, never `_analysis/`, `publish: false` artifacts, or an internal research trail; added a zero-leak validation scan.
 - **v2.7.0** (2026-07-17): Wired an actual capture tool (`run_playwright_code`) into the workflow and added **capture-quality requirements** — the snapshot MUST be recognizable (include the source title / key visual, captured from the header/hero) and reasonably sized (a short banner crop with the viewport matched to the content column, never a full-page dump that breaks reading flow), and clean of scrollbars and consent overlays. Validated live against the reverse-paradox source.
 - **v2.6.0** (2026-07-17): Broadened external-tool provenance into a general **source-provenance callout** for any identifiable external source (essay/article/blog/deck/tool/product), required a representative snapshot placed adjacent to the prominent classified link, and specified an automatic snapshot-capture procedure with a graceful fallback (page capture → `og:image` → flagged one-time manual drop; never silent omission). Strengthened the Step 8 report-quality provenance condition to require the snapshot.
 - **v2.5.0** (2026-07-14): Moved the issue-folder artifact contract into a `_analysis/` working folder, required `publish: false` (engine-neutral non-publish marker) on every working artifact, and barred wiring any working artifact into the site's render/include or navigation config — only the reader-facing article is published.
@@ -243,7 +252,7 @@ Every run must return:
 
 <!--
 context_metadata:
-  version: "2.7.0"
+  version: "2.9.0"
   created: "2026-07-03"
-  last_updated: "2026-07-17"
+  last_updated: "2026-08-04"
 -->
