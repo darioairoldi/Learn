@@ -1,30 +1,31 @@
 ---
-title: "Own your learning loop: the idea behind the Learning Hub's sibling visions"
+title: "Own your learning loop: the economic rationale behind the three layers"
 author: "Dario Airoldi"
 date: "2026-07-16"
 categories: [idea, ai-strategy, learning-hub, prompt-engineering, self-updating]
-description: "A short overview that ties the Learning Hub's five sibling visions together under one economic rationale — own the loop that turns using AI into accumulating your own intelligence — drawn from the Reverse Information Paradox."
+description: "The Learning Hub's economic rationale — own the loop that turns using AI into accumulating your own intelligence. A chapter of the canonical Learning Hub definition, mapping Control / Capability / Choice / Cost / Compound onto the components that implement them."
 ---
 
-# Own your learning loop: the idea behind the Learning Hub's sibling visions
+# Own your learning loop: the economic rationale behind the three layers
 
-The Learning Hub grew five sibling visions — a **self-updating engine**, a **cost-control** strategy, **TuneIQ**, **self-updating prompt engineering**, and **autonomous streams**. Read separately they look like five projects. Read together they're one bet: *own the loop that turns using AI into accumulating your own intelligence.* This overview names that bet and points to where each part lives.
+> **Chapter of** [Learning Hub: vision, strategy, implementation](00-learning-hub/00-learning-hub.md).
+> This page details the **why** that sits over all three layers — the economic case for keeping the
+> learning loop inside a boundary you control. The canonical definition summarises this argument in one
+> paragraph; this chapter gives it in full.
 
-> **This page is the "why."** For the full three-layer picture — Platform, Content Engine, Learning Loop —
-> plus current implementation and next steps, see the canonical
-> [Learning Hub definition](../learning-hub/00-learning-hub/00-learning-hub.md).
+The Learning Hub is built from components that, read separately, look like separate projects — a **self-updating engine**, a **cost-control** strategy, **TuneIQ**, **self-updating prompt engineering**, and **autonomous streams**. Read together they're one bet: *own the loop that turns using AI into accumulating your own intelligence.* This chapter names that bet and points to where each part lives.
 
 > **The frame comes from an essay.** The [Reverse Information Paradox](../../01.00-news/20260716.01-reverse-paradox/overview.md) (Satya Nadella, *sn scratchpad*, 2026) argues that using an AI model quietly transfers the knowledge that makes you unique — unless you keep your learning inside a boundary you control. The Hub reached the same architecture independently — and nothing in it is tied to a single person: the same design serves a community that shares and grows the knowledge together. This page borrows the essay's vocabulary because it names what the Hub already does.
 
 ## Table of contents
 
-- 📌 [The one idea](#the-one-idea)
-- 🧭 [The five parts](#the-five-parts)
-- 🧱 [The five visions that implement them](#the-five-visions-that-implement-them)
-- 🔒 [What the trust boundary holds](#what-the-trust-boundary-holds)
-- 💡 [Why it matters, individual or shared](#why-it-matters-individual-or-shared)
-- 🎯 [Where to go next](#where-to-go-next)
-- 📚 [References](#references)
+- 📌 [The one idea](#-the-one-idea)
+- 🧭 [The five parts](#-the-five-parts)
+- 🧱 [The components that implement them](#-the-components-that-implement-them)
+- 🔒 [What the trust boundary holds](#-what-the-trust-boundary-holds)
+- 💡 [Why it matters, individual or shared](#-why-it-matters-individual-or-shared)
+- 🎯 [Where to go next](#-where-to-go-next)
+- 📚 [References](#-references)
 
 ---
 
@@ -34,7 +35,7 @@ Every time you use an AI model, you produce **learning exhaust** — the prompts
 
 The Hub's bet is to keep it. Own the loop that generates the exhaust, keep the exhaust inside a **trust boundary** you control, and let each cycle **compound** your own <mark>*particular intelligence*</mark> — Hayek's knowledge of your own time, place, and circumstance — instead of someone else's model.
 
-Owning the loop is a means, not the end. What it buys you is the ability to **think ahead**: a compounding corpus, paired with an AI that understands your goals and how you reason, that turns news and knowledge gaps into *foresight*. That goal is the subject of the canonical [Learning Hub definition](../learning-hub/00-learning-hub/00-learning-hub.md) — this page explains *why owning the loop* is what makes it durable.
+Owning the loop is a means, not the end. What it buys you is the ability to **think ahead**: a compounding corpus, paired with an AI that understands your goals and how you reason, that turns news and knowledge gaps into *foresight*. That goal is the subject of the canonical [Learning Hub definition](00-learning-hub/00-learning-hub.md) — this chapter explains *why owning the loop* is what makes it durable.
 
 ## 🧭 The five parts
 
@@ -48,9 +49,9 @@ The essay names five things any owner of a learning loop must do. They read as a
 | **Cost** | Use that decoupling to compose context, models, and tasks cost-effectively without sacrificing quality. |
 | **Compound** | Bring the four together into a continuous learning loop, so the value accrues to you and grows over time. |
 
-## 🧱 The five visions that implement them
+## 🧱 The components that implement them
 
-Each part already has a home in the Hub. Nothing here is new machinery — it's one lens over work that already exists.
+Each part already has a home in the Hub. Nothing here is new machinery — it's one lens over work that already exists. All five sit inside **Layer ③, the Learning Loop**, except where noted.
 
 | Part | Where the Hub implements it | Maturity |
 |---|---|---|
@@ -81,14 +82,15 @@ The essay argues from an enterprise motive — competitive IP, contractual terms
 ### External sources
 
 **[The Reverse Information Paradox](https://snscratchpad.com/posts/reverse-information-paradox/)** 📒 [Community]  
-The source essay (Satya Nadella, *sn scratchpad*, 2026) that names Control / Capability / Choice / Cost / Compound and the trust-boundary argument this overview borrows.
+The source essay (Satya Nadella, *sn scratchpad*, 2026) that names Control / Capability / Choice / Cost / Compound and the trust-boundary argument this chapter borrows.
 
 **[The Use of Knowledge in Society](https://www.econlib.org/library/Essays/hykKnw.html)** 📗 [Verified Community]  
 F. A. Hayek's essay on "particular knowledge of time and place" — the source of *particular intelligence*.
 
 ### Internal references
 
-- [Reverse Information Paradox analysis](../../01.00-news/20260716.01-reverse-paradox/overview.md) — the analysis that motivated this overview.
+- [Learning Hub: vision, strategy, implementation](00-learning-hub/00-learning-hub.md) — the canonical definition this chapter gives the rationale for.
+- [Reverse Information Paradox analysis](../../01.00-news/20260716.01-reverse-paradox/overview.md) — the analysis that motivated this chapter.
 - [Self-updating engine vision](../self-updating-engine/20260622.01-self-updating-engine-vision.md) — Compound, Choice, and the trust boundary.
 - [Cost-control vision](../prompt-engineering-and-azure-openai-cost-control/20260503.01-slidescontent.md) — Cost and the model-independence test.
 - [TuneIQ design](../tuneiq/01-tuneiq-design.md) — Capability and owning your traces.
@@ -102,9 +104,9 @@ validations:
   technical_accuracy: {status: "not_run", last_run: null}
   reference_classification: {status: "not_run", last_run: null}
 article_metadata:
-  filename: "01-own-your-learning-loop-overview.md"
+  filename: "05-own-your-learning-loop.md"
   created: "2026-07-16"
-  last_updated: "2026-07-16"
-  content_type: "overview"
-  subject: "own-your-learning-loop"
+  last_updated: "2026-08-04"
+  content_type: "chapter"
+  subject: "learning-hub"
 -->

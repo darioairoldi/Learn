@@ -50,18 +50,26 @@ principles:
 > sources into a governed, growing corpus. Its four transformations elaborate the canonical Gather / Keep /
 > Enrich / Learn-in-context moves; see the map there for the full three-layer picture.
 
+## 🎯 Chapter scope in the three-layer model
+
+Use this chapter to understand the **conceptual contract** of Layer ②. It intentionally stays at concept and
+policy level.
+
+- **This chapter defines:** what the Content Engine must do, which principles govern it, and where its boundaries sit.
+- **This chapter does not define:** operational schedules, long source catalogs, or implementation playbooks.
+- **For practical execution:** use [Using Learning Hub for Learning Technologies](02-using-learning-hub-for-learning-technologies.md).
+- **For full architecture:** use [Learning Hub: vision, strategy, implementation](../00-learning-hub/00-learning-hub.md).
+
 ## 📋 Table of Contents
 
-- [Overview 📖](#overview)
-- [Knowledge Information Sources 📚](#knowledge-information-sources)
-- [Automated Prompts ⚡](#automated-prompts)
-  - [Real time Automated Prompts](#real-time-automated-prompts)
-  - [User triggered Prompts](#user-triggered-prompts)
-  - [Scheduled Automated Prompts](#scheduled-automated-prompts)
-- [Deep Learning Accelerators 🚀](#deep-learning-accelerators)
-- [Collaborative Learning 🤝](#collaborative-learning)
-- [Implementation Framework 🛠️](#implementation-framework)
-- [Conclusion 🎯](#conclusion)
+- [Chapter scope in the three-layer model 🎯](#-chapter-scope-in-the-three-layer-model)
+- [Overview 📖](#-overview)
+- [Knowledge information sources 📚](#-knowledge-information-sources)
+- [Automated prompts ⚡](#-automated-prompts)
+- [Deep learning accelerators 🚀](#-deep-learning-accelerators)
+- [Collaborative learning 🤝](#-collaborative-learning)
+- [Implementation boundaries and handoffs 🧩](#-implementation-boundaries-and-handoffs)
+- [Conclusion 🎯](#-conclusion)
 
 
 ## 📖 Overview
@@ -120,267 +128,123 @@ Both are **dependencies the Hub uses, not capabilities it owns** — the Hub is 
 
 Learning Hub applies structured intelligence to:
 
-- **<mark>Information gathering</mark>** - Authonomous Multi-channel information collection
+- **<mark>Information gathering</mark>** - Autonomous multi-channel information collection
 - **<mark>Information filtering</mark>** - Relevance scoring and prioritization
 - **<mark>Information analysis</mark>** - Pattern recognition and insight extraction
 - **<mark>Information development</mark>** - Knowledge synthesis, ideas and asset creation
 
 ---
 
-## 📚 Knowledge Information Sources
+## 📚 Knowledge information sources
 
 **Priority: P0** · `generalized-content-engine`
 
-The Learning Hub creates and manages structured knowledge assets from diverse information sources. It is, at its core, a **generalized analysis-and-elaboration engine over many content types** — feeds, papers, transcripts, recordings, and event proceedings are all normalized into the same knowledge-development pipeline.
+The Content Engine is a **normalization system**. It takes heterogeneous sources and turns them into one
+governed corpus with consistent quality gates and metadata.
 
-### Exposure Criteria & Public/Private Sources
+### Source classes (conceptual)
+
+- **Automated streams**: feeds, newsletters, release notes, public sites.
+- **Deep sources**: papers, reports, long-form technical documentation.
+- **Experiential sources**: event notes, workshop outcomes, and curated observations.
+
+### Visibility contract
 
 **Priority: P0** · `per-piece-visibility`
 
-Information learned by the Hub is subject to **different exposure criteria**. Some material is freely publishable; some (licensed recordings, private transcripts, internal notes) is not. Rather than forcing a single visibility level, the Hub treats exposure as a **per-piece property**: every piece of information is handled at its suitable visibility.
-
-The **external-repository configuration** is the mechanism that satisfies this: non-shareable material lives in an external mirror (for example an internal repository), while the public repository holds only what may be published. When the Hub needs an asset, it resolves it from the public folder first, then from each configured external mirror at the same relative path. Private material is **read in place and never copied into the public repository**.
+Visibility is evaluated **per piece**. Public material can be published in the main repository. Non-public
+material is resolved through external mirrors and read in place, never copied into the public tree.
 
 > 📖 Resolution rules: [00-repository-configuration.md](../../../.copilot/context/90.00-learning-hub/00-repository-configuration.md)
 
-### Primary Information Channels
-
-**Automated Feeds:**
-
-- **<mark>RSS/Atom feeds</mark>** from **blogs**, **news sites**, and **research platforms**
-- **<mark>Newsletter subscriptions</mark>** with **intelligent parsing** and **categorization**
-- **<mark>Public site monitoring</mark>** with **change detection** and **analysis**
-- **<mark>Social media intelligence</mark>** from professional networks
-- **<mark>Conference</mark>** and **event proceedings analysis** — a **flagship channel** (see *Content-type specialization* below)
-
-> **Content-type specialization — conference & event ingestion.** Conferences and events are a premier source of high-quality, authoritative content. The Hub provides a dedicated **conference ingestion pipeline** (catalog discovery → session manifest → relevance ranking → branded posters → transcripts → summaries → navigation wiring) that turns a public session catalog into structured, browsable knowledge assets. Non-shareable session material (private transcripts, recordings) is resolved through the external-repository mechanism described above.
-
-**Deep Analysis Sources:**
-
-- **<mark>Research papers</mark>** and **academic publications**
-- **<mark>Industry reports</mark>** and **market analysis**
-- **<mark>Vendor documentation</mark>** and **technical specifications**
-- **<mark>Community forums</mark>** and **discussion platforms**
-- **<mark>Podcast transcriptions</mark>** and **video content analysis**
-**<mark>Interactive Learning:</mark>**
-
-- **<mark>Live event participation</mark>** and **note synthesis**
-- **<mark>Webinar attendance</mark>** with **automated key point extraction**
-- **<mark>Workshop materials</mark>** and **hands-on laboratory results**
-- **<mark>Peer collaboration</mark>** and **knowledge sharing sessions**
-- **<mark>Mentoring interactions</mark>** and **feedback integration**
-### Information Processing Architecture
-
-**<mark>Multi-Layer Processing Pipeline:</mark>**
-
-1. **<mark>Raw Intake Layer</mark>**
-   - **Automated collection** from configured sources
-   - **Initial content extraction** and **normalization**
-   - **Duplicate detection** and **consolidation**
-   - **Quality scoring** and **source credibility assessment**
-
-2. **<mark>Intelligent Filtering Layer</mark>**
-   - **Relevance scoring** based on personal criteria
-   - **Priority assignment** using configurable rules
-   - **Category assignment** and **topic classification**
-   - **Sentiment analysis** and **urgency detection**
-
-3. **<mark>Analysis and Synthesis Layer</mark>**
-   - **Pattern recognition** across multiple sources
-   - **Trend identification** and **prediction**
-   - **Knowledge gap analysis** and **recommendation**
-   - **Cross-reference validation** and **<mark>fact-checking</mark>**
-
-4. **<mark>Knowledge Asset Creation Layer</mark>**
-   - **Structured summary generation**
-   - **Action item extraction** and **prioritization**
-   - **Learning pathway recommendations**
-   - **Collaborative sharing** and **discussion facilitation**
-
-### Publishing & Incremental Integration
+### Integration principle
 
 **Priority: P1** · `incremental-integration`
 
-Publishing is the **final lifecycle stage**, and it is deliberately **publish-tool-agnostic**. The current implementation is a **dynamic web app** (`Learn.Web`) that renders Markdown on demand and builds its navigation at runtime from the live content hierarchy — so content is live the moment it lands, with no build step. The vision does not mandate this (or any) particular delivery mechanism.
-
-The principle is **incremental integration**: integrating new or changed knowledge must cost in proportion to the change, not the size of the whole corpus. The live implementation satisfies this **structurally** — because rendering and navigation happen per request, adding or changing an article has zero corpus-wide cost. (The earlier static-site generator required a full rebuild on every change; that limitation is gone.)
-
----
-
-## ⚡ <mark>Automated Prompts</mark>
-
-### <mark>Real time Prompts</mark>
-When accessing a specific article or document, the system can provide an on-the-fly 
-analysis and validations.
-
-- **Consistency Check** - Consistency with existing knowledge and upto date information
-- **Validate and update references** - Check that references are still valid and up to date
-- **Fact Verification** - Cross-referencing with trusted sources
-- **Gaps analysis** - check that gaps are not covered by the article, (eg. as for changes subsequent to the article creation)
-
-### User <mark>triggered Prompts</mark>
-- **Contextual Summary** - Key points and insights extraction (if required)
-- **Clarity and coherence Check** - Clarity and coherence evaluation
-- **Readability Check** - Conceptual flow and readability evaluation
-- **Create an example** - ...
-
-### Scheduled <mark>Automated Prompts</mark>
-The Learning Hub implements intelligent automation through scheduled prompt workflows that transform raw information into actionable intelligence.
-
-### Daily <mark>Intelligence Triage</mark>
-
-**Automated Daily Analysis (07:00 UTC)**
-
-The system processes overnight information accumulation through structured analysis:
-
-- **Priority Assessment** - Identifies urgent developments requiring immediate attention
-- **Relevance Scoring** - Ranks information based on personal and professional criteria
-- **Category Distribution** - Organizes content into predefined knowledge domains
-- **Action Generation** - Creates specific follow-up tasks and learning recommendations
-- **Digest Creation** - Produces consolidated briefing for morning review
-
-### Weekly <mark>Deep-Dive Analysis</mark>
-
-**Comprehensive Weekly Synthesis (Friday 16:00 UTC)**
-
-Advanced analytical processing that provides:
-
-- **Trend Identification** - Pattern recognition across multiple information streams
-- **Strategic Impact Assessment** - Evaluation of long-term implications
-- **Knowledge Integration** - Connection of disparate information sources
-- **Learning Pathway Optimization** - Refinement of educational objectives
-- **Asset Development** - Creation of reusable knowledge products
-
-### Custom <mark>Prompt Frameworks</mark>
-
-**Configurable Analysis Templates:**
-
-```prompt
-ROLE: Personal Intelligence Analyst
-CONTEXT: {Configurable domain expertise}
-TASK: {Specific analysis requirement}
-
-INPUT: {Information source specification}
-PROCESSING: {Custom analysis methodology}
-OUTPUT: {Structured deliverable format}
-
-CONSTRAINTS: {User-defined limitations and preferences}
-QUALITY: {Validation and accuracy requirements}
-```
-
-***
-
-## 🚀 <mark>Deep Learning Accelerators</mark>
-
-The Learning Hub implements systematic methods to accelerate knowledge acquisition and skill development beyond traditional learning approaches.
-
-### Active Laboratory Learning
-
-**Hands-On Experimentation Framework:**
-- **Structured Experimentation** - Planned laboratory sessions with specific learning objectives
-- **<mark>Documentation Standards</mark>** - Consistent recording of procedures, results, and insights
-- **<mark>Knowledge Asset Creation</mark>** - Transformation of experiments into reusable templates
-- **<mark>Progressive Complexity</mark>** - Graduated difficulty levels building comprehensive expertise
-- **<mark>Cross-Domain Integration</mark>** - Connecting insights across different technology areas
-
-### <mark>Technology Radar</mark> Implementation
-
-**Dynamic Knowledge Classification:**
-
-**<mark>ADOPT</mark> (Production Ready)**
-- Technologies with proven enterprise value
-- Comprehensive documentation and support ecosystem
-- Clear return on investment demonstration
-- Recommended for immediate client implementations
-
-**<mark>TRIAL</mark> (Evaluation Phase)**
-- Technologies undergoing structured assessment
-- Limited pilot implementations and testing
-- Regular review cycles with defined success criteria
-- Balanced risk and reward evaluation
-
-**<mark>ASSESS</mark> (Research Phase)**
-- Emerging technologies with strategic potential
-- Early exploration and proof-of-concept development
-- Market validation and ecosystem development monitoring
-- Investment in foundational understanding
-
-**<mark>HOLD</mark> (Avoid or Migrate)**
-- Technologies facing deprecation or obsolescence
-- Security, performance, or maintenance concerns
-- Superior alternatives available in market
-- Migration planning and risk mitigation strategies
-
-### Spaced Repetition Knowledge Systems
-
-**Systematic <mark>Knowledge Retention</mark>:**
-- **Concept Reinforcement** - Scheduled review of key technical concepts
-- **<mark>Progressive Difficulty</mark>** - Graduated complexity in retention exercises
-- **<mark>Context Integration</mark>** - Connecting theoretical knowledge with practical application
-- **Performance Monitoring** - Tracking retention rates and optimization opportunities
-- **Adaptive Scheduling** - Dynamic adjustment based on individual learning patterns
+The engine must integrate only what changed. The cost of integration scales with the delta, not with total
+corpus size.
 
 ---
 
-## 🤝 <mark>Collaborative Learning</mark>
+## ⚡ Automated prompts
 
-The Learning Hub extends beyond individual knowledge management to create collaborative learning ecosystems that multiply learning effectiveness.
+The Content Engine uses prompts in three modes, each with a clear role:
 
-### Community Intelligence Networks
+- **Real-time checks**: consistency, factual freshness, and gap surfacing while reading/editing.
+- **User-triggered checks**: ad hoc summarization, coherence, readability, and examples.
+- **Scheduled checks**: periodic triage and deeper synthesis for accumulation and planning.
 
-**<mark>Local Professional Communities</mark>:**
-- **Meetup Participation** - Regular attendance and contribution to technology meetups
-- **User Group Leadership** - Active roles in professional associations
-- **Conference Presentations** - Sharing insights and learning from peer feedback
-- **Mentoring Relationships** - Both providing and receiving guidance
+The goal is not automation for its own sake. The goal is to make human attention land on the highest-value
+decisions sooner.
 
-**<mark>Global Knowledge Networks</mark>:**
-- **Online Community Participation** - Contributing to forums, Q&A platforms
-- **Open Source Contributions** - Collaborative software development and documentation
-- **Professional Social Networks** - LinkedIn groups, Twitter communities
-- **Industry Working Groups** - Standards development and best practice creation
+For operational schedules and concrete routines, use the practical how-to:
+[Using Learning Hub for Learning Technologies](02-using-learning-hub-for-learning-technologies.md).
 
-### Knowledge Sharing Workflows
+---
 
-**<mark>Structured Collaboration Methods</mark>:**
+## 🚀 Deep learning accelerators
 
-**Teaching-Based Learning:**
-- **Content Creation** - Blog posts, articles, and technical documentation
-- **Presentation Development** - Webinars, conferences, and internal training
-- **Workshop Facilitation** - Hands-on training and skill development sessions
-- **Mentoring Programs** - One-on-one guidance and knowledge transfer
+The chapter defines three accelerators as **design patterns**, not prescriptive routines:
 
-**Peer Learning Networks:**
-- **<mark>"Learning Boost" Groups</mark>** - Collaborative learning with professional peers
-- **<mark>Project Collaborations</mark>** - Joint development and research initiatives
-- **<mark>Knowledge Exchange</mark>** - Cross-industry learning and insight sharing
+- **Structured experimentation**: learn by creating and validating concrete artifacts.
+- **Progressive classification**: place technologies or ideas in explicit decision states (for example
+  Adopt / Trial / Assess / Hold).
+- **Retention loops**: reinforce high-value concepts so judgment compounds over time.
 
-### Community Asset Development
+These patterns make Layer ② productive without forcing one fixed operating model.
 
-**<mark>Collaborative Knowledge Products</mark>:**
-- **<mark>Shared Repositories</mark>** - Community-maintained technical resources
-- **<mark>Best Practice Libraries</mark>** - Collective wisdom and proven methodologies
-- **<mark>Template Collections</mark>** - Reusable assets for common challenges
-- **<mark>Case Study Databases</mark>** - Real-world implementation experiences
+---
+
+## 🤝 Collaborative learning
+
+**Priority: P2** · `collaborative-learning`
+
+Collaboration is the bridge between personal learning and shared intelligence:
+
+- Share governed learning artifacts, not only raw notes.
+- Capture peer feedback as first-class input to the same quality loop.
+- Reuse validated assets across instances when policy allows.
+
+This extends Enrich beyond one author and strengthens the corpus through multiple viewpoints.
+
+---
+
+## 🧩 Implementation boundaries and handoffs
+
+This chapter now has a single purpose: define Layer ② as concept and policy. Everything else is a handoff:
+
+- **Canonical architecture and three-layer map**:
+  [Learning Hub: vision, strategy, implementation](../00-learning-hub/00-learning-hub.md)
+- **Practical execution patterns**:
+  [Using Learning Hub for Learning Technologies](02-using-learning-hub-for-learning-technologies.md)
+- **Content categorization model**:
+  [Learning-hub Documentation Taxonomy](../02-documentation-taxonomy/01-learning-hub-documentation-taxonomy.md)
+- **End-to-end lifecycle mechanics**:
+  [Automated content lifecycle with prompts, agents, and MCP](../03-automated-content-lifecycle/01-automated-content-lifecycle-with-prompts-agents-and-mcp.md)
 
 
 ## 🎯 Conclusion
 
-The Learning Hub framework provides a comprehensive approach to transforming information consumption into strategic knowledge development. By implementing structured intelligence gathering, automated analysis workflows, and collaborative learning methodologies, professionals can:
+The Learning Hub concept defines **how Layer ② works** inside the larger three-layer architecture.
+It is connected to the canonical master by design, not by implication.
 
-- **<mark>Accelerate knowledge acquisition</mark>** through systematic information processing
-- **Improve decision quality** through comprehensive intelligence analysis
-- **Build professional authority** through consistent knowledge sharing and contribution
-- **<mark>Develop strategic insights</mark>** ahead of market developments and competitive changes
-- **<mark>Create lasting knowledge assets</mark>** that compound learning effectiveness over time
+By framing sources, visibility, prompts, accelerators, and collaboration as one coherent policy set, the
+chapter makes the Content Engine understandable without duplicating the canonical architecture or the practical
+how-to.
 
-The framework scales with growing expertise, allowing gradual sophistication increases while maintaining processing efficiency. Regular measurement and optimization ensure continuous improvement in both learning velocity and knowledge quality.
+You should now read the series in this order:
 
-**Next Steps:** Review the companion article "Using Learning Hub for Learning Technologies" for specific implementation strategies and practical applications in technology learning contexts.
+1. [Learning Hub: vision, strategy, implementation](../00-learning-hub/00-learning-hub.md) for the full system view.
+2. This chapter for Layer ② concept and policy.
+3. [Using Learning Hub for Learning Technologies](02-using-learning-hub-for-learning-technologies.md) for operational implementation.
+
+With that sequence, the Learning Hub idea stays clear, connected, and non-redundant.
 
 ---
 
 ### Most recent changes
+
+- **v1.5 (2026-08-04)** — Re-scoped this document to a strict **Layer ② concept chapter**: removed operational catalog detail that duplicated companion documents, added explicit chapter scope and handoff boundaries, and aligned sequence with the canonical master for a clearer, non-redundant vision.
 
 - **v1.4 (2026-07-20)** — Switched the Hub's organizing principle from **configuration-driven** to **metadata-driven**: content behaviour (identity, ordering, visibility, validation, self-update contract) is governed by metadata carried on the content itself — the same metadata already used for navigation, the dual-metadata contract, and the self-updating engine's own metadata-driven principle. Infrastructure `appsettings.json` (source location, credentials, external mirrors) is demoted to a deployment detail rather than a central concept.
 - **v1.3 (2026-07-20)** — Named **Think ahead** as the Hub's goal in the Overview: the gather / develop / keep machinery serves *foresight* — an AI that understands the user's goals, scope, and reasoning turns news, information, and knowledge gaps into getting ahead of what's coming. Linked to the canonical master.

@@ -30,7 +30,7 @@ understanding fades. The Learning Hub replaces that with **develop-and-keep**. I
 meet into a **living body of knowledge you own and that keeps getting richer**, and pairs it with an AI that
 learns your goals — so that learning stops being a race to keep up and becomes a way to **think ahead**.
 
-It rests on four moves:
+It rests on five moves:
 
 - **<mark>Gather</mark>** — bring what you learn from many sources into one place: feeds, papers, transcripts, event
   proceedings, and your own notes, normalized into a single corpus.
@@ -53,12 +53,12 @@ further ahead — not just better informed. That compounding foresight is the Le
 sense of what "good" looks like — is itself valuable, and by default it flows outward to whoever owns the
 model you used. The Learning Hub is built so that value stays inside a boundary *you* control, free to
 compound. This economic case — *own your loop* — is argued in
-[Own your learning loop](../../own-your-learning-loop/01-own-your-learning-loop-overview.md), which adapts its
+[Own your learning loop](../05-own-your-learning-loop.md), which adapts its
 vocabulary (Control, Capability, Choice, Cost, Compound, and the "information exhaust" it keeps) from the
 [Reverse Information Paradox](../../../01.00-news/20260716.01-reverse-paradox/overview.md) essay. It is the
 *rationale* for owning the Hub — not the whole of what the Hub is.
 
-> **Ten folders, three ideas.** The sibling folders under [06.00-idea/](../../) can read like ten separate
+> **Nine folders, three layers.** The sibling folders under [06.00-idea/](../../) can read like nine separate
 > projects. They are not — each is a component of one of the three layers described next. The
 > [map](#️-the-map--sibling-visions-as-chapters) shows which is which.
 
@@ -186,7 +186,7 @@ for how the retired static-site build became this live renderer.
 
 | Layer | Chapter (sibling vision) | Role |
 |---|---|---|
-| Frame | [Own your learning loop](../../own-your-learning-loop/01-own-your-learning-loop-overview.md) | The economic rationale over all three layers |
+| Frame | [Own your learning loop](../05-own-your-learning-loop.md) | The economic rationale over all three layers |
 | ① Platform | [Platform and consumers](../04-platform-and-consumers.md) | The dynamic renderer and its generalized audiences |
 | ② Content Engine | [Learning Hub introduction](../01-learning-hub-overview/01-learning-hub-introduction.md) | The knowledge-development concept |
 | ② Content Engine | [Using Learning Hub for learning technologies](../01-learning-hub-overview/02-using-learning-hub-for-learning-technologies.md) | The practical how-to for technology learning |
@@ -205,7 +205,7 @@ for how the retired static-site build became this live renderer.
 
 ### Internal references
 
-- [Own your learning loop](../../own-your-learning-loop/01-own-your-learning-loop-overview.md) — the frame (Control / Capability / Choice / Cost / Compound).
+- [Own your learning loop](../05-own-your-learning-loop.md) — the frame (Control / Capability / Choice / Cost / Compound).
 - [Platform and consumers](../04-platform-and-consumers.md) — the platform layer and generalized audiences.
 - [Self-updating engine vision](../../self-updating-engine/20260622.01-self-updating-engine-vision.md) — the machinery of the Learning Loop.
 - [Learning Hub introduction](../01-learning-hub-overview/01-learning-hub-introduction.md) — the founding concept.
