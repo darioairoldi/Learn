@@ -46,16 +46,17 @@ principles:
 # Learning Hub Concept
 
 > **Chapter of** [Learning Hub: vision, strategy, implementation](../00-learning-hub/00-learning-hub.md).
-> This page details the founding **concept** behind **Layer ②, the Content Engine** — how the Hub turns many
+> This page details the founding **concept** behind the **self-update loop** — how the Hub turns many
 > sources into a governed, growing corpus. Its four transformations elaborate the canonical Gather / Keep /
 > Enrich / Learn-in-context moves; see the map there for the full three-layer picture.
 
 ## 🎯 Chapter scope in the three-layer model
 
-Use this chapter to understand the **conceptual contract** of Layer ②. It intentionally stays at concept and
+Use this chapter to understand the **conceptual contract** of the self-update loop's content side. It
+intentionally stays at concept and
 policy level.
 
-- **This chapter defines:** what the Content Engine must do, which principles govern it, and where its boundaries sit.
+- **This chapter defines:** what the self-update loop must do, which principles govern it, and where its boundaries sit.
 - **This chapter does not define:** operational schedules, long source catalogs, or implementation playbooks.
 - **For practical execution:** use [Using Learning Hub for Learning Technologies](02-using-learning-hub-for-learning-technologies.md).
 - **For full architecture:** use [Learning Hub: vision, strategy, implementation](../00-learning-hub/00-learning-hub.md).
@@ -82,7 +83,7 @@ All of this serves one goal: to let you <mark>**think ahead**</mark>. As the cor
 
 ### Core transformation principles — elaborating the canonical moves
 
-The canonical [Learning Hub definition](../00-learning-hub/00-learning-hub.md) names the Hub's moves as **Gather, Keep, Enrich, Learn in context, Think ahead**. This chapter's four transformations (the Hub's **declared vision principles** — see the `principles:` block in the frontmatter) are the Content Engine's elaboration of those same moves, not a second vocabulary:
+The canonical [Learning Hub definition](../00-learning-hub/00-learning-hub.md) names the Hub's moves as **Gather, Keep, Enrich, Learn in context, Think ahead**. This chapter's four transformations (the Hub's **declared vision principles** — see the `principles:` block in the frontmatter) are the self-update loop's elaboration of those same moves, not a second vocabulary:
 
 - **"Information sparse"** → **"<mark>Information centric</mark>"** — **Priority: P0** · `information-centric` · elaborates **Gather + Keep**
   Information is developed iteratively into the Learning hub, with help of Copilot.
@@ -139,7 +140,7 @@ Learning Hub applies structured intelligence to:
 
 **Priority: P0** · `generalized-content-engine`
 
-The Content Engine is a **normalization system**. It takes heterogeneous sources and turns them into one
+The self-update loop is a **normalization system**. It takes heterogeneous sources and turns them into one
 governed corpus with consistent quality gates and metadata.
 
 ### Source classes (conceptual)
@@ -168,7 +169,7 @@ corpus size.
 
 ## ⚡ Automated prompts
 
-The Content Engine uses prompts in three modes, each with a clear role:
+The self-update loop uses prompts in three modes, each with a clear role:
 
 - **Real-time checks**: consistency, factual freshness, and gap surfacing while reading/editing.
 - **User-triggered checks**: ad hoc summarization, coherence, readability, and examples.
@@ -191,7 +192,7 @@ The chapter defines three accelerators as **design patterns**, not prescriptive 
   Adopt / Trial / Assess / Hold).
 - **Retention loops**: reinforce high-value concepts so judgment compounds over time.
 
-These patterns make Layer ② productive without forcing one fixed operating model.
+These patterns make the self-update loop productive without forcing one fixed operating model.
 
 ---
 
@@ -211,7 +212,7 @@ This extends Enrich beyond one author and strengthens the corpus through multipl
 
 ## 🧩 Implementation boundaries and handoffs
 
-This chapter now has a single purpose: define Layer ② as concept and policy. Everything else is a handoff:
+This chapter now has a single purpose: define the self-update loop's content side as concept and policy. Everything else is a handoff:
 
 - **Canonical architecture and three-layer map**:
   [Learning Hub: vision, strategy, implementation](../00-learning-hub/00-learning-hub.md)
@@ -225,17 +226,17 @@ This chapter now has a single purpose: define Layer ② as concept and policy. E
 
 ## 🎯 Conclusion
 
-The Learning Hub concept defines **how Layer ② works** inside the larger three-layer architecture.
+The Learning Hub concept defines **how the self-update loop works** inside the larger three-layer architecture.
 It is connected to the canonical master by design, not by implication.
 
 By framing sources, visibility, prompts, accelerators, and collaboration as one coherent policy set, the
-chapter makes the Content Engine understandable without duplicating the canonical architecture or the practical
+chapter makes the self-update loop understandable without duplicating the canonical architecture or the practical
 how-to.
 
 You should now read the series in this order:
 
 1. [Learning Hub: vision, strategy, implementation](../00-learning-hub/00-learning-hub.md) for the full system view.
-2. This chapter for Layer ② concept and policy.
+2. This chapter for the self-update loop's concept and policy.
 3. [Using Learning Hub for Learning Technologies](02-using-learning-hub-for-learning-technologies.md) for operational implementation.
 
 With that sequence, the Learning Hub idea stays clear, connected, and non-redundant.
@@ -243,6 +244,8 @@ With that sequence, the Learning Hub idea stays clear, connected, and non-redund
 ---
 
 ### Most recent changes
+
+- **v1.6 (2026-08-06)** — Adopted the canonical **rendering / self-update loop / storage** vocabulary in place of the numbered Platform / Content Engine / Learning Loop layers. Creation and maintenance are now named as **one loop**, so this chapter describes the loop's content side rather than a separate "Content Engine" layer.
 
 - **v1.5 (2026-08-04)** — Re-scoped this document to a strict **Layer ② concept chapter**: removed operational catalog detail that duplicated companion documents, added explicit chapter scope and handoff boundaries, and aligned sequence with the canonical master for a clearer, non-redundant vision.
 

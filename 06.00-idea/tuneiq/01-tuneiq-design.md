@@ -19,7 +19,7 @@ Think of it as an **automated sprint retrospective** that runs after every AI se
 > **Scope note: the Learning Hub is a first-class surface.** TuneIQ's initial capture targets GitHub Copilot
 > sessions in VS Code, but its feedback reports are **governed Markdown** — so the Learning Hub's dynamic
 > renderer displays them **live**, alongside the editor and the AI assistant. TuneIQ is part of the Learning
-> Hub's **Learning Loop** (Layer ③). See the canonical
+> Hub's **self-update loop** — the machinery side. See the canonical
 > [Learning Hub definition](../learning-hub/00-learning-hub/00-learning-hub.md).
 
 ## The problem TuneIQ solves

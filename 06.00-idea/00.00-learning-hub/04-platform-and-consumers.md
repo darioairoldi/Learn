@@ -9,7 +9,7 @@ description: "The Learning Hub's Platform layer — a fully dynamic Markdown-ren
 # Platform and consumers: the dynamic renderer and who it serves
 
 > **Chapter of** [Learning Hub: vision, strategy, implementation, and next steps](00-learning-hub/00-learning-hub.md).
-> This page details **Layer ①, the Platform**, and the audiences it generalizes to.
+> This page details the **Rendering** layer, and the audiences it generalizes to.
 
 ## Table of contents
 
@@ -52,7 +52,7 @@ rendered live by the same platform:
 |---|---|---|
 | **The live site** | Read, browse, search | A first-class surface in its own right — not merely a publish target |
 | **The editor** | Author and validate next to the content | Save a file → it is live on refresh |
-| **AI assistants** | Create / validate / generate from chat | The Content Engine's prompts and agents run here |
+| **AI assistants** | Create / validate / generate from chat | The self-update loop's prompts and agents run here |
 | **Autonomous streams** | Background maintenance loops | Detect → propose → execute edits that go live immediately |
 
 The shift this records: the Hub used to be **where personal learning was published**; it is now **a rendering
@@ -127,7 +127,7 @@ renderer serves any Markdown-producing role, across any interaction surface.**
 ### Internal references
 
 - [Learning Hub: vision, strategy, implementation, and next steps](00-learning-hub/00-learning-hub.md) — the canonical definition this chapter details.
-- [IQPilot overview](../iqpilot/01-iqpilot-overview.md) — the content-agnostic, location-independent Content Engine product.
+- [IQPilot overview](../iqpilot/01-iqpilot-overview.md) — the content-agnostic, location-independent content product of the self-update loop.
 - [Automated content lifecycle](03-automated-content-lifecycle/01-automated-content-lifecycle-with-prompts-agents-and-mcp.md) — how content is produced and published.
 - [Self-updating engine vision](../self-updating-engine/20260622.01-self-updating-engine-vision.md) — the machinery that keeps producers' output fresh.
 

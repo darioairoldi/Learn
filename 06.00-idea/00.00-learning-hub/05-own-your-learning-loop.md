@@ -51,7 +51,7 @@ The essay names five things any owner of a learning loop must do. They read as a
 
 ## 🧱 The components that implement them
 
-Each part already has a home in the Hub. Nothing here is new machinery — it's one lens over work that already exists. All five sit inside **Layer ③, the Learning Loop**, except where noted.
+Each part already has a home in the Hub. Nothing here is new machinery — it's one lens over work that already exists. All five sit inside the **self-update loop**, except where noted.
 
 | Part | Where the Hub implements it | Maturity |
 |---|---|---|

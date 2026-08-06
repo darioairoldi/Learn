@@ -3,7 +3,7 @@ title: "Learning Hub: vision, strategy, implementation"
 author: "Dario Airoldi"
 date: "2026-07-20"
 categories: [idea, learning-hub, ai-strategy, markdown, self-updating]
-description: "The canonical definition of the Learning Hub — an AI-assisted environment that gathers, keeps, and enriches what you learn into a growing body of knowledge you own, paired with an AI that understands your goals so you can think ahead. One system in three layers (a dynamic Markdown-rendering platform, a content engine that turns many sources into governed Markdown, and a learning loop that keeps it fresh), tying the sibling visions together with current implementation and next steps."
+description: "The canonical definition of the Learning Hub — an AI-assisted environment that gathers, keeps, and enriches what you learn into a growing body of knowledge you own, paired with an AI that understands your goals so you can think ahead. One system in three layers (storage that holds the corpus, a self-update loop that develops and keeps it, and dynamic rendering that delivers it live with no build step), governed by prompt-engineering artifacts and metadata, and tying the sibling visions together with current implementation and next steps."
 ---
 
 # Learning Hub: vision, strategy, implementation
@@ -74,20 +74,20 @@ throughout by **metadata carried on the content itself**:
 
 | Layer | Verb | One-line definition |
 |---|---|---|
-| **① Platform** | *deliver* | A **fully dynamic Markdown-rendering application** that renders Markdown → HTML on demand and builds navigation at runtime — **no build step**, content is live the moment it lands. |
-| **② Content Engine** | *produce* | The prompts and agents that **turn many sources into governed Markdown** — learning notes, article writing, prompt engineering, and generated reference / documentation / validation content. |
-| **③ Learning Loop** | *compound* | The **self-updating engine and autonomous streams** that keep the corpus fresh and compound the owner's judgment, under human governance. |
+| **Rendering** | *deliver* | A **fully dynamic Markdown-rendering application** that renders Markdown → HTML on demand and builds navigation at runtime — **no build step**, content is live the moment it lands. |
+| **Self-update loop** | *develop and keep* | The prompts, agents and engine that **turn many sources into governed Markdown and then keep it current** — one loop for creation *and* maintenance, under human governance. |
+| **Storage** | *hold* | Where the corpus physically lives. **One storage target per Hub instance today**; supporting several targets at once — authenticated or not — is the target design. |
 
 ### Reading the diagram
 
 The Hub itself (navy) stacks **three bands, bottom to top** — the order matters, because it is the order the
 content travels:
 
-| Band | What it is | Layer |
-|---|---|---|
-| **Multi-source storage** (bottom) | Where the files actually reside — public and private stores serving **one** corpus. | the substrate |
-| **Self-update logic** (middle) | **Detect → Assess → Propose → Execute**: deterministic Tier 0 checks, AI-driven Tier 1–2 review, creative and critical analysis, and research. | ③ Learning Loop, running ②'s checks |
-| **Rendering** (top) | Markdown → HTML on demand, navigation built at runtime. Storage is read **on demand** — there is **no build step**, so a change is live on the next request. | ① Platform |
+| Band | What it is |
+|---|---|
+| **Storage** (bottom) | Where the files actually reside. **One storage target per Hub instance today**; the diagram's public / private split is the *target* — several targets, authenticated or not, served together as one corpus. |
+| **Self-update loop** (middle) | **Detect → Assess → Propose → Execute**: deterministic Tier 0 checks, AI-driven Tier 1–2 review, creative and critical analysis, and research. The same loop both *creates* content from the sources and *keeps* it current. |
+| **Rendering** (top) | Markdown → HTML on demand, navigation built at runtime. Storage is read **on demand** — there is **no build step**, so a change is live on the next request. |
 
 Three things sit **outside** the Hub and act on it:
 
@@ -114,22 +114,27 @@ The three coloured arrows are the **self-update loops** — what the logic in th
 All three run on **one engine** with per-domain configuration — see
 [One engine, many streams](../../self-updating-engine/00-one-engine-many-streams.md).
 
-### ① Platform — deliver
+### Rendering — deliver
 
 The Learning Hub is delivered as a **fully dynamic Markdown-rendering application** (`src/Learn.Web`). It
 renders Markdown → HTML **on demand at request time** and builds its navigation **at runtime** from the live
 content hierarchy. There is **no build step and no static output** — publishing collapses to *"make the
-Markdown available."* Content comes from the filesystem (development) or object storage (production), chosen
-by configuration, so the same application serves a local clone or a hosted corpus without code changes.
+Markdown available."* It reads whatever storage target the instance is bound to, so the same application
+serves a local clone or a hosted corpus without code changes.
 
 Because a page is a pure function of *its own* Markdown plus a shared shell, the platform is **producer- and
 source-agnostic**: any Markdown, from any origin, renders live. That property is what lets the platform serve
 audiences far beyond a single learner (see [Audiences](#-audiences-and-interaction-surfaces) and the
 [Platform and consumers](../04-platform-and-consumers.md) chapter).
 
-### ② Content Engine — produce
+### Self-update loop — develop and keep
 
-The Content Engine takes **many source channels** and normalises them into one pipeline: **feeds and
+Creation and maintenance are **the same loop**, not two systems. Learning does not stop at the first read, so
+the machinery that writes an article for the first time is the machinery that revisits it later.
+
+#### Producing governed Markdown
+
+The loop takes **many source channels** and normalises them into one pipeline: **feeds and
 newsletters** (RSS/Atom, release notes, monitored sites), **conference and event material** (session
 catalogs, slides, proceedings — a flagship channel with its own ingestion path from catalog discovery
 through transcripts and summaries to navigation wiring), **meetings and talks** (transcripts, recordings,
@@ -149,9 +154,9 @@ each simply another Markdown producer the platform renders (see [Platform and co
 - The content lifecycle: [Automated content lifecycle](../03-automated-content-lifecycle/01-automated-content-lifecycle-with-prompts-agents-and-mcp.md)
 - The product: [IQPilot overview](../../iqpilot/01-iqpilot-overview.md)
 
-### ③ Learning Loop — compound
+#### Keeping it current
 
-The Learning Loop is the machinery that keeps the corpus fresh and compounds judgment: the
+The self-update loop is the machinery that keeps the corpus fresh and compounds judgment: the
 [self-updating engine](../../self-updating-engine/20260622.01-self-updating-engine-vision.md) (a portable
 **Detect → Assess → Propose → Execute** loop with a risk-calibrated autonomy gradient and metadata-guarded
 changes) and the [autonomous streams](../../autonomous-streams/autonomous-streams.md) that instantiate it per
@@ -160,6 +165,20 @@ domain. There is **one engine and many streams**, not four separate systems — 
 [cost-control strategy](../../prompt-engineering-and-azure-openai-cost-control/20260503.01-slidescontent.md)
 and [TuneIQ](../../tuneiq/01-tuneiq-design.md) (which tunes the customization stack from real sessions) round
 out the loop.
+
+### Storage — hold
+
+Storage is where the corpus physically lives, and it is deliberately **not** part of the renderer. The
+renderer reads it on demand; the self-update loop writes to it. Nothing sits between them — no build, no
+static output, no publish step.
+
+**Today:** a Hub instance is bound to **exactly one storage target**, chosen by configuration
+(`Content:Source` — a repository clone on the filesystem, or object storage). Non-public source material is
+resolved from an external mirror and read in place, never copied into the public repository.
+
+**Target:** a single instance serves **several storage targets at once — authenticated or not** — composed
+into one corpus. That is what makes the trust boundary real: public knowledge published openly and private
+knowledge behind authentication, in the same navigation, without copying anything across the line.
 
 ---
 
@@ -184,13 +203,14 @@ generalized consumer model is the [Platform and consumers](../04-platform-and-co
 
 | Layer | Component | Status |
 |---|---|---|
-| ① Platform | Dynamic Markdown-rendering app (`src/Learn.Web`), runtime navigation, filesystem/blob source | **Built & live** |
-| ① Platform | **Multi-source storage** — public and private stores served together as one corpus | **Design** — today exactly **one** source is bound at a time (`Content:Source` = `Blob` *or* `FileSystem`); the diagram shows the target |
-| ② Content Engine | Article-writing + prompt-engineering prompts/agents; dual-metadata contract; validation caching | **Built** (IQPilot productization ongoing) |
-| ② Content Engine | Generated docs / validation consumers (documentation-manager, validation-manager) | **Design** — external patterns generalized, not yet hosted |
-| ③ Learning Loop | Self-updating engine, autonomy gradient, metadata guards | **Design-strong**; partly wired |
-| ③ Learning Loop | Autonomous streams on the live source | **Design** |
-| ③ Learning Loop | TuneIQ session capture and analysis | **Design**; capture partly wired |
+| Rendering | Dynamic Markdown-rendering app (`src/Learn.Web`), runtime navigation | **Built & live** |
+| Storage | Single storage target per instance (`Content:Source` = `Blob` *or* `FileSystem`) | **Built & live** |
+| Storage | Several targets at once — authenticated or not — composed into one corpus | **Design** — the diagram shows the target |
+| Self-update loop · content | Article-writing + prompt-engineering prompts/agents; dual-metadata contract; validation caching | **Built** (IQPilot productization ongoing) |
+| Self-update loop · content | Generated docs / validation consumers (documentation-manager, validation-manager) | **Design** — external patterns generalized, not yet hosted |
+| Self-update loop · machinery | Self-updating engine, autonomy gradient, metadata guards | **Design-strong**; partly wired |
+| Self-update loop · machinery | Autonomous streams on the live source | **Design** |
+| Self-update loop · machinery | TuneIQ session capture and analysis | **Design**; capture partly wired |
 
 The platform layer is the concrete outcome of the markdown-first migration — see the
 [progressive-build recap](../../../src/docs/90.%20Issues/202607/20270711.02-progressive-build/overview.md)
@@ -221,20 +241,20 @@ for how the retired static-site build became this live renderer.
 | Layer | Chapter (sibling vision) | Role |
 |---|---|---|
 | Frame | [Own your learning loop](../05-own-your-learning-loop.md) | The economic rationale over all three layers |
-| ① Platform | [Platform and consumers](../04-platform-and-consumers.md) | The dynamic renderer and its generalized audiences |
-| ② Content Engine | [Learning Hub introduction](../01-learning-hub-overview/01-learning-hub-introduction.md) | The knowledge-development concept |
-| ② Content Engine | [Using Learning Hub for learning technologies](../01-learning-hub-overview/02-using-learning-hub-for-learning-technologies.md) | The practical how-to for technology learning |
-| ② Content Engine | [Documentation taxonomy](../02-documentation-taxonomy/01-learning-hub-documentation-taxonomy.md) | The seven content categories |
-| ② Content Engine | [Automated content lifecycle](../03-automated-content-lifecycle/01-automated-content-lifecycle-with-prompts-agents-and-mcp.md) | Research → develop → create → review → publish |
-| ② Content Engine | [IQPilot](../../iqpilot/01-iqpilot-overview.md) | The productized content-quality tool |
-| ③ Learning Loop | [Self-updating engine](../../self-updating-engine/20260622.01-self-updating-engine-vision.md) | The portable Detect → Assess → Propose → Execute machinery |
-| ③ Learning Loop | [One engine, many streams](../../self-updating-engine/00-one-engine-many-streams.md) | Folds the self-updating-* domains into one engine |
-| ③ Learning Loop | [Self-updating: article writing](../../self-updating-article-writing/20260428.01-vision.v1.md) | Stream configuration — published-article freshness, claims, per-dimension review |
-| ③ Learning Loop | [Self-updating: prompt engineering](../../self-updating-prompt-engineering/20260531.01-vision.md) | Stream configuration — prompts, agents, skills, instructions, context files |
-| ③ Learning Loop | [Self-updating: research](../../self-updating-research/01.000-vision.v1.md) | Stream configuration — research briefs and their sources |
-| ③ Learning Loop | [Autonomous streams](../../autonomous-streams/autonomous-streams.md) | The runtime instances of the engine |
-| ③ Learning Loop | [TuneIQ](../../tuneiq/01-tuneiq-design.md) | Tunes the customization stack from real sessions |
-| ③ Learning Loop | [Cost control](../../prompt-engineering-and-azure-openai-cost-control/20260503.01-slidescontent.md) | Token / context / billing discipline |
+| Rendering | [Platform and consumers](../04-platform-and-consumers.md) | The dynamic renderer and its generalized audiences |
+| Self-update loop · content | [Learning Hub introduction](../01-learning-hub-overview/01-learning-hub-introduction.md) | The knowledge-development concept |
+| Self-update loop · content | [Using Learning Hub for learning technologies](../01-learning-hub-overview/02-using-learning-hub-for-learning-technologies.md) | The practical how-to for technology learning |
+| Self-update loop · content | [Documentation taxonomy](../02-documentation-taxonomy/01-learning-hub-documentation-taxonomy.md) | The seven content categories |
+| Self-update loop · content | [Automated content lifecycle](../03-automated-content-lifecycle/01-automated-content-lifecycle-with-prompts-agents-and-mcp.md) | Research → develop → create → review → publish |
+| Self-update loop · content | [IQPilot](../../iqpilot/01-iqpilot-overview.md) | The productized content-quality tool |
+| Self-update loop · machinery | [Self-updating engine](../../self-updating-engine/20260622.01-self-updating-engine-vision.md) | The portable Detect → Assess → Propose → Execute machinery |
+| Self-update loop · machinery | [One engine, many streams](../../self-updating-engine/00-one-engine-many-streams.md) | Folds the self-updating-* domains into one engine |
+| Self-update loop · machinery | [Self-updating: article writing](../../self-updating-article-writing/20260428.01-vision.v1.md) | Stream configuration — published-article freshness, claims, per-dimension review |
+| Self-update loop · machinery | [Self-updating: prompt engineering](../../self-updating-prompt-engineering/20260531.01-vision.md) | Stream configuration — prompts, agents, skills, instructions, context files |
+| Self-update loop · machinery | [Self-updating: research](../../self-updating-research/01.000-vision.v1.md) | Stream configuration — research briefs and their sources |
+| Self-update loop · machinery | [Autonomous streams](../../autonomous-streams/autonomous-streams.md) | The runtime instances of the engine |
+| Self-update loop · machinery | [TuneIQ](../../tuneiq/01-tuneiq-design.md) | Tunes the customization stack from real sessions |
+| Self-update loop · machinery | [Cost control](../../prompt-engineering-and-azure-openai-cost-control/20260503.01-slidescontent.md) | Token / context / billing discipline |
 
 ---
 
@@ -244,7 +264,7 @@ for how the retired static-site build became this live renderer.
 
 - [Own your learning loop](../05-own-your-learning-loop.md) — the frame (Control / Capability / Choice / Cost / Compound).
 - [Platform and consumers](../04-platform-and-consumers.md) — the platform layer and generalized audiences.
-- [Self-updating engine vision](../../self-updating-engine/20260622.01-self-updating-engine-vision.md) — the machinery of the Learning Loop.
+- [Self-updating engine vision](../../self-updating-engine/20260622.01-self-updating-engine-vision.md) — the machinery of the self-update loop.
 - [Learning Hub introduction](../01-learning-hub-overview/01-learning-hub-introduction.md) — the founding concept.
 
 ### External sources
