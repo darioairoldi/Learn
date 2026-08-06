@@ -1,0 +1,782 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - link " Learning Hub" [ref=e4] [cursor=pointer]:
+      - /url: ""
+      - generic [ref=e5]: 
+      - generic [ref=e6]: Learning Hub
+    - navigation [ref=e7]:
+      - link " Home" [ref=e8] [cursor=pointer]:
+        - /url: ""
+        - generic [ref=e9]: 
+        - generic [ref=e10]: Home
+      - button " News ▾" [ref=e12] [cursor=pointer]:
+        - generic [ref=e13]: 
+        - generic [ref=e14]: News
+        - generic [ref=e15]: ▾
+      - button " Events ▾" [ref=e17] [cursor=pointer]:
+        - generic [ref=e18]: 
+        - generic [ref=e19]: Events
+        - generic [ref=e20]: ▾
+      - button " Tech ▾" [ref=e22] [cursor=pointer]:
+        - generic [ref=e23]: 
+        - generic [ref=e24]: Tech
+        - generic [ref=e25]: ▾
+      - button " How-To ▾" [ref=e27] [cursor=pointer]:
+        - generic [ref=e28]: 
+        - generic [ref=e29]: How-To
+        - generic [ref=e30]: ▾
+    - navigation [ref=e31]:
+      - button " Ideas ▾" [ref=e33] [cursor=pointer]:
+        - generic [ref=e34]: 
+        - generic [ref=e35]: Ideas
+        - generic [ref=e36]: ▾
+      - button " Other ▾" [ref=e38] [cursor=pointer]:
+        - generic [ref=e39]: 
+        - generic [ref=e40]: Other
+        - generic [ref=e41]: ▾
+      - button " Culture ▾" [ref=e43] [cursor=pointer]:
+        - generic [ref=e44]: 
+        - generic [ref=e45]: Culture
+        - generic [ref=e46]: ▾
+    - generic [ref=e48]:
+      - button " About ▾" [ref=e49] [cursor=pointer]:
+        - generic [ref=e50]: 
+        - generic [ref=e51]: About
+        - generic [ref=e52]: ▾
+      - text: ✓
+    - button "" [ref=e53] [cursor=pointer]
+    - button "" [ref=e55] [cursor=pointer]
+    - button "🌙" [ref=e57] [cursor=pointer]
+  - generic [ref=e58]:
+    - navigation [ref=e59]:
+      - generic [ref=e61]:
+        - generic [ref=e62]:
+          - generic [ref=e63]:
+            - generic [ref=e64]: 
+            - searchbox "Filter menu" [ref=e65]
+          - generic [ref=e66]:
+            - button "" [ref=e67] [cursor=pointer]
+            - button "" [ref=e69] [cursor=pointer]
+        - tree [ref=e71]:
+          - treeitem [ref=e72]:
+            - link " Home" [ref=e73] [cursor=pointer]:
+              - /url: ""
+              - generic [ref=e74]: 
+              - generic [ref=e76]: Home
+          - treeitem [ref=e77]:
+            - link "Getting Started with IQPilot in Learn Hub" [ref=e78] [cursor=pointer]:
+              - /url: 00.00-getting-started
+          - treeitem [ref=e80]:
+            - link "Documentation Index" [ref=e81] [cursor=pointer]:
+              - /url: 00.01-documentation-index
+          - treeitem [ref=e83]:
+            - group [ref=e84]:
+              - generic " News & Updates Expand or collapse" [ref=e85] [cursor=pointer]:
+                - generic [ref=e86]: 
+                - generic [ref=e88]: News & Updates
+                - button "Expand or collapse" [ref=e89]: ›
+          - treeitem [ref=e90]:
+            - group [ref=e91]:
+              - generic " Conferences & Events Expand or collapse" [ref=e92] [cursor=pointer]:
+                - generic [ref=e93]: 
+                - generic [ref=e95]: Conferences & Events
+                - button "Expand or collapse" [ref=e96]: ›
+          - treeitem [ref=e97]:
+            - group [ref=e98]:
+              - generic " Technologies Expand or collapse" [ref=e99] [cursor=pointer]:
+                - generic [ref=e100]: 
+                - generic [ref=e102]: Technologies
+                - button "Expand or collapse" [ref=e103]: ›
+          - treeitem [ref=e104]:
+            - group [ref=e105]:
+              - generic " How-To Guides Expand or collapse" [ref=e106] [cursor=pointer]:
+                - generic [ref=e107]: 
+                - generic [ref=e109]: How-To Guides
+                - button "Expand or collapse" [ref=e110]: ›
+          - treeitem [ref=e111]:
+            - group [ref=e112]:
+              - generic " Issues & Solutions Expand or collapse" [ref=e113] [cursor=pointer]:
+                - generic [ref=e114]: 
+                - generic [ref=e116]: Issues & Solutions
+                - button "Expand or collapse" [ref=e117]: ›
+          - treeitem [expanded] [ref=e118]:
+            - group [ref=e119]:
+              - generic " Ideas & Projects Expand or collapse" [ref=e120] [cursor=pointer]:
+                - generic [ref=e121]: 
+                - generic [ref=e123]: Ideas & Projects
+                - button "Expand or collapse" [ref=e124]: ›
+              - group [ref=e125]:
+                - treeitem [expanded] [ref=e126]:
+                  - group [ref=e127]:
+                    - generic " Learning Hub Expand or collapse" [ref=e128] [cursor=pointer]:
+                      - generic [ref=e129]: 
+                      - generic [ref=e131]: Learning Hub
+                      - button "Expand or collapse" [ref=e132]: ›
+                    - group [ref=e133]:
+                      - treeitem [ref=e134]:
+                        - 'link "Learning Hub: vision, strategy, implementation" [ref=e135] [cursor=pointer]':
+                          - /url: 06.00-idea/learning-hub/00-learning-hub/00-learning-hub
+                      - treeitem [ref=e137]:
+                        - group [ref=e138]:
+                          - generic " Learning Hub Overview Expand or collapse" [ref=e139] [cursor=pointer]:
+                            - generic [ref=e140]: 
+                            - generic [ref=e142]: Learning Hub Overview
+                            - button "Expand or collapse" [ref=e143]: ›
+                      - treeitem [ref=e144]:
+                        - link "Learning-hub Documentation Taxonomy" [ref=e145] [cursor=pointer]:
+                          - /url: 06.00-idea/learning-hub/02-documentation-taxonomy/01-learning-hub-documentation-taxonomy
+                      - treeitem [ref=e147]:
+                        - link "Automated content lifecycle with prompts, agents, and MCP" [ref=e148] [cursor=pointer]:
+                          - /url: 06.00-idea/learning-hub/03-automated-content-lifecycle/01-automated-content-lifecycle-with-prompts-agents-and-mcp
+                      - treeitem [ref=e150]:
+                        - 'link "Platform and consumers: the dynamic renderer and who it serves" [ref=e151] [cursor=pointer]':
+                          - /url: 06.00-idea/learning-hub/04-platform-and-consumers
+                      - treeitem [ref=e153]:
+                        - 'link "Own your learning loop: the economic rationale behind the three layers" [ref=e154] [cursor=pointer]':
+                          - /url: 06.00-idea/learning-hub/05-own-your-learning-loop
+                - treeitem [ref=e156]:
+                  - group [ref=e157]:
+                    - generic " Autonomous Streams Expand or collapse" [ref=e158] [cursor=pointer]:
+                      - generic [ref=e159]: 
+                      - generic [ref=e161]: Autonomous Streams
+                      - button "Expand or collapse" [ref=e162]: ›
+                - treeitem [ref=e163]:
+                  - group [ref=e164]:
+                    - generic " Iqpilot Expand or collapse" [ref=e165] [cursor=pointer]:
+                      - generic [ref=e166]: 
+                      - generic [ref=e168]: Iqpilot
+                      - button "Expand or collapse" [ref=e169]: ›
+                - treeitem [ref=e170]:
+                  - group [ref=e171]:
+                    - generic " Prompt Engineering And Azure Openai Cost Control Expand or collapse" [ref=e172] [cursor=pointer]:
+                      - generic [ref=e173]: 
+                      - generic [ref=e175]: Prompt Engineering And Azure Openai Cost Control
+                      - button "Expand or collapse" [ref=e176]: ›
+                - treeitem [ref=e177]:
+                  - group [ref=e178]:
+                    - generic " Self Updating Article Writing Expand or collapse" [ref=e179] [cursor=pointer]:
+                      - generic [ref=e180]: 
+                      - generic [ref=e182]: Self Updating Article Writing
+                      - button "Expand or collapse" [ref=e183]: ›
+                - treeitem [ref=e184]:
+                  - group [ref=e185]:
+                    - generic " Self Updating Engine Expand or collapse" [ref=e186] [cursor=pointer]:
+                      - generic [ref=e187]: 
+                      - generic [ref=e189]: Self Updating Engine
+                      - button "Expand or collapse" [ref=e190]: ›
+                - treeitem [ref=e191]:
+                  - group [ref=e192]:
+                    - generic " Self Updating Prompt Engineering Expand or collapse" [ref=e193] [cursor=pointer]:
+                      - generic [ref=e194]: 
+                      - generic [ref=e196]: Self Updating Prompt Engineering
+                      - button "Expand or collapse" [ref=e197]: ›
+                - treeitem [ref=e198]:
+                  - group [ref=e199]:
+                    - generic " Self Updating Research Expand or collapse" [ref=e200] [cursor=pointer]:
+                      - generic [ref=e201]: 
+                      - generic [ref=e203]: Self Updating Research
+                      - button "Expand or collapse" [ref=e204]: ›
+                - treeitem [ref=e205]:
+                  - 'link "TuneIQ: automatic feedback loop for AI-assisted workflows" [ref=e206] [cursor=pointer]':
+                    - /url: 06.00-idea/tuneiq/01-tuneiq-design
+          - treeitem [ref=e208]:
+            - group [ref=e209]:
+              - generic " Other Technologies Expand or collapse" [ref=e210] [cursor=pointer]:
+                - generic [ref=e211]: 
+                - generic [ref=e213]: Other Technologies
+                - button "Expand or collapse" [ref=e214]: ›
+          - treeitem [ref=e215]:
+            - group [ref=e216]:
+              - generic " Culture & Travel Expand or collapse" [ref=e217] [cursor=pointer]:
+                - generic [ref=e218]: 
+                - generic [ref=e220]: Culture & Travel
+                - button "Expand or collapse" [ref=e221]: ›
+    - generic "Drag to resize · double-click to reset" [ref=e222]
+    - main [ref=e223]:
+      - navigation "Breadcrumb" [ref=e224]:
+        - generic [ref=e225]:
+          - link "Ideas & Projects" [ref=e226] [cursor=pointer]:
+            - /url: /06.00-idea
+          - generic [ref=e227]: ›
+          - link "Learning Hub" [ref=e228] [cursor=pointer]:
+            - /url: /06.00-idea/learning-hub
+          - generic [ref=e229]: ›
+          - generic [ref=e230]: "Learning Hub: vision, strategy, implementation"
+          - generic [ref=e231]: ›
+          - generic [ref=e232]: "Learning Hub: vision, strategy, implementation"
+      - article [ref=e233]:
+        - 'heading "Learning Hub: vision, strategy, implementation" [level=1] [ref=e234]'
+        - blockquote [ref=e235]:
+          - paragraph [ref=e236]:
+            - strong [ref=e237]: Read this first.
+            - text: This is the canonical definition of the Learning Hub. Each sibling vision under
+            - link "06.00-idea/" [ref=e238] [cursor=pointer]:
+              - /url: /_content-raw/06.00-idea
+            - text: is a
+            - strong [ref=e239]: chapter
+            - text: of the picture drawn here — this page is the map that ties them together.
+        - heading "Table of contents" [level=2] [ref=e240]
+        - list [ref=e241]:
+          - listitem [ref=e242]:
+            - link "🧭 Vision — what it is and why" [ref=e243] [cursor=pointer]:
+              - /url: "#-vision--what-it-is-and-why"
+          - listitem [ref=e244]:
+            - link "🏗️ How it works — one system in three layers" [ref=e245] [cursor=pointer]:
+              - /url: "#%EF%B8%8F-how-it-works--one-system-in-three-layers"
+          - listitem [ref=e246]:
+            - link "👥 Audiences and interaction surfaces" [ref=e247] [cursor=pointer]:
+              - /url: "#-audiences-and-interaction-surfaces"
+          - listitem [ref=e248]:
+            - link "⚙️ Current implementation" [ref=e249] [cursor=pointer]:
+              - /url: "#%EF%B8%8F-current-implementation"
+          - listitem [ref=e250]:
+            - link "🚀 Next steps" [ref=e251] [cursor=pointer]:
+              - /url: "#-next-steps"
+          - listitem [ref=e252]:
+            - link "🗺️ The map — sibling visions as chapters" [ref=e253] [cursor=pointer]:
+              - /url: "#%EF%B8%8F-the-map--sibling-visions-as-chapters"
+          - listitem [ref=e254]:
+            - link "📚 References" [ref=e255] [cursor=pointer]:
+              - /url: "#-references"
+        - separator [ref=e256]
+        - heading "🧭 Vision — what it is and why" [level=2] [ref=e257]
+        - paragraph [ref=e258]:
+          - text: Most learning is
+          - strong [ref=e259]: consume-and-forget
+          - text: ": you read an article, watch a talk, skim a paper — and the understanding fades. The Learning Hub replaces that with"
+          - strong [ref=e260]: develop-and-keep
+          - text: . It turns the information you meet into a
+          - strong [ref=e261]: living body of knowledge you own and that keeps getting richer
+          - text: ", and pairs it with an AI that learns your goals — so that learning stops being a race to keep up and becomes a way to"
+          - strong [ref=e262]: think ahead
+          - text: .
+        - paragraph [ref=e263]: "It rests on five moves:"
+        - list [ref=e264]:
+          - listitem [ref=e265]:
+            - paragraph [ref=e266]:
+              - strong [ref=e267]:
+                - mark [ref=e268]: Gather
+              - text: "— bring what you learn from many sources into one place: feeds, papers, transcripts, event proceedings, and your own notes, normalized into a single corpus."
+          - listitem [ref=e269]:
+            - paragraph [ref=e270]:
+              - strong [ref=e271]:
+                - mark [ref=e272]: Keep
+              - text: — nothing is read once and discarded; every worthwhile piece becomes part of a growing store you control.
+          - listitem [ref=e273]:
+            - paragraph [ref=e274]:
+              - strong [ref=e275]:
+                - mark [ref=e276]: Enrich
+              - text: — with AI's help, each piece is
+              - emphasis [ref=e277]: developed
+              - text: ", not merely stored: analysed, connected to what you already know, organised for clarity, checked for gaps and stale facts, and kept fresh. Learning does not stop at the first read."
+          - listitem [ref=e278]:
+            - paragraph [ref=e279]:
+              - strong [ref=e280]:
+                - mark [ref=e281]: Learn in context
+              - text: — the Hub is a
+              - strong [ref=e282]: place to learn
+              - text: .
+              - emphasis [ref=e283]: You
+              - text: do the active thinking — critical analysis and creative development — while
+              - emphasis [ref=e284]: AI works alongside you
+              - text: ", gathering, curating, developing, and validating. The corpus itself becomes the context that makes both your questions and the AI's help sharper."
+          - listitem [ref=e285]:
+            - paragraph [ref=e286]:
+              - strong [ref=e287]:
+                - mark [ref=e288]: Think ahead
+              - text: — Gathering, keeping, and enriching aren't about a tidy archive; they're about
+              - strong [ref=e289]: foresight
+              - text: . As the corpus grows and the AI learns your goals, your scope, and how you reason, the Hub helps you get
+              - emphasis [ref=e290]: in front
+              - text: "of the flow: it turns fresh news and information into implications for"
+              - strong [ref=e291]: you
+              - text: ", surfaces what matters early, and exposes your"
+              - strong [ref=e292]: knowledge gaps
+              - text: before they bite. Each cycle leaves you thinking further ahead — not just better informed. That compounding foresight is the Learning Hub's core value.
+        - paragraph [ref=e293]:
+          - strong [ref=e294]: Why keep it close.
+          - text: The judgment you generate while learning — your corrections, your standards, your sense of what "good" looks like — is itself valuable, and by default it flows outward to whoever owns the model you used. The Learning Hub is built so that value stays inside a boundary
+          - emphasis [ref=e295]: you
+          - text: control, free to compound. This economic case —
+          - emphasis [ref=e296]: own your loop
+          - text: — is argued in
+          - link "Own your learning loop" [ref=e297] [cursor=pointer]:
+            - /url: /06.00-idea/learning-hub/05-own-your-learning-loop
+          - text: ", which adapts its vocabulary (Control, Capability, Choice, Cost, Compound, and the \"information exhaust\" it keeps) from the"
+          - link "Reverse Information Paradox" [ref=e298] [cursor=pointer]:
+            - /url: /01.00-news/20260716.01-reverse-paradox/overview
+          - text: essay. It is the
+          - emphasis [ref=e299]: rationale
+          - text: for owning the Hub — not the whole of what the Hub is.
+        - blockquote [ref=e300]:
+          - paragraph [ref=e301]:
+            - strong [ref=e302]: Nine folders, three layers.
+            - text: The sibling folders under
+            - link "06.00-idea/" [ref=e303] [cursor=pointer]:
+              - /url: /_content-raw/06.00-idea
+            - text: can read like nine separate projects. They are not — each is a component of one of the three layers described next. The
+            - link "map" [ref=e304] [cursor=pointer]:
+              - /url: "#%EF%B8%8F-the-map--sibling-visions-as-chapters"
+            - text: shows which is which.
+        - separator [ref=e305]
+        - heading "🏗️ How it works — one system in three layers" [level=2] [ref=e306]
+        - paragraph [ref=e307]:
+          - text: The Learning Hub delivers that vision as
+          - strong [ref=e308]: one system in three layers
+          - text: ", fed by"
+          - strong [ref=e309]: many sources
+          - text: and governed throughout by
+          - strong [ref=e310]: metadata carried on the content itself
+          - text: ":"
+        - generic [ref=e311]: flowchart TB PURPOSE["Purpose — think ahead<br/>turn what you learn into foresight,<br/>with an AI that understands your goals"] subgraph SRC["Sources — what you meet"] direction LR S1["Feeds and newsletters<br/>RSS/Atom, release notes, site monitoring"] S2["Conferences and events<br/>session catalogs, slides, proceedings"] S3["Meetings and talks<br/>transcripts, recordings, notes"] S4["Deep sources<br/>papers, industry reports, vendor docs"] S5["Your own work<br/>notes, experiments, corrections"] end subgraph ENGINE["② Content Engine — produce"] direction TB ING["Ingest and normalise<br/>extract, dedupe, score relevance"] DEV["Develop<br/>analyse, connect, structure by taxonomy"] VAL["Validate<br/>claims, references, quality gates"] ING --> DEV --> VAL end subgraph META["Metadata spine — structure and invariants"] direction LR M1["Folder metadata<br/>label, order, icon, visibility"] M2["Article dual metadata<br/>identity frontmatter plus validation tracking"] M3["Vision metadata<br/>goal, scope, boundaries,<br/>principles with rationale"] end subgraph PLAT["① Platform — deliver"] direction LR REN["Dynamic renderer<br/>Markdown to HTML on demand, no build step"] NAV["Runtime navigation<br/>built live from the hierarchy"] SUR["Surfaces<br/>public site, private mirror, editor, AI chat"] end subgraph LOOP["③ Learning Loop — compound"] direction TB ENG["Self-updating engine<br/>Detect → Assess → Propose → Execute<br/>autonomy gradient under human governance"] STR["Streams — one engine, many domains<br/>article writing, prompt engineering, research"] TUN["TuneIQ<br/>tunes the customization stack from real sessions"] COST["Cost control<br/>token, context, and billing discipline"] ENG --> STR end PURPOSE -.-> SRC SRC --> ENGINE ENGINE -->|governed Markdown| PLAT PLAT -->|traces and corrections| LOOP LOOP -->|keeps fresh, proposes edits| ENGINE META -.->|governs| ENGINE META -.->|governs| PLAT META -.->|governs| LOOP
+        - table [ref=e312]:
+          - rowgroup [ref=e313]:
+            - row [ref=e314]:
+              - columnheader "Layer" [ref=e315]
+              - columnheader "Verb" [ref=e316]
+              - columnheader "One-line definition" [ref=e317]
+          - rowgroup [ref=e318]:
+            - row [ref=e319]:
+              - cell [ref=e320]:
+                - strong [ref=e321]: ① Platform
+              - cell [ref=e322]:
+                - emphasis [ref=e323]: deliver
+              - cell [ref=e324]:
+                - text: A
+                - strong [ref=e325]: fully dynamic Markdown-rendering application
+                - text: that renders Markdown → HTML on demand and builds navigation at runtime —
+                - strong [ref=e326]: no build step
+                - text: ", content is live the moment it lands."
+            - row [ref=e327]:
+              - cell [ref=e328]:
+                - strong [ref=e329]: ② Content Engine
+              - cell [ref=e330]:
+                - emphasis [ref=e331]: produce
+              - cell [ref=e332]:
+                - text: The prompts and agents that
+                - strong [ref=e333]: turn many sources into governed Markdown
+                - text: — learning notes, article writing, prompt engineering, and generated reference / documentation / validation content.
+            - row [ref=e334]:
+              - cell [ref=e335]:
+                - strong [ref=e336]: ③ Learning Loop
+              - cell [ref=e337]:
+                - emphasis [ref=e338]: compound
+              - cell [ref=e339]:
+                - text: The
+                - strong [ref=e340]: self-updating engine and autonomous streams
+                - text: that keep the corpus fresh and compound the owner's judgment, under human governance.
+        - paragraph [ref=e341]:
+          - text: Two elements in the diagram are
+          - strong [ref=e342]: not
+          - text: "layers — they cut across all three:"
+        - list [ref=e343]:
+          - listitem [ref=e344]:
+            - strong [ref=e345]: Sources
+            - text: are the raw material the Content Engine normalises. Feeds, newsletters, conference catalogs, meeting transcripts, papers, and your own corrections all enter the
+            - emphasis [ref=e346]: same
+            - text: pipeline; none of them is a special case with its own bespoke machinery. That generality is the
+            - code [ref=e347]: generalized-content-engine
+            - text: principle.
+          - listitem [ref=e348]:
+            - strong [ref=e349]: The metadata spine
+            - text: is what makes the Hub governable rather than merely stored. Folder metadata drives navigation, article dual metadata carries identity and validation state, and vision metadata carries the
+            - strong [ref=e350]: invariants
+            - text: —
+            - code [ref=e351]: goal
+            - text: ","
+            - code [ref=e352]: scope
+            - text: ","
+            - code [ref=e353]: boundaries
+            - text: ", and the"
+            - code [ref=e354]: "principles:"
+            - text: block with each principle's priority and rationale. The self-updating engine reads exactly this metadata to decide what it may change. One vocabulary governs navigation, quality tracking, and self-update alike.
+        - heading "① Platform — deliver" [level=3] [ref=e355]
+        - paragraph [ref=e356]:
+          - text: The Learning Hub is delivered as a
+          - strong [ref=e357]: fully dynamic Markdown-rendering application
+          - text: (
+          - code [ref=e358]: src/Learn.Web
+          - text: ). It renders Markdown → HTML
+          - strong [ref=e359]: on demand at request time
+          - text: and builds its navigation
+          - strong [ref=e360]: at runtime
+          - text: from the live content hierarchy. There is
+          - strong [ref=e361]: no build step and no static output
+          - text: — publishing collapses to
+          - emphasis [ref=e362]: "\"make the Markdown available.\""
+          - text: Content comes from the filesystem (development) or object storage (production), chosen by configuration, so the same application serves a local clone or a hosted corpus without code changes.
+        - paragraph [ref=e363]:
+          - text: Because a page is a pure function of
+          - emphasis [ref=e364]: its own
+          - text: Markdown plus a shared shell, the platform is
+          - strong [ref=e365]: producer- and source-agnostic
+          - text: ": any Markdown, from any origin, renders live. That property is what lets the platform serve audiences far beyond a single learner (see"
+          - link "Audiences" [ref=e366] [cursor=pointer]:
+            - /url: "#-audiences-and-interaction-surfaces"
+          - text: and the
+          - link "Platform and consumers" [ref=e367] [cursor=pointer]:
+            - /url: /06.00-idea/learning-hub/04-platform-and-consumers
+          - text: chapter).
+        - heading "② Content Engine — produce" [level=3] [ref=e368]
+        - paragraph [ref=e369]:
+          - text: The Content Engine takes
+          - strong [ref=e370]: many source channels
+          - text: "and normalises them into one pipeline:"
+          - strong [ref=e371]: feeds and newsletters
+          - text: (RSS/Atom, release notes, monitored sites),
+          - strong [ref=e372]: conference and event material
+          - text: (session catalogs, slides, proceedings — a flagship channel with its own ingestion path from catalog discovery through transcripts and summaries to navigation wiring),
+          - strong [ref=e373]: meetings and talks
+          - text: (transcripts, recordings, notes),
+          - strong [ref=e374]: deep sources
+          - text: (papers, industry reports, vendor documentation), and
+          - strong [ref=e375]: your own work
+          - text: (notes, experiments, and the corrections you make when a model is wrong). Non-public material among these is resolved from an external mirror and read in place — never copied into the public repository.
+        - paragraph [ref=e376]:
+          - text: What comes out is
+          - strong [ref=e377]: governed Markdown
+          - text: — Markdown carrying the Hub's dual-metadata contract (identity frontmatter + validation tracking) and passing its quality model. Today it covers
+          - strong [ref=e378]: article writing
+          - text: and
+          - strong [ref=e379]: prompt engineering
+          - text: (create, validate, cross-reference, gap-analyse, publish-gate). Its productized name is
+          - strong [ref=e380]: IQPilot
+          - text: — "a quality assurance tool for written content, like a linter for documentation." The same engine generalizes to
+          - strong [ref=e381]: generated content
+          - text: ": reference documentation from code, documentation sites from a whole repository, and validation reports — each simply another Markdown producer the platform renders (see"
+          - link "Platform and consumers" [ref=e382] [cursor=pointer]:
+            - /url: /06.00-idea/learning-hub/04-platform-and-consumers
+          - text: ).
+        - list [ref=e383]:
+          - listitem [ref=e384]:
+            - text: "Concept and taxonomy:"
+            - link "Learning Hub introduction" [ref=e385] [cursor=pointer]:
+              - /url: /06.00-idea/learning-hub/01-learning-hub-overview/01-learning-hub-introduction
+            - text: ·
+            - link "Documentation taxonomy" [ref=e386] [cursor=pointer]:
+              - /url: /06.00-idea/learning-hub/02-documentation-taxonomy/01-learning-hub-documentation-taxonomy
+          - listitem [ref=e387]:
+            - text: "The content lifecycle:"
+            - link "Automated content lifecycle" [ref=e388] [cursor=pointer]:
+              - /url: /06.00-idea/learning-hub/03-automated-content-lifecycle/01-automated-content-lifecycle-with-prompts-agents-and-mcp
+          - listitem [ref=e389]:
+            - text: "The product:"
+            - link "IQPilot overview" [ref=e390] [cursor=pointer]:
+              - /url: /06.00-idea/iqpilot/01-iqpilot-overview
+        - heading "③ Learning Loop — compound" [level=3] [ref=e391]
+        - paragraph [ref=e392]:
+          - text: "The Learning Loop is the machinery that keeps the corpus fresh and compounds judgment: the"
+          - link "self-updating engine" [ref=e393] [cursor=pointer]:
+            - /url: /06.00-idea/self-updating-engine/20260622.01-self-updating-engine-vision
+          - text: (a portable
+          - strong [ref=e394]: Detect → Assess → Propose → Execute
+          - text: loop with a risk-calibrated autonomy gradient and metadata-guarded changes) and the
+          - link "autonomous streams" [ref=e395] [cursor=pointer]:
+            - /url: /06.00-idea/autonomous-streams/autonomous-streams
+          - text: that instantiate it per domain. There is
+          - strong [ref=e396]: one engine and many streams
+          - text: ", not four separate systems — see"
+          - link "One engine, many streams" [ref=e397] [cursor=pointer]:
+            - /url: /06.00-idea/self-updating-engine/00-one-engine-many-streams
+          - text: . The
+          - link "cost-control strategy" [ref=e398] [cursor=pointer]:
+            - /url: /06.00-idea/prompt-engineering-and-azure-openai-cost-control/20260503.01-slidescontent
+          - text: and
+          - link "TuneIQ" [ref=e399] [cursor=pointer]:
+            - /url: /06.00-idea/tuneiq/01-tuneiq-design
+          - text: (which tunes the customization stack from real sessions) round out the loop.
+        - separator [ref=e400]
+        - heading "👥 Audiences and interaction surfaces" [level=2] [ref=e401]
+        - paragraph [ref=e402]:
+          - text: The platform is
+          - strong [ref=e403]: producer-agnostic
+          - text: ": produce governed Markdown in"
+          - emphasis [ref=e404]: any
+          - text: surface and it renders live.
+        - table [ref=e405]:
+          - rowgroup [ref=e406]:
+            - row [ref=e407]:
+              - columnheader "Interaction surface" [ref=e408]
+              - columnheader "Who produces here" [ref=e409]
+              - columnheader "Example" [ref=e410]
+          - rowgroup [ref=e411]:
+            - row [ref=e412]:
+              - cell [ref=e413]:
+                - strong [ref=e414]: The live site
+              - cell "Readers and authors" [ref=e415]
+              - cell "Browse, search, read; the site is a first-class surface, not just a publish target" [ref=e416]
+            - row [ref=e417]:
+              - cell [ref=e418]:
+                - strong [ref=e419]: The editor (VS Code)
+              - cell "Authors and agents" [ref=e420]
+              - cell "Write and validate Markdown next to the content" [ref=e421]
+            - row [ref=e422]:
+              - cell [ref=e423]:
+                - strong [ref=e424]: AI assistants (e.g. GitHub Copilot)
+              - cell "Prompts, agents, skills" [ref=e425]
+              - cell "Create/validate/generate Markdown from chat" [ref=e426]
+            - row [ref=e427]:
+              - cell [ref=e428]:
+                - strong [ref=e429]: Autonomous streams
+              - cell "Background loops" [ref=e430]
+              - cell "Detect → propose → execute edits that go live immediately" [ref=e431]
+        - paragraph [ref=e432]:
+          - text: And the audiences generalize well beyond the solo learner — a
+          - strong [ref=e433]: documentation manager
+          - text: ", a"
+          - strong [ref=e434]: validation manager
+          - text: ", and"
+          - strong [ref=e435]: app-dev doc generation
+          - text: are all just Markdown producers the platform renders. The generalized consumer model is the
+          - link "Platform and consumers" [ref=e436] [cursor=pointer]:
+            - /url: /06.00-idea/learning-hub/04-platform-and-consumers
+          - text: chapter.
+        - separator [ref=e437]
+        - heading "⚙️ Current implementation" [level=2] [ref=e438]
+        - table [ref=e439]:
+          - rowgroup [ref=e440]:
+            - row [ref=e441]:
+              - columnheader "Layer" [ref=e442]
+              - columnheader "Component" [ref=e443]
+              - columnheader "Status" [ref=e444]
+          - rowgroup [ref=e445]:
+            - row [ref=e446]:
+              - cell "① Platform" [ref=e447]
+              - cell [ref=e448]:
+                - text: Dynamic Markdown-rendering app (
+                - code [ref=e449]: src/Learn.Web
+                - text: ), runtime navigation, filesystem/blob source
+              - cell [ref=e450]:
+                - strong [ref=e451]: Built & live
+            - row [ref=e452]:
+              - cell "② Content Engine" [ref=e453]
+              - cell "Article-writing + prompt-engineering prompts/agents; dual-metadata contract; validation caching" [ref=e454]
+              - cell [ref=e455]:
+                - strong [ref=e456]: Built
+                - text: (IQPilot productization ongoing)
+            - row [ref=e457]:
+              - cell "② Content Engine" [ref=e458]
+              - cell "Generated docs / validation consumers (documentation-manager, validation-manager)" [ref=e459]
+              - cell [ref=e460]:
+                - strong [ref=e461]: Design
+                - text: — external patterns generalized, not yet hosted
+            - row [ref=e462]:
+              - cell "③ Learning Loop" [ref=e463]
+              - cell "Self-updating engine, autonomy gradient, metadata guards" [ref=e464]
+              - cell [ref=e465]:
+                - strong [ref=e466]: Design-strong
+                - text: ; partly wired
+            - row [ref=e467]:
+              - cell "③ Learning Loop" [ref=e468]
+              - cell "Autonomous streams on the live source" [ref=e469]
+              - cell [ref=e470]:
+                - strong [ref=e471]: Design
+            - row [ref=e472]:
+              - cell "③ Learning Loop" [ref=e473]
+              - cell "TuneIQ session capture and analysis" [ref=e474]
+              - cell [ref=e475]:
+                - strong [ref=e476]: Design
+                - text: ; capture partly wired
+        - paragraph [ref=e477]:
+          - text: The platform layer is the concrete outcome of the markdown-first migration — see the
+          - link "progressive-build recap" [ref=e478] [cursor=pointer]:
+            - /url: /src/docs/90.%20Issues/202607/20270711.02-progressive-build/overview
+          - text: for how the retired static-site build became this live renderer.
+        - separator [ref=e479]
+        - heading "🚀 Next steps" [level=2] [ref=e480]
+        - paragraph [ref=e481]:
+          - strong [ref=e482]: Documentation (this repo) — in progress
+        - list [ref=e483]:
+          - listitem [ref=e484]: This canonical master (Vision / How it works / Implementation / Next steps + the three-layer map).
+          - listitem [ref=e485]:
+            - link "Platform and consumers" [ref=e486] [cursor=pointer]:
+              - /url: /06.00-idea/learning-hub/04-platform-and-consumers
+            - text: — the platform and its generalized audiences.
+          - listitem [ref=e487]: Rescope IQPilot and TuneIQ to name the live site as a first-class surface.
+          - listitem [ref=e488]:
+            - link "One engine, many streams" [ref=e489] [cursor=pointer]:
+              - /url: /06.00-idea/self-updating-engine/00-one-engine-many-streams
+            - text: — fold the self-updating trio under one engine.
+        - paragraph [ref=e490]:
+          - strong [ref=e491]: Capability (roadmap)
+        - list [ref=e492]:
+          - listitem [ref=e493]:
+            - strong [ref=e494]: Multi-source content
+            - text: — let the renderer host a generated documentation tree (runtime rendering replaces a static build). →
+            - 'link "Design spec: live documentation hosting" [ref=e495] [cursor=pointer]':
+              - /url: /src/docs/90.%20Issues/202607/20270720.01-learninghub-stratreview/overview
+            - text: .
+          - listitem [ref=e496]:
+            - strong [ref=e497]: Validation dashboards
+            - text: — render validation catalog / progress Markdown as live views.
+          - listitem [ref=e498]:
+            - strong [ref=e499]: Private mirror
+            - text: — authenticated, authorized rendering of the non-public knowledge tree (the trust boundary made real).
+          - listitem [ref=e500]:
+            - strong [ref=e501]: Streams on the live source
+            - text: — wire autonomous streams to the same content source the site reads, so detect → propose → execute edits go live immediately.
+        - separator [ref=e502]
+        - heading "🗺️ The map — sibling visions as chapters" [level=2] [ref=e503]
+        - table [ref=e504]:
+          - rowgroup [ref=e505]:
+            - row [ref=e506]:
+              - columnheader "Layer" [ref=e507]
+              - columnheader "Chapter (sibling vision)" [ref=e508]
+              - columnheader "Role" [ref=e509]
+          - rowgroup [ref=e510]:
+            - row [ref=e511]:
+              - cell "Frame" [ref=e512]
+              - cell [ref=e513]:
+                - link "Own your learning loop" [ref=e514] [cursor=pointer]:
+                  - /url: /06.00-idea/learning-hub/05-own-your-learning-loop
+              - cell "The economic rationale over all three layers" [ref=e515]
+            - row [ref=e516]:
+              - cell "① Platform" [ref=e517]
+              - cell [ref=e518]:
+                - link "Platform and consumers" [ref=e519] [cursor=pointer]:
+                  - /url: /06.00-idea/learning-hub/04-platform-and-consumers
+              - cell "The dynamic renderer and its generalized audiences" [ref=e520]
+            - row [ref=e521]:
+              - cell "② Content Engine" [ref=e522]
+              - cell [ref=e523]:
+                - link "Learning Hub introduction" [ref=e524] [cursor=pointer]:
+                  - /url: /06.00-idea/learning-hub/01-learning-hub-overview/01-learning-hub-introduction
+              - cell "The knowledge-development concept" [ref=e525]
+            - row [ref=e526]:
+              - cell "② Content Engine" [ref=e527]
+              - cell [ref=e528]:
+                - link "Using Learning Hub for learning technologies" [ref=e529] [cursor=pointer]:
+                  - /url: /06.00-idea/learning-hub/01-learning-hub-overview/02-using-learning-hub-for-learning-technologies
+              - cell "The practical how-to for technology learning" [ref=e530]
+            - row [ref=e531]:
+              - cell "② Content Engine" [ref=e532]
+              - cell [ref=e533]:
+                - link "Documentation taxonomy" [ref=e534] [cursor=pointer]:
+                  - /url: /06.00-idea/learning-hub/02-documentation-taxonomy/01-learning-hub-documentation-taxonomy
+              - cell "The seven content categories" [ref=e535]
+            - row [ref=e536]:
+              - cell "② Content Engine" [ref=e537]
+              - cell [ref=e538]:
+                - link "Automated content lifecycle" [ref=e539] [cursor=pointer]:
+                  - /url: /06.00-idea/learning-hub/03-automated-content-lifecycle/01-automated-content-lifecycle-with-prompts-agents-and-mcp
+              - cell "Research → develop → create → review → publish" [ref=e540]
+            - row [ref=e541]:
+              - cell "② Content Engine" [ref=e542]
+              - cell [ref=e543]:
+                - link "IQPilot" [ref=e544] [cursor=pointer]:
+                  - /url: /06.00-idea/iqpilot/01-iqpilot-overview
+              - cell "The productized content-quality tool" [ref=e545]
+            - row [ref=e546]:
+              - cell "③ Learning Loop" [ref=e547]
+              - cell [ref=e548]:
+                - link "Self-updating engine" [ref=e549] [cursor=pointer]:
+                  - /url: /06.00-idea/self-updating-engine/20260622.01-self-updating-engine-vision
+              - cell "The portable Detect → Assess → Propose → Execute machinery" [ref=e550]
+            - row [ref=e551]:
+              - cell "③ Learning Loop" [ref=e552]
+              - cell [ref=e553]:
+                - link "One engine, many streams" [ref=e554] [cursor=pointer]:
+                  - /url: /06.00-idea/self-updating-engine/00-one-engine-many-streams
+              - cell "Folds the self-updating-* domains into one engine" [ref=e555]
+            - row [ref=e556]:
+              - cell "③ Learning Loop" [ref=e557]
+              - cell [ref=e558]:
+                - 'link "Self-updating: article writing" [ref=e559] [cursor=pointer]':
+                  - /url: /06.00-idea/self-updating-article-writing/20260428.01-vision.v1
+              - cell "Stream configuration — published-article freshness, claims, per-dimension review" [ref=e560]
+            - row [ref=e561]:
+              - cell "③ Learning Loop" [ref=e562]
+              - cell [ref=e563]:
+                - 'link "Self-updating: prompt engineering" [ref=e564] [cursor=pointer]':
+                  - /url: /06.00-idea/self-updating-prompt-engineering/20260531.01-vision
+              - cell "Stream configuration — prompts, agents, skills, instructions, context files" [ref=e565]
+            - row [ref=e566]:
+              - cell "③ Learning Loop" [ref=e567]
+              - cell [ref=e568]:
+                - 'link "Self-updating: research" [ref=e569] [cursor=pointer]':
+                  - /url: /06.00-idea/self-updating-research/01.000-vision.v1
+              - cell "Stream configuration — research briefs and their sources" [ref=e570]
+            - row [ref=e571]:
+              - cell "③ Learning Loop" [ref=e572]
+              - cell [ref=e573]:
+                - link "Autonomous streams" [ref=e574] [cursor=pointer]:
+                  - /url: /06.00-idea/autonomous-streams/autonomous-streams
+              - cell "The runtime instances of the engine" [ref=e575]
+            - row [ref=e576]:
+              - cell "③ Learning Loop" [ref=e577]
+              - cell [ref=e578]:
+                - link "TuneIQ" [ref=e579] [cursor=pointer]:
+                  - /url: /06.00-idea/tuneiq/01-tuneiq-design
+              - cell "Tunes the customization stack from real sessions" [ref=e580]
+            - row [ref=e581]:
+              - cell "③ Learning Loop" [ref=e582]
+              - cell [ref=e583]:
+                - link "Cost control" [ref=e584] [cursor=pointer]:
+                  - /url: /06.00-idea/prompt-engineering-and-azure-openai-cost-control/20260503.01-slidescontent
+              - cell "Token / context / billing discipline" [ref=e585]
+        - separator [ref=e586]
+        - heading "📚 References" [level=2] [ref=e587]
+        - heading "Internal references" [level=3] [ref=e588]
+        - list [ref=e589]:
+          - listitem [ref=e590]:
+            - link "Own your learning loop" [ref=e591] [cursor=pointer]:
+              - /url: /06.00-idea/learning-hub/05-own-your-learning-loop
+            - text: — the frame (Control / Capability / Choice / Cost / Compound).
+          - listitem [ref=e592]:
+            - link "Platform and consumers" [ref=e593] [cursor=pointer]:
+              - /url: /06.00-idea/learning-hub/04-platform-and-consumers
+            - text: — the platform layer and generalized audiences.
+          - listitem [ref=e594]:
+            - link "Self-updating engine vision" [ref=e595] [cursor=pointer]:
+              - /url: /06.00-idea/self-updating-engine/20260622.01-self-updating-engine-vision
+            - text: — the machinery of the Learning Loop.
+          - listitem [ref=e596]:
+            - link "Learning Hub introduction" [ref=e597] [cursor=pointer]:
+              - /url: /06.00-idea/learning-hub/01-learning-hub-overview/01-learning-hub-introduction
+            - text: — the founding concept.
+        - heading "External sources" [level=3] [ref=e598]
+        - paragraph [ref=e599]:
+          - strong [ref=e600]:
+            - link "The Reverse Information Paradox" [ref=e601] [cursor=pointer]:
+              - /url: https://snscratchpad.com/posts/reverse-information-paradox/
+          - text: 📒 [Community] The essay that names Control / Capability / Choice / Cost / Compound and the trust-boundary argument the frame borrows.
+        - paragraph [ref=e602]:
+          - strong [ref=e603]:
+            - link "Diátaxis" [ref=e604] [cursor=pointer]:
+              - /url: https://diataxis.fr/
+          - text: 📗 [Verified Community] The documentation framework the Hub's content taxonomy extends.
+    - generic "Drag to resize" [ref=e605]
+    - complementary [ref=e606]:
+      - generic [ref=e607]:
+        - generic [ref=e608]: On this page
+        - button "×" [ref=e609] [cursor=pointer]
+      - navigation [ref=e610]:
+        - link "Table of contents" [ref=e611] [cursor=pointer]:
+          - /url: "#table-of-contents"
+        - link "🧭 Vision — what it is and why" [ref=e612] [cursor=pointer]:
+          - /url: "#vision-what-it-is-and-why"
+        - link "🏗️ How it works — one system in three layers" [ref=e613] [cursor=pointer]:
+          - /url: "#how-it-works-one-system-in-three-layers"
+        - link "① Platform — deliver" [ref=e614] [cursor=pointer]:
+          - /url: "#platform-deliver"
+        - link "② Content Engine — produce" [ref=e615] [cursor=pointer]:
+          - /url: "#content-engine-produce"
+        - link "③ Learning Loop — compound" [ref=e616] [cursor=pointer]:
+          - /url: "#learning-loop-compound"
+        - link "👥 Audiences and interaction surfaces" [ref=e617] [cursor=pointer]:
+          - /url: "#audiences-and-interaction-surfaces"
+        - link "⚙️ Current implementation" [ref=e618] [cursor=pointer]:
+          - /url: "#current-implementation"
+        - link "🚀 Next steps" [ref=e619] [cursor=pointer]:
+          - /url: "#next-steps"
+        - link "🗺️ The map — sibling visions as chapters" [ref=e620] [cursor=pointer]:
+          - /url: "#the-map-sibling-visions-as-chapters"
+        - link "📚 References" [ref=e621] [cursor=pointer]:
+          - /url: "#references"
+        - link "Internal references" [ref=e622] [cursor=pointer]:
+          - /url: "#internal-references"
+        - link "External sources" [ref=e623] [cursor=pointer]:
+          - /url: "#external-sources"
+  - contentinfo [ref=e624]:
+    - generic [ref=e625]: "Learning Hub: 7 articlesTotal: 1.128 articles"
+    - generic [ref=e626]: "Article: Learning Hub: vision, strategy, implementationWords: 1.799"

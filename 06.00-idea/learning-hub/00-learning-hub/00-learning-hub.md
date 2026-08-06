@@ -66,28 +66,28 @@ vocabulary (Control, Capability, Choice, Cost, Compound, and the "information ex
 
 ## 🏗️ How it works — one system in three layers
 
-The Learning Hub delivers that vision as **one system in three layers**:
+The Learning Hub delivers that vision as **one system in three layers**, fed by **many sources** and governed
+throughout by **metadata carried on the content itself**:
 
-```mermaid
-flowchart TB
-    subgraph HUB["Learning Hub"]
-        direction TB
-        P["① Platform — deliver<br/>fully dynamic Markdown-rendering app<br/>(live, no build step)"]
-        E["② Content Engine — produce<br/>turn many sources into governed Markdown"]
-        L["③ Learning Loop — compound<br/>self-updating engine + autonomous streams"]
-        E -->|governed Markdown| P
-        L -->|keeps fresh| E
-        P -->|traces & corrections| L
-    end
-    FRAME["Purpose — think ahead: turn what you learn into foresight, with an AI that understands your goals"]
-    FRAME -.-> HUB
-```
+![alt text](images/001.01-learning-hub-architecture.png)
+
 
 | Layer | Verb | One-line definition |
 |---|---|---|
 | **① Platform** | *deliver* | A **fully dynamic Markdown-rendering application** that renders Markdown → HTML on demand and builds navigation at runtime — **no build step**, content is live the moment it lands. |
 | **② Content Engine** | *produce* | The prompts and agents that **turn many sources into governed Markdown** — learning notes, article writing, prompt engineering, and generated reference / documentation / validation content. |
 | **③ Learning Loop** | *compound* | The **self-updating engine and autonomous streams** that keep the corpus fresh and compound the owner's judgment, under human governance. |
+
+Two elements in the diagram are **not** layers — they cut across all three:
+
+- **Sources** are the raw material the Content Engine normalises. Feeds, newsletters, conference catalogs,
+  meeting transcripts, papers, and your own corrections all enter the *same* pipeline; none of them is a
+  special case with its own bespoke machinery. That generality is the `generalized-content-engine` principle.
+- **The metadata spine** is what makes the Hub governable rather than merely stored. Folder metadata drives
+  navigation, article dual metadata carries identity and validation state, and vision metadata carries the
+  **invariants** — `goal`, `scope`, `boundaries`, and the `principles:` block with each principle's priority
+  and rationale. The self-updating engine reads exactly this metadata to decide what it may change. One
+  vocabulary governs navigation, quality tracking, and self-update alike.
 
 ### ① Platform — deliver
 
@@ -104,8 +104,16 @@ audiences far beyond a single learner (see [Audiences](#-audiences-and-interacti
 
 ### ② Content Engine — produce
 
-The Content Engine is the set of prompts and agents that turn raw material into **governed Markdown** —
-Markdown carrying the Hub's dual-metadata contract (identity frontmatter + validation tracking) and passing
+The Content Engine takes **many source channels** and normalises them into one pipeline: **feeds and
+newsletters** (RSS/Atom, release notes, monitored sites), **conference and event material** (session
+catalogs, slides, proceedings — a flagship channel with its own ingestion path from catalog discovery
+through transcripts and summaries to navigation wiring), **meetings and talks** (transcripts, recordings,
+notes), **deep sources** (papers, industry reports, vendor documentation), and **your own work** (notes,
+experiments, and the corrections you make when a model is wrong). Non-public material among these is
+resolved from an external mirror and read in place — never copied into the public repository.
+
+What comes out is **governed Markdown** — Markdown carrying the Hub's dual-metadata contract (identity
+frontmatter + validation tracking) and passing
 its quality model. Today it covers **article writing** and **prompt engineering** (create, validate,
 cross-reference, gap-analyse, publish-gate). Its productized name is **IQPilot** — "a quality assurance tool
 for written content, like a linter for documentation." The same engine generalizes to **generated content**:
@@ -195,6 +203,9 @@ for how the retired static-site build became this live renderer.
 | ② Content Engine | [IQPilot](../../iqpilot/01-iqpilot-overview.md) | The productized content-quality tool |
 | ③ Learning Loop | [Self-updating engine](../../self-updating-engine/20260622.01-self-updating-engine-vision.md) | The portable Detect → Assess → Propose → Execute machinery |
 | ③ Learning Loop | [One engine, many streams](../../self-updating-engine/00-one-engine-many-streams.md) | Folds the self-updating-* domains into one engine |
+| ③ Learning Loop | [Self-updating: article writing](../../self-updating-article-writing/20260428.01-vision.v1.md) | Stream configuration — published-article freshness, claims, per-dimension review |
+| ③ Learning Loop | [Self-updating: prompt engineering](../../self-updating-prompt-engineering/20260531.01-vision.md) | Stream configuration — prompts, agents, skills, instructions, context files |
+| ③ Learning Loop | [Self-updating: research](../../self-updating-research/01.000-vision.v1.md) | Stream configuration — research briefs and their sources |
 | ③ Learning Loop | [Autonomous streams](../../autonomous-streams/autonomous-streams.md) | The runtime instances of the engine |
 | ③ Learning Loop | [TuneIQ](../../tuneiq/01-tuneiq-design.md) | Tunes the customization stack from real sessions |
 | ③ Learning Loop | [Cost control](../../prompt-engineering-and-azure-openai-cost-control/20260503.01-slidescontent.md) | Token / context / billing discipline |
