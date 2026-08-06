@@ -32,7 +32,9 @@ The Learning Hub is delivered as a **fully dynamic Markdown-rendering applicatio
 - **Runtime navigation.** The menu is built live from the content hierarchy; a page exists in the menu because
   its file exists. Ordering, labels, icons, and visibility come from optional per-folder metadata.
 - **Source-agnostic.** Content is read from the local filesystem (development) or object storage (production),
-  selected by configuration — the same application serves a clone or a hosted corpus.
+  selected by configuration — the same application serves a clone or a hosted corpus. The **target** is
+  *multi-source*: public and private stores (repo, blob, private mirror) served together as one corpus; today
+  exactly one source is bound at a time.
 - **Producer-agnostic.** A page is a pure function of *its own* Markdown plus a shared shell, so **any Markdown,
   from any origin, renders identically**. Nothing about the renderer assumes the content came from a person.
 

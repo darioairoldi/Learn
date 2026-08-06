@@ -69,7 +69,7 @@ vocabulary (Control, Capability, Choice, Cost, Compound, and the "information ex
 The Learning Hub delivers that vision as **one system in three layers**, fed by **many sources** and governed
 throughout by **metadata carried on the content itself**:
 
-![alt text](images/001.01-learning-hub-architecture.png)
+![Learning Hub architecture: data sources feed the Hub on the right; prompt-engineering artifacts including context files govern it from above; metadata applies to PE artifacts and articles; inside the Hub, storage sits at the bottom, self-update logic in the middle, and rendering on top; three colour-coded loops run from the self-update logic back to PE artifacts, context information, and articles.](images/001.01-learning-hub-architecture.v1.png)
 
 
 | Layer | Verb | One-line definition |
@@ -78,16 +78,41 @@ throughout by **metadata carried on the content itself**:
 | **② Content Engine** | *produce* | The prompts and agents that **turn many sources into governed Markdown** — learning notes, article writing, prompt engineering, and generated reference / documentation / validation content. |
 | **③ Learning Loop** | *compound* | The **self-updating engine and autonomous streams** that keep the corpus fresh and compound the owner's judgment, under human governance. |
 
-Two elements in the diagram are **not** layers — they cut across all three:
+### Reading the diagram
 
-- **Sources** are the raw material the Content Engine normalises. Feeds, newsletters, conference catalogs,
-  meeting transcripts, papers, and your own corrections all enter the *same* pipeline; none of them is a
-  special case with its own bespoke machinery. That generality is the `generalized-content-engine` principle.
-- **The metadata spine** is what makes the Hub governable rather than merely stored. Folder metadata drives
-  navigation, article dual metadata carries identity and validation state, and vision metadata carries the
-  **invariants** — `goal`, `scope`, `boundaries`, and the `principles:` block with each principle's priority
-  and rationale. The self-updating engine reads exactly this metadata to decide what it may change. One
-  vocabulary governs navigation, quality tracking, and self-update alike.
+The Hub itself (navy) stacks **three bands, bottom to top** — the order matters, because it is the order the
+content travels:
+
+| Band | What it is | Layer |
+|---|---|---|
+| **Multi-source storage** (bottom) | Where the files actually reside — public and private stores serving **one** corpus. | the substrate |
+| **Self-update logic** (middle) | **Detect → Assess → Propose → Execute**: deterministic Tier 0 checks, AI-driven Tier 1–2 review, creative and critical analysis, and research. | ③ Learning Loop, running ②'s checks |
+| **Rendering** (top) | Markdown → HTML on demand, navigation built at runtime. Storage is read **on demand** — there is **no build step**, so a change is live on the next request. | ① Platform |
+
+Three things sit **outside** the Hub and act on it:
+
+- **Prompt-engineering artifacts** (top) — the whole GitHub Copilot customization stack:
+  `copilot-instructions.md`, instruction files, prompts, agents, skills, hooks, MCP servers, chat modes,
+  templates, prompt snippets, model choice, and **context files**. The context files **are** the context
+  information — they are one kind of PE artifact, not a separate category beside them.
+- **Metadata** (right) — applies to exactly two things: **PE artifacts and articles**. It carries article and
+  folder metadata (identity, navigation, validation state) and the **invariants** — `goal`, `scope`,
+  `boundaries`, and the `principles:` block with each principle's priority and rationale. The self-updating
+  engine reads exactly this metadata to decide what it may change.
+- **Data sources** (right) — feeds and newsletters, conferences and events, meetings and talks, papers and
+  vendor docs, and your own corrections. All of them enter the *same* pipeline; none is a special case with
+  bespoke machinery. That generality is the `generalized-content-engine` principle.
+
+The three coloured arrows are the **self-update loops** — what the logic in the middle band writes back:
+
+| Loop | Target | Stream that implements it |
+|---|---|---|
+| **self-updating prompt engineering** | PE artifacts | [self-updating-prompt-engineering](../../self-updating-prompt-engineering/20260531.01-vision.md) |
+| **self-updating context information** | context files | same stream — context files are PE artifacts, fed by [self-updating-research](../../self-updating-research/01.000-vision.v1.md) |
+| **self-updating articles** | articles in storage | [self-updating-article-writing](../../self-updating-article-writing/20260428.01-vision.v1.md) |
+
+All three run on **one engine** with per-domain configuration — see
+[One engine, many streams](../../self-updating-engine/00-one-engine-many-streams.md).
 
 ### ① Platform — deliver
 
@@ -160,6 +185,7 @@ generalized consumer model is the [Platform and consumers](../04-platform-and-co
 | Layer | Component | Status |
 |---|---|---|
 | ① Platform | Dynamic Markdown-rendering app (`src/Learn.Web`), runtime navigation, filesystem/blob source | **Built & live** |
+| ① Platform | **Multi-source storage** — public and private stores served together as one corpus | **Design** — today exactly **one** source is bound at a time (`Content:Source` = `Blob` *or* `FileSystem`); the diagram shows the target |
 | ② Content Engine | Article-writing + prompt-engineering prompts/agents; dual-metadata contract; validation caching | **Built** (IQPilot productization ongoing) |
 | ② Content Engine | Generated docs / validation consumers (documentation-manager, validation-manager) | **Design** — external patterns generalized, not yet hosted |
 | ③ Learning Loop | Self-updating engine, autonomy gradient, metadata guards | **Design-strong**; partly wired |
