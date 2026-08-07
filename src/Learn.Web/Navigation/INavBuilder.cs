@@ -12,12 +12,4 @@ public interface INavBuilder
 
     /// <summary>Flattens the whole menu into navigable leaves + section breadcrumbs.</summary>
     Task<IReadOnlyList<NavLeaf>> GetIndexAsync(CancellationToken ct = default);
-
-    /// <summary>
-    /// Re-walks only the subtree under <paramref name="prefix"/> (bypassing any cache), refreshing
-    /// the recursive per-folder aggregates for that branch. Used after a content change to update
-    /// just the affected branch's counts instead of re-walking the whole tree. An empty prefix
-    /// re-walks everything.
-    /// </summary>
-    Task RecomputeSubtreeAsync(string prefix, CancellationToken ct = default);
 }

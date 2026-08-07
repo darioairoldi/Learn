@@ -9,7 +9,12 @@ namespace Learn.Web.Shared.Navigation;
 /// for each of its ancestors up to the root, so every ancestor keeps its own count in sync.
 /// </para>
 /// </summary>
-public sealed record NavAggregateDelta(string Prefix, int ArticleCount, DateTimeOffset? LatestUtc, string? Author);
+public sealed record NavAggregateDelta(
+    string Prefix,
+    int ArticleCount,
+    DateTimeOffset? LatestUtc,
+    string? Author,
+    Coverage Coverage = Coverage.Complete);
 
 /// <summary>Well-known nav hub route and server→client method names (shared by server and WASM client).</summary>
 public static class NavHubContract

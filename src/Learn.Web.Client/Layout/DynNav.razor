@@ -104,7 +104,7 @@
         <ul class="nav-list nav-top" role="tree">
             @foreach (NavChild node in _root)
             {
-                <DynNavNode Node="node" CurrentRoute="@_current" OnCounted="OnRootCounted" />
+                <DynNavNode Node="node" CurrentRoute="@_current" />
             }
         </ul>
     }

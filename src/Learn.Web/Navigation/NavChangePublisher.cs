@@ -6,83 +6,80 @@ using Microsoft.Extensions.Logging;
 namespace Learn.Web.Navigation;
 
 /// <summary>
-/// Recomputes navigation folder aggregates after a content change and broadcasts them to connected
-/// clients over <see cref="NavHub"/>, so sidebar counts and the footer total update in real time
-/// without client polling.
+/// Bridges <see cref="FolderMetricsIndex"/> to connected clients: when a drain changes a folder's
+/// value, the new <em>absolute</em> aggregate (plus its coverage) is pushed over <see cref="NavHub"/>,
+/// so sidebar counts and the footer total update live without polling.
 /// <para>
-/// It does NOT own invalidation: the <c>/_nav/invalidate</c> endpoint (the single freshness signal
-/// every content path already sends) calls <see cref="PublishChangeAsync"/> after invalidating.
-/// The startup warm-up calls <see cref="PublishCountsReadyAsync"/> once counts are computed.
-/// </para>
-/// <para>
-/// Change publishing is debounced (a short quiet window) so a burst of writes triggers a single
-/// whole-tree recompute + broadcast instead of one per file. The pushed value is the folder's new
-/// <em>absolute</em> recursive count (+ newest article), for the changed folder and each ancestor
-/// up to the root; the client replaces the count it holds for each matching prefix.
+/// It owns no counting logic. A content change calls <see cref="PublishChangeAsync"/>, which only
+/// stamps the changed folder's ancestor spine — the debounced, deepest-first drain does the folding
+/// and calls back here with exactly the prefixes whose value moved.
 /// </para>
 /// </summary>
 public sealed class NavChangePublisher(
+    FolderMetricsIndex metrics,
     CachedDynamicNavBuilder nav,
     IHubContext<NavHub> hub,
-    ILogger<NavChangePublisher> logger) : IDisposable
+    ILogger<NavChangePublisher> logger)
 {
-    private static readonly TimeSpan DebounceWindow = TimeSpan.FromMilliseconds(500);
-    private readonly object _gate = new();
-    private readonly HashSet<string> _pending = new(StringComparer.OrdinalIgnoreCase);
-    private Timer? _timer;
+    private int _wired;
+
+    /// <summary>Subscribes to drain results. Called once at startup; idempotent.</summary>
+    public void Wire()
+    {
+        if (Interlocked.Exchange(ref _wired, 1) == 1)
+        {
+            return;
+        }
+
+        metrics.Changed += OnMetricsChangedAsync;
+    }
 
     /// <summary>
-    /// Queues a changed content <paramref name="path"/> for publication. Coalesces a burst of calls
-    /// into one recompute + broadcast after a short quiet window. Never throws to the caller.
+    /// Records a changed content <paramref name="path"/>: stamps the folder and every ancestor as
+    /// needing a refold. Synchronous, O(depth), no I/O — the drain is scheduled and debounced.
     /// </summary>
     public void PublishChangeAsync(string path)
     {
-        lock (_gate)
-        {
-            _pending.Add((path ?? string.Empty).Replace('\\', '/').Trim('/'));
-            _timer ??= new Timer(_ => _ = FlushAsync(), null, Timeout.Infinite, Timeout.Infinite);
-            _timer.Change(DebounceWindow, Timeout.InfiniteTimeSpan);
-        }
+        // Drop the cached levels first: the fold reads a level to recount it, so it must not consume
+        // one that was cached before this change.
+        nav.InvalidateLevels();
+
+        string folder = FolderOf((path ?? string.Empty).Replace('\\', '/').Trim('/'));
+        metrics.Invalidate(folder);
     }
 
-    private async Task FlushAsync()
+    private async Task OnMetricsChangedAsync(IReadOnlyList<string> prefixes)
     {
-        string[] paths;
-        lock (_gate)
-        {
-            paths = _pending.ToArray();
-            _pending.Clear();
-        }
-
-        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { paths });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefixes });
 
         try
         {
-            // Recompute only the changed branch(es): re-walk the top path segment's subtree so its
-            // (and its descendants') aggregates are current, then drop the levels so they rebuild
-            // from the fresh aggregates when read. Far cheaper than a whole-tree walk per change.
-            foreach (string top in paths
-                .Select(p => p.Split('/', StringSplitOptions.RemoveEmptyEntries).FirstOrDefault() ?? string.Empty)
-                .Where(s => s.Length > 0)
-                .Distinct(StringComparer.OrdinalIgnoreCase))
-            {
-                await nav.RecomputeSubtreeAsync(top);
-            }
+            // The counts live on the folder nodes inside each parent's cached level, so those levels
+            // must rebuild before anyone reads them again.
             nav.InvalidateLevels();
 
-            var byPrefix = new Dictionary<string, NavAggregateDelta>(StringComparer.OrdinalIgnoreCase);
-            foreach (string path in paths)
+            NavAggregateDelta[] deltas = prefixes
+                .Select(p => (Prefix: p, Metrics: metrics.TryGet(p)))
+                .Where(x => x.Metrics is not null)
+                .Select(x => new NavAggregateDelta(
+                    x.Prefix, x.Metrics!.Value.Count, x.Metrics.Value.Latest, null, x.Metrics.Value.Coverage))
+                .ToArray();
+
+            if (deltas.Length == 0)
             {
-                foreach (NavAggregateDelta delta in await CollectAncestorsAsync(path))
-                {
-                    byPrefix[delta.Prefix] = delta; // last write wins; identical per recompute anyway
-                }
+                return;
             }
 
-            if (byPrefix.Count > 0)
+            // Always carry the site root, even when it did not change in this pass: it is the one
+            // value every client displays, and a drain that publishes a folder without it would
+            // leave the footer showing a total that disagrees with the section it just updated.
+            if (!deltas.Any(d => d.Prefix.Length == 0) && metrics.TryGet(string.Empty) is { } site)
             {
-                await hub.Clients.All.SendAsync(NavHubContract.MetadataChanged, byPrefix.Values.ToArray());
+                deltas = [.. deltas, new NavAggregateDelta(string.Empty, site.Count, site.Latest, null, site.Coverage)];
             }
+
+            await hub.Clients.All.SendAsync(NavHubContract.MetadataChanged, deltas);
+            logger.LogDebug("Pushed {Count} nav metadata deltas", deltas.Length);
         }
         catch (Exception ex)
         {
@@ -90,41 +87,7 @@ public sealed class NavChangePublisher(
         }
     }
 
-    /// <summary>
-    /// Reads the new absolute aggregate for the changed folder and each ancestor up to the root.
-    /// Only prefixes that resolve to a navigation <em>section</em> (a folder carrying a count) are
-    /// emitted; leaf-article path segments are skipped.
-    /// </summary>
-    private async Task<List<NavAggregateDelta>> CollectAncestorsAsync(string path)
-    {
-        var result = new List<NavAggregateDelta>();
-        if (string.IsNullOrEmpty(path))
-        {
-            return result;
-        }
-
-        string[] segments = path.Split('/', StringSplitOptions.RemoveEmptyEntries);
-        for (int depth = 1; depth <= segments.Length; depth++)
-        {
-            string prefix = string.Join('/', segments[..depth]);
-            string parent = depth == 1 ? string.Empty : string.Join('/', segments[..(depth - 1)]);
-
-            IReadOnlyList<NavChild> siblings = await nav.GetChildrenAsync(parent);
-            NavChild? node = siblings.FirstOrDefault(c =>
-                c.IsSection && string.Equals(c.Prefix, prefix, StringComparison.OrdinalIgnoreCase));
-            if (node is { ArticleCount: { } count })
-            {
-                result.Add(new NavAggregateDelta(prefix, count, node.LatestArticleUtc, null));
-            }
-        }
-
-        return result;
-    }
-
-    /// <summary>
-    /// Broadcasts every root section's current aggregate once the startup warm-up has computed the
-    /// recursive counts. Replaces the client's cold-start polling for the footer total.
-    /// </summary>
+    /// <summary>Broadcasts every root section's current aggregate (called as the startup scan progresses).</summary>
     public async Task PublishCountsReadyAsync()
     {
         using var activity = Observability.ActivitySource.StartMethodActivity(logger);
@@ -144,10 +107,8 @@ public sealed class NavChangePublisher(
     }
 
     /// <summary>
-    /// Sends the current root section aggregates to a single just-connected client. The warm-up
-    /// <see cref="PublishCountsReadyAsync"/> broadcast only reaches clients already connected; a
-    /// browser that connects after warm-up (the common case) would otherwise never learn the counts
-    /// and its footer total would stay at the cold-start value. Sending on connect closes that gap.
+    /// Sends the current root aggregates to a single just-connected client. A browser that connects
+    /// after the scan finished would otherwise never learn the counts.
     /// </summary>
     public async Task SendCurrentCountsAsync(IClientProxy caller)
     {
@@ -167,15 +128,33 @@ public sealed class NavChangePublisher(
         }
     }
 
-    // Current absolute recursive aggregate for every root section that already has a computed count.
     private async Task<NavAggregateDelta[]> BuildRootDeltasAsync()
     {
         IReadOnlyList<NavChild> roots = await nav.GetChildrenAsync(string.Empty);
-        return roots
+        var deltas = roots
             .Where(c => c.IsSection && c.Prefix is not null && c.ArticleCount is not null)
-            .Select(c => new NavAggregateDelta(c.Prefix!, c.ArticleCount!.Value, c.LatestArticleUtc, null))
-            .ToArray();
+            .Select(c => new NavAggregateDelta(c.Prefix!, c.ArticleCount!.Value, c.LatestArticleUtc, null, c.CountCoverage))
+            .ToList();
+
+        // The site total is the root cell itself, not the sum of the root sections: the root level
+        // also holds standalone articles that belong to no section.
+        if (metrics.TryGet(string.Empty) is { } site)
+        {
+            deltas.Insert(0, new NavAggregateDelta(string.Empty, site.Count, site.Latest, null, site.Coverage));
+        }
+
+        return deltas.ToArray();
     }
 
-    public void Dispose() => _timer?.Dispose();
+    // A change to "a/b/article.md" is a change to folder "a/b"; a change to a folder is itself.
+    private static string FolderOf(string path)
+    {
+        if (path.Length == 0 || !Path.GetFileName(path).Contains('.'))
+        {
+            return path;
+        }
+
+        int cut = path.LastIndexOf('/');
+        return cut < 0 ? string.Empty : path[..cut];
+    }
 }

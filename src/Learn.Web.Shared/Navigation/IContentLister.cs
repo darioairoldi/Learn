@@ -31,7 +31,8 @@ public sealed record NavChild(
     DateTimeOffset? Date = null,
     string? Author = null,
     int? ArticleCount = null,
-    DateTimeOffset? LatestArticleUtc = null);
+    DateTimeOffset? LatestArticleUtc = null,
+    Coverage CountCoverage = Coverage.None);
 
 /// <summary>A flattened navigable article (leaf) with its section breadcrumb — used by menu search.</summary>
 public sealed record NavLeaf(string Text, string Route, string Path, DateTimeOffset? Date = null, string? Author = null);

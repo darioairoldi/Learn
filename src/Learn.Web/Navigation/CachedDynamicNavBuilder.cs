@@ -78,18 +78,7 @@ public sealed class CachedDynamicNavBuilder(
         return envelope.Items;
     }
 
-    /// <summary>
-    /// Forces a fresh walk of just the <paramref name="prefix"/> branch on the inner builder,
-    /// bypassing the cached index, so the recursive per-folder aggregates (<c>_folderAgg</c>) for
-    /// that branch are recomputed from the current content. Used by
-    /// <see cref="Learn.Web.Navigation.NavChangePublisher"/> after a content change: the path-scoped
-    /// invalidation drops the affected levels but the cached index would otherwise keep the old
-    /// counts, so the publisher re-walks only the changed branch (not the whole tree) before reading
-    /// the new aggregates.
-    /// </summary>
-    public Task RecomputeSubtreeAsync(string prefix, CancellationToken ct = default)
-        => inner.RecomputeSubtreeAsync(prefix, ct);
-
+    /// <summary>Flattened article index (menu search / prev-next), cached at the root path.</summary>
     public async Task<IReadOnlyList<NavLeaf>> GetIndexAsync(CancellationToken ct = default)
     {
         using var activity = Observability.ActivitySource.StartMethodActivity(logger);

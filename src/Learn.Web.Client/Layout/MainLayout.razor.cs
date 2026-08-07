@@ -16,23 +16,32 @@ public partial class MainLayout
         {
             if (Stats.ActiveSectionLabel is { } label && Stats.ActiveSectionCount is { } count)
             {
-                return $"{label}: {count:N0} articles";
+                return Stats.ActiveSectionCoverage switch
+                {
+                    Coverage.Complete => $"{label}: {count:N0} articles",
+                    Coverage.Partial => $"{label}: \u2265 {count:N0} articles",
+                    _ => $"{label}: \u2026",
+                };
             }
 
             return string.Empty;
         }
     }
 
+    // "…" while nothing is known and "≥ N" while the scan is still running: a lower bound is never
+    // presented as a total, and unknown is never presented as zero.
     private string TotalArticlesText
     {
         get
         {
-            if (!Stats.HasData)
+            if (!Stats.HasData || Stats.TotalCoverage == Coverage.None)
             {
                 return "…";
             }
 
-            return $"{Stats.TotalArticles:N0} articles";
+            return Stats.TotalCoverage == Coverage.Complete
+                ? $"{Stats.TotalArticles:N0} articles"
+                : $"\u2265 {Stats.TotalArticles:N0} articles";
         }
     }
 

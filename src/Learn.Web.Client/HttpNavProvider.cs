@@ -67,10 +67,16 @@ public sealed class HttpNavProvider(HttpClient http) : INavProvider
             {
                 NavChild child = current[i];
                 if (child.Prefix is { } p && byPrefix.TryGetValue(p, out NavAggregateDelta? d) && d is not null
-                    && (child.ArticleCount != d.ArticleCount || child.LatestArticleUtc != d.LatestUtc))
+                    && (child.ArticleCount != d.ArticleCount || child.LatestArticleUtc != d.LatestUtc
+                        || child.CountCoverage != d.Coverage))
                 {
                     updated ??= new List<NavChild>(current);
-                    updated[i] = child with { ArticleCount = d.ArticleCount, LatestArticleUtc = d.LatestUtc };
+                    updated[i] = child with
+                    {
+                        ArticleCount = d.ArticleCount,
+                        LatestArticleUtc = d.LatestUtc,
+                        CountCoverage = d.Coverage,
+                    };
                 }
             }
 

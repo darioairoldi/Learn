@@ -131,6 +131,7 @@ public class Program
             // Dynamic, spec-compliant menu built on demand from the live content hierarchy.
             services.AddMemoryCache();
             services.AddSingleton<IContentLister>(sp => (IContentLister)sp.GetRequiredService<IContentSource>());
+            services.AddSingleton<FolderMetricsIndex>();
             services.AddSingleton<DynamicNavBuilder>();
             services.AddSingleton<CachedDynamicNavBuilder>(sp => new CachedDynamicNavBuilder(
                 sp.GetRequiredService<DynamicNavBuilder>(),
@@ -165,6 +166,7 @@ public class Program
             // Content passthrough + dynamic navigation APIs (see the *Endpoints classes).
             app.MapContentEndpoints();
             app.MapNavEndpoints();
+            app.MapTestContentEndpoints(app.Configuration);
             app.MapHub<NavHub>(NavHubContract.Route);
 
             app.MapRazorComponents<App>()
@@ -172,19 +174,29 @@ public class Program
                 .AddAdditionalAssemblies(typeof(Learn.Web.Client.Marker).Assembly);
         }
 
-        // Warm the navigation index and every per-level cache entry in the background so the first
-        // request (and expand-all) does not pay cold origin fetches on the request path.
+        // Drain results must reach the hub before any content write can happen.
+        app.Services.GetRequiredService<NavChangePublisher>().Wire();
+
+        // Build the navigation metrics projection in the background: seed from the previous run so
+        // the counter never starts from nothing, then discover + fold the tree one root branch at a
+        // time so the footer total climbs as a labelled lower bound instead of jumping.
         _ = Task.Run(async () =>
         {
             try
             {
                 var cachedNav = app.Services.GetRequiredService<CachedDynamicNavBuilder>();
+                var metrics = app.Services.GetRequiredService<FolderMetricsIndex>();
                 var publisher = app.Services.GetRequiredService<NavChangePublisher>();
 
-                // Progressive warm-up: walk one root branch at a time and, after each, push the
-                // growing set of computed root counts. This lets the footer total climb during
-                // startup (e.g. 2 → 20 → 88 → …) instead of sitting at the cold value until the
-                // whole tree has been walked and then jumping straight to the final total.
+                string snapshotPath = SnapshotPath(app.Configuration);
+                if (await metrics.LoadSnapshotAsync(snapshotPath) > 0)
+                {
+                    cachedNav.InvalidateLevels();          // levels rebuild carrying the seeded counts
+                    await publisher.PublishCountsReadyAsync();
+                }
+
+                // A restart is just a global invalidation over a warm seed — same drain, no special path.
+                var reachable = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
                 foreach (var root in await cachedNav.GetChildrenAsync(string.Empty))
                 {
                     if (!root.IsSection || root.Prefix is null)
@@ -192,23 +204,40 @@ public class Program
                         continue;
                     }
 
-                    await cachedNav.RecomputeSubtreeAsync(root.Prefix); // fills _folderAgg for this branch
-                    cachedNav.InvalidateLevels();                       // root level rebuilds with the new count
-                    await publisher.PublishCountsReadyAsync();          // push all counts known so far
+                    reachable.UnionWith(await metrics.DiscoverAsync(root.Prefix));
+                    await metrics.DrainAsync();
+                    cachedNav.InvalidateLevels();
+                    await publisher.PublishCountsReadyAsync();
                 }
 
-                // Build the flattened search index (the content-source cache is warm now, so this is
-                // cheap) and warm every level so the first expand-all is instant.
-                await cachedNav.GetIndexAsync();
-                cachedNav.InvalidateLevels();
-                await cachedNav.WarmAllLevelsAsync();
+                // Folders that disappeared while the app was down must not linger in the snapshot.
+                metrics.PruneUnreachable(reachable);
 
-                // Final authoritative push so every root count is current after the full warm-up.
+                // Root cell (the whole-site total) plus anything still dirty.
+                metrics.Invalidate(string.Empty);
+                await metrics.DrainAsync();
+                cachedNav.InvalidateLevels();
+
+                // Flattened search index + every level warm, then the authoritative final push.
+                await cachedNav.GetIndexAsync();
+                await cachedNav.WarmAllLevelsAsync();
                 await publisher.PublishCountsReadyAsync();
+
+                await metrics.SaveSnapshotAsync(snapshotPath);
             }
-            catch { /* best-effort warm-up */ }
+            catch (Exception ex)
+            {
+                logger.LogWarning(ex, "Nav metrics warm-up failed");
+            }
         });
 
         app.Run();
     }
+
+    // Single derived artifact: one read at startup instead of one per folder, and no derived value
+    // is ever written into an authored content file.
+    private static string SnapshotPath(IConfiguration configuration) =>
+        configuration["Content:MetricsSnapshotPath"] is { Length: > 0 } configured
+            ? configured
+            : Path.Combine(AppContext.BaseDirectory, "nav-metrics-snapshot.json");
 }

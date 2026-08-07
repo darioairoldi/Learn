@@ -8,29 +8,15 @@ public partial class DynNavNode
     [Parameter, EditorRequired] public NavChild Node { get; set; } = default!;
     [Parameter] public string CurrentRoute { get; set; } = string.Empty;
 
-    // Bubble-up counter: this node reports its recursive subtree article count to its parent; the
-    // parent replaces our previous contribution (never double counts) and re-reports upward. Passed
-    // as a plain Action (not an EventCallback) so reporting never forces ancestor re-renders — only
-    // the footer refreshes, via the debounced NavStats.
-    [Parameter] public Action<(string Key, FolderArticleStats Value)>? OnCounted { get; set; }
-
     // Parent section info for article-hover reporting: when hovering an article, the footer shows
     // its containing section's label and count.
     [Parameter] public string? ParentPrefix { get; set; }
     [Parameter] public string? ParentLabel { get; set; }
     [Parameter] public int? ParentCount { get; set; }
+    [Parameter] public Coverage ParentCoverage { get; set; } = Coverage.None;
 
     private bool _open;
     private IReadOnlyList<NavChild>? _children;
-
-    // Latest counts reported by our (loaded) children, keyed by the child's own key.
-    private readonly Dictionary<string, FolderArticleStats> _childCounts = new(StringComparer.OrdinalIgnoreCase);
-
-    // Last value we pushed to the parent, so we skip redundant reports.
-    private FolderArticleStats? _reported;
-
-    // Stable identity for this node within its parent's child set.
-    private string CountKey => Node.Prefix ?? Node.Route ?? Node.Text;
 
     // The active route this section was last auto-opened for. Prevents later re-renders from
     // re-opening a section the user has explicitly collapsed while staying on the same article.
@@ -51,8 +37,6 @@ public partial class DynNavNode
     {
         if (!Node.IsSection)
         {
-            ReportCount(); // a leaf article contributes immediately (Home / empty routes contribute 0)
-
             // When this article IS the active route, report its parent section as the footer baseline.
             // This handles navigation (click) where no new mouseover fires because the pointer is
             // already over the element when the DOM re-renders. It is the lowest-priority tier, so it
@@ -60,7 +44,7 @@ public partial class DynNavNode
             if (ParentPrefix is not null && !string.IsNullOrEmpty(Node.Route) &&
                 string.Equals(CurrentRoute, Node.Route, StringComparison.OrdinalIgnoreCase))
             {
-                Stats.SetSelectedSection(ParentPrefix, ParentLabel, ParentCount);
+                Stats.SetSelectedSection(ParentPrefix, ParentLabel, ParentCount, ParentCoverage);
             }
 
             return;
@@ -84,63 +68,6 @@ public partial class DynNavNode
         if (InActiveBranch)
         {
             _autoOpenedForRoute = CurrentRoute;
-        }
-
-        // Report our subtree count: the server's recursive estimate while collapsed, the computed sum
-        // of our children once they have loaded and reported.
-        ReportCount();
-    }
-
-    // Computes this node's recursive article count and pushes it to the parent when it changed.
-    private void ReportCount()
-    {
-        FolderArticleStats value;
-        if (!Node.IsSection)
-        {
-            value = string.IsNullOrEmpty(Node.Route)
-                ? new FolderArticleStats(0, null, null)                          // Home and other non-article links
-                : new FolderArticleStats(1, Node.Date, Node.Author);            // a navigable article
-        }
-        else if (_children is null || _childCounts.Count == 0)
-        {
-            // Collapsed (or children not reported yet) → trust the server's recursive aggregate so the
-            // total is right without expanding, and avoid a transient drop to 0.
-            value = new FolderArticleStats(Node.ArticleCount ?? 0, Node.LatestArticleUtc, null);
-        }
-        else
-        {
-            int count = 0;
-            DateTimeOffset? latest = null;
-            string? author = null;
-            foreach (FolderArticleStats c in _childCounts.Values)
-            {
-                count += c.Count;
-                if (c.LatestUtc is { } l && (latest is null || l > latest))
-                {
-                    latest = l;
-                    author = c.LatestAuthor;
-                }
-            }
-
-            value = new FolderArticleStats(count, latest, author);
-        }
-
-        if (_reported == value)
-        {
-            return;
-        }
-
-        _reported = value;
-        OnCounted?.Invoke((CountKey, value));
-    }
-
-    // A child reported its subtree count → fold it in and, if we are expanded, re-report upward.
-    private void OnChildCounted((string Key, FolderArticleStats Value) report)
-    {
-        _childCounts[report.Key] = report.Value;
-        if (_children is not null)
-        {
-            ReportCount();
         }
     }
 
@@ -204,11 +131,11 @@ public partial class DynNavNode
     {
         if (Node.IsSection && Node.Prefix is not null)
         {
-            Stats.SetHoverSection(Node.Prefix, Node.Text, _reported?.Count);
+            Stats.SetHoverSection(Node.Prefix, Node.Text, Node.ArticleCount, Node.CountCoverage);
         }
         else if (ParentPrefix is not null)
         {
-            Stats.SetHoverSection(ParentPrefix, ParentLabel, ParentCount);
+            Stats.SetHoverSection(ParentPrefix, ParentLabel, ParentCount, ParentCoverage);
         }
     }
 
@@ -226,9 +153,8 @@ public partial class DynNavNode
         }
     }
 
-    // Counts converged / pushed → an open section re-reads its child level so any folder count that
-    // was still unknown (rendered as 0) or stale when it first loaded is replaced with the current
-    // value. Reads from the client cache (which the metadata push updates in place) — no API hit.
+    // A metadata push updated the client cache in place → re-read this section's child level so the
+    // counts handed down to children reflect the new values. Cache read, no API hit.
     private async void OnRefreshCounts()
     {
         if (!Node.IsSection || Node.Prefix is null || _children is null)
@@ -237,7 +163,6 @@ public partial class DynNavNode
         }
 
         _children = await Provider.GetChildrenAsync(Node.Prefix);
-        ReportCount();
         await InvokeAsync(StateHasChanged);
     }
 

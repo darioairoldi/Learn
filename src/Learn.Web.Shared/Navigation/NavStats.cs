@@ -2,18 +2,26 @@ namespace Learn.Web.Shared.Navigation;
 
 /// <summary>
 /// One node's best-known recursive article count plus the newest article seen in its subtree
-/// (with that article's author, for the footer's "Last Change" line).
+/// (with that article's author, for the footer's "Last Change" line) and how much of the subtree
+/// the value actually observed.
 /// </summary>
-public readonly record struct FolderArticleStats(int Count, DateTimeOffset? LatestUtc, string? LatestAuthor);
+public readonly record struct FolderArticleStats(
+    int Count,
+    DateTimeOffset? LatestUtc,
+    string? LatestAuthor,
+    Coverage Coverage = Coverage.Complete);
 
 /// <summary>
 /// Per-circuit status-bar aggregator for the footer article counter.
 /// <para>
-/// It is fed <em>opportunistically</em> by the navigation menu as it loads levels — no dedicated
-/// "count" query is ever issued. Every menu node reports its own recursive subtree count to its
-/// parent; only the top-level (root) nodes land here via <see cref="SetRoot"/>. The total is simply
-/// the sum of the latest value reported per root, so re-reporting a root just replaces its previous
-/// contribution (idempotent, never double counts).
+/// Values are <em>server-authoritative</em>: every root's recursive count arrives either on the
+/// nav level fetch or on a metadata push. The client never derives a count from the nodes it has
+/// rendered, so a partially loaded tree can never produce a partial total.
+/// </para>
+/// <para>
+/// The total is the sum of the latest value recorded per root, so re-recording a root just replaces
+/// its previous contribution (idempotent, never double counts). Its coverage is the weakest root's:
+/// one unknown root makes the whole total a lower bound.
 /// </para>
 /// </summary>
 public sealed class NavStats
@@ -28,11 +36,49 @@ public sealed class NavStats
     // every re-render) from clobbering the transient hover highlight.
     private string? _selKey, _selLabel;    // selected article's section (baseline)
     private int? _selCount;
+    private Coverage _selCoverage;
     private string? _hovKey, _hovLabel;    // hovered / focused item's section (override)
     private int? _hovCount;
+    private Coverage _hovCoverage;
 
-    /// <summary>Running total across all reporting root nodes.</summary>
-    public int TotalArticles { get; private set; }
+    // The server's own value for the site root. It supersedes the sum of the root sections, which
+    // omits standalone top-level articles and is therefore only ever a lower bound.
+    private int? _siteCount;
+    private Coverage _siteCoverage = Coverage.None;
+    private int _rootsSum;
+    private bool _anyRootKnown;
+
+    /// <summary>Best-known site-wide article total.</summary>
+    public int TotalArticles => _siteCount ?? _rootsSum;
+
+    /// <summary>Coverage of <see cref="TotalArticles"/> — only Complete when it is a true total.</summary>
+    public Coverage TotalCoverage =>
+        _siteCount is not null ? _siteCoverage
+        : _anyRootKnown ? Coverage.Partial
+        : Coverage.None;
+
+    /// <summary>
+    /// Records the server's authoritative site-root aggregate. Once this arrives the footer stops
+    /// deriving the total from the root sections.
+    /// </summary>
+    public void SetTotal(FolderArticleStats value)
+    {
+        if (_siteCount == value.Count && _siteCoverage == value.Coverage && LatestUtc == value.LatestUtc)
+        {
+            return;
+        }
+
+        _siteCount = value.Count;
+        _siteCoverage = value.Coverage;
+        if (value.LatestUtc is { } l && (LatestUtc is null || l > LatestUtc))
+        {
+            LatestUtc = l;
+            LatestAuthor = value.LatestAuthor;
+        }
+
+        HasData = true;
+        ScheduleRefresh();
+    }
 
     /// <summary>Newest article date across all roots (UTC).</summary>
     public DateTimeOffset? LatestUtc { get; private set; }
@@ -52,6 +98,9 @@ public sealed class NavStats
     /// <summary>Article count matching <see cref="ActiveSectionLabel"/>, or null if unknown/root.</summary>
     public int? ActiveSectionCount => _hovKey is not null ? _hovCount : _selCount;
 
+    /// <summary>Coverage of <see cref="ActiveSectionCount"/>.</summary>
+    public Coverage ActiveSectionCoverage => _hovKey is not null ? _hovCoverage : _selCoverage;
+
     /// <summary>Raised (debounced) after the aggregate or active section changes.</summary>
     public event Action? Changed;
 
@@ -70,9 +119,15 @@ public sealed class NavStats
         int total = 0;
         DateTimeOffset? latest = null;
         string? author = null;
+        int known = 0;
         foreach (var (_, stats) in _roots.Values)
         {
-            total += stats.Count;
+            if (stats.Coverage != Coverage.None)
+            {
+                known++;
+                total += stats.Count;      // an unknown root is absent from the sum, never a zero
+            }
+
             if (stats.LatestUtc is { } l && (latest is null || l > latest))
             {
                 latest = l;
@@ -80,11 +135,13 @@ public sealed class NavStats
             }
         }
 
-        bool changed = !HasData || total != TotalArticles || latest != LatestUtc || author != LatestAuthor;
+        bool changed = !HasData || total != _rootsSum || latest != LatestUtc || author != LatestAuthor
+                       || (known > 0) != _anyRootKnown;
 
-        TotalArticles = total;
-        LatestUtc = latest;
-        LatestAuthor = author;
+        _rootsSum = total;
+        _anyRootKnown = known > 0;
+        LatestUtc = latest ?? LatestUtc;
+        LatestAuthor = author ?? LatestAuthor;
         HasData = true;
 
         // Keep whichever tier(s) reference this root in sync with its freshly reported count/label.
@@ -92,15 +149,17 @@ public sealed class NavStats
         {
             if (string.Equals(key, _hovKey, StringComparison.OrdinalIgnoreCase))
             {
-                changed |= _hovLabel != label || _hovCount != value.Count;
+                changed |= _hovLabel != label || _hovCount != value.Count || _hovCoverage != value.Coverage;
                 _hovLabel = label;
                 _hovCount = value.Count;
+                _hovCoverage = value.Coverage;
             }
             if (string.Equals(key, _selKey, StringComparison.OrdinalIgnoreCase))
             {
-                changed |= _selLabel != label || _selCount != value.Count;
+                changed |= _selLabel != label || _selCount != value.Count || _selCoverage != value.Coverage;
                 _selLabel = label;
                 _selCount = value.Count;
+                _selCoverage = value.Coverage;
             }
         }
 
@@ -112,10 +171,10 @@ public sealed class NavStats
     /// footer shows whenever nothing is hovered/focused. Idempotent, so the active article re-asserting
     /// it on every re-render is a no-op and never fires a redundant refresh.
     /// </summary>
-    public void SetSelectedSection(string? key, string? label, int? count)
+    public void SetSelectedSection(string? key, string? label, int? count, Coverage coverage = Coverage.Complete)
     {
         if (string.Equals(_selKey, key, StringComparison.OrdinalIgnoreCase)
-            && _selLabel == label && _selCount == count)
+            && _selLabel == label && _selCount == count && _selCoverage == coverage)
         {
             return;
         }
@@ -125,6 +184,7 @@ public sealed class NavStats
         _selKey = key;
         _selLabel = label;
         _selCount = count;
+        _selCoverage = coverage;
         if (visible) Changed?.Invoke();
     }
 
@@ -133,11 +193,11 @@ public sealed class NavStats
     /// highest-priority override. Sections report themselves (including the folder itself); articles
     /// report their containing section.
     /// </summary>
-    public void SetHoverSection(string? key, string? label, int? count)
+    public void SetHoverSection(string? key, string? label, int? count, Coverage coverage = Coverage.Complete)
     {
         if (key is null) return;
         if (string.Equals(_hovKey, key, StringComparison.OrdinalIgnoreCase)
-            && _hovLabel == label && _hovCount == count)
+            && _hovLabel == label && _hovCount == count && _hovCoverage == coverage)
         {
             return;
         }
@@ -145,6 +205,7 @@ public sealed class NavStats
         _hovKey = key;
         _hovLabel = label;
         _hovCount = count;
+        _hovCoverage = coverage;
         Changed?.Invoke();
     }
 
@@ -161,6 +222,7 @@ public sealed class NavStats
         _hovKey = null;
         _hovLabel = null;
         _hovCount = null;
+        _hovCoverage = Coverage.None;
         Changed?.Invoke();
     }
 

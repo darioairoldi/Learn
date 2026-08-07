@@ -31,6 +31,7 @@ public partial class DynNav
         _current = CurrentRoute();
         NavMgr.LocationChanged += OnLocationChanged;
         _root = await Provider.GetChildrenAsync(string.Empty);
+        PublishRootStats();
         _scrollPending = true;
 
         // Subscribe to the metadata hub so folder counts and the footer total arrive by push — no
@@ -48,12 +49,20 @@ public partial class DynNav
         }
     }
 
-    // A root node reported its recursive subtree count → forward it to the status-bar aggregator,
-    // which sums the roots and refreshes the footer (debounced, non-blocking).
-    private void OnRootCounted((string Key, FolderArticleStats Value) report)
+    // The footer total is the sum of the roots' own server-computed counts — never a sum of the
+    // nodes the client happens to have rendered. One unknown root makes the total a lower bound.
+    private void PublishRootStats()
     {
-        string label = _root?.FirstOrDefault(n => string.Equals(n.Prefix, report.Key, OIC))?.Text ?? report.Key;
-        Stats.SetRoot(report.Key, label, report.Value);
+        if (_root is null)
+        {
+            return;
+        }
+
+        foreach (NavChild n in _root.Where(n => n.IsSection && n.Prefix is not null))
+        {
+            Stats.SetRoot(n.Prefix!, n.Text,
+                new FolderArticleStats(n.ArticleCount ?? 0, n.LatestArticleUtc, null, n.CountCoverage));
+        }
     }
 
     // Server pushed updated absolute folder aggregates (either a content change or the warm-up
@@ -63,17 +72,17 @@ public partial class DynNav
     private void OnAggregatesPushed(IReadOnlyList<NavAggregateDelta> deltas)
         => _ = InvokeAsync(async () =>
         {
+            // The empty prefix is the site root — the authoritative whole-site total. Applied before
+            // any await so the footer updates immediately instead of queueing behind a tree
+            // re-render, which can span dozens of open sections.
+            foreach (NavAggregateDelta d in deltas.Where(d => d.Prefix.Length == 0))
+            {
+                Stats.SetTotal(new FolderArticleStats(d.ArticleCount, d.LatestUtc, d.Author, d.Coverage));
+            }
+
             (Provider as HttpNavProvider)?.ApplyAggregates(deltas);
             _root = await Provider.GetChildrenAsync(string.Empty);
-
-            foreach (NavAggregateDelta d in deltas)
-            {
-                if (!d.Prefix.Contains('/', StringComparison.Ordinal))
-                {
-                    string label = _root?.FirstOrDefault(n => string.Equals(n.Prefix, d.Prefix, OIC))?.Text ?? d.Prefix;
-                    Stats.SetRoot(d.Prefix, label, new FolderArticleStats(d.ArticleCount, d.LatestUtc, d.Author));
-                }
-            }
+            PublishRootStats();
 
             Sidebar.RequestCountsRefresh();
             StateHasChanged();
@@ -86,6 +95,7 @@ public partial class DynNav
         => _ = InvokeAsync(async () =>
         {
             _root = await Provider.RefreshChildrenAsync(string.Empty);
+            PublishRootStats();
             Sidebar.RequestCountsRefresh();
             StateHasChanged();
         });

@@ -33,8 +33,9 @@
                     <ul class="nav-list" role="group">
                         @foreach (NavChild child in _children)
                         {
-                            <DynNavNode Node="child" CurrentRoute="@CurrentRoute" OnCounted="OnChildCounted" ParentPrefix="@Node.Prefix"
-                                        ParentLabel="@Node.Text" ParentCount="@(_reported?.Count)" />
+                            <DynNavNode Node="child" CurrentRoute="@CurrentRoute" ParentPrefix="@Node.Prefix"
+                                        ParentLabel="@Node.Text" ParentCount="@Node.ArticleCount"
+                                        ParentCoverage="@Node.CountCoverage" />
                         }
                     </ul>
                 }
