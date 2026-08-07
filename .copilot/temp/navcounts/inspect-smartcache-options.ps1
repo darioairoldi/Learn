@@ -13,6 +13,6 @@ if ($sb.Length -ge 4) { $strings.Add($sb.ToString()) }
 
 '--- lifetime / expiration related identifiers ---'
 $strings |
-    Where-Object { $_ -match '^(get_|set_)?(MaxAge|AbsoluteExpiration|SlidingExpiration|LocalEntry|Expiration|TimeToLive|Ttl|Retention|Duration|Tolerance|Enabled|MaxSize|LowPriority)' } |
-    ForEach-Object { $_ -replace '^(get_|set_)', '' } |
-    Sort-Object -Unique
+Where-Object { $_ -match '^(get_|set_)?(MaxAge|AbsoluteExpiration|SlidingExpiration|LocalEntry|Expiration|TimeToLive|Ttl|Retention|Duration|Tolerance|Enabled|MaxSize|LowPriority)' } |
+ForEach-Object { $_ -replace '^(get_|set_)', '' } |
+Sort-Object -Unique
