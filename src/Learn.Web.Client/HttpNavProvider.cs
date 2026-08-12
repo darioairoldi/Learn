@@ -33,6 +33,21 @@ public sealed class HttpNavProvider(HttpClient http) : INavProvider
         return GetChildrenAsync(prefix, ct);
     }
 
+    public async Task<FolderArticleStats?> GetTotalAsync(CancellationToken ct = default)
+    {
+        try
+        {
+            using HttpResponseMessage response = await http.GetAsync("_nav/total", ct);
+            return response.IsSuccessStatusCode && response.Content.Headers.ContentLength != 0
+                ? await response.Content.ReadFromJsonAsync<FolderArticleStats>(cancellationToken: ct)
+                : null;
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
     /// <summary>
     /// Applies server-pushed absolute folder aggregates to the in-memory cache: for every already
     /// loaded level, any child whose <c>Prefix</c> matches a delta has its <c>ArticleCount</c> and

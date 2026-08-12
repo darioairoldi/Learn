@@ -1,5 +1,6 @@
 using Diginsight.Diagnostics;
 using Learn.Web.Navigation;
+using Learn.Web.Shared.Navigation;
 using Microsoft.Extensions.Logging;
 
 namespace Learn.Web.Endpoints;
@@ -20,6 +21,7 @@ public static class NavEndpoints
 
         app.MapGet("/_nav/children", GetNavChildrenAsync);
         app.MapGet("/_nav/version", GetNavVersion);
+        app.MapGet("/_nav/total", GetNavTotal);
         app.MapGet("/_nav/index", GetNavIndexAsync);
         app.MapPost("/_nav/invalidate", InvalidateNavCache);
         return app;
@@ -46,6 +48,15 @@ public static class NavEndpoints
         using var activity = Observability.ActivitySource.StartMethodActivity(logger);
 
         return Results.Json(new { version = CachedDynamicNavBuilder.Version });
+    }
+
+    private static IResult GetNavTotal(FolderMetricsIndex metrics)
+    {
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger);
+
+        return metrics.TryGet(string.Empty) is { } site
+            ? Results.Json(new FolderArticleStats(site.Count, site.Latest, null, site.Coverage))
+            : Results.NoContent();
     }
 
     private static async Task<IResult> GetNavIndexAsync(INavBuilder nav, CancellationToken ct)

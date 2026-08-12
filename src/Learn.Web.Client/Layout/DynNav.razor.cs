@@ -38,6 +38,16 @@ public partial class DynNav
         // polling. Only in the browser; the server prerender has no hub registered.
         if (OperatingSystem.IsBrowser())
         {
+            FolderArticleStats? total = await Provider.GetTotalAsync();
+            if (total is { } site)
+            {
+                Stats.SetTotal(site);
+            }
+            if (total is not { Coverage: Coverage.Complete })
+            {
+                _ = ConvergeTotalAsync();
+            }
+
             _hub = Services.GetService<NavHubClient>();
             if (_hub is not null)
             {
@@ -45,6 +55,27 @@ public partial class DynNav
                 _hub.CountsReady += OnAggregatesPushed;
                 _hub.Reconnected += OnHubReconnected;
                 await _hub.StartAsync();
+            }
+        }
+    }
+
+    // SignalR remains the immediate update path, but correctness must not depend on its first
+    // handshake. Pull the cheap site-root cell until startup discovery marks it complete.
+    private async Task ConvergeTotalAsync()
+    {
+        for (int attempt = 0; attempt < 48; attempt++)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(5));
+            FolderArticleStats? total = await Provider.GetTotalAsync();
+            if (total is not { } site)
+            {
+                continue;
+            }
+
+            Stats.SetTotal(site);
+            if (site.Coverage == Coverage.Complete)
+            {
+                break;
             }
         }
     }
@@ -94,6 +125,10 @@ public partial class DynNav
     private void OnHubReconnected()
         => _ = InvokeAsync(async () =>
         {
+            if (await Provider.GetTotalAsync() is { } total)
+            {
+                Stats.SetTotal(total);
+            }
             _root = await Provider.RefreshChildrenAsync(string.Empty);
             PublishRootStats();
             Sidebar.RequestCountsRefresh();
