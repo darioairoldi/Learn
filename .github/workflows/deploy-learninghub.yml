@@ -39,7 +39,6 @@ env:
   WEBAPP_HOSTNAME: learn-testmc-app-itn-01.azurewebsites.net
   STORAGE_ACCOUNT: digitoolstestmcstitn01
   STORAGE_CONTAINER: learn
-  CONTENT_STAGE: ${{ runner.temp }}\learn-content-stage
   # The Azure CLI on the self-hosted runner bundles a 32-bit Python that prints a harmless
   # cryptography UserWarning to stderr on every call; silence it to keep the logs clean.
   PYTHONWARNINGS: ignore
@@ -47,6 +46,8 @@ env:
 jobs:
   deploy-content:
     runs-on: self-hosted
+    env:
+      CONTENT_STAGE: ${{ runner.temp }}\learn-content-stage
 
     steps:
       - name: Reset runner state to main branch
