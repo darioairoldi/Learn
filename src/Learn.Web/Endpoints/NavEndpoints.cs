@@ -2,6 +2,7 @@ using Diginsight.Diagnostics;
 using Learn.Web.Navigation;
 using Learn.Web.Shared.Navigation;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Learn.Web.Endpoints;
 
@@ -13,23 +14,44 @@ namespace Learn.Web.Endpoints;
 public static class NavEndpoints
 {
     private static ILogger? cachedLogger;
-    private static ILogger? logger => cachedLogger ??= Observability.LoggerFactory?.CreateLogger(typeof(NavEndpoints));
+    // Never null: a null logger reaches StartMethodActivity/SetOutput without a valid logger attached
+    // and SetOutput throws "Invalid logger in activity" instead of silently no-op'ing.
+    private static ILogger logger => cachedLogger ??= Observability.LoggerFactory?.CreateLogger(typeof(NavEndpoints)) ?? NullLogger.Instance;
 
     public static IEndpointRouteBuilder MapNavEndpoints(this IEndpointRouteBuilder app)
     {
         using var activity = Observability.ActivitySource.StartMethodActivity(logger);
 
-        app.MapGet("/_nav/children", GetNavChildrenAsync);
-        app.MapGet("/_nav/version", GetNavVersion);
-        app.MapGet("/_nav/total", GetNavTotal);
-        app.MapGet("/_nav/index", GetNavIndexAsync);
-        app.MapPost("/_nav/invalidate", InvalidateNavCache);
+        var group = app.MapGroup("/_nav");
+
+        // A client abort (navigate away, refresh, timeout) cancels HttpContext.RequestAborted mid-request.
+        // That is expected, not a fault, so translate it into 499 ("client closed request") instead of
+        // letting a TaskCanceledException bubble up as an unhandled exception. The guard on RequestAborted
+        // ensures a genuine internal timeout (a different token) still surfaces as a real error.
+        group.AddEndpointFilter(async (context, next) =>
+        {
+            try
+            {
+                return await next(context);
+            }
+            catch (OperationCanceledException) when (context.HttpContext.RequestAborted.IsCancellationRequested)
+            {
+                logger.LogDebug("Nav request canceled by client.");
+                return Results.StatusCode(499);
+            }
+        });
+
+        group.MapGet("/children", GetNavChildrenAsync);
+        group.MapGet("/version", GetNavVersion);
+        group.MapGet("/total", GetNavTotal);
+        group.MapGet("/index", GetNavIndexAsync);
+        group.MapPost("/invalidate", InvalidateNavCache);
         return app;
     }
 
     private static async Task<IResult> GetNavChildrenAsync(string? prefix, INavBuilder nav, CachedDynamicNavBuilder cachedNav, CancellationToken ct)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefix });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, () => new { prefix });
 
         var children = await nav.GetChildrenAsync(prefix ?? string.Empty, ct);
 
@@ -40,6 +62,7 @@ public static class NavEndpoints
             catch { /* best-effort */ }
         });
 
+        activity?.SetOutput(new { count = children.Count });
         return Results.Json(children);
     }
 
@@ -63,12 +86,13 @@ public static class NavEndpoints
     {
         using var activity = Observability.ActivitySource.StartMethodActivity(logger);
 
+        // Client-abort cancellation is handled centrally by the /_nav group endpoint filter.
         return Results.Json(await nav.GetIndexAsync(ct));
     }
 
     private static IResult InvalidateNavCache(string? path, CachedDynamicNavBuilder nav, NavChangePublisher publisher)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { path });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, () => new { path });
 
         // No path → whole cache (content + nav, every node); a path → just that branch.
         if (string.IsNullOrWhiteSpace(path))

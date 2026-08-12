@@ -225,7 +225,7 @@ public sealed class FolderMetricsIndex(
     /// </summary>
     public async Task<IReadOnlyCollection<string>> DiscoverAsync(string root, CancellationToken ct = default)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { root });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, () => new { root });
 
         var visited = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         await WalkAsync(Normalize(root), NextStamp(), visited, ct);
@@ -258,10 +258,7 @@ public sealed class FolderMetricsIndex(
 
     private async Task WalkAsync(string prefix, long stamp, HashSet<string> visited, CancellationToken ct)
     {
-        if (!visited.Add(prefix))
-        {
-            return;
-        }
+        if (!visited.Add(prefix)) { return; }
 
         // Only newly discovered folders are marked dirty. Re-walking a branch that is already
         // tracked must not re-dirty it, or the startup scan would keep invalidating what the

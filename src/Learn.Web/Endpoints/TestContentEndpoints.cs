@@ -2,6 +2,7 @@ using Diginsight.Diagnostics;
 using Learn.Web.Navigation;
 using Learn.Web.Shared;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 
 namespace Learn.Web.Endpoints;
@@ -14,7 +15,9 @@ namespace Learn.Web.Endpoints;
 public static class TestContentEndpoints
 {
     private static ILogger? cachedLogger;
-    private static ILogger? logger => cachedLogger ??= Observability.LoggerFactory?.CreateLogger(typeof(TestContentEndpoints));
+    // Never null: a null logger reaches StartMethodActivity/SetOutput without a valid logger attached
+    // and SetOutput throws "Invalid logger in activity" instead of silently no-op'ing.
+    private static ILogger logger => cachedLogger ??= Observability.LoggerFactory?.CreateLogger(typeof(TestContentEndpoints)) ?? NullLogger.Instance;
 
     public static IEndpointRouteBuilder MapTestContentEndpoints(this IEndpointRouteBuilder app, IConfiguration configuration)
     {
@@ -34,7 +37,7 @@ public static class TestContentEndpoints
         IOptions<ContentOptions> options, IWebHostEnvironment env,
         CachedDynamicNavBuilder nav, FolderMetricsIndex metrics, NavChangePublisher publisher)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { folder, name });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, () => new { folder, name });
 
         if (!TryResolve(options, env, folder, name, out string dir, out string relative))
         {
@@ -53,7 +56,7 @@ public static class TestContentEndpoints
         IOptions<ContentOptions> options, IWebHostEnvironment env,
         CachedDynamicNavBuilder nav, FolderMetricsIndex metrics, NavChangePublisher publisher)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { folder, name });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, () => new { folder, name });
 
         if (!TryResolve(options, env, folder, name, out string dir, out string relative))
         {

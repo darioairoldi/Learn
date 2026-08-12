@@ -12,7 +12,7 @@ public sealed class ServerNavProvider(
 {
     public async Task<IReadOnlyList<NavChild>> GetChildrenAsync(string prefix, CancellationToken ct = default)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefix });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, () => new { prefix });
 
         return await builder.GetChildrenAsync(prefix, ct);
     }

@@ -2,6 +2,7 @@ using Diginsight.Components.Azure.Extensions;
 using Diginsight.Diagnostics;
 using Learn.Web.Shared;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Learn.Web.Endpoints;
 
@@ -12,7 +13,9 @@ namespace Learn.Web.Endpoints;
 public static class ContentEndpoints
 {
     private static ILogger? cachedLogger;
-    private static ILogger? logger => cachedLogger ??= Observability.LoggerFactory?.CreateLogger(typeof(ContentEndpoints));
+    // Never null: a null logger reaches StartMethodActivity/SetOutput without a valid logger attached
+    // and SetOutput throws "Invalid logger in activity" instead of silently no-op'ing.
+    private static ILogger logger => cachedLogger ??= Observability.LoggerFactory?.CreateLogger(typeof(ContentEndpoints)) ?? NullLogger.Instance;
 
     public static IEndpointRouteBuilder MapContentEndpoints(this IEndpointRouteBuilder app)
     {
@@ -22,9 +25,10 @@ public static class ContentEndpoints
 
     private static async Task<IResult> GetContentRawAsync(string key, IContentSource source, CancellationToken ct)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { key });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, () => new { key });
 
         ContentResult? result = await source.GetAsync(key, ct);
+        activity?.SetOutput(new { found = result is not null });
         return result is null
             ? Results.NotFound()
             : Results.Bytes(result.Bytes, result.ContentType ?? "text/markdown; charset=utf-8");

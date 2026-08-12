@@ -24,7 +24,7 @@ public sealed class CachedContentSource(
 {
     public async Task<ContentResult?> GetAsync(string contentKey, CancellationToken ct = default)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { contentKey });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, () => new { contentKey });
 
         // Binary assets bypass the distributed cache — only Markdown source is worth caching.
         if (!IsCacheable(contentKey))
@@ -48,7 +48,9 @@ public sealed class CachedContentSource(
             callerType: typeof(CachedContentSource),
             cancellationToken: ct);
 
-        return envelope.Result;
+        var result = envelope.Result;
+        activity?.SetOutput(new { found = result is not null });
+        return result;
     }
 
     public Task<IReadOnlyList<ChildEntry>> ListChildrenAsync(string prefix, CancellationToken ct = default) =>
