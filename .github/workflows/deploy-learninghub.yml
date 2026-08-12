@@ -46,8 +46,6 @@ env:
 jobs:
   deploy-content:
     runs-on: self-hosted
-    env:
-      CONTENT_STAGE: ${{ runner.temp }}\learn-content-stage
 
     steps:
       - name: Reset runner state to main branch
@@ -71,7 +69,7 @@ jobs:
           # Collect the site content (Markdown + images) into a staging folder that mirrors the
           # repo-relative paths the app resolves at runtime, e.g. 01.00-news/x/overview.md and
           # 01.00-news/x/images/*.png. Navigation is built at runtime by the app — nothing to stage.
-          $stage = $env:CONTENT_STAGE
+          $stage = Join-Path $env:RUNNER_TEMP "learn-content-stage"
           Remove-Item -Recurse -Force $stage -ErrorAction SilentlyContinue
           New-Item -ItemType Directory -Path $stage | Out-Null
 
