@@ -9,12 +9,14 @@ publish: false
 
 # Markdown deployment fails after resetting Azure Blob Storage
 
-**Date reported:** August 13, 2026  
-**Reporter:** Dario Airoldi  
-**Status:** Code resolved; end-to-end workflow verification pending  
-**Severity:** High  
-**Component:** `.github/workflows/deploy-learninghub.yml`  
-**Framework:** GitHub Actions on a self-hosted Windows runner, PowerShell 7 (`pwsh`), and Azure CLI Blob Storage commands
+| Field | Value |
+|---|---|
+| Date reported | August 13, 2026 |
+| Reporter | Dario Airoldi |
+| Status | Code resolved; end-to-end workflow verification pending |
+| Severity | High |
+| Component | `.github/workflows/deploy-learninghub.yml` |
+| Framework | GitHub Actions on a self-hosted Windows runner, PowerShell 7 (`pwsh`), and Azure CLI Blob Storage commands |
 
 ---
 
