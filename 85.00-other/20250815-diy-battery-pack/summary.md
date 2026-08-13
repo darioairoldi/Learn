@@ -3,7 +3,7 @@ DIY Li-Ion Battery Packs // Sequre SQ-SW1 Spot Welder // Samsung 30T 21700
 original video: https://www.youtube.com/watch?v=P7ZOlzWEt8Y
 Author: CJ Davies
 
-![alt text](<images/DIY Battery pack.png>)
+![alt text](<images/diy-battery-pack.png>)
 
 This video demonstrates how to build a **4S 1P lithium-ion battery pack** using **Samsung 30T 21700** cells. 
 The creator uses a **spot welder** to **connect the cells in series**, and **3D printed end caps** and spacers to **hold the pack together**. 

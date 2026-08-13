@@ -99,7 +99,7 @@
 La prima giornata ha seguito un percorso classico dal **cuore storico di Parigi** fino al suo simbolo più iconico.<br>
 Partendo dall'**Île de la Cité** con **Notre-Dame**, abbiamo attraversato il Quartiere Latino, camminato lungo la Senna ammirando i suoi ponti storici, per concludere alla Torre Eiffel al tramonto.
 
-![alt text](<images/001.00-ile-de-la-cité.web.jpg>)
+![alt text](<images/001.00-ile-de-la-cite.web.jpg>)
 
 **Aneddoto**: L'Île de la Cité era completamente diversa nel Medioevo: oltre a Notre-Dame, ospitava oltre 20 chiese e migliaia di abitanti. Napoleone III fece demolire la maggior parte degli edifici medievali per creare gli spazi aperti che vediamo oggi. Il Palais de la Cité era il vero cuore del potere reale francese fino a quando Carlo V non trasferì la residenza al Louvre nel XIV secolo.
 
@@ -515,7 +515,7 @@ Al termine della nostra salita attraverso i vicoli, arriviamo alla **Église Sai
 
 Dalla piazzetta della Église Saint-Pierre, bastano pochi passi per trovarsi di fronte alla **Basilique du Sacré-Cœur**, la maestosa basilica che corona la collina di Montmartre e rappresenta uno dei simboli più riconoscibili di Parigi. Questo capolavoro dell'architettura sacra del XIX secolo conclude magnificamente il nostro percorso attraverso la storia, l'arte e la spiritualità di Montmartre.
 
-![alt text](<images/002.12-basilique-du-sacré-cœur.web.jpg>)
+![alt text](<images/002.12-basilique-du-sacre-coeur.web.jpg>)
 
 **Storia della Costruzione**: La **Basilica del Sacré-Cœur** fu costruita come **voto nazionale** dopo la sconfitta francese nella Guerra Franco-Prussiana (1870-1871) e la tragica Comune di Parigi. Il progetto, iniziato nel **1875** su disegno dell'architetto **Paul Abadie**, fu completato solo nel **1914**, richiedendo quasi quarant'anni di lavori. La basilica fu consacrata definitivamente nel **1919**, dopo la vittoria nella Prima Guerra Mondiale.
 
@@ -623,7 +623,7 @@ Per concludere questa giornata ricca di contrasti, dalle vette spirituali di Mon
 
 Dalla Sorbona, una breve passeggiata lungo **Rue Soufflot** ci conduce al maestoso **Panthéon**, che si erge imponente sulla **Montagna di Sainte-Geneviève**.
 
-![alt text](<images/002.20-panthéon.web.jpg>)
+![alt text](<images/002.20-pantheon.web.jpg>)
 
 **Architettura Neoclassica**: Il **Panthéon**, progettato da **Jacques-Germain Soufflot** e completato nel **1790**, rappresenta uno dei capolavori dell'**architettura neoclassica** francese. La sua cupola alta **83 metri**, ispirata a quella di San Pietro a Roma, domina la skyline del Quartiere Latino e offre una vista panoramica eccezionale su Parigi.
 
@@ -633,7 +633,7 @@ Dalla Sorbona, una breve passeggiata lungo **Rue Soufflot** ci conduce al maesto
 
 **Il Pendolo di Foucault**: All'interno ammiriamo una riproduzione del celebre **Pendolo di Foucault**, che nel 1851 dimostrò per la prima volta la rotazione terrestre attraverso un esperimento meccanico. Questo strumento scientifico aggiunge una dimensione di scoperta e innovazione al carattere commemorativo del monumento.
 
-![alt text](<images/002.20a-panthéon.web.jpg>)
+![alt text](<images/002.20a-pantheon.web.jpg>)
 
 #### Jardins du Luxembourg - L'Oasi Aristocratica
 
@@ -711,7 +711,7 @@ La terza giornata inizia alle **9:00** con la visita al simbolo per eccellenza d
 
 Dopo aver ammirato Parigi dall'alto dell'Arc de Triomphe, iniziamo la nostra discesa lungo i leggendari **Champs-Élysées**, l'avenue più famosa al mondo che si estende per **1,9 chilometri** dalla Place Charles de Gaulle alla Place de la Concorde.
 
-![alt text](<images/003.02-champs-élysées.web.jpg>)
+![alt text](<images/003.02-champs-elysees.web.jpg>)
 
 **Storia dell'Avenue**: I **Champs-Élysées** (letteralmente "Campi Elisi") furono creati nel **1667** da **André Le Nôtre**, l'architetto paesaggista di Luigi XIV e creatore dei giardini di Versailles. Originariamente era un semplice viale alberato che collegava il **Palazzo delle Tuileries** ai boschi circostanti. Il nome deriva dalla mitologia greca e si riferisce al luogo dove, secondo gli antichi, riposavano le anime dei virtuosi dopo la morte.
 
@@ -721,7 +721,7 @@ Dopo aver ammirato Parigi dall'alto dell'Arc de Triomphe, iniziamo la nostra dis
 
 La nostra prima tappa è la storica **Maison Ladurée** al numero **75**, una delle pasticcerie più prestigiose al mondo e birthplace del **macaron** moderno.
 
-![alt text](<images/003.03-ladurée.web.jpg>)
+![alt text](<images/003.03-laduree.web.jpg>)
 
 **Storia di Ladurée**: Fondata nel **1862** da **Louis Ernest Ladurée**, la pasticceria nacque dall'incontro fortuito tra un fornaio e un pasticciere. Dopo un incendio nel **1871**, la moglie **Jeanne Souchard** trasformò il locale in un **salon de thé**, creando uno dei primi spazi parigini dove le donne potevano incontrarsi pubblicamente senza essere accompagnate.
 
@@ -769,7 +769,7 @@ Al **numero 60** troviamo il prestigioso **Galeries Lafayette**, il più famoso 
 
 Una sosta obbligatoria al **numero 72** per la boutique di **Pierre Hermé**, considerato il **"Picasso della pasticceria"** e rivoluzionario del macaron contemporaneo.
 
-![alt text](<images/003.06-pierre-hermé.web.jpg>)
+![alt text](<images/003.06-pierre-herme.web.jpg>)
 
 **L'Innovazione Dolciaria**: **Pierre Hermé**, formatosi presso **Lenôtre** e **Fauchon**, ha rivoluzionato l'arte pasticciera francese introducendo **sapori inediti** e **tecniche innovative**. I suoi macarons non sono semplici dolci, ma vere **"haute couture culinarie"**.
 

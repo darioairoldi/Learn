@@ -19,7 +19,7 @@ format:
 **Speakers:** CJ Davies  
 **Link:** [YouTube Video](https://www.youtube.com/watch?v=P7ZOlzWEt8Y)
 
-![alt text](<images/DIY Battery pack.png>)
+![alt text](<images/diy-battery-pack.png>)
 
 ## Table of Contents
 
@@ -72,7 +72,7 @@ These cells feature:
 - High discharge rate capability
 - Excellent thermal characteristics
 
-![alt text](<images/002.01 material.png>)
+![alt text](<images/002.01-material.png>)
 
 ### 2.2 Spot Welder Configuration
 
@@ -105,7 +105,7 @@ These cells feature:
 The **preparation process** involves cutting **32mm long pieces** of **0.2mm pure nickel strip** and creating slots at the ends using a Dremel tool. <br>
 These slots serve a critical purpose: they encourage electrical current from the spot welder electrodes to travel into the cell terminals rather than just through the nickel strip surface, ensuring proper weld penetration and connection integrity.
 
-![alt text](<images/003.01 preparation.png>)
+![alt text](<images/003.01-preparation.png>)
 
 ### 3.2 Cell Arrangement and Connection
 
@@ -129,7 +129,7 @@ The **spot welding process connects**:
 
 Three pairs of welds are applied to each connection point to ensure mechanical strength and electrical conductivity. The presenter emphasizes the importance of maintaining electrode sharpness, as the welding tips wear down and develop flat ends that can compromise weld quality.
 
-![alt text](<images/003.01 connection.png>)
+![alt text](<images/003.01-connection.png>)
 
 ## 4. Wiring and Electrical Connections
 
@@ -147,7 +147,7 @@ The thicker discharge wires are pre-soldered to nickel strip tabs before spot we
 This approach prevents direct soldering on cell terminals, which would negate the benefits of spot welding.<br>
 The discharge connections require four spot welds per connection due to the higher mechanical stress they experience during use.
 
-![alt text](<images/004.01 wire installation.png>)
+![alt text](<images/004.01-wire-installation.png>)
 
 ### 4.2 Balance Connector Wiring
 
@@ -164,7 +164,7 @@ The balance connector implementation follows a specific wiring scheme:
 
 These connections are made with smaller gauge wire and require minimal soldering, reducing heat exposure to the cells.
 
-![alt text](<images/004.02 connectors.png>)
+![alt text](<images/004.02-connectors.png>)
 
 ### 4.3 Final Connector Assembly
 
@@ -182,7 +182,7 @@ The XT60 connector is attached to complete the discharge circuit. This connector
 
 The functionality verification involves checking the balance connector readings. Proper wiring is confirmed when individual cell voltages are displayed correctly. Incorrect wiring would result in bizarre readings or error messages from the charging equipment.
 
-![alt text](<images/005.01 testing.png>)
+![alt text](<images/005.01-testing.png>)
 
 ## 6. Future Applications and Scalability
 
@@ -198,7 +198,7 @@ The presenter outlines plans for building multiple pack configurations:
 
 The scalability demonstrates the versatility of the spot welding technique for various drone power requirements.
 
-![alt text](<images/multiple packs.png>)
+![alt text](<images/multiple-packs.png>)
 
 ## References
 

@@ -92,7 +92,7 @@ You are a **conference-ingestion orchestrator**. You discover the structured dat
 1.1 Enumerate every **recorded** session (recording or transcript available). Skip sessions with neither.
 1.2 For each, capture the canonical item: `code, group, title, speakers[], startUtc, durationMin, description, aiSummary?, tags[], watchUrl, transcriptUrl?, videoUrl?, posterUrl?, related[]`.
 1.3 Resolve speakers by id via the speaker lookup (hashtable keyed by speaker id → name/role/org).
-1.4 Write `manifest.json` (one row per session) and `videos.json` (poster/video URLs). Create one kebab-case folder per session: `{codeLower}-{title-slug}` under the right group folder.
+1.4 Write `manifest.json` (one row per session) and `videos.json` (poster/video URLs). Create one ASCII-safe kebab-case folder per session: `{codeLower}-{title-slug}` under the right group folder. Transliterate title slugs to lowercase ASCII (`a-z`, `0-9`, and `-`); retain the original Unicode title in Markdown metadata and displayed content.
 
 ### Phase 2 — Relevance ranking & categorization
 
@@ -111,7 +111,7 @@ You are a **conference-ingestion orchestrator**. You discover the structured dat
 4.2 **Template analysis (fallback prep):** if there is no official poster, analyze the **keynote** recording to identify the event's slide-template pattern (brand frame, title card layout), then for poster-missing sessions extract a representative **title/slide** frame. Source the recording from the public `videoUrl` or, when non-public, from the external mirror (same relative path / parent hierarchy):
 - Use `ffmpeg` HTTP **range-seek** (`-ss {sec} -i {url} -frames:v 1`) — never download the full video.
 - Score frames to prefer slides/title cards and **reject presenter close-ups** (brightness floor, skin-ratio + center-skin caps, text-edge density, color-diversity gate). Retry at other timestamps; fall back to the least-people early frame so no session is left without an image.
-4.3 Save every poster with the **uniform filename** `images/001.01-session-title.{jpg|png}` and verify size/validity.
+4.3 Save every poster with the **uniform ASCII-safe filename** `images/001.01-session-title.{jpg|png}` and verify size/validity. Transliterate any non-ASCII session-title characters in the filename only.
 
 ### Phase 5 — Summaries
 
@@ -212,7 +212,7 @@ Surfaced during the real Build 2026 run — these are the **additional points** 
 - **📖** `.copilot/context/90.00-learning-hub/06-folder-organization-and-navigation.md` — Folder/menu rules
 - **📖** `src/docs/80. Usecases/202606/20260605.02-conference-download/01-event-ingestion-pe-artifacts-plan.md` — Generalization plan & reference scripts
 - **🔗** Reference output: `02.00-events/202606-build-2026/`
-- **�** `.copilot/context/90.00-learning-hub/07-sidebar-menu-rules.md` — Runtime menu rules (navigation is automatic)
+- **📖** `.copilot/context/90.00-learning-hub/07-sidebar-menu-rules.md` — Runtime menu rules (navigation is automatic)
 - **↪️** Naming: `/learninghub-ensure-kebab-notation`
 
 <!--
