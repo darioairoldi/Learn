@@ -142,9 +142,15 @@ jobs:
           # Prune only after a successful upload. This makes cleanup failures non-destructive: the
           # new content remains available, while stale blobs can be removed in a later deployment.
           $stagedBlobNames = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::Ordinal)
+          $stagedDirectoryNames = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::Ordinal)
           Get-ChildItem -LiteralPath $stage -Recurse -File | ForEach-Object {
             $relativePath = [System.IO.Path]::GetRelativePath($stage, $_.FullName) -replace '\\', '/'
             [void]$stagedBlobNames.Add($relativePath)
+            $parentDirectory = [System.IO.Path]::GetDirectoryName($relativePath) -replace '\\', '/'
+            while (-not [string]::IsNullOrEmpty($parentDirectory)) {
+              [void]$stagedDirectoryNames.Add($parentDirectory)
+              $parentDirectory = [System.IO.Path]::GetDirectoryName($parentDirectory) -replace '\\', '/'
+            }
           }
 
           $activeJson = az storage blob list `
@@ -153,13 +159,22 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw "Failed to list blobs in '$env:STORAGE_CONTAINER' after upload; stale blobs were not pruned." }
 
           $staleBlobNames = @($activeJson | ConvertFrom-Json | ForEach-Object { $_.name } |
-            Where-Object { -not $stagedBlobNames.Contains($_) })
+            Where-Object {
+              -not $stagedBlobNames.Contains($_) -and
+              -not $stagedDirectoryNames.Contains($_)
+            })
           Write-Host "Pruning $($staleBlobNames.Count) stale blob(s) from '$env:STORAGE_CONTAINER'"
           foreach ($staleBlobName in $staleBlobNames) {
-            az storage blob delete `
+            $deleteOutput = az storage blob delete `
               --account-name $env:STORAGE_ACCOUNT --container-name $env:STORAGE_CONTAINER `
-              --name="$staleBlobName" --auth-mode login --only-show-errors | Out-Null
-            if ($LASTEXITCODE -ne 0) { throw "Failed to delete stale blob '$staleBlobName'; uploaded content remains available." }
+              --name="$staleBlobName" --auth-mode login --only-show-errors 2>&1
+            if ($LASTEXITCODE -ne 0) {
+              if ($deleteOutput -match 'DirectoryIsNotEmpty') {
+                Write-Host "Skipping non-empty directory marker '$staleBlobName'"
+                continue
+              }
+              throw "Failed to delete stale blob '$staleBlobName'; uploaded content remains available. $deleteOutput"
+            }
           }
 
           Write-Host "Synchronized $stage to $env:STORAGE_ACCOUNT/$env:STORAGE_CONTAINER"
