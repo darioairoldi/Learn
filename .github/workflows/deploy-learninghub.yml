@@ -142,38 +142,60 @@ jobs:
           # Prune only after a successful upload. This makes cleanup failures non-destructive: the
           # new content remains available, while stale blobs can be removed in a later deployment.
           $stagedBlobNames = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::Ordinal)
-          $stagedDirectoryNames = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::Ordinal)
           Get-ChildItem -LiteralPath $stage -Recurse -File | ForEach-Object {
             $relativePath = [System.IO.Path]::GetRelativePath($stage, $_.FullName) -replace '\\', '/'
             [void]$stagedBlobNames.Add($relativePath)
-            $parentDirectory = [System.IO.Path]::GetDirectoryName($relativePath) -replace '\\', '/'
-            while (-not [string]::IsNullOrEmpty($parentDirectory)) {
-              [void]$stagedDirectoryNames.Add($parentDirectory)
-              $parentDirectory = [System.IO.Path]::GetDirectoryName($parentDirectory) -replace '\\', '/'
-            }
           }
 
-          $activeJson = az storage blob list `
-            --account-name $env:STORAGE_ACCOUNT --container-name $env:STORAGE_CONTAINER `
-            --auth-mode login --only-show-errors --output json
-          if ($LASTEXITCODE -ne 0) { throw "Failed to list blobs in '$env:STORAGE_CONTAINER' after upload; stale blobs were not pruned." }
+          # Azure CLI's bundled Python emits non-ASCII blob names with the runner's legacy
+          # console encoding. Use the Blob REST API so manifest comparison preserves those names.
+          $accessToken = az account get-access-token `
+            --resource https://storage.azure.com/ --query accessToken --output tsv
+          if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($accessToken)) {
+            throw "Could not obtain an Azure Storage access token for stale-blob cleanup."
+          }
 
-          $staleBlobNames = @($activeJson | ConvertFrom-Json | ForEach-Object { $_.name } |
-            Where-Object {
-              -not $stagedBlobNames.Contains($_) -and
-              -not $stagedDirectoryNames.Contains($_)
-            })
+          $storageEndpoint = "https://$env:STORAGE_ACCOUNT.blob.core.windows.net/$env:STORAGE_CONTAINER"
+          $remoteFileNames = [System.Collections.Generic.List[string]]::new()
+          $marker = $null
+          do {
+            $listUri = "${storageEndpoint}?restype=container&comp=list&maxresults=5000"
+            if ($marker) { $listUri += "&marker=$([Uri]::EscapeDataString($marker))" }
+            $headers = @{
+              Authorization = "Bearer $accessToken"
+              'x-ms-date' = (Get-Date).ToUniversalTime().ToString('R')
+              'x-ms-version' = '2023-11-03'
+            }
+            $response = Invoke-WebRequest -Uri $listUri -Headers $headers -Method Get -TimeoutSec 30 -UseBasicParsing
+            $document = New-Object System.Xml.XmlDocument
+            $document.LoadXml(([string]$response.Content).TrimStart([char]0xFEFF))
+            $document.SelectNodes('/EnumerationResults/Blobs/Blob') | ForEach-Object {
+              if ($_.SelectSingleNode('Properties/ResourceType').InnerText -eq 'file') {
+                $remoteFileNames.Add($_.SelectSingleNode('Name').InnerText)
+              }
+            }
+            $marker = $document.SelectSingleNode('/EnumerationResults/NextMarker').InnerText
+          } while (-not [string]::IsNullOrEmpty($marker))
+
+          $staleBlobNames = @($remoteFileNames | Where-Object { -not $stagedBlobNames.Contains($_) })
           Write-Host "Pruning $($staleBlobNames.Count) stale blob(s) from '$env:STORAGE_CONTAINER'"
           foreach ($staleBlobName in $staleBlobNames) {
-            $deleteOutput = az storage blob delete `
-              --account-name $env:STORAGE_ACCOUNT --container-name $env:STORAGE_CONTAINER `
-              --name="$staleBlobName" --auth-mode login --only-show-errors 2>&1
-            if ($LASTEXITCODE -ne 0) {
-              if ($deleteOutput -match 'DirectoryIsNotEmpty') {
-                Write-Host "Skipping non-empty directory marker '$staleBlobName'"
+            $encodedBlobName = (($staleBlobName -split '/' | ForEach-Object { [Uri]::EscapeDataString($_) }) -join '/')
+            $headers = @{
+              Authorization = "Bearer $accessToken"
+              'x-ms-date' = (Get-Date).ToUniversalTime().ToString('R')
+              'x-ms-version' = '2023-11-03'
+            }
+            try {
+              Invoke-WebRequest -Uri "${storageEndpoint}/$encodedBlobName" -Headers $headers `
+                -Method Delete -TimeoutSec 30 -UseBasicParsing | Out-Null
+            } catch {
+              $statusCode = [int]$_.Exception.Response.StatusCode
+              if ($statusCode -eq 404) {
+                Write-Host "Stale blob '$staleBlobName' was already absent"
                 continue
               }
-              throw "Failed to delete stale blob '$staleBlobName'; uploaded content remains available. $deleteOutput"
+              throw "Failed to delete stale blob '$staleBlobName'; uploaded content remains available. $($_.Exception.Message)"
             }
           }
 

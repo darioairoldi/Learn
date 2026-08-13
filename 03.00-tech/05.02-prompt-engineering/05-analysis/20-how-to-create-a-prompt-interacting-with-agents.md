@@ -2311,7 +2311,7 @@ article_metadata:
   created: "2025-12-10T00:00:00Z"
   last_updated: "2025-12-14T00:00:00Z"
   author: "prompt-builder"
-  changelog: "20-how_to_create_a_prompt_interacting_with_agents.changelog.md"
+  changelog: "20-how-to-create-a-prompt-interacting-with-agents.changelog.md"
   
 validations:
   structure:
