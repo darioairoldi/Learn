@@ -69,7 +69,7 @@ jobs:
           # Collect the site content (Markdown + images) into a staging folder that mirrors the
           # repo-relative paths the app resolves at runtime, e.g. 01.00-news/x/overview.md and
           # 01.00-news/x/images/*.png. Navigation is built at runtime by the app — nothing to stage.
-          $stage = "content-stage"
+          $stage = Join-Path $env:RUNNER_TEMP "learn-content-stage"
           Remove-Item -Recurse -Force $stage -ErrorAction SilentlyContinue
           New-Item -ItemType Directory -Path $stage | Out-Null
 
@@ -90,6 +90,13 @@ jobs:
             $_.Name -notin $excludeDirs -and $_.Name -notlike ".*" -and $_.Name -notlike "_*"
           } | ForEach-Object { Copy-Item -LiteralPath $_.FullName -Destination $stage -Recurse -Force }
 
+          # Sample projects can contain nested build/dependency outputs. They are not site content,
+          # and their generated paths can exceed the Windows path limit used by Azure CLI.
+          Get-ChildItem $stage -Directory -Recurse | Where-Object {
+            $_.Name -in "bin", "obj", "node_modules"
+          } | Sort-Object FullName -Descending |
+            ForEach-Object { Remove-Item -LiteralPath $_.FullName -Recurse -Force }
+
           # Top-level content pages (Markdown only; other root files are config/build/licence, not content).
           Get-ChildItem -File | Where-Object { $_.Extension -in ".md", ".qmd" } |
             ForEach-Object { Copy-Item -LiteralPath $_.FullName -Destination $stage -Force }
@@ -106,12 +113,12 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Reset and upload Markdown content to blob storage
+      - name: Synchronize Markdown content to blob storage
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
-          # Ensure the container exists (Storage Blob Data Contributor allows this), then
-          # reset it and upload the staged content. Paths are preserved:
+          # Ensure the container exists (Storage Blob Data Contributor allows this), then mirror
+          # the staged content into it. Paths are preserved:
           # content-stage/01.00-news/x/overview.md -> 01.00-news/x/overview.md.
           az storage container create `
             --account-name $env:STORAGE_ACCOUNT --name $env:STORAGE_CONTAINER `
@@ -120,20 +127,30 @@ jobs:
             throw "Could not reach/create container '$env:STORAGE_CONTAINER' on '$env:STORAGE_ACCOUNT'. Verify the OIDC identity 'github-learn-deploy' has the 'Storage Blob Data Contributor' role on the account, and that the runner's VPN to the private endpoint is connected (blob endpoint must resolve to a private 10.x IP)."
           }
 
-          # Reset the container BEFORE uploading so any folder/article deleted from the repo is
-          # also removed from storage after deployment. upload-batch only adds/overwrites; it never
-          # deletes stale blobs, so without this a removed article would linger in the site.
-          az storage blob delete-batch `
-            --account-name $env:STORAGE_ACCOUNT --source $env:STORAGE_CONTAINER `
-            --auth-mode login --only-show-errors | Out-Null
-          if ($LASTEXITCODE -ne 0) { throw "Failed to reset container '$env:STORAGE_CONTAINER' on '$env:STORAGE_ACCOUNT' before upload." }
+          # Exact mirroring requires an explicit wildcard. Without it, delete-batch can exit zero
+          # while renamed source folders survive as stale virtual directories in Blob Storage.
+          $remaining = -1
+          for ($pass = 1; $pass -le 50 -and $remaining -ne 0; $pass++) {
+            az storage blob delete-batch `
+              --account-name $env:STORAGE_ACCOUNT --source $env:STORAGE_CONTAINER `
+              --pattern "*" --auth-mode login --only-show-errors | Out-Null
+            if ($LASTEXITCODE -ne 0) { throw "Failed to reset container '$env:STORAGE_CONTAINER' on pass $pass." }
+
+            $activeJson = az storage blob list `
+              --account-name $env:STORAGE_ACCOUNT --container-name $env:STORAGE_CONTAINER `
+              --auth-mode login --only-show-errors --output json
+            if ($LASTEXITCODE -ne 0) { throw "Failed to verify container '$env:STORAGE_CONTAINER' after reset pass $pass." }
+            $remaining = @($activeJson | ConvertFrom-Json).Count
+            Write-Host "Container reset pass $pass left $remaining active blobs"
+          }
+          if ($remaining -ne 0) { throw "Container '$env:STORAGE_CONTAINER' still had $remaining active blobs after 50 reset passes; refusing to upload over stale content." }
 
           az storage blob upload-batch `
             --account-name $env:STORAGE_ACCOUNT --destination $env:STORAGE_CONTAINER `
-            --source content-stage --overwrite true --auth-mode login --only-show-errors | Out-Null
+            --source $env:CONTENT_STAGE --overwrite true --auth-mode login --only-show-errors | Out-Null
           if ($LASTEXITCODE -ne 0) { throw "Blob upload to '$env:STORAGE_ACCOUNT/$env:STORAGE_CONTAINER' failed (see errors above)." }
 
-          Write-Host "Reset and uploaded content-stage/ to $env:STORAGE_ACCOUNT/$env:STORAGE_CONTAINER"
+          Write-Host "Synchronized $env:CONTENT_STAGE to $env:STORAGE_ACCOUNT/$env:STORAGE_CONTAINER"
 
       - name: Invalidate app cache
         # Best-effort: flush the app's in-memory cache so new content is served immediately.
@@ -145,7 +162,7 @@ jobs:
           $key = "${{ secrets.LEARN_WEB_INVALIDATE_KEY }}"
           if ($key) { $headers["X-Invalidate-Key"] = $key }
           try {
-            Invoke-WebRequest -Uri "https://$env:WEBAPP_HOSTNAME/_cache/invalidate" `
+            Invoke-WebRequest -Uri "https://$env:WEBAPP_HOSTNAME/_nav/invalidate" `
               -Method POST -Headers $headers -TimeoutSec 30 -UseBasicParsing | Out-Null
             Write-Host "App cache flushed"
           } catch {

@@ -13,6 +13,8 @@ name: Deploy Learn.Web (blob-proxy) to App Service
 #     the "Storage Blob Data Reader" role on `digitoolstestmcstitn01`.
 #   - The GitHub OIDC identity (AZURE_CLIENT_ID/TENANT/SUBSCRIPTION secrets) can
 #     deploy/configure the App Service.
+#   - LEARN_INTERNAL_READ_TOKEN is a fine-grained, read-only token for
+#     darioairoldi/Learn.internal (Contents: read).
 #   - Optional secret LEARN_WEB_INVALIDATE_KEY matches Content:InvalidateApiKey.
 
 on:
@@ -20,6 +22,8 @@ on:
     branches: [main]
     paths:
       - src/Learn.Web/**
+      - src/Learn.Web.Client/**
+      - src/Learn.Web.Shared/**
       - src/Directory.Build.props
       - src/Directory.Build.targets
       - nuget.config
@@ -63,6 +67,16 @@ jobs:
           ref: main
           clean: true
 
+      - name: Checkout Testmc configuration from Learn.internal
+        uses: actions/checkout@v4
+        with:
+          repository: darioairoldi/Learn.internal
+          ref: main
+          token: ${{ secrets.LEARN_INTERNAL_READ_TOKEN }}
+          path: .private/Learn.internal
+          sparse-checkout: src/Learn.Web/appsettings.Testmc.json
+          sparse-checkout-cone-mode: false
+
       - name: Verify .NET SDK
         shell: pwsh
         run: |
@@ -88,6 +102,48 @@ jobs:
             Write-Error "publish_learnweb/Learn.Web.exe missing after publish"
             exit 1
           }
+
+          # The runner's .NET 10 SDK can create zero-byte Brotli siblings and matching endpoint
+          # metadata while the original and gzip assets are valid. Remove only those broken
+          # variants from both disk and the endpoint manifest so browsers negotiate gzip/identity.
+          $brokenBrotli = @(Get-ChildItem "publish_learnweb/wwwroot/_framework" `
+            -File -Recurse -Filter "*.br" | Where-Object Length -eq 0)
+          if ($brokenBrotli.Count -gt 0) {
+            $manifestPath = "publish_learnweb/Learn.Web.staticwebassets.endpoints.json"
+            $manifest = Get-Content $manifestPath -Raw | ConvertFrom-Json
+            $brokenAssetFiles = @($brokenBrotli | ForEach-Object { "_framework/$($_.Name)" })
+            $manifest.Endpoints = @($manifest.Endpoints | Where-Object {
+              $_.AssetFile -notin $brokenAssetFiles
+            })
+            $manifest | ConvertTo-Json -Depth 100 -Compress | Set-Content $manifestPath -Encoding utf8NoBOM
+            $brokenBrotli | ForEach-Object {
+              Write-Host "Removed broken Brotli endpoint: $($_.Name)"
+              Remove-Item -LiteralPath $_.FullName -Force
+            }
+          }
+
+          $emptyFrameworkAssets = @(Get-ChildItem "publish_learnweb/wwwroot/_framework" -File -Recurse |
+            Where-Object Length -eq 0)
+          if ($emptyFrameworkAssets.Count -gt 0) {
+            $emptyFrameworkAssets | ForEach-Object { Write-Error "Empty framework asset: $($_.FullName)" }
+            Write-Error "Publish produced $($emptyFrameworkAssets.Count) empty framework assets"
+            exit 1
+          }
+
+          # ConfigureAppConfiguration2 loads the selected environment overlay from the app's
+          # working directory in Azure. Keep Learn.internal authoritative and fail closed if its
+          # Testmc file was not checked out or cannot be parsed.
+          $testmcSource = ".private/Learn.internal/src/Learn.Web/appsettings.Testmc.json"
+          if (-not (Test-Path $testmcSource)) {
+            Write-Error "Testmc configuration missing from Learn.internal checkout"
+            exit 1
+          }
+          Get-Content $testmcSource -Raw | ConvertFrom-Json | Out-Null
+          Copy-Item $testmcSource "publish_learnweb/appsettings.Testmc.json" -Force
+          if (-not (Test-Path "publish_learnweb/appsettings.Testmc.json")) {
+            Write-Error "appsettings.Testmc.json missing from publish output"
+            exit 1
+          }
           Write-Host "Published Learn.Web to publish_learnweb"
 
       - name: Azure login (OIDC)
@@ -107,8 +163,9 @@ jobs:
           # installed on the runner.
           PYTHONWARNINGS: ignore
         run: |
-          # Point the deployed app at the storage account. In Azure the external-config
-          # folder is not present, so the storage target is supplied as app settings.
+          # AppsettingsEnvironmentName selects the appsettings.Testmc.json copied from
+          # Learn.internal into the publish root. Storage settings remain explicit operational
+          # overrides so a configuration mismatch cannot point production at the wrong account.
           $rg = az webapp list --query "[?name=='$env:AZURE_WEBAPP_NAME'].resourceGroup | [0]" -o tsv
           if (-not $rg) { Write-Error "Could not resolve resource group for $env:AZURE_WEBAPP_NAME"; exit 1 }
           Write-Host "Resource group: $rg"
@@ -117,6 +174,7 @@ jobs:
             "Content__Source=Blob",
             "Content__Blob__AccountUri=https://$env:STORAGE_ACCOUNT.blob.core.windows.net",
             "Content__Blob__ContainerName=$env:STORAGE_CONTAINER",
+            "Content__MetricsSnapshotPath=D:\home\data\nav-metrics-snapshot.json",
             "AppsettingsEnvironmentName=Testmc"
           )
           $invalidateKey = "${{ secrets.LEARN_WEB_INVALIDATE_KEY }}"

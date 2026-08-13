@@ -50,7 +50,7 @@ public sealed class NavChangePublisher(
 
     private async Task OnMetricsChangedAsync(IReadOnlyList<string> prefixes)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefixes });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, () => new { prefixes });
 
         try
         {

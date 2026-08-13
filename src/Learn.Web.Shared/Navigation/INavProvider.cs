@@ -16,6 +16,9 @@ public interface INavProvider
     Task<IReadOnlyList<NavChild>> RefreshChildrenAsync(string prefix, CancellationToken ct = default)
         => GetChildrenAsync(prefix, ct);
 
+    /// <summary>Returns the server-authoritative site-root aggregate, or null while it is unavailable.</summary>
+    Task<FolderArticleStats?> GetTotalAsync(CancellationToken ct = default);
+
     /// <summary>Returns the flattened list of navigable articles for menu search.</summary>
     Task<IReadOnlyList<NavLeaf>> GetIndexAsync(CancellationToken ct = default);
 }

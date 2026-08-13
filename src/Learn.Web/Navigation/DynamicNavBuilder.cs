@@ -1,3 +1,4 @@
+using Diginsight.Components;
 using Diginsight.Diagnostics;
 using Learn.Web.Shared.Navigation;
 using Microsoft.Extensions.Logging;
@@ -19,11 +20,12 @@ namespace Learn.Web.Navigation;
 public sealed class DynamicNavBuilder(
     IContentLister lister,
     FolderMetricsIndex metrics,
+    IParallelService parallelService,
     ILogger<DynamicNavBuilder> logger) : INavBuilder
 {
     public async Task<IReadOnlyList<NavChild>> GetChildrenAsync(string prefix, CancellationToken ct = default)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefix });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, () => new { prefix });
 
         prefix = (prefix ?? string.Empty).Replace('\\', '/').Trim('/');
         return await BuildLevelAsync(prefix, ct);
@@ -57,52 +59,19 @@ public sealed class DynamicNavBuilder(
 
     private async Task<IReadOnlyList<NavChild>> BuildLevelAsync(string prefix, CancellationToken ct)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefix });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, () => new { prefix });
 
-        IReadOnlyList<ChildEntry> raw = await lister.ListChildrenAsync(prefix, ct);
-        var scored = new List<(SortTuple Key, NavChild Node)>();
+        // A content source that has nothing (or hasn't settled) may yield null; treat it as empty
+        // so the level renders as "no children yet" instead of throwing on the LINQ below.
+        IReadOnlyList<ChildEntry> raw = await lister.ListChildrenAsync(prefix, ct) ?? [];
 
-        foreach (ChildEntry entry in raw)
-        {
-            if (NavRules.IsExcludedName(entry.Name) || IsTempRoot(prefix, entry.Name))
-            {
-                continue;
-            }
+        // Each sibling's metadata/frontmatter read is independent; final order comes from the sort
+        // below regardless of completion order, so scoring can run concurrently.
+        var parallelOptions = new ParallelOptions { MaxDegreeOfParallelism = parallelService.MediumConcurrency, CancellationToken = ct };
+        IEnumerable<Func<Task<(SortTuple Key, NavChild Node)?>>> entryTasks = raw.Select(entry => (Func<Task<(SortTuple Key, NavChild Node)?>>)(() => ScoreEntryAsync(prefix, entry, ct)));
+        IEnumerable<(SortTuple Key, NavChild Node)?> scoredResults = await parallelService.WhenAllAsync(entryTasks, parallelOptions) ?? [];
 
-            if (entry.IsFolder)
-            {
-                FolderMeta meta = await ReadFolderMetaAsync(entry.Path, ct);
-                if (meta.Hidden)
-                {
-                    continue; // metadata.yml opted the folder out of navigation
-                }
-
-                NavChild? folderNode = await ClassifyFolderAsync(entry, meta, ct);
-                if (folderNode is not null)
-                {
-                    // An explicit metadata.yml order joins the numeric-prefix group (ascending).
-                    SortTuple key = meta.Order is double order
-                        ? new SortTuple(0, order, entry.Name.ToLowerInvariant())
-                        : NavRules.SortKey(entry.Name);
-                    scored.Add((key, folderNode));
-                }
-            }
-            else if (NavRules.IsMarkdown(entry.Name) && !NavRules.IsIndexName(entry.Name))
-            {
-                string? head = await lister.ReadHeadAsync(entry.Path, ct);
-                FrontMatterInfo fm = FrontMatter.Parse(head);
-                if (fm.Hidden)
-                {
-                    continue;
-                }
-
-                string label = FrontMatter.ResolveTitle(head)
-                    ?? NavRules.Label(Path.GetFileNameWithoutExtension(entry.Name));
-                scored.Add((NavRules.SortKey(entry.Name),
-                    new NavChild(label, Route(entry.Path), null, null, false, false,
-                        Date: FrontMatter.ParseDate(fm.Date), Author: fm.Author)));
-            }
-        }
+        var scored = scoredResults.Where(x => x is not null).Select(x => x!.Value).ToList();
 
         List<NavChild> result = scored
             .OrderBy(x => x.Key.Group).ThenBy(x => x.Key.Num).ThenBy(x => x.Key.Text, StringComparer.Ordinal)
@@ -115,15 +84,63 @@ public sealed class DynamicNavBuilder(
             result.Insert(0, new NavChild("Home", string.Empty, null, "house-fill", false, false));
         }
 
+        activity?.SetOutput(new { count = result.Count });
         return result;
+    }
+
+    /// <summary>Per-entry scoring extracted out of <see cref="BuildLevelAsync"/> so siblings can be scored concurrently.</summary>
+    private async Task<(SortTuple Key, NavChild Node)?> ScoreEntryAsync(string prefix, ChildEntry entry, CancellationToken ct)
+    {
+        if (NavRules.IsExcludedName(entry.Name) || IsTempRoot(prefix, entry.Name))
+        {
+            return null;
+        }
+
+        if (entry.IsFolder)
+        {
+            FolderMeta meta = await ReadFolderMetaAsync(entry.Path, ct);
+            if (meta.Hidden)
+            {
+                return null; // metadata.yml opted the folder out of navigation
+            }
+
+            NavChild? folderNode = await ClassifyFolderAsync(entry, meta, ct);
+            if (folderNode is null)
+            {
+                return null;
+            }
+
+            SortTuple key = meta.Order is double order
+                ? new SortTuple(0, order, entry.Name.ToLowerInvariant())
+                : NavRules.SortKey(entry.Name);
+            return (key, folderNode);
+        }
+
+        if (NavRules.IsMarkdown(entry.Name) && !NavRules.IsIndexName(entry.Name))
+        {
+            string? head = await lister.ReadHeadAsync(entry.Path, ct);
+            FrontMatterInfo fm = FrontMatter.Parse(head);
+            if (fm.Hidden)
+            {
+                return null;
+            }
+
+            string label = FrontMatter.ResolveTitle(head)
+                ?? NavRules.Label(Path.GetFileNameWithoutExtension(entry.Name));
+            return (NavRules.SortKey(entry.Name),
+                new NavChild(label, Route(entry.Path), null, null, false, false,
+                    Date: FrontMatter.ParseDate(fm.Date), Author: fm.Author));
+        }
+
+        return null;
     }
 
     /// <summary>Decides whether a folder is a section, a collapsed single link, or nothing.</summary>
     private async Task<NavChild?> ClassifyFolderAsync(ChildEntry folder, FolderMeta meta, CancellationToken ct)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { folder });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, () => new { folder });
 
-        IReadOnlyList<ChildEntry> kids = await lister.ListChildrenAsync(folder.Path, ct);
+        IReadOnlyList<ChildEntry> kids = await lister.ListChildrenAsync(folder.Path, ct) ?? [];
 
         var subFolders = kids.Where(k => k.IsFolder && !NavRules.IsExcludedName(k.Name) && !NavRules.IsAssetFolder(k.Name)).ToList();
         var articles = kids.Where(k => !k.IsFolder && NavRules.IsMarkdown(k.Name)
@@ -187,7 +204,7 @@ public sealed class DynamicNavBuilder(
     /// <summary>Reads a folder's optional <c>metadata.yml</c> overrides (absent file → no overrides).</summary>
     private async Task<FolderMeta> ReadFolderMetaAsync(string folderPath, CancellationToken ct)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { folderPath });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, () => new { folderPath });
 
         string dir = (folderPath ?? string.Empty).Replace('\\', '/').Trim('/');
         string key = dir.Length == 0 ? "metadata.yml" : $"{dir}/metadata.yml";

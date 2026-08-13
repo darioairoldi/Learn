@@ -28,10 +28,11 @@ public class Program
     {
         // Diginsight early logging (console + log4net to %USERPROFILE%\LogFiles\Diginsight\Learn.Web.<date>.log).
         using var observabilityManager = new ObservabilityManager();
+        LoggerFactoryStaticAccessor.LoggerFactory = observabilityManager.LoggerFactory;
         ILogger logger = observabilityManager.LoggerFactory.CreateLogger(typeof(Program));
 
         WebApplication app;
-        using (var activity = Observability.ActivitySource.StartMethodActivity(logger, new { args }))
+        using (var activity = Observability.ActivitySource.StartMethodActivity(logger, () => new { args }))
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -51,6 +52,7 @@ public class Program
             services.TryAddSingleton<EarlyLoggingManager>(observabilityManager);
             services.AddHttpContextAccessor();
             services.AddDynamicLogLevel<DefaultDynamicLogLevelInjector>();
+            services.AddParallelService(configuration);
 
             // Razor Components host with interactive WebAssembly components (prerendered by default).
             services.AddRazorComponents()
@@ -136,6 +138,7 @@ public class Program
             services.AddSingleton<CachedDynamicNavBuilder>(sp => new CachedDynamicNavBuilder(
                 sp.GetRequiredService<DynamicNavBuilder>(),
                 sp.GetRequiredService<ISmartCache>(),
+                sp.GetRequiredService<IParallelService>(),
                 sp.GetRequiredService<ILogger<CachedDynamicNavBuilder>>()));
             services.AddSingleton<INavBuilder>(sp => sp.GetRequiredService<CachedDynamicNavBuilder>());
             services.AddScoped<INavProvider, ServerNavProvider>();

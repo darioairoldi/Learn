@@ -24,12 +24,15 @@ public sealed class BlobContentSource : IContentSource, IContentLister
 
         var account = new Uri(accountUri.TrimEnd('/') + "/");
         var containerUri = new Uri(account, containerName);
-        _container = new BlobContainerClient(containerUri, new DefaultAzureCredential());
+        // Excluded: a VS sign-in from a different tenant fails hard instead of falling back,
+        // and once DefaultAzureCredential latches onto it every subsequent call keeps failing.
+        var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ExcludeVisualStudioCredential = true });
+        _container = new BlobContainerClient(containerUri, credential);
     }
 
     public async Task<ContentResult?> GetAsync(string contentKey, CancellationToken ct = default)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(_logger, new { contentKey });
+        using var activity = Observability.ActivitySource.StartMethodActivity(_logger, () => new { contentKey });
 
         BlobClient blob = _container.GetBlobClient(contentKey);
         if (!await blob.ExistsAsync(ct))
@@ -42,12 +45,14 @@ public sealed class BlobContentSource : IContentSource, IContentLister
         string contentType = string.IsNullOrEmpty(response.Value.Details.ContentType)
             ? "text/plain; charset=utf-8"
             : response.Value.Details.ContentType;
-        return new ContentResult(bytes, contentType, response.Value.Details.ETag.ToString());
+        var result = new ContentResult(bytes, contentType, response.Value.Details.ETag.ToString());
+        activity?.SetOutput(new { contentType, length = bytes.Length });
+        return result;
     }
 
     public async Task<IReadOnlyList<ChildEntry>> ListChildrenAsync(string prefix, CancellationToken ct = default)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(_logger, new { prefix });
+        using var activity = Observability.ActivitySource.StartMethodActivity(_logger, () => new { prefix });
 
         string p = (prefix ?? string.Empty).Replace('\\', '/').TrimStart('/');
         if (p.Length > 0 && !p.EndsWith('/'))
@@ -73,12 +78,13 @@ public sealed class BlobContentSource : IContentSource, IContentLister
             }
         }
 
+        activity?.SetOutput(new { count = items.Count });
         return items;
     }
 
     public async Task<string?> ReadHeadAsync(string key, CancellationToken ct = default)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(_logger, new { key });
+        using var activity = Observability.ActivitySource.StartMethodActivity(_logger, () => new { key });
 
         BlobClient blob = _container.GetBlobClient(key);
         try
@@ -87,7 +93,9 @@ public sealed class BlobContentSource : IContentSource, IContentLister
             Response<BlobDownloadStreamingResult> resp =
                 await blob.DownloadStreamingAsync(new BlobDownloadOptions { Range = new HttpRange(0, 64 * 1024) }, ct);
             await using Stream s = resp.Value.Content;
-            return await FrontMatter.ReadHeadAsync(s, ct);
+            string? head = await FrontMatter.ReadHeadAsync(s, ct);
+            activity?.SetOutput(new { found = head is not null, length = head?.Length ?? 0 });
+            return head;
         }
         catch (RequestFailedException)
         {

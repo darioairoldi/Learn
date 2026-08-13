@@ -1,3 +1,4 @@
+using Diginsight.Components;
 using Diginsight.Diagnostics;
 using Diginsight.SmartCache;
 using Learn.Web.Caching;
@@ -15,6 +16,7 @@ namespace Learn.Web.Navigation;
 public sealed class CachedDynamicNavBuilder(
     INavBuilder inner,
     ISmartCache smartCache,
+    IParallelService parallelService,
     ILogger<CachedDynamicNavBuilder> logger) : INavBuilder
 {
     private static long _version = 1;
@@ -47,7 +49,7 @@ public sealed class CachedDynamicNavBuilder(
     /// </summary>
     public void Invalidate(string path)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { path });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, () => new { path });
 
         Interlocked.Increment(ref _version);
         smartCache.Invalidate(new ContentPathInvalidationRule(ContentPathCacheKey.Normalize(path)));
@@ -55,7 +57,7 @@ public sealed class CachedDynamicNavBuilder(
 
     public async Task<IReadOnlyList<NavChild>> GetChildrenAsync(string prefix, CancellationToken ct = default)
     {
-        using var activity = Observability.ActivitySource.StartMethodActivity(logger, new { prefix });
+        using var activity = Observability.ActivitySource.StartMethodActivity(logger, () => new { prefix });
 
         prefix = (prefix ?? string.Empty).Replace('\\', '/').Trim('/');
 
@@ -75,6 +77,7 @@ public sealed class CachedDynamicNavBuilder(
             callerType: typeof(CachedDynamicNavBuilder),
             cancellationToken: ct);
 
+        activity?.SetOutput(new { count = envelope.Items.Count() });
         return envelope.Items;
     }
 
@@ -119,13 +122,12 @@ public sealed class CachedDynamicNavBuilder(
 
         var children = await GetChildrenAsync(prefix, ct);
 
-        foreach (var child in children)
-        {
-            if (child.IsSection && child.Prefix is not null)
-            {
-                await WarmLevelAsync(child.Prefix, remainingDepth - 1, ct);
-            }
-        }
+        // Sibling sections are independent (SmartCache single-flight already guards racing misses),
+        // so warming them concurrently instead of one-at-a-time shortens the background warm-up.
+        var sections = children.Where(c => c.IsSection && c.Prefix is not null).ToList();
+        var parallelOptions = new ParallelOptions { MaxDegreeOfParallelism = parallelService.MediumConcurrency, CancellationToken = ct };
+        await parallelService.ForEachAsync(sections, parallelOptions,
+            child => WarmLevelAsync(child.Prefix!, remainingDepth - 1, ct));
     }
 
     /// <summary>Serializable envelope so a built level round-trips through SmartCache (incl. Redis).</summary>
