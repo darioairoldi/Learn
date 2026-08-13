@@ -37,12 +37,12 @@ publish: false
 
 ## 📝 Description
 
-The **Deploy Learning Hub content to storage** workflow failed during its Azure Blob Storage synchronization step. The reset phase completed successfully and reduced the `learn` container from 746 active blobs to zero. The following `az storage blob upload-batch` command then failed because its `--source` option received no value.
+The **Deploy Learning Hub content to storage** workflow failed during its Azure Blob Storage synchronization step. The reset phase completed successfully, leaving zero active blobs in the `learn` container. The following `az storage blob upload-batch` command then failed because its `--source` option received no value.
 
 The decisive error was:
 
 ```text
-Container reset pass 9 left 0 active blobs
+Container reset pass 1 left 0 active blobs
 ERROR: argument --source/-s: expected one argument
 Blob upload to 'digitoolstestmcstitn01/learn' failed (see errors above).
 Error: Process completed with exit code 1.
@@ -56,7 +56,7 @@ The workflow should stage Markdown and image files, verify that the staging dire
 
 ### Actual behavior
 
-The staging step populated a local directory, but the directory path remained in a step-local PowerShell variable. The synchronization step read an unset environment variable, deleted the existing blobs, and passed an empty argument to Azure CLI.
+The staging step populated a local directory. At the Azure CLI boundary, the upload command received no usable value for `--source` and failed after the container reset.
 
 ### Impact
 
@@ -64,7 +64,7 @@ The staging step populated a local directory, but the directory path remained in
 - The `digitoolstestmcstitn01/learn` container was left with zero active blobs at the point recorded in the log.
 - Learn.Web's Blob content source could no longer enumerate the expected Markdown content until a successful upload restored it.
 - Cache invalidation didn't run because the synchronization step failed first.
-- Re-running the unchanged workflow would reproduce the failure after another reset.
+- Re-running the failed workflow revision could reset the container again before the upload command fails.
 
 The severity is **High** because the bug occurs after destructive cleanup and can remove all currently deployed content. It isn't classified as Critical because the affected environment uses test-oriented resource names, and the conversation doesn't establish irreversible data loss or a production outage.
 
@@ -79,7 +79,7 @@ The severity is **High** because the bug occurs after destructive cleanup and ca
 | Repository | `darioairoldi/Learn` |
 | Workflow | `.github/workflows/deploy-learninghub.yml` |
 | Workflow run | `31680419805` |
-| Job | `94385001773` |
+| Job | `94390095603` |
 | Runner | Self-hosted Windows runner |
 | Shell | PowerShell 7 through `pwsh` |
 | Storage account | `digitoolstestmcstitn01` |
@@ -92,12 +92,12 @@ The severity is **High** because the bug occurs after destructive cleanup and ca
 
 | Variable | Scope before the fix | Value at upload time | Role |
 |---|---|---|---|
-| `$stage` | Local to **Stage Markdown content** | Not available in the next step | Absolute staging-directory path |
+| `$stage` | Local to each PowerShell step | Recomputed from `RUNNER_TEMP` after the fix | Absolute staging-directory path |
 | `$env:RUNNER_TEMP` | Job environment | Available | Parent location used to create the staging directory |
-| `$env:CONTENT_STAGE` | Never assigned | Empty or null | Value consumed by `upload-batch --source` |
+| `$env:CONTENT_STAGE` | Written through `$GITHUB_ENV` by the failed revision | The job log doesn't expose its value at native-command invocation | Former value consumed by `upload-batch --source` |
 | `$env:STORAGE_ACCOUNT` | Workflow environment | `digitoolstestmcstitn01` | Destination storage account |
 | `$env:STORAGE_CONTAINER` | Workflow environment | `learn` | Destination container |
-| `$env:GITHUB_ENV` | GitHub Actions environment file | Available | Supported mechanism for passing values to later steps |
+| `$env:GITHUB_ENV` | GitHub Actions environment file | No longer used for this path | Former cross-step handoff mechanism |
 
 ### Exception details
 
@@ -123,50 +123,40 @@ No application call stack applies. The failure path consists of GitHub Actions i
 
 ### Root cause
 
-GitHub Actions executes each `run` step in a separate process. A PowerShell variable created in one step doesn't automatically exist in a later step.
+The observed fault is that Azure CLI received no usable argument after `--source`. The failed workflow version created `$stage` in **Stage Markdown content**, wrote `CONTENT_STAGE=$stage` to `$GITHUB_ENV`, and later consumed `$env:CONTENT_STAGE` in **Synchronize Markdown content to blob storage**.
 
-The staging step created the source path only as a local variable:
+The job log proves the Azure CLI argument was missing, but it doesn't expose the value expanded by PowerShell or explain why the preceding directory guard did not reject it. It therefore doesn't prove that `$GITHUB_ENV` was absent, malformed, or ignored. The defensible conclusion is that a cross-step environment handoff became unreliable at the native-command boundary.
+
+The repair removes that boundary. Both steps derive the same path from the job-scoped `RUNNER_TEMP` value:
 
 ```powershell
 $stage = Join-Path $env:RUNNER_TEMP "learn-content-stage"
 ```
 
-The synchronization step expected a job environment variable instead:
+The synchronization step validates that computed directory before the reset, then passes the local `$stage` variable directly to Azure CLI:
 
 ```powershell
 az storage blob upload-batch `
 	--account-name $env:STORAGE_ACCOUNT --destination $env:STORAGE_CONTAINER `
-	--source $env:CONTENT_STAGE --overwrite true --auth-mode login --only-show-errors
+	--source $stage --overwrite true --auth-mode login --only-show-errors
 ```
-
-No statement wrote `CONTENT_STAGE` to `$GITHUB_ENV`, so `$env:CONTENT_STAGE` expanded to no token. Azure CLI consequently parsed `--overwrite` as the next option and reported that `--source` lacked its required argument.
 
 ### Why the reset still succeeded
 
 The reset phase depended only on workflow-level variables (`STORAGE_ACCOUNT` and `STORAGE_CONTAINER`). Both were defined in the workflow's top-level `env` block, so they survived across steps. The missing staging path wasn't accessed until after the deletion loop had reached zero blobs.
 
-### Safety gap
+### Remaining safety consideration
 
-The missing environment handoff caused the immediate failure, but command ordering amplified its impact. Before the fix, the synchronization step didn't verify the upload source before deleting destination data.
-
-The workflow's logical sequence was:
-
-1. Create or reach the destination container.
-2. Delete all destination blobs and verify that none remain.
-3. Read `CONTENT_STAGE` for the first time while constructing the upload command.
-4. Fail because `CONTENT_STAGE` is empty.
-
-A missing, mistyped, deleted, or inaccessible staging directory could therefore trigger the same destructive failure class even after correcting the original variable handoff.
+The workflow validates the staged directory before deleting destination blobs, and the fix preserves that guard. However, the deployment still deletes the live container before the replacement upload completes. A later network, authorization, Azure CLI, or upload failure can therefore leave the container empty. This is a separate availability risk from the missing `--source` argument.
 
 ### Contributing factors
 
 | Factor | Contribution |
 |---|---|
-| Step isolation wasn't accounted for | The implementation treated `$stage` as if it persisted across GitHub Actions steps. |
-| Producer and consumer used different variable forms | The producer assigned `$stage`; the consumer expected `$env:CONTENT_STAGE`. |
-| No pre-destructive source validation | The workflow reset storage before checking whether upload input existed. |
-| Error handling occurred after Azure CLI invocation | The explicit exception improved the final message but couldn't prevent the empty container. |
-| Staging validation checked only file count | It proved content existed inside the staging step, not that the next step could locate it. |
+| Cross-step state transfer | The source path moved from a local variable to `$GITHUB_ENV`, then back into a PowerShell variable for a native command. |
+| Limited job diagnostics | The log didn't print the resolved source path immediately before invoking Azure CLI. |
+| Reset-first mirror strategy | The container was empty before the upload command was attempted. |
+| Failure handling after deletion | The explicit exception reported the failed upload but couldn't restore the deleted blobs. |
 
 ### Affected workflows
 
@@ -176,22 +166,22 @@ The confirmed defect is limited to `.github/workflows/deploy-learninghub.yml`. T
 
 ## 🔄 Reproduction steps
 
-1. Run the workflow without exporting `CONTENT_STAGE` through `$GITHUB_ENV`.
-2. Let **Stage Markdown content** create `$stage` and finish successfully.
-3. Start **Synchronize Markdown content to blob storage** in its separate PowerShell process.
-4. Confirm that `$env:CONTENT_STAGE` is empty.
-5. Let the reset loop delete all blobs from the destination container.
-6. Observe the generated command effectively omit the `--source` value.
-7. Observe Azure CLI return `argument --source/-s: expected one argument` and the workflow exit with code 1.
+The exact failed handoff cannot be reproduced locally from the available log because the resolved environment value wasn't recorded. Reproduce the observed behavior on the failed revision by running the workflow and observing the following sequence:
 
-The behavior can be demonstrated without Azure by comparing scopes:
+1. **Stage Markdown content** completes and reports staged Markdown files. (✅ done)
+2. **Synchronize Markdown content to blob storage** resets the `learn` container. (✅ done)
+3. The log reports `Container reset pass 1 left 0 active blobs`. (✅ done)
+4. Azure CLI reports `argument --source/-s: expected one argument`. (✅ done)
+5. PowerShell throws the workflow's `Blob upload ... failed` exception. (✅ done)
+
+The current fix avoids an environment-file handoff by recomputing the path in the consumer step:
 
 ```powershell
-# Step A
+# Stage and synchronization steps
 $stage = Join-Path $env:RUNNER_TEMP "learn-content-stage"
-
-# Step B runs in a new process
-Write-Host "CONTENT_STAGE='$env:CONTENT_STAGE'" # Empty before the fix
+if (-not (Test-Path -LiteralPath $stage -PathType Container)) {
+	throw "Staged content directory '$stage' is unavailable; refusing to reset the container."
+}
 ```
 
 **Affected code locations:**
@@ -203,24 +193,18 @@ Write-Host "CONTENT_STAGE='$env:CONTENT_STAGE'" # Empty before the fix
 
 ## ✅ Solution implemented
 
-### Persist the staging path across steps (✅ done)
+### Derive the staging path in the consumer step (✅ done)
 
-The staging step now writes the absolute directory path to GitHub Actions' environment file:
+The synchronization step now independently derives the known path from the job's `RUNNER_TEMP` directory. It no longer depends on `CONTENT_STAGE` or `$GITHUB_ENV`.
 
-```powershell
-Add-Content -Path $env:GITHUB_ENV -Value "CONTENT_STAGE=$stage" -Encoding utf8
-```
+### Validate the computed source before destructive cleanup (✅ done)
 
-GitHub Actions imports this entry into the environment of subsequent steps, so the existing upload command receives a concrete source directory.
-
-### Validate the source before destructive cleanup (✅ done)
-
-The synchronization step now fails before contacting or resetting the container when the variable is empty or the directory doesn't exist:
+The synchronization step validates the computed path before contacting or resetting the container:
 
 ```powershell
-if ([string]::IsNullOrWhiteSpace($env:CONTENT_STAGE) -or
-		-not (Test-Path -LiteralPath $env:CONTENT_STAGE -PathType Container)) {
-	throw "Staged content directory '$env:CONTENT_STAGE' is unavailable; refusing to reset the container."
+$stage = Join-Path $env:RUNNER_TEMP "learn-content-stage"
+if (-not (Test-Path -LiteralPath $stage -PathType Container)) {
+	throw "Staged content directory '$stage' is unavailable; refusing to reset the container."
 }
 ```
 
@@ -229,8 +213,8 @@ This guard addresses both the observed variable-handoff defect and the broader s
 ### Resulting synchronization sequence
 
 1. Stage content and verify that at least one Markdown file exists. (✅ done)
-2. Export the absolute staging path through `$GITHUB_ENV`. (✅ done)
-3. In the next step, verify that the imported path is nonempty and points to a directory. (✅ done)
+2. Recompute the absolute staging path from `RUNNER_TEMP` in the synchronization step. (✅ done)
+3. In the synchronization step, verify that the computed path points to a directory. (✅ done)
 4. Create or reach the destination container. (✅ done)
 5. Reset the destination and verify that no active blobs remain. (✅ done)
 6. Upload from the validated source and invalidate the application cache. (🟡 pending end-to-end workflow verification)
@@ -244,24 +228,17 @@ This guard addresses both the observed variable-handoff defect and the broader s
 | Check | Result | What it proves |
 |---|---|---|
 | VS Code diagnostics for `deploy-learninghub.yml` | No errors | The edited workflow has no reported YAML or expression diagnostics. |
-| PowerShell `$GITHUB_ENV` handoff simulation | Passed | `CONTENT_STAGE` resolves to the same absolute directory in a simulated later step. |
-| Guard evaluation against the simulated directory | Passed | The pre-reset assertion accepts a valid directory. |
 | `git diff --check` | Passed | The workflow change has no whitespace errors. |
 | Live GitHub Actions workflow run | Pending | Azure authentication, reset, upload, and cache invalidation still need end-to-end confirmation. |
 
-The successful local handoff test reported:
-
-```text
-Validated CONTENT_STAGE handoff: C:\Users\darioa\AppData\Local\Temp\learn-content-stage-handoff-test
-```
 
 ### Testing recommendations
 
-- Manually dispatch **Deploy Learning Hub content to storage** after committing the workflow fix. (🟡 pending)
-- Confirm the log prints a nonempty path in `Synchronized <path> to digitoolstestmcstitn01/learn`. (🟡 pending)
-- Confirm the container contains the expected Markdown and image blobs after upload. (🟡 pending)
-- Open the deployed Learning Hub and verify that navigation and representative articles load. (🟡 pending)
-- Confirm the cache-invalidation step reports `App cache flushed`, or document a nonfatal invalidation warning. (🟡 pending)
+- Manually dispatch **Deploy Learning Hub content to storage** after committing the workflow fix. (🟡 todo)
+- Confirm the log prints a nonempty path in `Synchronized <path> to digitoolstestmcstitn01/learn`. (🟡 todo)
+- Confirm the container contains the expected Markdown and image blobs after upload. (🟡 todo)
+- Open the deployed Learning Hub and verify that navigation and representative articles load. (🟡 todo)
+- Confirm the cache-invalidation step reports `App cache flushed`, or document a nonfatal invalidation warning. (🟡 todo)
 
 ### Migration considerations
 
@@ -279,15 +256,14 @@ The fix doesn't change authentication or authorization. The workflow continues t
 
 ## ✔️ Resolution status
 
-**Current status:** The root cause and safety gap are fixed in the working tree. A successful GitHub Actions run is still required before the incident can be marked fully resolved.
+**Current status:** The source-argument failure is addressed in the working tree. A successful GitHub Actions run is still required before the incident can be marked fully resolved.
 
 ### Verification checklist
 
-- Root cause identified as a missing cross-step environment-variable handoff. (✅ done)
-- `CONTENT_STAGE` exported through `$GITHUB_ENV`. (✅ done)
-- Source path checked before container reset. (✅ done)
+- Azure CLI source-argument failure identified from the workflow log. (✅ done)
+- Cross-step `CONTENT_STAGE` dependency removed. (✅ done)
+- Computed source path checked before container reset. (✅ done)
 - Workflow diagnostics completed without errors. (✅ done)
-- Environment handoff and directory guard simulated locally. (✅ done)
 - Workflow fix committed and pushed to `main`. (🟡 pending)
 - Content deployment rerun successfully in GitHub Actions. (🟡 pending)
 - Blob count and deployed Learning Hub behavior verified after the rerun. (🟡 pending)
@@ -296,7 +272,7 @@ The fix doesn't change authentication or authorization. The workflow continues t
 
 - Consider staging into a uniquely named directory per run to reduce coupling to residual runner state. (📌 next steps)
 - Consider uploading to a temporary container or prefix and switching only after upload validation if stronger atomicity becomes necessary. (📌 next steps)
-- Add a lightweight workflow test that verifies every cross-step variable consumer has a corresponding `$GITHUB_ENV` or step-output producer. (📌 next steps)
+- Add a log statement that records the resolved source directory immediately before upload. (📌 next steps)
 
 ---
 
@@ -304,22 +280,22 @@ The fix doesn't change authentication or authorization. The workflow continues t
 
 ### What went wrong
 
-- Shell variables are process-local; GitHub Actions steps require explicit state transfer through environment files, outputs, artifacts, or files at known paths.
-- The workflow validated staged content in the producing process but didn't validate the source at the destructive consumer boundary.
-- The reset-first mirror strategy made a simple argument bug operationally significant.
+- GitHub Actions environment-file handoffs can be avoided when both steps can deterministically derive the same job-scoped path.
+- Log the resolved values used by native commands when a failure can occur after destructive work.
+- The reset-first mirror strategy made a source-argument failure operationally significant.
 
 ### What went right
 
 - The reset loop logged its progress and final zero count, making the operation sequence unambiguous.
 - Azure CLI's argument parser produced a precise error that pointed directly to the missing source value.
 - The workflow already converted native command failures into terminating PowerShell errors, so the job didn't falsely report success.
-- The repair remained small: one explicit handoff and one fail-fast guard addressed the root cause and its main risk.
+- The repair remained small: derive the staging path locally in the consumer step, preserve its guard, and pass the local value to Azure CLI.
 
 ### Improvements for future workflows
 
 - Validate every destructive operation's replacement input immediately before deletion. (📌 next steps)
-- Treat each GitHub Actions step as an isolated process during design and review. (📌 next steps)
-- Pair producer and consumer variable names explicitly, preferably through named step outputs when values are central to later steps. (📌 next steps)
+- Prefer deterministic job-scoped paths over environment handoffs when no data must be dynamically transferred. (📌 next steps)
+- Add pre-upload logging for the resolved source path without exposing secrets. (📌 next steps)
 - Make failure messages state both the missing precondition and the destructive action that was refused. (📌 next steps)
 
 ---
@@ -330,9 +306,7 @@ The fix doesn't change authentication or authorization. The workflow continues t
 
 | Event | Evidence | Interpretation |
 |---|---|---|
-| Reset starts | Pass 1 leaves 746 active blobs | The destination initially contains deployed content. |
-| Reset progresses | Counts fall through 349, 50, 15, 8, 4, 2, and 1 | Batch deletion is functioning. |
-| Reset completes | Pass 9 leaves 0 active blobs | The destructive phase completes successfully. |
+| Reset completes | Pass 1 leaves 0 active blobs | The destructive phase completes successfully. |
 | Upload parsing fails | `--source/-s: expected one argument` | The upload source expands to no command-line value. |
 | Workflow fails | Explicit `Blob upload ... failed` exception and exit code 1 | Error handling reports the failed restorative phase. |
 
@@ -355,25 +329,24 @@ az storage blob upload-batch `
 ```powershell
 # Stage step
 $stage = Join-Path $env:RUNNER_TEMP "learn-content-stage"
-Add-Content -Path $env:GITHUB_ENV -Value "CONTENT_STAGE=$stage" -Encoding utf8
 
 # Synchronization step, before container access or deletion
-if ([string]::IsNullOrWhiteSpace($env:CONTENT_STAGE) -or
-		-not (Test-Path -LiteralPath $env:CONTENT_STAGE -PathType Container)) {
-	throw "Staged content directory '$env:CONTENT_STAGE' is unavailable; refusing to reset the container."
+$stage = Join-Path $env:RUNNER_TEMP "learn-content-stage"
+if (-not (Test-Path -LiteralPath $stage -PathType Container)) {
+	throw "Staged content directory '$stage' is unavailable; refusing to reset the container."
 }
 ```
 
 ### Files changed
 
-- `.github/workflows/deploy-learninghub.yml`: exports `CONTENT_STAGE` and validates it before resetting Blob Storage.
+- `.github/workflows/deploy-learninghub.yml`: derives the staging path from `RUNNER_TEMP` in the upload step and validates it before resetting Blob Storage.
 - `src/docs/90. Issues/202608/20260813.01-markdowndeploy-fix/overview.md`: records this incident analysis.
 
 ---
 
 ## 📚 References
 
-- [Failed GitHub Actions job](https://github.com/darioairoldi/Learn/actions/runs/31680419805/job/94385001773#step:6:44) 📘 [Official]
+- [Failed GitHub Actions job](https://github.com/darioairoldi/Learn/actions/runs/31680419805/job/94390095603#step:6:45) 📘 [Official]
 	The job log records the successful container reset, the missing `--source` argument, and the resulting PowerShell exception.
 - [GitHub Actions workflow commands: environment files](https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#environment-files) 📘 [Official]
 	GitHub documents `$GITHUB_ENV` as the supported mechanism for making environment variables available to subsequent steps in a job.
@@ -392,7 +365,7 @@ article_metadata:
 	filename: "overview.md"
 	created: "2026-08-13"
 	last_updated: "2026-08-13"
-	version: "1.0"
+	version: "1.1"
 	status: "code-resolved-verification-pending"
 	issue_type: "ci-cd-deployment-failure"
 -->
