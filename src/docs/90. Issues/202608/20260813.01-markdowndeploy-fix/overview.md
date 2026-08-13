@@ -138,12 +138,14 @@ The synchronization step validates that computed directory before the reset, the
 ```powershell
 az storage blob upload-batch `
 	--account-name $env:STORAGE_ACCOUNT --destination $env:STORAGE_CONTAINER `
-	--source $stage --overwrite true --auth-mode login --only-show-errors
+	--source="$stage" --overwrite true --auth-mode login --only-show-errors
 ```
+
+The `--source="$stage"` form constructs one explicit `--source=<path>` argument for the Windows `az.cmd` launcher. The step also logs the validated, non-secret source path before contacting Blob Storage.
 
 ### Why the reset still succeeded
 
-The reset phase depended only on workflow-level variables (`STORAGE_ACCOUNT` and `STORAGE_CONTAINER`). Both were defined in the workflow's top-level `env` block, so they survived across steps. The missing staging path wasn't accessed until after the deletion loop had reached zero blobs.
+The reset phase depended only on workflow-level variables (`STORAGE_ACCOUNT` and `STORAGE_CONTAINER`). Both were defined in the workflow's top-level `env` block, so they survived across steps. The source directory passed the local guard, but Azure CLI did not receive its path when the upload command ran.
 
 ### Remaining safety consideration
 
@@ -187,7 +189,7 @@ if (-not (Test-Path -LiteralPath $stage -PathType Container)) {
 **Affected code locations:**
 
 - `.github/workflows/deploy-learninghub.yml`, **Stage Markdown content**: creates and validates `$stage`.
-- `.github/workflows/deploy-learninghub.yml`, **Synchronize Markdown content to blob storage**: resets the container and consumes `$env:CONTENT_STAGE`.
+- `.github/workflows/deploy-learninghub.yml`, **Synchronize Markdown content to blob storage**: derives, validates, logs, and uploads from `$stage`.
 
 ---
 
@@ -208,7 +210,7 @@ if (-not (Test-Path -LiteralPath $stage -PathType Container)) {
 }
 ```
 
-This guard addresses both the observed variable-handoff defect and the broader safety gap. Any future failure to produce or retain the staging directory stops the workflow before blob deletion.
+This guard stops any future failure to produce or retain the staging directory before blob deletion. The direct local variable removes the former environment-handoff dependency.
 
 ### Resulting synchronization sequence
 
@@ -228,6 +230,7 @@ This guard addresses both the observed variable-handoff defect and the broader s
 | Check | Result | What it proves |
 |---|---|---|
 | VS Code diagnostics for `deploy-learninghub.yml` | No errors | The edited workflow has no reported YAML or expression diagnostics. |
+| Azure CLI source-argument parser check | Passed | The exact `--source="$stage"` form progressed beyond argument parsing and failed only while resolving a deliberately nonexistent storage account. |
 | `git diff --check` | Passed | The workflow change has no whitespace errors. |
 | Live GitHub Actions workflow run | Pending | Azure authentication, reset, upload, and cache invalidation still need end-to-end confirmation. |
 
@@ -235,6 +238,7 @@ This guard addresses both the observed variable-handoff defect and the broader s
 ### Testing recommendations
 
 - Manually dispatch **Deploy Learning Hub content to storage** after committing the workflow fix. (🟡 todo)
+- Confirm the log prints `Validated upload source '<path>'` before the container reset. (🟡 todo)
 - Confirm the log prints a nonempty path in `Synchronized <path> to digitoolstestmcstitn01/learn`. (🟡 todo)
 - Confirm the container contains the expected Markdown and image blobs after upload. (🟡 todo)
 - Open the deployed Learning Hub and verify that navigation and representative articles load. (🟡 todo)
@@ -246,7 +250,7 @@ No data-model, infrastructure, or application migration is required. The fix cha
 
 ### Performance impact
 
-The additional work is one environment-file append and one local directory existence check. Its runtime cost is negligible compared with deleting and uploading hundreds of blobs.
+The additional work is one local directory existence check and one log statement. Its runtime cost is negligible compared with deleting and uploading hundreds of blobs.
 
 ### Security impact
 
@@ -263,6 +267,7 @@ The fix doesn't change authentication or authorization. The workflow continues t
 - Azure CLI source-argument failure identified from the workflow log. (✅ done)
 - Cross-step `CONTENT_STAGE` dependency removed. (✅ done)
 - Computed source path checked before container reset. (✅ done)
+- Azure CLI source option explicitly bound as `--source="$stage"`. (✅ done)
 - Workflow diagnostics completed without errors. (✅ done)
 - Workflow fix committed and pushed to `main`. (🟡 pending)
 - Content deployment rerun successfully in GitHub Actions. (🟡 pending)
@@ -272,7 +277,7 @@ The fix doesn't change authentication or authorization. The workflow continues t
 
 - Consider staging into a uniquely named directory per run to reduce coupling to residual runner state. (📌 next steps)
 - Consider uploading to a temporary container or prefix and switching only after upload validation if stronger atomicity becomes necessary. (📌 next steps)
-- Add a log statement that records the resolved source directory immediately before upload. (📌 next steps)
+- Review the logged source directory in the next workflow run. (📌 next steps)
 
 ---
 
@@ -281,6 +286,7 @@ The fix doesn't change authentication or authorization. The workflow continues t
 ### What went wrong
 
 - GitHub Actions environment-file handoffs can be avoided when both steps can deterministically derive the same job-scoped path.
+- Bind Windows `az.cmd` option values explicitly when an argument is consumed by a native command.
 - Log the resolved values used by native commands when a failure can occur after destructive work.
 - The reset-first mirror strategy made a source-argument failure operationally significant.
 

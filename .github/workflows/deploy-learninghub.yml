@@ -121,6 +121,7 @@ jobs:
           if (-not (Test-Path -LiteralPath $stage -PathType Container)) {
             throw "Staged content directory '$stage' is unavailable; refusing to reset the container."
           }
+          Write-Host "Validated upload source '$stage'"
 
           # Ensure the container exists (Storage Blob Data Contributor allows this), then mirror
           # the staged content into it. Paths are preserved:
@@ -152,7 +153,7 @@ jobs:
 
           az storage blob upload-batch `
             --account-name $env:STORAGE_ACCOUNT --destination $env:STORAGE_CONTAINER `
-            --source $stage --overwrite true --auth-mode login --only-show-errors | Out-Null
+            --source="$stage" --overwrite true --auth-mode login --only-show-errors | Out-Null
           if ($LASTEXITCODE -ne 0) { throw "Blob upload to '$env:STORAGE_ACCOUNT/$env:STORAGE_CONTAINER' failed (see errors above)." }
 
           Write-Host "Synchronized $stage to $env:STORAGE_ACCOUNT/$env:STORAGE_CONTAINER"
