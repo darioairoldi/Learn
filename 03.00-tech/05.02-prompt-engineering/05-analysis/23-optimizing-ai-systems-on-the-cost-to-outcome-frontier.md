@@ -137,6 +137,8 @@ This analysis changes the Learning Hub's model-selection story in four ways:
 
 The immediate corpus impact is additive. Existing prompt-engineering guidance already covers model characteristics, per-task routing, token budgets, and model independence in separate places. This article becomes the canonical analysis that connects them into one production optimization loop. Future how-to content can build on it with routing implementation, evaluator design, cost telemetry, and replacement drills.
 
+For operational token budgeting details in Foundry reasoning workflows, see the context authority file [02.02-context-window-and-token-optimization.md](../../../.copilot/context/00.00-prompt-engineering/02.02-context-window-and-token-optimization.md), including the Foundry reasoning-token caveats and preview/deployment constraint guidance.
+
 ## ✅ Conclusion
 
 - **Optimize the system** — Treat models, harnesses, evaluations, routing, feedback, and hardware as one configuration.
