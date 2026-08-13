@@ -1,6 +1,7 @@
 # MAI-Thinking-1 observation completion summary
 
-![Source-provenance placeholder for MAI-Thinking-1 Foundry documentation header](images/20260813.01-mai-thinking-1-source.png)
+![alt text](images/20260813.01-mai-thinking-1-source.png)
+
 
 > **[Deploy and use MAI-Thinking-1 in Microsoft Foundry (preview)](https://learn.microsoft.com/azure/foundry/foundry-models/how-to/use-foundry-models-mai-thinking)** 📘 [Official]
 > 
