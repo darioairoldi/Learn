@@ -105,6 +105,7 @@ jobs:
           $imgCount = (Get-ChildItem $stage -Recurse -File -Include *.png, *.jpg, *.jpeg, *.gif, *.svg, *.webp).Count
           Write-Host "Staged $mdCount markdown files and $imgCount images under $stage"
           if ($mdCount -eq 0) { Write-Error "No markdown staged - aborting"; exit 1 }
+          Add-Content -Path $env:GITHUB_ENV -Value "CONTENT_STAGE=$stage" -Encoding utf8
 
       - name: Azure login (OIDC)
         uses: azure/login@v2
@@ -117,6 +118,11 @@ jobs:
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
+          if ([string]::IsNullOrWhiteSpace($env:CONTENT_STAGE) -or
+              -not (Test-Path -LiteralPath $env:CONTENT_STAGE -PathType Container)) {
+            throw "Staged content directory '$env:CONTENT_STAGE' is unavailable; refusing to reset the container."
+          }
+
           # Ensure the container exists (Storage Blob Data Contributor allows this), then mirror
           # the staged content into it. Paths are preserved:
           # content-stage/01.00-news/x/overview.md -> 01.00-news/x/overview.md.
