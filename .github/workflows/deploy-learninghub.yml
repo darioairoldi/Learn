@@ -105,7 +105,6 @@ jobs:
           $imgCount = (Get-ChildItem $stage -Recurse -File -Include *.png, *.jpg, *.jpeg, *.gif, *.svg, *.webp).Count
           Write-Host "Staged $mdCount markdown files and $imgCount images under $stage"
           if ($mdCount -eq 0) { Write-Error "No markdown staged - aborting"; exit 1 }
-          Add-Content -Path $env:GITHUB_ENV -Value "CONTENT_STAGE=$stage" -Encoding utf8
 
       - name: Azure login (OIDC)
         uses: azure/login@v2
@@ -118,9 +117,9 @@ jobs:
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
-          if ([string]::IsNullOrWhiteSpace($env:CONTENT_STAGE) -or
-              -not (Test-Path -LiteralPath $env:CONTENT_STAGE -PathType Container)) {
-            throw "Staged content directory '$env:CONTENT_STAGE' is unavailable; refusing to reset the container."
+          $stage = Join-Path $env:RUNNER_TEMP "learn-content-stage"
+          if (-not (Test-Path -LiteralPath $stage -PathType Container)) {
+            throw "Staged content directory '$stage' is unavailable; refusing to reset the container."
           }
 
           # Ensure the container exists (Storage Blob Data Contributor allows this), then mirror
@@ -153,10 +152,10 @@ jobs:
 
           az storage blob upload-batch `
             --account-name $env:STORAGE_ACCOUNT --destination $env:STORAGE_CONTAINER `
-            --source $env:CONTENT_STAGE --overwrite true --auth-mode login --only-show-errors | Out-Null
+            --source $stage --overwrite true --auth-mode login --only-show-errors | Out-Null
           if ($LASTEXITCODE -ne 0) { throw "Blob upload to '$env:STORAGE_ACCOUNT/$env:STORAGE_CONTAINER' failed (see errors above)." }
 
-          Write-Host "Synchronized $env:CONTENT_STAGE to $env:STORAGE_ACCOUNT/$env:STORAGE_CONTAINER"
+          Write-Host "Synchronized $stage to $env:STORAGE_ACCOUNT/$env:STORAGE_CONTAINER"
 
       - name: Invalidate app cache
         # Best-effort: flush the app's in-memory cache so new content is served immediately.
