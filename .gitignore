@@ -458,3 +458,18 @@ src/MetadataWatcher/obj/
 
 **/*.quarto_ipynb
 /site_libs
+
+# ---------------------------------------------------------------------------
+# Content classification guard - this repository is PUBLIC.
+#
+# Internal companions live in the private peer (darioairoldi/Learn.internal) at
+# the same repository-relative path. They must never be committed here.
+#
+# This is a BACKSTOP, not the control. The control is the classification pass
+# that decides what is internal in the first place - see
+# .github/instructions/content-classification.instructions.md.
+# An ignore rule cannot catch an identifier written into a public file.
+# ---------------------------------------------------------------------------
+*.internal.md
+**/*.internal.md
+**/_internal/

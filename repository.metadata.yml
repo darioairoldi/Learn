@@ -1,0 +1,90 @@
+# ---------------------------------------------------------------------------
+# Repository declaration
+#
+# Read this FIRST, before writing any document. Everything about the
+# public/internal split resolves against this file:
+#   - whether a split is needed at all      -> repository.visibility
+#   - where an internal companion goes      -> internal_peer
+#   - what an alias resolves to             -> internal_peer.alias_registry
+#
+# Governed by:
+#   .github/instructions/content-classification.instructions.md   (rules)
+#   .copilot/context/05.00-content-classification/                (model)
+#
+# FAIL-SAFE DEFAULT: if this file is absent, or `visibility` is missing or
+# unrecognised, treat the repository as PUBLIC. The asymmetry is deliberate.
+# Guessing "public" over-protects a private repository, which costs a little
+# indirection. Guessing "private" under-protects a public one, which publishes
+# identifiers. Only one of those is recoverable.
+# ---------------------------------------------------------------------------
+
+schema: repository-metadata/v1
+
+repository:
+  id: darioairoldi/Learn
+  # public  -> classify and split; identifying detail goes to the internal peer
+  # private -> do NOT split; write one document with real names
+  visibility: public
+
+# ---------------------------------------------------------------------------
+# The private peer that holds this repository's internal companions.
+# Omit this block entirely when visibility is `private`.
+# ---------------------------------------------------------------------------
+internal_peer:
+  id: darioairoldi/Learn.internal
+
+  # Resolution order, first hit wins:
+  #   1. the environment variable named here, when set
+  #   2. default_relative_path, resolved from this repository's root
+  #
+  # Same pattern as `ExternalConfigurationFolder` in launchSettings.json: the
+  # checked-in default works for the conventional side-by-side clone layout,
+  # and the environment variable overrides it where that layout does not hold.
+  path_env: LEARN_INTERNAL_FOLDER
+  default_relative_path: "../Learn.internal"
+
+  # path-parallel: a companion lives at the IDENTICAL repository-relative path
+  # in the peer, with `suffix` replacing `.md`.
+  #
+  #   03.00-tech/…/04-environment-reference.md
+  #   -> 03.00-tech/…/04-environment-reference.internal.md
+  #
+  # Path parity is what removes the need for an index. An index is a second
+  # thing to keep correct, and the moment it drifts the companion is lost.
+  mirror_strategy: path-parallel
+  suffix: ".internal.md"
+
+  # What to do when the peer cannot be resolved or read.
+  #
+  # fail-closed: stop the task. Do NOT continue into the public document.
+  #
+  # This matters most on the READ side. If a fetch of an existing companion
+  # fails quietly, the agent sees no companion, writes a new one from scratch,
+  # and the next sync overwrites a richer original. Silent absence and genuine
+  # absence must never be confused.
+  on_missing: fail-closed
+
+  # Single registry resolving every role name used publicly to its real
+  # identifier. Repository relative, inside the internal peer. One registry per
+  # repository — an alias defined in two places will disagree eventually.
+  alias_registry: "_aliases/{environment}.aliases.internal.md"
+
+# ---------------------------------------------------------------------------
+# Facts that look sensitive but are already public, listed so that classification
+# does not alias them pointlessly. An alias with no secret behind it is pure
+# friction: it makes the document harder to read and buys nothing.
+# ---------------------------------------------------------------------------
+deliberately_public:
+  - "The internal peer repository name itself (darioairoldi/Learn.internal)"
+  - "Product, service and framework names discussed in learning articles"
+  - "Secret NAMES as referenced in workflows, never their values"
+  - "Public error codes and identifiers reproduced for diagnosis"
+
+# ---------------------------------------------------------------------------
+# NOTE ON FLIPPING VISIBILITY
+#
+# Changing `private` -> `public` does NOT retro-classify existing documents.
+# Everything written while private carries real names. Flipping this field is
+# the START of a classification pass over existing content, not a substitute
+# for one.
+# ---------------------------------------------------------------------------
