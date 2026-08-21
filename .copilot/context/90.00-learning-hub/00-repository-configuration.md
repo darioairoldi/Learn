@@ -16,7 +16,7 @@ scope:
     - "External material resolution (transcript/video/slides) by mirrored relative path"
   excludes:
     - "Folder naming conventions (see 06-folder-organization-and-navigation.md)"
-    - "Runtime rendering/navigation (see Learn.Web / DynamicNavBuilder)"
+    - "Runtime rendering/navigation (see Diginsight SmartDocs / DynamicNavBuilder — external repo `diginsight/smartdocs`)"
     - "Dual article metadata (see 02-dual-yaml-metadata.md)"
 boundaries:
   - "MUST treat the public repo (Learn) as the base layer and never require private values to live in it"

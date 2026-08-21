@@ -17,7 +17,7 @@ The Learning Hub is built from components that, read separately, look like separ
 
 > **The frame comes from an essay.** The [Reverse Information Paradox](../../01.00-news/20260716.01-reverse-paradox/overview.md) (Satya Nadella, *sn scratchpad*, 2026) argues that using an AI model quietly transfers the knowledge that makes you unique — unless you keep your learning inside a boundary you control. The Hub reached the same architecture independently — and nothing in it is tied to a single person: the same design serves a community that shares and grows the knowledge together. This page borrows the essay's vocabulary because it names what the Hub already does.
 
-## Table of contents
+## 📋 Table of contents
 
 - 📌 [The one idea](#-the-one-idea)
 - 🧭 [The five parts](#-the-five-parts)
@@ -35,7 +35,7 @@ Every time you use an AI model, you produce **learning exhaust** — the prompts
 
 The Hub's bet is to keep it. Own the loop that generates the exhaust, keep the exhaust inside a **trust boundary** you control, and let each cycle **compound** your own <mark>*particular intelligence*</mark> — Hayek's knowledge of your own time, place, and circumstance — instead of someone else's model.
 
-Owning the loop is a means, not the end. What it buys you is the ability to **think ahead**: a compounding corpus, paired with an AI that understands your goals and how you reason, that turns news and knowledge gaps into *foresight*. That goal is the subject of the canonical [Learning Hub definition](00-learning-hub/00-learning-hub.md) — this chapter explains *why owning the loop* is what makes it durable.
+Owning the loop is a means, not the end. What it buys you is the ability to **think ahead**: compounding knowledge of your own, paired with an AI that understands your goals and how you reason, that turns news and knowledge gaps into *foresight*. That goal is the subject of the canonical [Learning Hub definition](00-learning-hub/00-learning-hub.md) — this chapter explains *why owning the loop* is what makes it durable.
 
 ## 🧭 The five parts
 
@@ -51,15 +51,19 @@ The essay names five things any owner of a learning loop must do. They read as a
 
 ## 🧱 The components that implement them
 
-Each part already has a home in the Hub. Nothing here is new machinery — it's one lens over work that already exists. All five sit inside the **self-update loop**, except where noted.
+Each part already has a home in the Hub. Nothing here is new machinery — it's one lens over work that already exists, and it maps onto the **three layers** rather than adding a spine of its own.
 
-| Part | Where the Hub implements it | Maturity |
-|---|---|---|
-| **Control** | [Self-updating prompt engineering](../self-updating-prompt-engineering/20260531.01-vision.md) treats evals as metadata contracts; [TuneIQ](../tuneiq/01-tuneiq-design.md) captures the session traces and corrections | Design strong; capture partly wired |
-| **Capability** | [TuneIQ](../tuneiq/01-tuneiq-design.md) tunes the customization stack against real sessions inside the repo | Tunes artifacts, not models — a scope choice |
-| **Choice** | The [self-updating engine](../self-updating-engine/20260622.01-self-updating-engine-vision.md) is designed model-agnostic; the [cost-control deck](../prompt-engineering-and-azure-openai-cost-control/20260503.01-slidescontent.md) adds the model-independence test | Design present; test now stated |
-| **Cost** | The [cost-control vision](../prompt-engineering-and-azure-openai-cost-control/20260503.01-slidescontent.md) — token control, context management, Azure billing | Present |
-| **Compound** | The [self-updating engine](../self-updating-engine/20260622.01-self-updating-engine-vision.md) loop, plus the [autonomous streams](../autonomous-streams/autonomous-streams.md) that run on it | Design strong |
+| Part | Layer | Where the Hub implements it | Maturity |
+|---|---|---|---|
+| **Control** | Self-update loop | [Self-updating prompt engineering](../self-updating-prompt-engineering/20260531.01-vision.md) treats evals as metadata contracts; [TuneIQ](../tuneiq/01-tuneiq-design.md) captures the session traces and corrections | Design strong; capture partly wired |
+| **Capability** | Self-update loop | [TuneIQ](../tuneiq/01-tuneiq-design.md) tunes the customization stack against real sessions inside the repo | Tunes artifacts, not models — a scope choice |
+| **Choice** | Self-update loop | The [self-updating engine](../self-updating-engine/20260622.01-self-updating-engine-vision.md) is designed model-agnostic; the [cost-control deck](../prompt-engineering-and-azure-openai-cost-control/20260503.01-slidescontent.md) adds the model-independence test | Design present; test now stated |
+| **Cost** | Self-update loop | The [cost-control vision](../prompt-engineering-and-azure-openai-cost-control/20260503.01-slidescontent.md) — token control, context management, Azure billing | Present |
+| **Compound** | Self-update loop, over storage | The [self-updating engine](../self-updating-engine/20260622.01-self-updating-engine-vision.md) loop, plus the [autonomous streams](../autonomous-streams/autonomous-streams.md) that run on it — compounding what storage holds | Design strong |
+
+All five live in the **self-update loop**; only *Compound* also depends on **storage**, because what
+compounds has to be kept. Nothing here belongs to the **rendering** layer — owning your loop is about how
+knowledge is produced and retained, not how it is delivered.
 
 ## 🔒 What the trust boundary holds
 

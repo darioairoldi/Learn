@@ -3,7 +3,7 @@ title: "Platform and consumers: the dynamic renderer and who it serves"
 author: "Dario Airoldi"
 date: "2026-07-20"
 categories: [idea, learning-hub, markdown, platform, documentation]
-description: "The Learning Hub's Platform layer — a fully dynamic Markdown-rendering application — and the generalized, producer-agnostic audiences it serves: learners, documentation managers, validation managers, and app-dev doc generation. A chapter of the canonical Learning Hub definition."
+description: "The Learning Hub's rendering layer — Diginsight SmartDocs, a fully dynamic Markdown-rendering application consumed as an external building block — and the generalized, producer-agnostic audiences it serves: learners, documentation managers, validation managers, and app-dev doc generation. A chapter of the canonical Learning Hub definition."
 ---
 
 # Platform and consumers: the dynamic renderer and who it serves
@@ -11,11 +11,11 @@ description: "The Learning Hub's Platform layer — a fully dynamic Markdown-ren
 > **Chapter of** [Learning Hub: vision, strategy, implementation, and next steps](00-learning-hub/00-learning-hub.md).
 > This page details the **Rendering** layer, and the audiences it generalizes to.
 
-## Table of contents
+## 📋 Table of contents
 
 - [🖥️ The platform](#️-the-platform)
 - [🔌 Interaction surfaces](#-interaction-surfaces)
-- [👥 The consumers](#-the-consumers)
+- [👥 Who it serves — people first, then producers](#-who-it-serves--people-first-then-producers)
 - [🔄 Why the platform generalizes](#-why-the-platform-generalizes)
 - [📚 References](#-references)
 
@@ -23,7 +23,8 @@ description: "The Learning Hub's Platform layer — a fully dynamic Markdown-ren
 
 ## 🖥️ The platform
 
-The Learning Hub is delivered as a **fully dynamic Markdown-rendering application**. Its defining properties:
+The Learning Hub's content is delivered by **Diginsight SmartDocs**, a fully dynamic Markdown-rendering
+application. Its defining properties:
 
 - **On-demand rendering.** Markdown is rendered to HTML **at request time**; rendered HTML exists only as a
   disposable cache, never as a stored, versioned artifact.
@@ -40,6 +41,12 @@ The Learning Hub is delivered as a **fully dynamic Markdown-rendering applicatio
 
 That last property is the strategic one: it turns "my learning site" into a **general delivery surface for
 governed Markdown** — whoever, or whatever, produced it.
+
+**And it has already been cashed in.** The renderer now lives in its own repository (`diginsight/smartdocs`)
+as a product in its own right, consumed by this Hub rather than owned by it. That extraction is the
+producer-agnostic argument proven rather than asserted: a delivery surface that never assumed *this* content,
+*this* producer, or *this* repository was free to serve any of them. Everything below about widening
+audiences describes consumers of a general product, not features of a personal site.
 
 ---
 
@@ -60,17 +67,31 @@ and delivery surface that any producer can target**, alongside the editor and AI
 
 ---
 
-## 👥 The consumers
+## 👥 Who it serves — people first, then producers
 
-The same three layers serve a widening set of audiences. Each is simply a **Markdown producer** whose output
-the platform renders — no per-audience delivery machinery is required.
+The platform serves **people** first: individuals and teams developing knowledge. It *also* serves
+non-human producers, because each is simply a **Markdown producer** whose output the platform renders — no
+per-audience delivery machinery is required. The order below is deliberate.
 
-### The learner
+### The individual learner
 
-The founding audience: a person (or a community) developing technical knowledge iteratively — capturing,
-curating, analysing, and cross-referencing it into a growing, browsable corpus. This is the
+The founding audience: a person developing technical knowledge iteratively — capturing,
+curating, analysing, and cross-referencing it into a growing, browsable body of knowledge that is theirs.
+This is the
 [Learning Hub concept](01-learning-hub-overview/01-learning-hub-introduction.md) and the
 [content taxonomy](02-documentation-taxonomy/01-learning-hub-documentation-taxonomy.md).
+
+### A team learning together
+
+The same loop, shared. A group develops one body of knowledge instead of many private ones: **governed
+artifacts are shared rather than raw notes**, **peer corrections are first-class input** to the same quality
+loop that an individual's corrections feed, and validated assets are **reused across instances** where
+policy allows. The trust boundary is what makes this safe to do — what is public and what stays behind
+authentication is a deliberate choice, not a default.
+
+> **Maturity:** this is **declared intent, not built capability**. The governing principle
+> (`collaborative-learning`) is graded **P2** in the [concept chapter](01-learning-hub-overview/01-learning-hub-introduction.md);
+> stating that the Hub supports team learning today would over-claim.
 
 ### The documentation manager
 

@@ -1,30 +1,30 @@
 ---
-title: "Learning-hub Documentation Taxonomy"
+title: "Learning Hub documentation taxonomy"
 author: "Dario Airoldi"
 date: "2026-01-24"
-categories: [learnhub, documentation, taxonomy, diataxis, technical-writing]
-description: "Comprehensive documentation taxonomy for LearnHub knowledge management, extending Diátaxis with seven content categories optimized for technology intelligence and learning"
+categories: [learning-hub, documentation, taxonomy, diataxis, technical-writing]
+description: "Comprehensive documentation taxonomy for Learning Hub knowledge management, extending Diátaxis with seven content categories optimized for technology intelligence and learning"
 ---
 
-# Learning-hub Documentation Taxonomy
+# Learning Hub documentation taxonomy
 
 > A pragmatic documentation framework extending Diátaxis principles for comprehensive technology knowledge management
 
-## Table of contents
+## 📋 Table of contents
 
-- [Introduction](#introduction)
-- [Framework foundations](#framework-foundations)
-- [The seven content categories](#the-seven-content-categories)
-- [Format patterns by content type](#format-patterns-by-content-type)
-- [Worked example: Azure Functions](#worked-example-azure-functions)
-- [Subject folder template](#subject-folder-template)
-- [Validation integration strategy](#validation-integration-strategy)
-- [Conclusion](#conclusion)
-- [References](#references)
+- [📖 Introduction](#-introduction)
+- [🏛️ Framework foundations](#-framework-foundations)
+- [🗂️ The seven content categories](#-the-seven-content-categories)
+- [📐 Format patterns by content type](#-format-patterns-by-content-type)
+- [🧪 Worked example: Azure Functions](#-worked-example-azure-functions)
+- [📁 Subject folder template](#-subject-folder-template)
+- [✅ Validation integration strategy](#-validation-integration-strategy)
+- [🎯 Conclusion](#-conclusion)
+- [📚 References](#-references)
 
-## Introduction
+## 📖 Introduction
 
-The LearnHub Documentation Taxonomy provides a structured approach to organizing technical knowledge for learning, reference, and strategic decision-making. It extends the widely-adopted <mark>**Diátaxis framework**</mark> (a documentation system that organizes content into four types based on user needs: tutorials, how-to guides, reference, and explanation) with additional content categories that address gaps in standard documentation taxonomies.
+The Learning Hub documentation taxonomy provides a structured approach to organizing technical knowledge for learning, reference, and strategic decision-making. It extends the widely-adopted <mark>**Diátaxis framework**</mark> (a documentation system that organizes content into four types based on user needs: tutorials, how-to guides, reference, and explanation) with additional content categories that address gaps in standard documentation taxonomies.
 
 ### Purpose and scope
 
@@ -49,9 +49,9 @@ The Diátaxis framework provides an excellent foundation with its four documenta
 3. **Curated discovery** — Learners need guided paths to external resources, not just internal documentation
 4. **Strategic evaluation** — Technology decisions require comparative analysis beyond pure explanation
 
-The LearnHub taxonomy addresses these needs while maintaining compatibility with Diátaxis principles.
+The Learning Hub taxonomy addresses these needs while maintaining compatibility with Diátaxis principles.
 
-## Framework foundations
+## 🏛️ Framework foundations
 
 This taxonomy synthesizes principles from multiple established documentation frameworks. Understanding these foundations helps you apply the taxonomy effectively and adapt it when needed.
 
@@ -71,11 +71,11 @@ The table below compares major documentation frameworks and their approaches. Fo
 | **Topic-Based Authoring** | 3 (Conceptual, Procedural, Reference) | Modular, reusable topics | Foundation methodology |
 | **Docs as Code** | N/A (workflow) | Git-based, CI/CD, developer collaboration | DevOps integration |
 
-### Mapping LearnHub to standard frameworks
+### Mapping Learning Hub to standard frameworks
 
-The table below shows how each LearnHub category corresponds to established frameworks. This mapping helps teams familiar with other systems understand where LearnHub content types fit:
+The table below shows how each Learning Hub category corresponds to established frameworks. This mapping helps teams familiar with other systems understand where Learning Hub content types fit:
 
-| LearnHub Category | Diátaxis | Microsoft Learn | DITA |
+| Learning Hub Category | Diátaxis | Microsoft Learn | DITA |
 |-------------------|----------|-----------------|------|
 | **Overview** | ≈ Explanation (intro) | Overview | Concept |
 | **Getting Started** | Tutorial | Quickstart + Tutorial | Task |
@@ -100,7 +100,7 @@ This progression supports different depths of engagement:
 
 **2. Adds "Resources" as a first-class content type:**
 
-Most frameworks ignore curated collections. LearnHub explicitly includes:
+Most frameworks ignore curated collections. Learning Hub explicitly includes:
 - Examples and samples galleries
 - FAQ compilations
 - Migration guides
@@ -108,7 +108,7 @@ Most frameworks ignore curated collections. LearnHub explicitly includes:
 
 **3. Expands "How-to" beyond single tasks:**
 
-Standard How-to guides focus on immediate task accomplishment. LearnHub extends to practice development:
+Standard How-to guides focus on immediate task accomplishment. Learning Hub extends to practice development:
 - Task Guides (traditional how-to)
 - Patterns & Practices (reusable solutions)
 - Techniques (optimization approaches)
@@ -133,7 +133,7 @@ While this taxonomy uses Markdown and Git-based workflows, the content structure
 
 If enterprise CCMS or structured translation becomes necessary, the taxonomy provides a migration path.
 
-## The seven content categories
+## 🗂️ The seven content categories
 
 ### 1. Overview
 
@@ -494,7 +494,7 @@ The table below describes types of supporting materials you might curate for a s
 - ❌ Outdated resources without review dates
 - ❌ Duplicating content available elsewhere
 
-## Format patterns by content type
+## 📐 Format patterns by content type
 
 ### Standard article structure
 
@@ -547,7 +547,7 @@ The table below shows how each content type should structure its introduction, m
 | **Reference** | Scope and structure | [Mirrors technology structure] | Related references |
 | **Resources** | How to use this list | [Categorized resources] | Contribution guidance |
 
-## Worked example: Azure Functions
+## 🧪 Worked example: Azure Functions
 
 The following examples demonstrate each content type using Azure Functions as the subject. These are abbreviated samples showing structure and tone.
 
@@ -1030,7 +1030,7 @@ No single model is optimal for all tasks. Different models excel at:
 - [Reference: Model capabilities comparison](../reference/model-comparison.md)
 ```
 
-## Subject folder template
+## 📁 Subject folder template
 
 When documenting a subject comprehensively, use this folder structure:
 
@@ -1079,7 +1079,7 @@ Not every piece of subject material may be published. Source assets carry an **e
 | Medium subject (10-30 pages) | Subfolders for concepts, howto, reference |
 | Complex subject (30+ pages) | Full template with all subfolders |
 
-## Validation integration strategy
+## ✅ Validation integration strategy
 
 Each content type maps to specific validation dimensions. This section defines the strategy; implementation of prompts and agents follows separately.
 
@@ -1126,9 +1126,9 @@ The table below maps each content type to its validation priorities. For each co
 | Gap analysis agent | Identify missing content types for a subject | Medium |
 | Template generator prompt | Scaffold new subject documentation with subcategory templates | Low |
 
-## Conclusion
+## 🎯 Conclusion
 
-The LearnHub Documentation Taxonomy provides a structured approach to comprehensive technology documentation and practice development:
+The Learning Hub documentation taxonomy provides a structured approach to comprehensive technology documentation and practice development:
 
 **Key takeaways:**
 
@@ -1146,7 +1146,7 @@ The LearnHub Documentation Taxonomy provides a structured approach to comprehens
 - Implement validation prompts aligned with type-specific requirements
 - Build gap analysis tooling to identify missing content
 
-## References
+## 📚 References
 
 ### Foundational frameworks
 
@@ -1170,7 +1170,7 @@ Developer documentation standards with focus on global readability and accessibi
 **[The Good Docs Project](https://thegooddocsproject.dev/)** 📗 [Verified Community]  
 Community-driven documentation templates. Practical application of Diátaxis principles.
 
-### Related LearnHub documentation
+### Related Learning Hub documentation
 
 **[Foundations of Technical Documentation](../../03.00%20tech/40.00%20Technical%20writing/00-foundations-of-technical-documentation.md)** [Internal Reference]  
 Comprehensive analysis of documentation frameworks including Diátaxis, Wikipedia, and major style guides.
@@ -1196,7 +1196,7 @@ validations:
     last_run: null
 
 article_metadata:
-  filename: "01-learnhub-documentation-taxonomy.md"
+  filename: "01-learning-hub-documentation-taxonomy.md"
   content_type: "reference"
   version: "1.0"
   last_updated: "2026-01-24"

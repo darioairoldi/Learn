@@ -13,7 +13,7 @@ scope:
     - "Working/intermediate artifact marking (publish: false) and _analysis/ working folder"
   excludes:
     - "Sidebar menu item transformation (see 07-sidebar-menu-rules.md)"
-    - "Runtime nav implementation (see DynamicNavBuilder / NavRules in src/Learn.Web)"
+    - "Runtime nav implementation (see DynamicNavBuilder / NavRules in the external `diginsight/smartdocs` repo)"
 boundaries:
   - "MUST use hyphens (not spaces) as separator after numeric prefixes"
   - "MUST NOT use spaces in folder/file names"
@@ -74,8 +74,9 @@ Time-sensitive content uses date prefixes with hyphen separator:
 
 ### Ordering (runtime, dynamic navigation)
 
-Navigation is built at **runtime** by `DynamicNavBuilder` / `NavRules` (`src/Learn.Web`) from the live
-content hierarchy — there is no glob list or `_quarto.yml` to maintain, and no build step. Ordering is
+Navigation is built at **runtime** by `DynamicNavBuilder` / `NavRules`, which live in the **external**
+`diginsight/smartdocs` repository — not in this one. They read the live content hierarchy, so there is no
+glob list or `_quarto.yml` to maintain, and no build step. Ordering is
 deterministic:
 
 - **Numeric-prefix folders** (`NN.NN-name`) sort **ascending by prefix**, keeping the numbered areas grouped.

@@ -12,7 +12,7 @@ scope:
     - "Transformation examples and regex patterns"
   excludes:
     - "Folder naming conventions (see 06-folder-organization-and-navigation.md)"
-    - "Runtime nav implementation (see DynamicNavBuilder / NavRules in src/Learn.Web)"
+    - "Runtime nav implementation (see DynamicNavBuilder / NavRules in the external `diginsight/smartdocs` repo)"
 boundaries:
   - "MUST normalize date separators to space-dash-space format"
   - "MUST NOT modify the content after the separator"
@@ -23,10 +23,10 @@ rationales:
 
 # Sidebar Menu Rules (Runtime Navigation)
 
-**Purpose**: Define rules for generating sidebar menu items from folder/file structures, independent of strict naming conventions. These rules are implemented by the **runtime navigation builder** (`DynamicNavBuilder` / `NavRules` in `src/Learn.Web`), which builds the live menu from the content hierarchy on each request — there is no menu file to maintain.
+**Purpose**: Define rules for generating sidebar menu items from folder/file structures, independent of strict naming conventions. These rules are implemented by the **runtime navigation builder** (`DynamicNavBuilder` / `NavRules`), which builds the live menu from the content hierarchy on each request — there is no menu file to maintain. The builder lives in the **external** `diginsight/smartdocs` repository, **not** in this one.
 
 **Referenced by**: 
-- `src/Learn.Web/Navigation/DynamicNavBuilder.cs` and `src/Learn.Web.Shared/Navigation/NavRules.cs` (implementation)
+- `src/Diginsight.SmartDocs.Web/Navigation/DynamicNavBuilder.cs` and `src/Diginsight.SmartDocs.Web.Shared/Navigation/NavRules.cs` — implementation, in `diginsight/smartdocs`
 - Per-folder `metadata.yml` (label/short/icon/order/hidden/topbar-hidden/topbar-align overrides)
 
 ---
@@ -252,7 +252,7 @@ Adding content = create the folder/file in the content source. It appears in the
 ## References
 
 - **Internal**: [06-folder-organization-and-navigation.md](./06-folder-organization-and-navigation.md) — Folder naming conventions (prescriptive)
-- **Implementation**: `src/Learn.Web/Navigation/DynamicNavBuilder.cs`, `src/Learn.Web.Shared/Navigation/NavRules.cs`
+- **Implementation** (external repo `diginsight/smartdocs`): `src/Diginsight.SmartDocs.Web/Navigation/DynamicNavBuilder.cs`, `src/Diginsight.SmartDocs.Web.Shared/Navigation/NavRules.cs`
 - **External**: [Bootstrap Icons](https://icons.getbootstrap.com/)
 
 ---

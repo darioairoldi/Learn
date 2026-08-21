@@ -2,7 +2,7 @@
 title: "Automated content lifecycle with prompts, agents, and MCP"
 author: "Dario Airoldi"
 date: "2026-02-22"
-categories: [learnhub, automation, prompts, agents, mcp, content-lifecycle]
+categories: [learning-hub, automation, prompts, agents, mcp, content-lifecycle]
 description: "Architecture for automating Learning Hub content creation, validation, maintenance, and evolution using GitHub Copilot prompts, agents, subagents, and the IQPilot MCP server"
 ---
 
@@ -10,25 +10,25 @@ description: "Architecture for automating Learning Hub content creation, validat
 
 > How the Learning Hub documentation taxonomy can be maintained, validated, and evolved automatically through a layered automation architecture
 
-## Table of contents
+## 📋 Table of contents
 
-- [Introduction](#introduction)
-- [Lessons learned: the prompt engineering series](#lessons-learned-the-prompt-engineering-series)
-- [Taxonomy improvements based on real-world experience](#taxonomy-improvements-based-on-real-world-experience)
-- [The automation architecture](#the-automation-architecture)
-- [Repository configuration & external-material resolution](#repository-configuration--external-material-resolution)
-- [Conference & event ingestion](#conference--event-ingestion)
-- [Layer 1: Prompts — single-article operations](#layer-1-prompts--single-article-operations)
-- [Layer 2: Agents — specialized roles](#layer-2-agents--specialized-roles)
-- [Layer 3: Subagent orchestrations — multi-agent workflows](#layer-3-subagent-orchestrations--multi-agent-workflows)
-- [Layer 4: IQPilot MCP server — deterministic infrastructure](#layer-4-iqpilot-mcp-server--deterministic-infrastructure)
-- [Content lifecycle workflows](#content-lifecycle-workflows)
-- [Vision requirements and building-block contracts](#vision-requirements-and-building-block-contracts)
-- [Implementation roadmap](#implementation-roadmap)
-- [Conclusion](#conclusion)
-- [References](#references)
+- [📖 Introduction](#-introduction)
+- [🔬 Lessons learned: the prompt engineering series](#-lessons-learned-the-prompt-engineering-series)
+- [🔧 Taxonomy improvements based on real-world experience](#-taxonomy-improvements-based-on-real-world-experience)
+- [🏗️ The automation architecture](#-the-automation-architecture)
+- [🗂️ Repository configuration & external-material resolution](#-repository-configuration--external-material-resolution)
+- [🎙️ Conference & event ingestion](#-conference--event-ingestion)
+- [📋 Layer 1: Prompts — single-article operations](#-layer-1-prompts--single-article-operations)
+- [🤖 Layer 2: Agents — specialized roles](#-layer-2-agents--specialized-roles)
+- [🎭 Layer 3: Subagent orchestrations — multi-agent workflows](#-layer-3-subagent-orchestrations--multi-agent-workflows)
+- [⚙️ Layer 4: IQPilot MCP server — deterministic infrastructure](#-layer-4-iqpilot-mcp-server--deterministic-infrastructure)
+- [🔄 Content lifecycle workflows](#-content-lifecycle-workflows)
+- [🧭 Vision requirements and building-block contracts](#-vision-requirements-and-building-block-contracts)
+- [🗺️ Implementation roadmap](#-implementation-roadmap)
+- [🎯 Conclusion](#-conclusion)
+- [📚 References](#-references)
 
-## Introduction
+## 📖 Introduction
 
 The Learning Hub's documentation taxonomy defines **seven content categories** (Overview, Getting Started, Concepts, How-to, Analysis, Reference, Resources) that together provide comprehensive coverage of any technical subject. However, defining a taxonomy isn't enough—you need automation to **maintain it at scale**.
 
@@ -1619,14 +1619,14 @@ When articles grow too large, drift from their category, or need deeper treatmen
 
 ### Phase 7: Publish — content goes live immediately
 
-Publishing is the **terminal lifecycle stage**. The current implementation is a **dynamic web app** (`Learn.Web`) that renders Markdown → HTML **on demand at request time** and builds the navigation menu **at runtime** from the live content hierarchy. There is **no build step and no static output** — the vision remains publish-tool-agnostic, but the live implementation has already superseded the old static-site generator.
+Publishing is the **terminal lifecycle stage**. The current implementation is **Diginsight SmartDocs**, a dynamic web app that renders Markdown → HTML **on demand at request time** and builds the navigation menu **at runtime** from the live content hierarchy. There is **no build step and no static output** — the vision remains publish-tool-agnostic, but the live implementation has already superseded the old static-site generator. SmartDocs is an **external building block** (`diginsight/smartdocs`) the Hub consumes; this repository holds content and the self-update loop.
 
 The governing principle — **incremental integration** (integration cost scales with the size of the change, not the size of the Hub) — is now satisfied **structurally**: because rendering and navigation happen per request, adding or changing content has *zero* corpus-wide cost.
 
 | Task | Layer | Tool | Output |
 |------|-------|------|--------|
 | Land content in the source | Git/upload | filesystem (dev) or Azure Blob (prod) | New/changed Markdown available to the app |
-| Render | Runtime | `Learn.Web` (Markdig) | HTML produced on demand, per request |
+| Render | Runtime | Diginsight SmartDocs (Markdig) | HTML produced on demand, per request |
 | Navigation | Runtime | `DynamicNavBuilder` (`/_nav`) | Menu rebuilt live from the content hierarchy |
 
 > **Resolved.** The old generator required a **full rebuild on every change**; that constraint is gone. A new or edited article is live on the next request — no rebuild, no menu edit, no publish job.
@@ -1682,10 +1682,11 @@ The governing principle — **incremental integration** (integration cost scales
 
 The lifecycle above is mostly built or specifiable today. This section names the **vision-level requirements** that close the remaining gaps between the Hub's design and its goal, and declares the **building blocks** the Hub consumes. Each requirement is a contract the implementation must satisfy; the engineering to realize each is tracked separately in the roadmap and in the parked-work backlog.
 
-### Building blocks: the article-writing and PE engines
+### Building blocks: the renderer, the article-writing engine, and the PE engine
 
-The Hub does not own every capability it relies on. Two sibling projects are consumed as **versioned building blocks**:
+The Hub does not own every capability it relies on. Three sibling projects are consumed as **versioned building blocks**:
 
+- **Diginsight SmartDocs** delivers the content — on-demand rendering and runtime navigation, in its own repository (`diginsight/smartdocs`). The Hub depends on its rendering contract; it does not own the renderer.
 - **The article-writing engine** keeps published articles current (freshness monitoring, claim-source checks, per-dimension review). The Hub consumes its review/maintenance contract; it does not re-implement article validation.
 - **The prompt-engineering (PE) engine** provides the portable self-update machinery (configuration, state, and a regression gate) that automates the Hub's own lifecycle. The Hub instantiates the PE engine as its `learning-hub` domain rather than building bespoke automation.
 

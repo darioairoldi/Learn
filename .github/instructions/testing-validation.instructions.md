@@ -1,29 +1,35 @@
 ---
-description: How to test and validate Learn.Web changes — always in a visible browser, and always recorded as a validation-sequence markdown with screenshots. Covers when to validate, how to run, what to capture, and where/how to store the artifact.
-applyTo: 'src/Learn.Web/**,src/Learn.Web.Client/**,src/Learn.Web.Shared/**'
-version: "1.0.0"
-last_updated: "2026-07-26"
+description: How to validate rendered-behavior changes affecting this content — always in a visible browser, and always recorded as a validation-sequence markdown with screenshots. Covers when to validate, how to run the external renderer, what to capture, and where/how to store the artifact.
+applyTo: '**/_validation/**'
+version: "2.0.0"
+last_updated: "2026-08-20"
 domain: "learn-web"
 ---
 
-# Testing & validation rules (Learn.Web)
+# Testing & validation rules
+
+> **The renderer is not in this repository.** It is **Diginsight SmartDocs** (`diginsight/smartdocs`,
+> projects `Diginsight.SmartDocs.Web` / `.Client` / `.Shared`). The `src/Learn.Web*` folders here are empty
+> husks. Renderer *code* changes are validated in the SmartDocs repository; this file governs validation of
+> anything affecting **how this content renders**, and it owns the **validation-sequence artifact** format
+> for artifacts stored here.
 
 ## Purpose
 
-Make every runtime/UI change to the Learn.Web application **verifiable and reviewable**. Two things are mandatory and non-negotiable after such a change:
+Make every change that affects **rendered behavior or UI** of this content **verifiable and reviewable**. Two things are mandatory and non-negotiable after such a change:
 
 1. The behavior is validated in a **visible browser** the user can watch.
 2. The validation run is recorded as a **validation-sequence markdown** with screenshots (or a recording), stored next to the work item.
 
 ## When this applies
 
-Apply these rules whenever you change **runtime behavior or UI** of Learn.Web (Razor components, layout, navigation, rendering, client interactivity, status bar, styling that affects behavior). It does **not** apply to pure doc edits or non-runtime tooling.
+Apply these rules whenever you change something that alters **runtime behavior or UI as rendered** — for example folder `metadata.yml` (labels, icons, order, visibility), content structure that drives navigation, or a renderer change being verified against this content. It does **not** apply to pure prose edits or non-runtime tooling.
 
 Do not declare the task complete until the validation-sequence artifact exists and every scenario is marked PASS.
 
 ## How to run (visible browser — mandatory)
 
-1. **Rebuild** the app — build `Learn.Web` normally (do **not** use `--no-build`, so Client WASM changes are served). If a previous instance is locking the output, stop it first.
+1. **Run the renderer from its own repository** — build and start `Diginsight.SmartDocs.Web` from the `diginsight/smartdocs` working copy, pointed at this content (`Content:Source`). Build normally (do **not** use `--no-build`, so Client WASM changes are served). If a previous instance is locking the output, stop it first.
 2. **Run the server in a visible foreground console** (a normal terminal window the user can see and stop with Ctrl+C) — never a hidden/background process.
 3. **Open a visible browser window** at the app URL (default `http://localhost:5280/`). Use a real, visible browser window — **never** the hidden in-editor/embedded browser surface. For automated evidence capture, a headed (visible) browser window is acceptable; a hidden/background page is not.
 4. Reproduce each scenario end-to-end and read the actual on-screen result (prefer reading the live DOM value of the element under test so the observed value is exact).
@@ -91,5 +97,5 @@ Body MUST contain:
 
 - Never validate only by compiling or by `Invoke-WebRequest`/`curl` alone for a UI/behavior change — those confirm the app serves, not that the behavior is correct.
 - Never use a hidden/embedded/background browser as the validation surface.
-- Never mark a task complete for a Learn.Web behavior/UI change without a `validation-sequence.md` whose scenarios are all PASS.
+- Never mark a task complete for a rendered behavior/UI change without a `validation-sequence.md` whose scenarios are all PASS.
 - Never wire a `_validation/` artifact into the site's render/navigation config.

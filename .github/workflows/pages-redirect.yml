@@ -1,7 +1,7 @@
 name: Deploy GitHub Pages redirect
 
 # Publishes a single redirect stub to the gh-pages branch. GitHub Pages then
-# forwards visitors to the Learning Hub, now served by the Learn.Web blob-proxy
+# forwards visitors to the Learning Hub, now served by the Diginsight SmartDocs blob-proxy
 # at https://learn-testmc-app-itn-01.azurewebsites.net/.
 #
 # Replaces quarto-publish.direct.yml (disabled): the full site is no longer

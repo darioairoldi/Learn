@@ -1,6 +1,6 @@
 ---
 name: learninghub-createorupdate-quarto-menu
-description: "DEPRECATED — the Learning Hub navigation is built at runtime by Learn.Web; there is no _quarto.yml to validate or fix"
+description: "DEPRECATED — the Learning Hub navigation is built at runtime by Diginsight SmartDocs; there is no _quarto.yml to validate or fix"
 agent: agent
 model: claude-opus-4.6
 domain: "learning-hub"
@@ -12,8 +12,8 @@ argument-hint: '(deprecated — navigation updates automatically; no action need
 # DEPRECATED — Quarto Navigation Validation & Fix
 
 > **This prompt is retired.** The Learning Hub is no longer a Quarto static site. Navigation is built
-> **at runtime** by `DynamicNavBuilder` (`src/Learn.Web`) from the live content hierarchy — there is
-> **no `_quarto.yml`, `project.render`, or `navigation.json`** to validate or fix.
+> **at runtime** by `DynamicNavBuilder` — in the external `diginsight/smartdocs` repository — from the live
+> content hierarchy. There is **no `_quarto.yml`, `project.render`, or `navigation.json`** to validate or fix.
 
 ## Why it is retired
 
@@ -30,7 +30,7 @@ argument-hint: '(deprecated — navigation updates automatically; no action need
 - **Understand the rules** →
   - 📖 `.copilot/context/90.00-learning-hub/06-folder-organization-and-navigation.md`
   - 📖 `.copilot/context/90.00-learning-hub/07-sidebar-menu-rules.md`
-  - Implementation: `src/Learn.Web/Navigation/DynamicNavBuilder.cs`, `src/Learn.Web.Shared/Navigation/NavRules.cs`
+  - Implementation (external repo `diginsight/smartdocs`): `src/Diginsight.SmartDocs.Web/Navigation/DynamicNavBuilder.cs`, `src/Diginsight.SmartDocs.Web.Shared/Navigation/NavRules.cs`
 
 <!--
 prompt_metadata:

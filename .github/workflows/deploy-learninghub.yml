@@ -1,11 +1,12 @@
 name: Deploy Learning Hub content to storage
 
 # Resets the `learn` container in storage account `digitoolstestmcstitn01`, then uploads the
-# Markdown SOURCE (plus images) directly to it and flushes the Learn.Web cache. The reset makes
+# Markdown SOURCE (plus images) directly to it and flushes the renderer's cache. The reset makes
 # the deployment a full mirror: any folder/article removed from the repo is also removed from
 # storage (upload alone never deletes stale blobs).
 #
-# There is NO Quarto build step: the Learn.Web app renders Markdown to HTML on demand
+# There is NO Quarto build step: the Diginsight SmartDocs app (external repo `diginsight/smartdocs`)
+# renders Markdown to HTML on demand
 # (markdown-first). "Publishing" is simply "upload the changed .md" — the storage account
 # holds the source of truth and HTML is produced at request time.
 #

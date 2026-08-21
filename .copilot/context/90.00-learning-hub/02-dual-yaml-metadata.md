@@ -38,7 +38,7 @@ The split is by **stability**, not merely by visibility:
 - **Bottom = volatile / validation metadata.** It is **generated and refreshed by the deterministic engine** (validation status, scores, timestamps). It changes constantly and carries no stable identity — nothing should depend on its exact prior value.
 
 **Key Benefits:**
-- ✅ The site renderer (Learn.Web / Markdig) renders articles using the top YAML; any Markdown processor recognizes it
+- ✅ The site renderer (Diginsight SmartDocs / Markdig) renders articles using the top YAML; any Markdown processor recognizes it
 - ✅ Bottom metadata completely hidden from readers
 - ✅ All metadata travels with article (no orphaned files)
 - ✅ YAML structure preserved for easy parsing
@@ -53,7 +53,7 @@ The split is by **stability**, not merely by visibility:
 # TOP YAML BLOCK: Document Metadata
 # Purpose: Document rendering and navigation
 # Modified by: Authors manually (NOT by validation prompts)
-# Used by: The site renderer (Learn.Web / Markdig) + runtime navigation
+# Used by: The site renderer (Diginsight SmartDocs / Markdig) + runtime navigation
 # Compatibility: Standard YAML frontmatter recognized by most Markdown processors
 title: "Your Article Title"
 author: "Author Name"

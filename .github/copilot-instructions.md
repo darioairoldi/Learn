@@ -7,12 +7,12 @@
 
 ## Repository Identity
 
-This is the **Learning Hub** — a personal learning and documentation site, delivered as a **fully dynamic Markdown-rendering application** (`src/Learn.Web`).
-Content is authored as Markdown and rendered to HTML **on demand at request time** — there is **no build step**, so new or changed content is live immediately.
+This is the **Learning Hub** — a personal learning and documentation site. **This repository holds the content and the self-update loop; it does NOT hold the renderer.**
+Content is authored as Markdown and rendered to HTML **on demand at request time** by an external application — there is **no build step**, so new or changed content is live immediately.
 
 - **Owner**: Dario Airoldi
 - **Content scope**: Technical learning, knowledge development, prompt engineering, events, how-to guides, ideas
-- **Rendering**: `Learn.Web` renders Markdown → HTML per request; navigation is built at runtime from the live content hierarchy
+- **Rendering**: **Diginsight SmartDocs** (repo `diginsight/smartdocs`) renders Markdown → HTML per request and builds navigation at runtime from the live content hierarchy — it is **not in this repository**
 - **Content source**: filesystem (dev) or Azure Blob Storage (prod), selected by configuration
 
 ---
@@ -65,15 +65,18 @@ The following rules are defined in context files and instruction files. They app
 | `90.00-travel/` | Travel | Travel documentation |
 | `99.00-temp/` | Temporary | Scratch/working files |
 
-### Learn.Web Application
+### Rendering — Diginsight SmartDocs (external repository)
 
-- **Projects**: `src/Learn.Web` (server host) + `src/Learn.Web.Client` (WASM) + `src/Learn.Web.Shared` (RCL)
+The renderer is **NOT in this repository**. It lives in `diginsight/smartdocs` as `Diginsight.SmartDocs.Web` (server host) + `.Client` (WASM) + `.Shared` (RCL).
+
+- **Leftovers**: the `src/Learn.Web*` folders here are **stale build output only** (no source, git-ignored) — NEVER treat them as the renderer or try to build them
 - **Rendering**: Markdig renders Markdown → HTML on demand — no static output, no `docs/` publish, no build step
 - **Navigation**: built at runtime by `DynamicNavBuilder` (`/_nav` API) from the live content hierarchy — NOT a static file
 - **Folder metadata**: optional per-folder `metadata.yml` (`label`/`short`/`icon`/`order`/`hidden`/`topbar-hidden`/`topbar-align`) drives the sidebar and top bar
+- **File order in the sidebar**: derived from the numeric filename prefix; `order:` in `metadata.yml` applies to **folders only** — reordering files means renaming them
 - **Top YAML in articles is renderer frontmatter** (title/author/date) — NEVER modify from validation prompts
 - **Observability**: Diginsight (server project only)
-- **Local testing**: ALWAYS run the server in a **visible console window** (a normal foreground terminal, NOT a hidden/background process) so the user can see it and stop it (Ctrl+C) to repeat a test. Rebuild `Learn.Web` (do not use `--no-build`) so client WASM changes are served.
+- **Local testing**: run SmartDocs from **its own repository**, pointed at this content, in a **visible console window** (foreground, Ctrl+C-able) — never a hidden/background process
 - **Validation (MANDATORY for any behavior/UI change)**: validate in a **visible browser** and record the run as a **validation-sequence markdown with screenshots** under the work item's `_validation/` folder. Full rules: `.github/instructions/testing-validation.instructions.md`.
 
 ### MetadataWatcher
