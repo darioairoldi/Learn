@@ -1,6 +1,6 @@
 ---
 description: Authoring discipline for vision-amendment plans — per-item scope tags, principle-impact tagging, coverage promises — so plans cannot silently absorb scope expansion
-applyTo: '*vision*plan*.md'
+applyTo: '**/*vision*plan*.md'
 domain: "prompt-engineering"
 goal: "Force vision-amendment plans to declare per-item scope, principle impact, and downstream landing so scope expansion is visible at authoring time"
 rationales:
@@ -74,7 +74,7 @@ Every `[in-scope]` row MUST name a downstream landing:
 
 ## Worked Example
 
-The canonical reference is [01-vision-usecase-plan-rules-plan.md](../../src/docs/90.%20Issues/202605/20260525.03-staleness-review/05-vision-usecase-plan-rules/01-vision-usecase-plan-rules-plan.md). Every row in its § Goal table is shaped to this rule; the § Park lot demonstrates the quarantine pattern.
+The canonical reference is [01-vision-usecase-plan-rules-plan.md](../../src/docs/90.00-issues/202605/20260525.03-staleness-review/05-vision-usecase-plan-rules/01-vision-usecase-plan-rules-plan.md). Every row in its § Goal table is shaped to this rule; the § Park lot demonstrates the quarantine pattern.
 
 ## Quality Checklist
 
@@ -91,11 +91,11 @@ The canonical reference is [01-vision-usecase-plan-rules-plan.md](../../src/docs
 
 - **📘** `.github/instructions/vision-frontmatter.instructions.md` — declares the `principles:` block this file audits against
 - **📘** `.github/instructions/plan-execution.instructions.md` — defines the actionability gate that enforces these rules
-- **📒** `src/docs/90. Issues/202605/20260525.03-staleness-review/05-vision-usecase-plan-rules/01-overview.md` — sub-issue analysis that motivated this rule
-- **📒** `src/docs/90. Issues/202605/20260525.03-staleness-review/05-vision-usecase-plan-rules/01-vision-usecase-plan-rules-plan.md` — worked example
+- **📒** `src/docs/90.00-issues/202605/20260525.03-staleness-review/05-vision-usecase-plan-rules/01-overview.md` — sub-issue analysis that motivated this rule
+- **📒** `src/docs/90.00-issues/202605/20260525.03-staleness-review/05-vision-usecase-plan-rules/01-vision-usecase-plan-rules-plan.md` — worked example
 
 <!--
 instruction_metadata:
-  version: "1.0.0"
-  last_updated: "2026-05-31"
+  version: "1.0.1"
+  last_updated: "2026-08-16"
 -->
